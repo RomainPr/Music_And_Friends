@@ -2,7 +2,7 @@
 
 ## Progression générale :
 
- Aujourd'hui nous avons terminé de rédiger le cahier des charges, terminé le diagramme workflow afin de mieux percevoir l'architecture de l'application. Demain nous attaquerons la conception de la base de données et terminerons le wireframe
+ Aujourd'hui nous avons bien avancé sur la rédaction du cahier des charges, terminé le diagramme workflow afin de mieux percevoir l'architecture de l'application. Demain nous attaquerons la conception de la base de données et terminerons le wireframe desktop et mobile
 
 ### Infos individuelles
 
