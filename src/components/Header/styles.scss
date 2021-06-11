@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+
+  &__right {
+    display: flex;
+    justify-content: space-between;
+    &Button {
+      margin: 15px;
+    }
+  }
+}
