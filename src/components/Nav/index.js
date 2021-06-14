@@ -5,7 +5,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 import './styles.scss';
 
-const Nav = ({ isLogged }) => (
+const Nav = ({ isLogged, open, setOpen, openModalSignIn }) => (
   <div className="navbar">
     {!isLogged
         && (
@@ -18,6 +18,7 @@ const Nav = ({ isLogged }) => (
               className="navbar__content__right__buttons"
               color="primary"
               startIcon={<AccountCircleIcon />}
+              onClick={openModalSignIn}
             >Se connecter
             </Button>
             <Button
@@ -35,6 +36,9 @@ const Nav = ({ isLogged }) => (
 
 Nav.propTypes = {
   isLogged: PropTypes.bool.isRequired,
+  open: PropTypes.bool.isRequired,
+  setOpen: PropTypes.bool.isRequired,
+  openModalSignIn: PropTypes.func.isRequired,
 };
 
 export default Nav;
