@@ -4,6 +4,7 @@ import Header from 'src/components/Header';
 import Nav from 'src/components/Nav';
 import SectionHomepage from 'src/components/SectionHomepage';
 import LastProfils from 'src/components/HomepageLastProfils';
+import LastAnnounces from 'src/components/HomepageLastAnnounces';
 
 import './styles.scss';
 
@@ -13,6 +14,7 @@ const App = () => (
     <Header />
     <SectionHomepage />
     <LastProfils />
+    <LastAnnounces />
   </div>
 );
 
