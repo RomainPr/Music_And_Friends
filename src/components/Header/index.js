@@ -15,7 +15,6 @@ const Header = () => (
           variant="contained"
           size="large"
           color="primary"
-          Large
         >
           Rechercher
         </Button>
