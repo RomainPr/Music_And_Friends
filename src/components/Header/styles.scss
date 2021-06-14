@@ -1,13 +1,33 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 40px;
-
-  &__right {
+  position: relative;
+  &__top {
+    background-size: cover;
+    background-position: bottom;
+    height: 100vh;
     display: flex;
     justify-content: space-between;
-    &Button {
-      margin: 15px;
+    padding: 60px 40px;
+
+    &__right {
+      & .MuiButton-textPrimary {
+        color: #fff;
+      }
+      & Button {
+        margin: 15px;
+      }
+    }
+  }
+  &__middle {
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 0;
+    right: 0;
+    font-size: 40px;
+    color: #fff;
+
+    &__search {
+      padding-top: 40px;
     }
   }
 }
