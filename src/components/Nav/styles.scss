@@ -1,17 +1,18 @@
 .navbar {
-
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     &__right {
-        &__buttons {
-
-        }
-    }
-}
-
-&__right {
-    & .MuiButton-textPrimary {
-      color: #fff;
-    }
-    & Button {
-      margin: 15px;
+      & button {
+        margin: 15px;
+      }
+      & .MuiButton-textPrimary {
+          color:#fff;
+      }
     }
   }
+}
