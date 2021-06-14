@@ -1,0 +1,40 @@
+@use 'src/styles/vars';
+
+.section {
+    margin-top: 40px;
+
+    &__Top {
+        padding-bottom: vars.$paddingBottomSmall;
+    }
+}
+.section__top__left {
+    padding: 30px;
+    text-align: left;
+    margin-left: 8.33333%;
+
+    &__title {
+        font-size: 2em;
+        text-transform: uppercase;
+        padding-bottom: vars.$paddingBottomSmall;
+        line-height: vars.$lineHeight;
+    }
+    &__content {
+        padding-bottom: vars.$paddingBottomSmall;
+        line-height: vars.$lineHeight;
+    }
+}
+.section__Bottom__left {
+    padding: 30px;
+    text-align: left;
+
+    &__title {
+        font-size: 2em;
+        text-transform: uppercase;
+        padding-bottom: vars.$paddingBottomMedium;
+        line-height: vars.$lineHeight;
+    }
+    &__content {
+        padding-bottom: vars.$paddingBottomSmall;
+        line-height: vars.$lineHeight;
+    }
+}
