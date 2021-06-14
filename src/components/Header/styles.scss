@@ -7,15 +7,6 @@
     display: flex;
     justify-content: space-between;
     padding: 60px 40px;
-
-    &__right {
-      & .MuiButton-textPrimary {
-        color: #fff;
-      }
-      & Button {
-        margin: 15px;
-      }
-    }
   }
   &__middle {
     position: absolute;

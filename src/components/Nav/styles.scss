@@ -1,0 +1,17 @@
+.navbar {
+
+    &__right {
+        &__buttons {
+
+        }
+    }
+}
+
+&__right {
+    & .MuiButton-textPrimary {
+      color: #fff;
+    }
+    & Button {
+      margin: 15px;
+    }
+  }

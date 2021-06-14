@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+
+import Nav from 'src/components/Nav';
 
 import background from 'src/assets/HeaderBg.jpg';
 import './styles.scss';
@@ -10,21 +11,7 @@ const Header = () => (
   <div className="header">
     <div className="header__top" style={{ backgroundImage: `url(${background})` }}>
       <img src="" alt="Logo M&F" />
-      <div className="header__top__right">
-        <Button
-          className="header__buttons"
-          color="primary"
-          startIcon={<AccountCircleIcon />}
-        >Se connecter
-        </Button>
-        <Button
-          className="header__buttons"
-          variant="contained"
-          color="secondary"
-        >
-          Inscription
-        </Button>
-      </div>
+      <Nav />
     </div>
     <div className="header__middle">
       <h1>Trouvez votre prochain "Groupe/Musicien/Evènement"</h1>
