@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './styles.scss';
 
 import data from 'src/data/dataTest';
@@ -24,16 +26,31 @@ import SaveIcon from '@material-ui/icons/Save';
 // destructuration data pour recup tableau intruments et styles
 const { instruments, styles } = data;
 
-const SignMusician = () => {
-  const handleChange = (event) => {
-    setInstrumentName(event.target.value);
+const SignMusician = ({
+  firstname,
+  lastname,
+  phone,
+  city,
+  pseudo,
+  description,
+  email,
+  password,
+  onChangeValue,
+}) => {
+  // const handleChange = (event) => {
+  //   setInstrumentName(event.target.value);
+  // };
+
+  const handleOnChange = (event) => {
+    onChangeValue(event.target.value);
   };
+console.log(onChangeValue);
+console.log(firstname);
 
   const instrumentName = [];
   const styleName = [];
 
   return (
-
     <Grid container direction="column">
       <h1 className="title">Vos informations de profil musicien</h1>
 
@@ -41,10 +58,32 @@ const SignMusician = () => {
         <FormControl id="mainForm" noValidate autoComplete="off">
           <Grid container direction="row" alignItems="center" id="inputIdPictureIntruments">
             <Grid item xs={4}>
-              <TextField className="input" id="input-first-name" label="Votre prénom" />
-              <TextField className="input" id="input-last-name" label="Votre nom" />
-              <TextField className="input" id="input-phone" label="Votre téléphone" />
-              <TextField className="input" id="input-city" label="Votre ville" />
+              <TextField
+                className="input"
+                id="input-first-name"
+                label="Votre prénom"
+                name="firstname"
+                onChange={handleOnChange}
+                value={firstname}
+              />
+              <TextField
+                className="input"
+                id="input-last-name"
+                label="Votre nom"
+                name="lastname"
+              />
+              <TextField
+                className="input"
+                id="input-phone"
+                label="Votre téléphone"
+                name="phone"
+              />
+              <TextField
+                className="input"
+                id="input-city"
+                label="Votre ville"
+                name="city"
+              />
             </Grid>
 
             <Grid item xs={4}>
@@ -73,7 +112,11 @@ const SignMusician = () => {
 
             <Grid item xs={4}>
               <Grid container direction="column" justify="space-between" alignItems="center" spacing={4}>
-                <TextField id="input-pseudo" label="Votre pseudo" />
+                <TextField
+                  id="input-pseudo"
+                  label="Votre pseudo"
+                  name="pseudo"
+                />
 
                 <FormControl id="input-intruments">
                   <InputLabel id="demo-mutiple-checkbox-label">Instruments</InputLabel>
@@ -82,7 +125,7 @@ const SignMusician = () => {
                     id="demo-mutiple-checkbox"
                     multiple
                     value={instrumentName}
-                    onChange={handleChange}
+                    // onChange={handleChange}
                     input={<Input />}
                     renderValue={(selected) => selected.join(', ')}
                   // MenuProps={MenuProps}
@@ -103,7 +146,7 @@ const SignMusician = () => {
                     id="demo-mutiple-checkbox"
                     multiple
                     value={styleName}
-                    onChange={handleChange}
+                    // onChange={handleChange}
                     input={<Input />}
                     renderValue={(selected) => selected.join(', ')}
                   // MenuProps={MenuProps}
@@ -126,6 +169,7 @@ const SignMusician = () => {
               margin="normal"
               id="description"
               label="Votre Description"
+              name="description"
               multiline
               rows={4}
               defaultValue=""
@@ -134,9 +178,27 @@ const SignMusician = () => {
           </Grid>
 
           <Grid item xs={12}>
-            <TextField margin="normal" id="outlined-basic" label="Email" variant="outlined" />
-            <TextField margin="normal" id="outlined-basic" label="Mot de passe" variant="outlined" />
-            <TextField margin="normal" id="outlined-basic" label="Confiration du mot de passe" variant="outlined" />
+            <TextField
+              margin="normal"
+              id="outlined-basic"
+              label="Email"
+              name="email"
+              variant="outlined"
+            />
+            <TextField
+              margin="normal"
+              id="outlined-basic"
+              label="Mot de passe"
+              name="password"
+              variant="outlined"
+            />
+            <TextField
+              margin="normal"
+              id="outlined-basic"
+              label="Confiration du mot de passe"
+              name="confirmpassword"
+              variant="outlined"
+            />
           </Grid>
 
         </FormControl>
@@ -151,6 +213,18 @@ const SignMusician = () => {
       </form>
     </Grid>
   );
+};
+
+SignMusician.propTypes = {
+  firstname: PropTypes.string.isRequired,
+  lastname: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  pseudo: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  onChangeValue: PropTypes.func.isRequired,
 };
 
 export default SignMusician;
