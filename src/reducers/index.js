@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 
 import modalSignInReducer from './modalSignIn';
 import navReducer from './nav';
+import userReducer from './user';
 
 // combineReducers permet de découper notre état et nos reducers
 // en plusieurs "tranches" aka SLICES
@@ -9,6 +10,7 @@ import navReducer from './nav';
 const rootReducer = combineReducers({
   modalSignIn: modalSignInReducer,
   nav: navReducer,
+  user: userReducer,
 });
 
 export default rootReducer;

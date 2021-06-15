@@ -4,6 +4,8 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
+import LoginForm from 'src/containers/connectedLoginForm';
+
 import './styles.scss';
 
 const ModalSignIn = ({ open, handleClose }) => (
@@ -22,8 +24,7 @@ const ModalSignIn = ({ open, handleClose }) => (
     >
       <Fade in={open}>
         <div className="modal__content">
-          <h2 id="transition-modal-title">Transition modal</h2>
-          <p id="transition-modal-description">react-transition-group animates me.</p>
+          <LoginForm />
         </div>
       </Fade>
     </Modal>

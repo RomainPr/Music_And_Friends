@@ -1,0 +1,20 @@
+@use 'src/styles/vars';
+
+.loginForm {
+    display: flex;
+    flex-Direction: column;
+    align-Items: center;
+    & #loginForm__avatar {
+        background-color: rgb(220, 0, 78);
+    }
+    &__title {
+        font-size: 1.5em;
+        padding-top: 10px;
+        padding-bottom: vars.$paddingBottomSmall;
+    }
+}
+
+#loginSubmit {
+    margin-top: 20px;
+    width: 50%;
+}
