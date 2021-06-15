@@ -76,7 +76,7 @@ export default function SearchPage() {
   );
 }
 
-// Search.propTypes = {
+// SearchPage.propTypes = {
 
 
 // };

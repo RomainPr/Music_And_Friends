@@ -9,7 +9,6 @@ import FormLabel from '@material-ui/core/FormLabel';
 
 import '../style.scss';
 
-
 export default function checkBox() {
 
   // const handleChange = (event) => {
@@ -51,3 +50,8 @@ export default function checkBox() {
     </div>
   );
 }
+
+// checkBox.propTypes = {
+
+
+// };
