@@ -18,6 +18,7 @@
 #card {
   max-width: 350px;
   padding-bottom: vars.$paddingBottomSmall;
+  box-shadow: 10px 10px 15px 0 rgb(0 0 0 / 10%);
   &__image {
     position: relative;
     & img {
