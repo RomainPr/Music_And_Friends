@@ -1,19 +1,33 @@
+html {
+  // background-image: url('/src/assets/img/sectionSearchPic.png');
+  // background-repeat: no-repeat;
+}
+#check-box {
+  
+}
+#selector-field {
+padding-right:4em ;
+
+}
+
 #form {
   width: 100%;
   height: auto;
+ 
 }
 
-#check-box {
-  align-items: center;
+#check-category {
+
 }
 
 #categories {
   font-size: 2em;
   padding-bottom: 1em;
-  margin-right:1em;
+  // margin-right:1em;
 }
 
 #field {
+  
   width: 300px;
   display:flex;
   
@@ -31,7 +45,7 @@
 
 .result {
   // display:flex;
-  
+
   width: 100%;
   margin-top: 2em;
 }
@@ -42,11 +56,15 @@
 }
 
 .container-card-result {
+  
   margin-top: 2em;
+  width: 500px;
+  height: 500px;
 }
 
-#dropUp-arrow {
-  text-align: right;
-  color:gray;
-  font-size: 200px;
+#dropDown-arrow {
+  width: 50%;
+  height: auto;
+  color:rgb(201, 191, 191);
+  
 }

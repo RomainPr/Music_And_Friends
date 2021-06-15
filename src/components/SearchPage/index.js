@@ -10,13 +10,12 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import ListItemText from '@material-ui/core/ListItemText';
+
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
-import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
 
 import './style.scss';
-
-
 
 const categories = [
   'Tous',
@@ -34,7 +33,7 @@ export default function SearchPage() {
 
     <form id="form" onClick>
 
-      <div className="search-page"></div>
+
       <CheckBox />
       <SelectField />
       <Button
@@ -45,7 +44,7 @@ export default function SearchPage() {
       <div className="result">
         <p className="result-search">Résultat de votre recherche :</p>
         <FormControl id='form-filter-result'>
-
+  
           <InputLabel id="controlled-open-select-label">Filtrer par (tous, profils, annonces)</InputLabel>
           <Select
             labelId="mutiple-checkbox-label"
@@ -67,8 +66,11 @@ export default function SearchPage() {
         </FormControl>
       </div>
       <div className="container-card-result">
-        Cards List</div>
-        <ArrowDropUpIcon id="dropUp-arrow"/>
+        Cards List
+      </div>
+      <Button>
+        <ArrowDropDownCircleIcon id="dropDown-arrow"/>
+      </Button>
     </form>
 
   );

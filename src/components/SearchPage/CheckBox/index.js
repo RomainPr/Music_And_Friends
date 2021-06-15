@@ -17,33 +17,36 @@ export default function checkBox() {
   // };
 
   return (
-    <div >
-     <FormControl id="check-box" component="fieldset">
+    <div id="check-box">
+      <FormControl component="fieldset">
 
-     <FormLabel id='categories' component="legend">Vous recherchez ?</FormLabel>
-     <FormGroup row aria-label="position" name="position" defaultValue="top">
-        <FormControlLabel
-          className='selector-field'
-          value="band"
-          control={<Checkbox color="primary" />}
-          label="Un groupe"
-          labelPlacement="top"
-        />
-        <FormControlLabel
-          value="musician"
-          control={<Checkbox color="primary" />}
-          label="Un musicien"
-          labelPlacement="top"
-        />
-        <FormControlLabel
-          value="place"
-          control={<Checkbox color="primary" />}
-          label="Une salle de concert"
-          labelPlacement="top"
-        />
-       
-      </FormGroup>
-    </FormControl>
+        <FormLabel id='categories' component="legend">
+        Vous recherchez ?</FormLabel>
+        <FormGroup row aria-label="position" name="position" defaultValue="right">
+          <FormControlLabel
+            id='selector-field'
+            value="band"
+            control={<Checkbox color="primary" />}
+            label="Groupe"
+            labelPlacement="right"
+          />
+          <FormControlLabel
+            id='selector-field'
+            value="musician"
+            control={<Checkbox color="primary" />}
+            label="Musicien"
+            labelPlacement="right"
+          />
+          <FormControlLabel
+            id='selector-field'
+            value="place"
+            control={<Checkbox color="primary" />}
+            label="Salle"
+            labelPlacement="right"
+          />
+
+        </FormGroup>
+      </FormControl>
 
     </div>
   );
