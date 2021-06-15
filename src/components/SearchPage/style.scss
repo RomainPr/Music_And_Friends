@@ -1,22 +1,12 @@
-html {
-  // background-image: url('/src/assets/img/sectionSearchPic.png');
-  // background-repeat: no-repeat;
-}
-#check-box {
-  
-}
+
 #selector-field {
-padding-right:4em ;
+padding-right:3.7em ;
 
 }
 
 #form {
   width: 100%;
   height: auto;
- 
-}
-
-#check-category {
 
 }
 
@@ -41,22 +31,29 @@ padding-right:4em ;
 
 #search-button {
   margin-top: 2em;
+  margin-bottom:2em;
 }
 
-.result {
+#result {
   // display:flex;
-
+  // justify-content: space-between;
   width: 100%;
-  margin-top: 2em;
+  margin-top: 0;
 }
 
 #form-filter-result {
+  padding-top: 0;
   min-width:300px;
   max-width: 400px;
 }
 
 .container-card-result {
-  
+  padding:2em;
+  background-image: url('/src/assets/img/sectionSearchPic.png');
+  background-size: cover;
+  color:rgb(65, 48, 48);
+  font-weight: bold;
+  font-size: larger;
   margin-top: 2em;
   width: 500px;
   height: 500px;

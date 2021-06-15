@@ -27,21 +27,21 @@ export default function checkBox() {
             id='selector-field'
             value="band"
             control={<Checkbox color="primary" />}
-            label="Groupe"
+            label="Groupes"
             labelPlacement="right"
           />
           <FormControlLabel
             id='selector-field'
             value="musician"
             control={<Checkbox color="primary" />}
-            label="Musicien"
+            label="Musiciens"
             labelPlacement="right"
           />
           <FormControlLabel
             id='selector-field'
             value="place"
             control={<Checkbox color="primary" />}
-            label="Salle"
+            label="Salles"
             labelPlacement="right"
           />
 

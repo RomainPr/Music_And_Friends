@@ -30,9 +30,8 @@ export default function SearchPage() {
   // const handleChange = (event) => {
   //   setSelectedValue(event.target.value);
   return (
-
+<div>
     <form id="form" onClick>
-
 
       <CheckBox />
       <SelectField />
@@ -41,7 +40,7 @@ export default function SearchPage() {
         variant="contained">Rechercher
       </Button>
 
-      <div className="result">
+      <div id="result">
         <p className="result-search">Résultat de votre recherche :</p>
         <FormControl id='form-filter-result'>
   
@@ -65,14 +64,15 @@ export default function SearchPage() {
           </Select>
         </FormControl>
       </div>
-      <div className="container-card-result">
+      
+    </form>
+<div className="container-card-result">
         Cards List
       </div>
       <Button>
         <ArrowDropDownCircleIcon id="dropDown-arrow"/>
       </Button>
-    </form>
-
+      </div>
   );
 }
 
