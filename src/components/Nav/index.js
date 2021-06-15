@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
+import ModalSignIn from 'src/containers/connectedModalSignIn';
+
 import './styles.scss';
 
-const Nav = ({ isLogged, open, setOpen, openModalSignIn }) => (
+const Nav = ({ isLogged, openModalSignIn }) => (
   <div className="navbar">
     {!isLogged
         && (
@@ -31,13 +33,12 @@ const Nav = ({ isLogged, open, setOpen, openModalSignIn }) => (
           </div>
         </div>
         )}
+    <ModalSignIn />
   </div>
 );
 
 Nav.propTypes = {
   isLogged: PropTypes.bool.isRequired,
-  open: PropTypes.bool.isRequired,
-  setOpen: PropTypes.bool.isRequired,
   openModalSignIn: PropTypes.func.isRequired,
 };
 

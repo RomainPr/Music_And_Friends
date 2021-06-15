@@ -1,5 +1,5 @@
 const initialState = {
-  test: 'Coucou',
+  isLogged: false,
 };
 
 const reducer = (state = initialState, action) => {
