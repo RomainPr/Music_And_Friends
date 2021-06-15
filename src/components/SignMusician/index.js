@@ -18,6 +18,9 @@ import {
   Button,
 } from '@material-ui/core';
 
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import SaveIcon from '@material-ui/icons/Save';
+
 // destructuration data pour recup tableau intruments et styles
 const { instruments, styles } = data;
 
@@ -36,7 +39,7 @@ const SignMusician = () => {
 
       <form>
         <FormControl id="mainForm" noValidate autoComplete="off">
-          <Grid container direction="row" alignItems="center">
+          <Grid container direction="row" alignItems="center" id="inputIdPictureIntruments">
             <Grid item xs={4}>
               <TextField className="input" id="input-first-name" label="Votre prénom" />
               <TextField className="input" id="input-last-name" label="Votre nom" />
@@ -56,7 +59,12 @@ const SignMusician = () => {
                   type="file"
                 />
                 <label htmlFor="contained-button-file">
-                  <Button variant="contained" color="primary" component="span">
+                  <Button
+                    variant="contained"
+                    color="default"
+                    component="span"
+                    startIcon={<CloudUploadIcon />}
+                  >
                     Upload
                   </Button>
                 </label>
@@ -64,57 +72,59 @@ const SignMusician = () => {
             </Grid>
 
             <Grid item xs={4}>
-            <Grid container direction="column" justify="space-between" alignItems="center" spacing={4}>
-              <TextField id="input-pseudo" label="Votre pseudo" />
+              <Grid container direction="column" justify="space-between" alignItems="center" spacing={4}>
+                <TextField id="input-pseudo" label="Votre pseudo" />
 
-              <FormControl id="input-intruments">
-                <InputLabel id="demo-mutiple-checkbox-label">Instruments</InputLabel>
-                <Select
-                  labelId="demo-mutiple-checkbox-label"
-                  id="demo-mutiple-checkbox"
-                  multiple
-                  value={instrumentName}
-                  onChange={handleChange}
-                  input={<Input />}
-                  renderValue={(selected) => selected.join(', ')}
-                // MenuProps={MenuProps}
-                >
-                  {instruments.map((instrument) => (
-                    <MenuItem key={instrument} value={instrument}>
-                      <Checkbox checked={instrumentName.indexOf(instrument) > -1} />
-                      <ListItemText primary={instrument} />
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
+                <FormControl id="input-intruments">
+                  <InputLabel id="demo-mutiple-checkbox-label">Instruments</InputLabel>
+                  <Select
+                    labelId="demo-mutiple-checkbox-label"
+                    id="demo-mutiple-checkbox"
+                    multiple
+                    value={instrumentName}
+                    onChange={handleChange}
+                    input={<Input />}
+                    renderValue={(selected) => selected.join(', ')}
+                  // MenuProps={MenuProps}
+                  >
+                    {instruments.map((instrument) => (
+                      <MenuItem key={instrument} value={instrument}>
+                        <Checkbox checked={instrumentName.indexOf(instrument) > -1} />
+                        <ListItemText primary={instrument} />
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
 
-              <FormControl id="input-styles">
-                <InputLabel id="demo-mutiple-checkbox-label">Styles</InputLabel>
-                <Select
-                  labelId="demo-mutiple-checkbox-label"
-                  id="demo-mutiple-checkbox"
-                  multiple
-                  value={styleName}
-                  onChange={handleChange}
-                  input={<Input />}
-                  renderValue={(selected) => selected.join(', ')}
-                // MenuProps={MenuProps}
-                >
-                  {styles.map((style) => (
-                    <MenuItem key={style} value={style}>
-                      <Checkbox checked={styleName.indexOf(style) > -1} />
-                      <ListItemText primary={style} />
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Grid>
+                <FormControl id="input-styles">
+                  <InputLabel id="demo-mutiple-checkbox-label">Styles</InputLabel>
+                  <Select
+                    labelId="demo-mutiple-checkbox-label"
+                    id="demo-mutiple-checkbox"
+                    multiple
+                    value={styleName}
+                    onChange={handleChange}
+                    input={<Input />}
+                    renderValue={(selected) => selected.join(', ')}
+                  // MenuProps={MenuProps}
+                  >
+                    {styles.map((style) => (
+                      <MenuItem key={style} value={style}>
+                        <Checkbox checked={styleName.indexOf(style) > -1} />
+                        <ListItemText primary={style} />
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Grid>
             </Grid>
           </Grid>
 
           <Grid item xs={12}>
             <TextField
-              id="outlined-multiline-static"
+              fullWidth
+              margin="normal"
+              id="description"
               label="Votre Description"
               multiline
               rows={4}
@@ -123,13 +133,21 @@ const SignMusician = () => {
             />
           </Grid>
 
-          <Grid>
-            <TextField id="outlined-basic" label="Email" variant="outlined" />
-            <TextField id="outlined-basic" label="Mot de passe" variant="outlined" />
-            <TextField id="outlined-basic" label="Confiration du mot de passe" variant="outlined" />
+          <Grid item xs={12}>
+            <TextField margin="normal" id="outlined-basic" label="Email" variant="outlined" />
+            <TextField margin="normal" id="outlined-basic" label="Mot de passe" variant="outlined" />
+            <TextField margin="normal" id="outlined-basic" label="Confiration du mot de passe" variant="outlined" />
           </Grid>
 
         </FormControl>
+        <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          startIcon={<SaveIcon />}
+        >
+          Save
+        </Button>
       </form>
     </Grid>
   );
