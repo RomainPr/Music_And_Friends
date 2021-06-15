@@ -17,8 +17,8 @@ export default function checkBox() {
   // };
 
   return (
-    <div>
-     <FormControl component="fieldset">
+    <div >
+     <FormControl id="check-box" component="fieldset">
 
      <FormLabel id='categories' component="legend">Vous recherchez ?</FormLabel>
      <FormGroup row aria-label="position" name="position" defaultValue="top">

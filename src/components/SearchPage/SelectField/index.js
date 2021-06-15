@@ -8,6 +8,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
 
+
+
 import '../style.scss';
 
 const cities = [
@@ -71,9 +73,9 @@ export default function SelectField() {
     setCityName(value);
   };
   return (
-    
+
     <div id='field'>
- {/* Field if connected musician OR place -> AND box checked group or/and musician*/}
+      {/* Field if connected musician OR place -> AND box checked group or/and musician*/}
       <FormControl id='form-control'>
         <InputLabel id="controlled-open-select-label">Par ville(s)</InputLabel>
         <Select
@@ -84,7 +86,7 @@ export default function SelectField() {
           onChange={handleChange}
           input={<Input />}
           renderValue={(selected) => selected.join(', ')}
-          
+
         >
           {cities.map((city) => (
             <MenuItem key={city} value={city}>
@@ -94,7 +96,7 @@ export default function SelectField() {
           ))}
         </Select>
       </FormControl>
-       {/* Field if connected musicien -> AND box checked place -> display:none*/}
+      {/* Field if connected musicien -> AND box checked place -> hidden:display:none*/}
       <FormControl id='form-control' className="hidden">
         <InputLabel id="controlled-open-select-label">Par instrument(s) </InputLabel>
         <Select
@@ -105,7 +107,7 @@ export default function SelectField() {
           onChange
           input={<Input />}
           renderValue={(selected) => selected.join(', ')}
-         
+
         >
           {instruments.map((instrument) => (
             <MenuItem key={instrument} value={instrument}>
@@ -126,7 +128,7 @@ export default function SelectField() {
           onChange
           input={<Input />}
           renderValue={(selected) => selected.join(', ')}
-        
+
         >
           {styles.map((style) => (
             <MenuItem key={style} value={style}>
@@ -137,9 +139,7 @@ export default function SelectField() {
         </Select>
       </FormControl>
 
-
-       
     </div>
-   
+
   );
 }

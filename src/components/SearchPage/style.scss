@@ -1,5 +1,16 @@
+#form {
+  width: 100%;
+  height: auto;
+}
+
+#check-box {
+  align-items: center;
+}
+
 #categories {
-  padding-bottom: 2em;
+  font-size: 2em;
+  padding-bottom: 1em;
+  margin-right:1em;
 }
 
 #field {
@@ -8,8 +19,34 @@
   
 }
 #form-control {
+  
   margin-right:1em;
   min-width:150px;
   max-width: 500px;
+}
 
+#search-button {
+  margin-top: 2em;
+}
+
+.result {
+  // display:flex;
+  
+  width: 100%;
+  margin-top: 2em;
+}
+
+#form-filter-result {
+  min-width:300px;
+  max-width: 400px;
+}
+
+.container-card-result {
+  margin-top: 2em;
+}
+
+#dropUp-arrow {
+  text-align: right;
+  color:gray;
+  font-size: 200px;
 }
