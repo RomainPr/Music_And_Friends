@@ -11,7 +11,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       const state = store.getState();
       const loginRequest = {
         method: 'POST',
-        url: 'http://localhost:3001/login',
+        url: 'http://localhost:3001/signin',
         data: {
           email: state.user.email,
           password: state.user.password,
@@ -20,7 +20,7 @@ const apiMiddleware = (store) => (next) => (action) => {
 
       axios(loginRequest)
         .then((response) => {
-          store.dispatch(loginSuccess(response.data));
+          store.dispatch(loginSuccess(response));
         });
       break;
     }

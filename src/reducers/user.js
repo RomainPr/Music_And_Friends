@@ -4,6 +4,7 @@ const initialState = {
   email: '',
   password: '',
   isLogged: false,
+  token: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
