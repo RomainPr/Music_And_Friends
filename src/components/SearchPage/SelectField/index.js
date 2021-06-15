@@ -73,7 +73,7 @@ export default function SelectField() {
   return (
     
     <div id='field'>
- 
+ {/* Field if connected musician OR place -> AND box checked group or/and musician*/}
       <FormControl id='form-control'>
         <InputLabel id="controlled-open-select-label">Par ville(s)</InputLabel>
         <Select
@@ -94,9 +94,9 @@ export default function SelectField() {
           ))}
         </Select>
       </FormControl>
-
-      <FormControl id='form-control'>
-        <InputLabel id="controlled-open-select-label">Par instru(s) </InputLabel>
+       {/* Field if connected musicien -> AND box checked place -> display:none*/}
+      <FormControl id='form-control' className="hidden">
+        <InputLabel id="controlled-open-select-label">Par instrument(s) </InputLabel>
         <Select
           labelId="mutiple-checkbox-label"
           id="mutiple-checkbox"
@@ -136,6 +136,9 @@ export default function SelectField() {
           ))}
         </Select>
       </FormControl>
+
+
+       
     </div>
    
   );
