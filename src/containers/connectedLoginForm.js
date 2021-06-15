@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { changeEmailInput, changePasswordInput } from 'src/actions/user';
+import { changeEmailInput, changePasswordInput, submitLogin } from 'src/actions/user';
 
 import LoginForm from 'src/components/ModalSignIn/LoginForm';
 
@@ -16,6 +16,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onChangePassword: (event) => {
     dispatch(changePasswordInput(event.target.value));
+  },
+  handleLogin: () => {
+    dispatch(submitLogin());
   },
 });
 
