@@ -15,7 +15,9 @@ padding-right:3.7em ;
   padding-bottom: 1em;
   // margin-right:1em;
 }
-
+#searchFields {
+  display:flex;
+}
 #field {
   
   width: 300px;

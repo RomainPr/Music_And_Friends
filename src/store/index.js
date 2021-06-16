@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 
-import reducer from 'src/reducers/reducer';
+import reducer from 'src/reducers/checkBox';
 
 import logMiddleware from 'src/middlewares/log';
 

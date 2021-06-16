@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 // import CheckBox from './CheckBox';
 import CheckBox from 'src/containers/CheckBox';
 
-import SelectField from './SelectField';
+import CitiesField from './CitiesField';
+import InstrumentsField from './InstrumentsField';
+import StylesField from './StylesField';
+
 import Button from '@material-ui/core/Button';
 
 import Input from '@material-ui/core/Input';
@@ -32,51 +35,55 @@ export default function SearchPage() {
   // const handleChange = (event) => {
   //   setSelectedValue(event.target.value);
   return (
-<div>
-    <form id="form" 
-    // onClick
-    >
-
-      <CheckBox />
-      <SelectField />
-      <Button
-        id="search-button"
-        variant="contained">Rechercher
+    <div>
+      <form id="form"
+      // onClick
+      >
+        
+          <CheckBox />
+        <div id="searchFields">  
+          <CitiesField />
+          <InstrumentsField />
+          <StylesField />
+        </div>
+        <Button
+          id="search-button"
+          variant="contained">Rechercher
       </Button>
 
-      <div id="result">
-        <p className="result-search">Résultat de votre recherche :</p>
-        <FormControl id='form-filter-result'>
-  
-          <InputLabel id="controlled-open-select-label">Filtrer par (tous, profils, annonces)</InputLabel>
-          <Select
-            labelId="mutiple-checkbox-label"
-            id="mutiple-checkbox"
-            multiple
-            value={categoryName}
-            // onChange
-            input={<Input />}
-            renderValue={(selected) => selected.join(', ')}
+        <div id="result">
+          <p className="result-search">Résultat de votre recherche :</p>
+          <FormControl id='form-filter-result'>
 
-          >
-            {categories.map((category) => (
-              <MenuItem key={category} value={category}>
-                <Checkbox checked={categoryName.indexOf(category) > -1} />
-                <ListItemText primary={category} />
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </div>
-      
-    </form>
-<div className="container-card-result">
+            <InputLabel id="controlled-open-select-label">Filtrer par (tous, profils, annonces)</InputLabel>
+            <Select
+              labelId="mutiple-checkbox-label"
+              id="mutiple-checkbox"
+              multiple
+              value={categoryName}
+              // onChange
+              input={<Input />}
+              renderValue={(selected) => selected.join(', ')}
+
+            >
+              {categories.map((category) => (
+                <MenuItem key={category} value={category}>
+                  <Checkbox checked={categoryName.indexOf(category) > -1} />
+                  <ListItemText primary={category} />
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </div>
+
+      </form>
+      <div className="container-card-result">
         Cards List
       </div>
       <Button>
-        <ArrowDropDownCircleIcon id="dropDown-arrow"/>
+        <ArrowDropDownCircleIcon id="dropDown-arrow" />
       </Button>
-      </div>
+    </div>
   );
 }
 

@@ -14,10 +14,10 @@ return {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onChangeBoxValue: (value) => {
+  onChangeBoxValue: (value,key) => {
     // modification de state => dispatch d'action
     // ici on veut passer la value jusqu'à notre reducer => on la passe à l'action creator
-    const action = changeBoxValue(value, ownProps.name);
+    const action = changeBoxValue(value, ownProps.name,key);
     // console.log('je veux modifier la valeur des checkbox', action);
     dispatch(action);
 

@@ -16,7 +16,7 @@ export default function CheckBox({band,musician,place,onChangeBoxValue}) {
 
     //as doc M UI https://material-ui.com/components/checkboxes/
     // OnChangeBoxValue({[event.target.name]:event.target.checked});
-    onChangeBoxValue(event.target.name)
+    onChangeBoxValue({[event.target.name]:event.target.checked})
     
   };
 
