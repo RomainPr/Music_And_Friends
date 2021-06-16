@@ -28,7 +28,7 @@ export default function checkBox() {
             value="band"
             control={<Checkbox color="primary" />}
             label="Groupes"
-            labelPlacement="right"
+            labelPlacement="end"
           />
           <FormControlLabel
             id='selector-field'
@@ -36,7 +36,7 @@ export default function checkBox() {
             value="musician"
             control={<Checkbox color="primary" />}
             label="Musiciens"
-            labelPlacement="right"
+            labelPlacement="end"
           />
           <FormControlLabel
             id='selector-field'
@@ -44,7 +44,7 @@ export default function checkBox() {
             value="place"
             control={<Checkbox color="primary" />}
             label="Salles"
-            labelPlacement="right"
+            labelPlacement="end"
           />
 
         </FormGroup>
