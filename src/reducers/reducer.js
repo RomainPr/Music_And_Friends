@@ -4,17 +4,9 @@ import {
 } from 'src/actions';
 
 const initialState = {
-  categories:[
-    {
     band:false,   
-    },
-    {
     musician:false,
-    },
-    {
     place:false,
-    }
-  ]
 };
 
 const reducer = (state = initialState, action) => {
