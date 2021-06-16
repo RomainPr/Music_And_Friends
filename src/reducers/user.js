@@ -3,8 +3,10 @@ import { CHANGE_EMAIL_INPUT, CHANGE_PASSWORD_INPUT, LOGIN_SUCCESS } from 'src/ac
 const initialState = {
   email: '',
   password: '',
+  role: '',
   isLogged: false,
   token: null,
+  refreshToken: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -23,6 +25,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         token: action.token,
+        refreshToken: action.refreshToken,
         isLogged: true,
         email: '',
         password: '',

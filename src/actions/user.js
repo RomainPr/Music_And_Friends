@@ -21,7 +21,8 @@ export const submitLogin = () => ({
 
 export const loginSuccess = (apiData) => ({
   type: LOGIN_SUCCESS,
-  token: apiData.data,
+  token: apiData.data.token,
+  refreshToken: apiData.data.refreshToken,
 });
 
 export const loginError = () => ({
