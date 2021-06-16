@@ -28,7 +28,7 @@ console.log(instruments)
     <div id='field'>
       {/* Field if connected musician OR place -> AND box checked group or/and musician*/}
       <FormControl id='form-control'>
-        <InputLabel id="controlled-open-select-label">Par ville(s)</InputLabel>
+        <InputLabel id="controlled-open-select-label">Par instrument(s)</InputLabel>
         <Select
           labelId="mutiple-checkbox-label"
           id="mutiple-checkbox"
