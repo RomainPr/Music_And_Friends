@@ -26,7 +26,7 @@ const styles = [
 ];
 
 
-export default function StyleFields() {
+export default function StylesField() {
 
   const [styleName, setStyleName] = React.useState([]);
 

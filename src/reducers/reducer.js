@@ -1,12 +1,25 @@
 import {
   CHANGE_BOX_VALUE,
-  
+  CHANGE_CITY_VALUE
 } from 'src/actions';
 
 const initialState = {
     band:false,   
     musician:false,
     place:false,
+
+    cities: [
+      'Paris',
+      'Bordeaux',
+      'Toulouse',
+      'Dijon',
+      'Lyon',
+      'Marseille',
+      'Grenoble',
+      'Strasbourg',
+      'Brest',
+      'Montpellier',
+    ],
 };
 
 const reducer = (state = initialState, action) => {
@@ -18,7 +31,13 @@ const reducer = (state = initialState, action) => {
       ...state,
       [action.key]:action.value,
     };
-
+    case CHANGE_CITY_VALUE: {
+      console.log('je passe dans le case CHANGE_CITY_VALUE');
+    }
+    return {
+      ...state,
+      [action.key]:action.value,
+    };
     default:
       return state;
   }

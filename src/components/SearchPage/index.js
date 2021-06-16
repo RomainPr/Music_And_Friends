@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 // import CheckBox from './CheckBox';
 import CheckBox from 'src/containers/CheckBox';
+// import CitiesField from './CitiesField';
+import CitiesField from 'src/containers/CitiesField';
 
-import CitiesField from './CitiesField';
 import InstrumentsField from './InstrumentsField';
 import StylesField from './StylesField';
 

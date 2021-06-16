@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -10,25 +11,11 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 import '../style.scss';
 
-const cities = [
-  'Paris',
-  'Bordeaux',
-  'Toulouse',
-  'Dijon',
-  'Lyon',
-  'Marseille',
-  'Grenoble',
-  'Strasbourg',
-  'Brest',
-  'Montpellier',
-];
-
-export default function CitiesField() {
-
-  const [cityName, setCityName] = React.useState([]);
-
+export default function CitiesField({ cities, onChangeCityValue }) {
+console.log(cities)
   const handleChange = (event) => {
-    setCityName(event.target.value);
+    console.log(onChangeCityValue)
+    onChangeCityValue(event.target.value);
   };
 
   const handleChangeMultiple = (event) => {
@@ -51,15 +38,15 @@ export default function CitiesField() {
           labelId="mutiple-checkbox-label"
           id="mutiple-checkbox"
           multiple
-          value={cityName}
-          // onChange={handleChange}
+          value={cities}
+          onChange={handleChange}
           input={<Input />}
           renderValue={(selected) => selected.join(', ')}
 
         >
           {cities.map((city) => (
-            <MenuItem key={city} value={city}>
-              <Checkbox checked={cityName.indexOf(city) > -1} />
+            <MenuItem key={city} {...city} value={city}>
+              <Checkbox checked={cities.indexOf(city) > -1} />
               <ListItemText primary={city} />
             </MenuItem>
           ))}
@@ -70,3 +57,22 @@ export default function CitiesField() {
 
   );
 }
+
+CitiesField.propTypes = {
+  // cities:PropTypes.array.isRequired,
+  cities: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string,
+      }).isRequired,
+    ).isRequired,
+  onChangeCityValue: PropTypes.func.isRequired,
+};
+// 
+
+
+
+// CitiesField.defaultProps = {
+//   name: 'Toulouse',
+//  
+// };
