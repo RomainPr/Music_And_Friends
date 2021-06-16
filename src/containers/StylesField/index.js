@@ -7,7 +7,7 @@ console.log(state)
 console.log('ownProps == ', ownProps);
 
 return {
-  styles:state.instruments,
+  styles:state.styles,
   value:state[ownProps.name],
   styleName: state.styleName,
 }
