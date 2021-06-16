@@ -8,7 +8,9 @@ import CitiesField from 'src/containers/CitiesField';
 
 // import InstrumentsField from './InstrumentsField';
 import InstrumentsField from 'src/containers/InstrumentsField';
-import StylesField from './StylesField';
+
+// import StylesField from './StylesField';
+import StylesField from 'src/containers/StylesField';
 
 import Button from '@material-ui/core/Button';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -8,60 +9,29 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
 
-
-
 import '../style.scss';
 
-const styles = [
-  'Jazz',
-  'Rock',
-  'Punk',
-  'Blues',
-  'Soul',
-  'Metal',
-  'Rap',
-  'Folk',
-  'Reggae',
-  'Hip-hop',
-];
+export default function StylesField({ styles, styleName, onChangeStyleValue }) {
+console.log(styles)
 
-
-export default function StylesField() {
-
-  const [styleName, setStyleName] = React.useState([]);
-
-  const handleChange = (event) => {
-    setStyleName(event.target.value);
-  };
-
-  const handleChangeMultiple = (event) => {
-    const { options } = event.target;
-    const value = [];
-    for (let i = 0, l = options.length; i < l; i += 1) {
-      if (options[i].selected) {
-        value.push(options[i].value);
-      }
-    }
-    setStyleName(value);
-  };
   return (
 
     <div id='field'>
-     
+      {/* Field if connected musician OR place -> AND box checked group or/and musician*/}
       <FormControl id='form-control'>
-        <InputLabel id="controlled-open-select-label">Par style(s)</InputLabel>
+        <InputLabel id="controlled-open-select-label">Par ville(s)</InputLabel>
         <Select
           labelId="mutiple-checkbox-label"
           id="mutiple-checkbox"
           multiple
           value={styleName}
-          // onChange
+          onChange={onChangeStyleValue}
           input={<Input />}
           renderValue={(selected) => selected.join(', ')}
 
         >
           {styles.map((style) => (
-            <MenuItem key={style} value={style}>
+            <MenuItem key={style}  value={style}>
               <Checkbox checked={styleName.indexOf(style) > -1} />
               <ListItemText primary={style} />
             </MenuItem>
@@ -73,3 +43,13 @@ export default function StylesField() {
 
   );
 }
+
+StylesField.propTypes = {
+  styles:PropTypes.array.isRequired,
+  // styles: PropTypes.arrayOf(
+  //     PropTypes.shape({
+  //       id: PropTypes.number,
+  //       name: PropTypes.string,
+  //     }).isRequired,
+  onChangeStyleValue: PropTypes.func.isRequired,
+};

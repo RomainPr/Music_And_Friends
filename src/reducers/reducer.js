@@ -2,6 +2,7 @@ import {
   CHANGE_BOX_VALUE,
   CHANGE_CITY_VALUE,
   CHANGE_INSTRUMENT_VALUE,
+  CHANGE_STYLE_VALUE,
 } from 'src/actions';
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   place: false,
   cityName: [],
   instrumentName:[],
+  styleName:[],
 
   cities: [
    
@@ -37,6 +39,20 @@ instruments: [
   'Tambour',
   'Triangle',
 ],
+
+styles: [
+  'Jazz',
+  'Rock',
+  'Punk',
+  'Blues',
+  'Soul',
+  'Metal',
+  'Rap',
+  'Folk',
+  'Reggae',
+  'Hip-hop',
+],
+
 };
 
 const reducer = (state = initialState, action) => {
@@ -62,7 +78,13 @@ const reducer = (state = initialState, action) => {
           ...state,
           instrumentName: action.value,
         };
-
+        case CHANGE_STYLE_VALUE: {
+          console.log('je passe dans le case CHANGE_STYLE_VALUE');
+        }
+          return {
+            ...state,
+            styleName: action.value,
+          };
     default:
       return state;
   }
