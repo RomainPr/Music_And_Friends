@@ -8,8 +8,7 @@ export const changeBoxValue = (value, key) => ({
   key,
 });
 
-export const changeCityValue = (value, key) => ({
+export const changeCityValue = (value) => ({
   type: CHANGE_CITY_VALUE,
   value,
-  key,
 });

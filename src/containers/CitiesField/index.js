@@ -9,16 +9,13 @@ console.log('ownProps == ', ownProps);
 return {
   cities:state.cities,
   value:state[ownProps.name],
+  cityName: state.cityName,
 }
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  onChangeCityValue: (value,key) => {
-  
-    const action = changeCityValue(value, ownProps.name,key);
-   
-    dispatch(action);
-
+const mapDispatchToProps = (dispatch) => ({
+  onChangeCityValue: (event) => {
+    dispatch(changeCityValue(event.target.value));
   },
 });
 

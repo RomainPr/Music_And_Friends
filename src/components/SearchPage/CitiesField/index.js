@@ -11,23 +11,18 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 import '../style.scss';
 
-export default function CitiesField({ cities, onChangeCityValue }) {
+export default function CitiesField({ cities, cityName, onChangeCityValue }) {
 console.log(cities)
-  const handleChange = (event) => {
-    console.log(onChangeCityValue)
-    onChangeCityValue(event.target.value);
-  };
 
-  const handleChangeMultiple = (event) => {
-    const { options } = event.target;
-    const value = [];
-    for (let i = 0, l = options.length; i < l; i += 1) {
-      if (options[i].selected) {
-        value.push(options[i].value);
-      }
-    }
-    setCityName(value);
-  };
+  // const handleChangeMultiple = (event) => {
+  //   const { options } = event.target;
+  //   const value = [];
+  //   for (let i = 0, l = options.length; i < l; i += 1) {
+  //     if (options[i].selected) {
+  //       value.push(options[i].value);
+  //     }
+  //   }
+  // };
   return (
 
     <div id='field'>
@@ -38,15 +33,15 @@ console.log(cities)
           labelId="mutiple-checkbox-label"
           id="mutiple-checkbox"
           multiple
-          value={cities}
-          onChange={handleChange}
+          value={cityName}
+          onChange={onChangeCityValue}
           input={<Input />}
           renderValue={(selected) => selected.join(', ')}
 
         >
           {cities.map((city) => (
-            <MenuItem key={city} {...city} value={city}>
-              <Checkbox checked={cities.indexOf(city) > -1} />
+            <MenuItem key={city}  value={city}>
+              <Checkbox checked={cityName.indexOf(city) > -1} />
               <ListItemText primary={city} />
             </MenuItem>
           ))}
@@ -59,13 +54,12 @@ console.log(cities)
 }
 
 CitiesField.propTypes = {
-  // cities:PropTypes.array.isRequired,
-  cities: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number,
-        name: PropTypes.string,
-      }).isRequired,
-    ).isRequired,
+  cities:PropTypes.array.isRequired,
+  // cities: PropTypes.arrayOf(
+  //     PropTypes.shape({
+  //       id: PropTypes.number,
+  //       name: PropTypes.string,
+  //     }).isRequired,
   onChangeCityValue: PropTypes.func.isRequired,
 };
 // 

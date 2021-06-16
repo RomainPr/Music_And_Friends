@@ -4,22 +4,24 @@ import {
 } from 'src/actions';
 
 const initialState = {
-    band:false,   
-    musician:false,
-    place:false,
+  band: false,
+  musician: false,
+  place: false,
+  cityName: [],
 
-    cities: [
-      'Paris',
-      'Bordeaux',
-      'Toulouse',
-      'Dijon',
-      'Lyon',
-      'Marseille',
-      'Grenoble',
-      'Strasbourg',
-      'Brest',
-      'Montpellier',
-    ],
+  cities: [
+   
+    'Paris' ,
+    'Bordeaux' ,
+    'Toulouse' ,
+    'Dijon' ,
+    'Lyon' ,
+    'Marseille' ,
+    'Grenoble' ,
+    'Strasbourg' ,
+    'Brest' ,
+   
+  ],
 };
 
 const reducer = (state = initialState, action) => {
@@ -27,17 +29,17 @@ const reducer = (state = initialState, action) => {
     case CHANGE_BOX_VALUE: {
       console.log('je passe dans le case CHANGE_BOX_VALUE');
     }
-    return {
-      ...state,
-      [action.key]:action.value,
-    };
+      return {
+        ...state,
+        [action.key]: action.value,
+      };
     case CHANGE_CITY_VALUE: {
       console.log('je passe dans le case CHANGE_CITY_VALUE');
     }
-    return {
-      ...state,
-      [action.key]:action.value,
-    };
+      return {
+        ...state,
+        cityName: action.value,
+      };
     default:
       return state;
   }
