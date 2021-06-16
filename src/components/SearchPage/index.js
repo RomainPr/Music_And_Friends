@@ -6,7 +6,8 @@ import CheckBox from 'src/containers/CheckBox';
 // import CitiesField from './CitiesField';
 import CitiesField from 'src/containers/CitiesField';
 
-import InstrumentsField from './InstrumentsField';
+// import InstrumentsField from './InstrumentsField';
+import InstrumentsField from 'src/containers/InstrumentsField';
 import StylesField from './StylesField';
 
 import Button from '@material-ui/core/Button';

@@ -1,6 +1,7 @@
 import {
   CHANGE_BOX_VALUE,
-  CHANGE_CITY_VALUE
+  CHANGE_CITY_VALUE,
+  CHANGE_INSTRUMENT_VALUE,
 } from 'src/actions';
 
 const initialState = {
@@ -8,6 +9,7 @@ const initialState = {
   musician: false,
   place: false,
   cityName: [],
+  instrumentName:[],
 
   cities: [
    
@@ -22,6 +24,19 @@ const initialState = {
     'Brest' ,
    
   ],
+
+instruments: [
+  'Guitare',
+  'Batterie',
+  'Piano',
+  'Violon',
+  'Bass guitare',
+  'Yukulélé',
+  'Accordéon',
+  'Trompette',
+  'Tambour',
+  'Triangle',
+],
 };
 
 const reducer = (state = initialState, action) => {
@@ -40,6 +55,14 @@ const reducer = (state = initialState, action) => {
         ...state,
         cityName: action.value,
       };
+      case CHANGE_INSTRUMENT_VALUE: {
+        console.log('je passe dans le case CHANGE_INSTRUMENT_VALUE');
+      }
+        return {
+          ...state,
+          instrumentName: action.value,
+        };
+
     default:
       return state;
   }
