@@ -5,8 +5,20 @@ import {
   SUBMIT_LOGIN,
 } from 'src/actions/user';
 
+import {
+  GET_MUSICIANS,
+  getMusiciansSuccess,
+} from 'src/actions/musicians';
+
 const apiMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
+    case GET_MUSICIANS:
+      axios.get('http://localhost:3001/musicians')
+        .then((response) => {
+          store.dispatch(getMusiciansSuccess(response.data.results));
+        });
+      next(action);
+      break;
     case SUBMIT_LOGIN: {
       const state = store.getState();
       const loginRequest = {
