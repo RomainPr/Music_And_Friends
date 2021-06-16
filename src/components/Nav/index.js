@@ -10,7 +10,7 @@ import './styles.scss';
 const Nav = ({ isLogged, openModalSignIn }) => (
   <div className="navbar">
     {!isLogged
-        && (
+      ? (
         <div className="navbar__content">
           <div className="navbar__content__left">
             <img src="" alt="Logo M&F" />
@@ -32,7 +32,11 @@ const Nav = ({ isLogged, openModalSignIn }) => (
             </Button>
           </div>
         </div>
-        )}
+      ) : (
+        <div className="blop">
+          <p>Coucou</p>
+        </div>
+      )}
     <ModalSignIn />
   </div>
 );
