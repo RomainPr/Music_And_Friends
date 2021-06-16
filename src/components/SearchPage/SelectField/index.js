@@ -83,7 +83,7 @@ export default function SelectField() {
           id="mutiple-checkbox"
           multiple
           value={cityName}
-          onChange={handleChange}
+          // onChange={handleChange}
           input={<Input />}
           renderValue={(selected) => selected.join(', ')}
 
@@ -104,7 +104,7 @@ export default function SelectField() {
           id="mutiple-checkbox"
           multiple
           value={instrumentName}
-          onChange
+          // onChange
           input={<Input />}
           renderValue={(selected) => selected.join(', ')}
 
@@ -125,7 +125,7 @@ export default function SelectField() {
           id="mutiple-checkbox"
           multiple
           value={styleName}
-          onChange
+          // onChange
           input={<Input />}
           renderValue={(selected) => selected.join(', ')}
 

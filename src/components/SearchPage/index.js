@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CheckBox from './CheckBox';
+// import CheckBox from './CheckBox';
+import CheckBox from 'src/containers/CheckBox';
+
 import SelectField from './SelectField';
 import Button from '@material-ui/core/Button';
 
@@ -31,7 +33,9 @@ export default function SearchPage() {
   //   setSelectedValue(event.target.value);
   return (
 <div>
-    <form id="form" onClick>
+    <form id="form" 
+    // onClick
+    >
 
       <CheckBox />
       <SelectField />
@@ -50,7 +54,7 @@ export default function SearchPage() {
             id="mutiple-checkbox"
             multiple
             value={categoryName}
-            onChange
+            // onChange
             input={<Input />}
             renderValue={(selected) => selected.join(', ')}
 

@@ -9,11 +9,13 @@ import FormLabel from '@material-ui/core/FormLabel';
 
 import '../style.scss';
 
-export default function checkBox() {
+export default function checkBox({band,musician,place}) {
+//as doc M UI https://material-ui.com/components/checkboxes/
 
-  // const handleChange = (event) => {
-  //   setSelectedValue(event.target.value);
-  // };
+  const handleBoxChange = (event) => {
+    OnChangeBoxValue({[event.target.value]:event.target.checked});
+  
+  };
 
   return (
     <div id="check-box">
@@ -26,7 +28,7 @@ export default function checkBox() {
             id='selector-field'
             name='band'
             value="band"
-            control={<Checkbox color="primary" />}
+            control={<Checkbox checked={band} onChange={handleBoxChange} name="band" color="primary" />}
             label="Groupes"
             labelPlacement="end"
           />
@@ -34,7 +36,7 @@ export default function checkBox() {
             id='selector-field'
             name='musician'
             value="musician"
-            control={<Checkbox color="primary" />}
+            control={<Checkbox checked={musician} onChange={handleBoxChange} name="musician" color="primary" />}
             label="Musiciens"
             labelPlacement="end"
           />
@@ -42,7 +44,7 @@ export default function checkBox() {
             id='selector-field'
             name='place'
             value="place"
-            control={<Checkbox color="primary" />}
+            control={<Checkbox checked={place} onChange={handleBoxChange} name="place" color="primary" />}
             label="Salles"
             labelPlacement="end"
           />
@@ -54,7 +56,10 @@ export default function checkBox() {
   );
 }
 
-// checkBox.propTypes = {
+checkBox.propTypes = {
+  band: PropTypes.bool,
+  musician: PropTypes.bool,
+  place:PropTypes.bool,
+  onChangeBoxValue: PropTypes.func.isRequired,
 
-
-// };
+};
