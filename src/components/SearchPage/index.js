@@ -32,10 +32,8 @@ export default function SearchPage() {
   //   setSelectedValue(event.target.value);
   return (
     <div>
-      <form id="form"
-      // onClick
-      >
-        
+      <form id="form">
+         {/* onClick={handleChange} */}
           <CheckBox />
         <div id="searchFields">  
           <CitiesField />
