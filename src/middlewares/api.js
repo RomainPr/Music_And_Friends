@@ -20,7 +20,9 @@ const apiMiddleware = (store) => (next) => (action) => {
 
       axios(loginRequest)
         .then((response) => {
-          store.dispatch(loginSuccess(response));
+          const token = response;
+          localStorage.setItem('token', token);
+          store.dispatch(loginSuccess());
         });
       break;
     }
