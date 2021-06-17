@@ -1,19 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import CheckBox from './CheckBox';
+//import containers
 import CheckBox from 'src/containers/CheckBox';
-// import CitiesField from './CitiesField';
 import CitiesField from 'src/containers/CitiesField';
-
-// import InstrumentsField from './InstrumentsField';
 import InstrumentsField from 'src/containers/InstrumentsField';
-
-// import StylesField from './StylesField';
 import StylesField from 'src/containers/StylesField';
 
 import Button from '@material-ui/core/Button';
-
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -28,9 +22,7 @@ import './style.scss';
 
 const categories = [
   'Tous',
-  'Musiciens',
-  'Groupes',
-  'Salles de concert',
+  'Profils',
   'Annonces',
 ];
 
@@ -53,7 +45,7 @@ export default function SearchPage() {
         <Button
           id="search-button"
           variant="contained">Rechercher
-      </Button>
+        </Button>
 
         <div id="result">
           <p className="result-search">Résultat de votre recherche :</p>
