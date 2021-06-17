@@ -2,13 +2,12 @@ import { connect } from 'react-redux';
 import InstrumentsField from 'src/components/SearchPage/InstrumentsField';
 import { changeInstrumentValue } from 'src/actions';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 console.log(state)
-console.log('ownProps == ', ownProps);
+
 
 return {
   instruments:state.instruments,
-  value:state[ownProps.name],
   instrumentName: state.instrumentName,
 }
 };

@@ -2,13 +2,12 @@ import { connect } from 'react-redux';
 import CitiesField from 'src/components/SearchPage/CitiesField';
 import { changeCityValue } from 'src/actions';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 console.log(state)
-console.log('ownProps == ', ownProps);
+
 
 return {
   cities:state.cities,
-  value:state[ownProps.name],
   cityName: state.cityName,
 }
 };
