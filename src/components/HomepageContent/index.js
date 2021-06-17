@@ -6,12 +6,14 @@ import SectionHomepage from './SectionHomepage';
 import LastProfils from './HomepageLastProfils';
 import LastAnnounces from './HomepageLastAnnounces';
 
-const Home = ({ musicians, announces }) => (
+const Home = ({ musicians, bands, places, announces }) => (
   <>
     <Header />
     <SectionHomepage />
     <LastProfils
       musicians={musicians}
+      bands={bands}
+      places={places}
     />
     <LastAnnounces />
   </>
@@ -19,6 +21,8 @@ const Home = ({ musicians, announces }) => (
 
 Home.propTypes = {
   musicians: PropTypes.array.isRequired,
+  bands: PropTypes.array.isRequired,
+  places: PropTypes.array.isRequired,
 };
 
 export default Home;
