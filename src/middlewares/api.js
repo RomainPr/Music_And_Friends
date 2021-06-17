@@ -8,6 +8,10 @@ import {
 import {
   GET_MUSICIANS,
   getMusiciansSuccess,
+  GET_BANDS,
+  getBandsSuccess,
+  GET_PLACES,
+  getPlacesSuccess,
 } from 'src/actions/musicians';
 
 import {
@@ -19,8 +23,21 @@ const apiMiddleware = (store) => (next) => (action) => {
     case GET_MUSICIANS:
       axios.get('http://localhost:3001/')
         .then((response) => {
-          console.log(response);
           store.dispatch(getMusiciansSuccess(response.data.results[0]));
+        });
+      next(action);
+      break;
+    case GET_BANDS:
+      axios.get('http://localhost:3001/')
+        .then((response) => {
+          store.dispatch(getBandsSuccess(response.data.results[1]));
+        });
+      next(action);
+      break;
+    case GET_PLACES:
+      axios.get('http://localhost:3001/')
+        .then((response) => {
+          store.dispatch(getPlacesSuccess(response.data.results[2]));
         });
       next(action);
       break;

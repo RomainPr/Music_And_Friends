@@ -1,7 +1,16 @@
-import { GET_MUSICIANS, GET_MUSICIANS_SUCCESS } from 'src/actions/musicians';
+import {
+  GET_MUSICIANS,
+  GET_MUSICIANS_SUCCESS,
+  GET_BANDS,
+  GET_BANDS_SUCCESS,
+  GET_PLACES,
+  GET_PLACES_SUCCESS,
+} from 'src/actions/musicians';
 
 const initialState = {
-  list: [],
+  musicians: [],
+  bands: [],
+  places: [],
   loading: false,
 };
 
@@ -15,7 +24,29 @@ const reducer = (state = initialState, action = {}) => {
     case GET_MUSICIANS_SUCCESS:
       return {
         ...state,
-        list: action.musicians,
+        musicians: action.musicians,
+        loading: false,
+      };
+    case GET_BANDS:
+      return {
+        ...state,
+        loading: true,
+      };
+    case GET_BANDS_SUCCESS:
+      return {
+        ...state,
+        bands: action.bands,
+        loading: false,
+      };
+    case GET_PLACES:
+      return {
+        ...state,
+        loading: true,
+      };
+    case GET_PLACES_SUCCESS:
+      return {
+        ...state,
+        places: action.places,
         loading: false,
       };
     default:

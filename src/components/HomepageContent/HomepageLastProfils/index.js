@@ -16,7 +16,12 @@ import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounde
 
 import './styles.scss';
 
-function LastProfils({ musicians }) {
+function LastProfils({ musicians, bands, places }) {
+  const a = [musicians];
+  const b = [bands];
+  const c = [places];
+  const d = [...a, ...b, ...c];
+
   const itemsPerPage = 3;
   const [page, setPage] = useState(1);
 
@@ -101,6 +106,80 @@ function LastProfils({ musicians }) {
                 </Card>
               </Grid>
             ))}
+            {bands.map((band) => (
+              <Grid item xs={4} md={4}>
+                <Card id="card">
+                  <div id="card__image">
+                    <CardMedia
+                      component="img"
+                      alt="BandBackground"
+                      title="BandBackground"
+                      image="https://images.unsplash.com/photo-1517147177326-b37599372b73"
+                    />
+                    <Avatar
+                      id="card__avatar"
+                      src="https://i.pravatar.cc/300"
+                    />
+                    <IconButton
+                      id="card__favorite"
+                    >
+                      <StarIcon />
+                    </IconButton>
+                  </div>
+                  <CardContent id="card__content">
+                    <h2 className="bandName">{band.band_name}</h2>
+                    <h4 className="localization">{band.city}</h4>
+                    <p className="description">{band.description}</p>
+                  </CardContent>
+                  <CardActions id="card__footer">
+                    <Button
+                      variant="contained"
+                      size="large"
+                      color="primary"
+                    >
+                      Voir le profil
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+            {places.map((place) => (
+              <Grid item xs={4} md={4}>
+                <Card id="card">
+                  <div id="card__image">
+                    <CardMedia
+                      component="img"
+                      alt="BandBackground"
+                      title="BandBackground"
+                      image="https://images.unsplash.com/photo-1517147177326-b37599372b73"
+                    />
+                    <Avatar
+                      id="card__avatar"
+                      src="https://i.pravatar.cc/300"
+                    />
+                    <IconButton
+                      id="card__favorite"
+                    >
+                      <StarIcon />
+                    </IconButton>
+                  </div>
+                  <CardContent id="card__content">
+                    <h2 className="bandName">{place.name}</h2>
+                    <h4 className="localization">{place.city}</h4>
+                    <p className="description">{place.description}</p>
+                  </CardContent>
+                  <CardActions id="card__footer">
+                    <Button
+                      variant="contained"
+                      size="large"
+                      color="primary"
+                    >
+                      Voir le profil
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
           </Grid>
         </Carousel>
       </Container>
@@ -110,6 +189,8 @@ function LastProfils({ musicians }) {
 
 LastProfils.propTypes = {
   musicians: PropTypes.array.isRequired,
+  bands: PropTypes.array.isRequired,
+  places: PropTypes.array.isRequired,
 };
 
 export default LastProfils;
