@@ -7,9 +7,9 @@ import Loading from './Loading';
 import './styles.scss';
 
 function App({ loadMusicians, loading }) {
-  // useEffect(() => {
-  //   loadMusicians();
-  // }, []);
+ useEffect(() => {
+loadMusicians();
+ }, []);
 
   if (loading) {
     return <Loading />;
