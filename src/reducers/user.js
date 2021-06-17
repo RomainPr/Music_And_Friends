@@ -5,8 +5,6 @@ const initialState = {
   password: '',
   role: '',
   isLogged: false,
-  token: null,
-  refreshToken: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -24,8 +22,6 @@ const reducer = (state = initialState, action = {}) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        token: action.token,
-        refreshToken: action.refreshToken,
         isLogged: true,
         email: '',
         password: '',
