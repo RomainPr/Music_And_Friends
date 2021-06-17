@@ -5,6 +5,7 @@ const initialState = {
   password: '',
   role: '',
   isLogged: false,
+  open: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -23,6 +24,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isLogged: true,
+        open: false,
         email: '',
         password: '',
       };
