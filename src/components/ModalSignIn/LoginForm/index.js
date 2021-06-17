@@ -10,7 +10,6 @@ import './styles.scss';
 const LoginForm = ({
   email,
   password,
-  open,
   onChangeEmail,
   onChangePassword,
   handleLogin,
@@ -72,7 +71,6 @@ const LoginForm = ({
 LoginForm.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
-  open: PropTypes.bool.isRequired,
   onChangeEmail: PropTypes.func.isRequired,
   onChangePassword: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
