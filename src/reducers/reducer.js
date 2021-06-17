@@ -17,9 +17,11 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_VALUE:
+      console.log(`action = `, action);
       return {
         ...state,
-        [action.key]: action.value,
+        // [action.key]: action.value,
+        firstname: action.value,
       };
     default:
       return state;

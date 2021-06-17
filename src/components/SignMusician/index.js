@@ -44,8 +44,7 @@ const SignMusician = ({
   const handleOnChange = (event) => {
     onChangeValue(event.target.value);
   };
-console.log(onChangeValue);
-console.log(firstname);
+console.log(`firstname = `, firstname);
 
   const instrumentName = [];
   const styleName = [];
@@ -71,18 +70,21 @@ console.log(firstname);
                 id="input-last-name"
                 label="Votre nom"
                 name="lastname"
+                value={lastname}
               />
               <TextField
                 className="input"
                 id="input-phone"
                 label="Votre téléphone"
                 name="phone"
+                value={phone}
               />
               <TextField
                 className="input"
                 id="input-city"
                 label="Votre ville"
                 name="city"
+                value={city}
               />
             </Grid>
 
@@ -116,6 +118,7 @@ console.log(firstname);
                   id="input-pseudo"
                   label="Votre pseudo"
                   name="pseudo"
+                  value={pseudo}
                 />
 
                 <FormControl id="input-intruments">
