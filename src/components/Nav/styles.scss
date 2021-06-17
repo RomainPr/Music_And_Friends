@@ -12,4 +12,32 @@
       }
     }
   }
+  &__content__connected {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__left__menu {
+      display: inline;
+      & li {
+        display: inline;
+        padding-left: 10px;
+        vertical-align: middle;
+        color: #fff;
+      }
+      & #button {
+        color: #fff;
+        text-transform: none;
+      }
+    }
+    &__right__menu {
+      display: inline;
+      & li {
+        display: inline;
+        padding-left: 10px;
+        vertical-align: middle;
+        color: #fff;
+      }
+    }
+  }
 }
