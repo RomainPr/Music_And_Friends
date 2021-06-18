@@ -4,7 +4,7 @@ import { changeBoxValue } from 'src/actions';
 
 const mapStateToProps = (state, ownProps) => {
   
-console.log('ownProps == ', ownProps);
+// console.log('ownProps == ', ownProps);
 
 return {
   value: state[ownProps.name],

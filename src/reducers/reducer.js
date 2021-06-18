@@ -3,7 +3,8 @@ import {
   CHANGE_CITY_VALUE,
   CHANGE_INSTRUMENT_VALUE,
   CHANGE_STYLE_VALUE,
-  CHANGE_CATEGORY_VALUE
+  CHANGE_CATEGORY_VALUE,
+  CLICK_SEARCH,
 } from 'src/actions';
 
 const initialState = {
@@ -19,6 +20,9 @@ const initialState = {
 
   //MultiSelect 2 section (multiSelect2 = result + ad)
   categoryName:[],
+
+  //"RECHERCHER" button
+  searchResult:[],
 
   cities: [
     'Paris' ,
@@ -345,7 +349,14 @@ const reducer = (state = initialState, action) => {
               categoryName: action.value,
             };  
 
-
+            case CLICK_SEARCH: {
+              console.log('je passe dans le case CLICK_RESULT_VALUE');
+            }
+              return {
+                ...state,
+                searchResult:action.value,
+             
+              };  
     default:
       return state;
   }

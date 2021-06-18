@@ -3,6 +3,7 @@ export const CHANGE_CITY_VALUE = 'CHANGE_CITY_VALUE';
 export const CHANGE_INSTRUMENT_VALUE = 'CHANGE_INSTRUMENT_VALUE';
 export const CHANGE_STYLE_VALUE = 'CHANGE_STYLE_VALUE';
 export const CHANGE_CATEGORY_VALUE = 'CHANGE_CATEGORY_VALUE';
+export const CLICK_SEARCH = 'CLICK_SEARCH';
 
 export const changeBoxValue = (value, key) => ({
   type: CHANGE_BOX_VALUE,
@@ -29,3 +30,8 @@ export const changeCategoryValue = (value) => ({
   type: CHANGE_CATEGORY_VALUE,
   value,
 });
+
+export const clickSearch = (value) => ({
+  type: CLICK_SEARCH,
+  value,
+})

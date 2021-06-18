@@ -20,16 +20,14 @@ import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
 
 import './style.scss';
 
-export default function SearchPage({categories, categoryName, onChangeCategoryValue}) {
-  console.log(categories)
-  const handleCategoryChange = (event) => {
-    onChangeCategoryValue(event.target.value);
-  };
+export default function SearchPage({categories, categoryName, onChangeCategoryValue,onClickSearch,searchResult}) {
+  console.log(searchResult)
 
   return (
     <div>
       <form id="form">
          {/* onClick={handleChange} */}
+        
           <CheckBox />
         <div id="searchFields">  
           <CitiesField />
@@ -38,6 +36,7 @@ export default function SearchPage({categories, categoryName, onChangeCategoryVa
         </div>
         <Button
           id="search-button"
+          onClick={ onClickSearch }
           variant="contained">Rechercher
         </Button>
 
@@ -68,7 +67,7 @@ export default function SearchPage({categories, categoryName, onChangeCategoryVa
 
       </form>
       <div className="container-card-result">
-        Cards List
+        {searchResult}
       </div>
       <Button>
         <ArrowDropDownCircleIcon id="dropDown-arrow" />
@@ -79,11 +78,8 @@ export default function SearchPage({categories, categoryName, onChangeCategoryVa
 
 SearchPage.propTypes = {
   categories:PropTypes.array.isRequired,
-  // categories: PropTypes.arrayOf(
-  //     PropTypes.shape({
-  //       id: PropTypes.number,
-  //       name: PropTypes.string,
-  //     }).isRequired,
   onChangeCategoryValue: PropTypes.func.isRequired,
+  onClickSearch:PropTypes.func.isRequired,
+  searchResult:PropTypes.array.isRequired,
 };
 

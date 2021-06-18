@@ -3,7 +3,7 @@ import InstrumentsField from 'src/components/SearchPage/InstrumentsField';
 import { changeInstrumentValue } from 'src/actions';
 
 const mapStateToProps = (state) => {
-console.log(state)
+// console.log(state)
 
 
 return {
