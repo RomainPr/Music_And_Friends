@@ -20,7 +20,13 @@ import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
 
 import './style.scss';
 
-export default function SearchPage({categories, categoryName, onChangeCategoryValue,onClickSearch,searchResult}) {
+export default function SearchPage({
+  categories, 
+  categoryName, 
+  onChangeCategoryValue,
+  onClickSearch,
+  searchResult}) {
+  
   console.log(searchResult)
 
   return (

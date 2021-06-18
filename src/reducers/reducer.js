@@ -9,9 +9,9 @@ import {
 
 const initialState = {
   //checkbox section
-  band: false,
-  musician: false,
-  place: false,
+  isBandChecked: false,
+  isMusicianChecked: false,
+  isPlaceChecked: false,
 
   //MultiSelect 1 section (multiSelect1 =result)
   cityName: [],
@@ -21,7 +21,7 @@ const initialState = {
   //MultiSelect 2 section (multiSelect2 = result + ad)
   categoryName:[],
 
-  //"RECHERCHER" button
+  //"RECHERCHER" button with selector search
   searchResult:[],
 
   cities: [
@@ -67,7 +67,7 @@ const initialState = {
   'Profils',
   'Annonces',
 ],
-/*
+
 user: [
   {
     id:1,
@@ -308,7 +308,7 @@ announce:[
     content:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.  "
   },
 ],
-*/
+
 };
 
 const reducer = (state = initialState, action) => {

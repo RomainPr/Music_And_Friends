@@ -9,7 +9,12 @@ import FormLabel from '@material-ui/core/FormLabel';
 
 import '../style.scss';
 
-export default function CheckBox({band,musician,place,onChangeBoxValue}) {
+export default function CheckBox({
+  isBandChecked,
+  isMusicianChecked,
+  isPlaceChecked,
+  onChangeBoxValue
+}) {
 
   const handleBoxChange = (event) => {
     console.log(event.target.name)
@@ -29,10 +34,10 @@ export default function CheckBox({band,musician,place,onChangeBoxValue}) {
         <FormGroup row aria-label="position" name="position" defaultValue="right">
           <FormControlLabel
             id='selector-field'
-            value={band}
+            value={isBandChecked}
             control={
-            <Checkbox checked={band} 
-            value={band} 
+            <Checkbox checked={isBandChecked} 
+            value={isBandChecked} 
             onChange={handleBoxChange} 
             name="band" color="primary" />}
             label="Groupes"
@@ -40,11 +45,11 @@ export default function CheckBox({band,musician,place,onChangeBoxValue}) {
           />
           <FormControlLabel
             id='selector-field'
-            value={musician}
+            value={isMusicianChecked}
             control={
             <Checkbox 
-            checked={musician} 
-            value={musician} 
+            checked={isMusicianChecked} 
+            value={isMusicianChecked} 
             onChange={handleBoxChange} 
             name="musician" color="primary" />}
             label="Musiciens"
@@ -52,11 +57,11 @@ export default function CheckBox({band,musician,place,onChangeBoxValue}) {
           />
           <FormControlLabel
             id='selector-field'
-            value={place}
+            value={isPlaceChecked}
             control={
             <Checkbox 
-            checked={place} 
-            value={place} 
+            checked={isPlaceChecked} 
+            value={isPlaceChecked} 
             onChange={handleBoxChange} 
             name="place" color="primary" />}
             label="Salles"
@@ -71,9 +76,9 @@ export default function CheckBox({band,musician,place,onChangeBoxValue}) {
 }
 
 CheckBox.propTypes = {
-  band: PropTypes.bool,
-  musician: PropTypes.bool,
-  place:PropTypes.bool,
+  isBandChecked: PropTypes.bool,
+  isMusicianChecked: PropTypes.bool,
+  isPlaceChecked:PropTypes.bool,
   onChangeBoxValue: PropTypes.func.isRequired,
 
 };
