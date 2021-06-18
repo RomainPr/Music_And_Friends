@@ -66,29 +66,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Nav({ isAuthenticated, openModalSignIn }) {
+function Nav({
+  isAuthenticated,
+  anchorEl,
+  open,
+  isMenuOpen,
+  openModalSignIn,
+  handleProfileMenuOpen,
+  handleMenuClose,
+  toggleDrawer,
+}) {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  const [open, setOpen] = React.useState(false);
-
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
 
   const menuId = 'primary-search-account-menu';
+  const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
@@ -103,52 +94,6 @@ function Nav({ isAuthenticated, openModalSignIn }) {
       <MenuItem onClick={handleMenuClose}>Déconnexion</MenuItem>
     </Menu>
   );
-
-  const mobileMenuId = 'primary-search-account-menu-mobile';
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton color="inherit">
-          <BookmarkRoundedIcon />
-        </IconButton>
-        <p>Favoris</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profil</p>
-      </MenuItem>
-    </Menu>
-  );
-
-  const toggleDrawer = (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-    setOpen(!open);
-  };
 
   return (
     <div className="navbar">
@@ -222,7 +167,6 @@ function Nav({ isAuthenticated, openModalSignIn }) {
                 </div>
               </Toolbar>
             </AppBar>
-            {renderMobileMenu}
             {renderMenu}
             <Drawer
               anchor="left"
@@ -276,6 +220,10 @@ function Nav({ isAuthenticated, openModalSignIn }) {
 
 Nav.propTypes = {
   isAuthenticated: PropTypes.string.isRequired,
+  isMenuOpen: PropTypes.bool.isRequired,
+  handleProfileMenuOpen: PropTypes.func.isRequired,
+  handleMenuClose: PropTypes.func.isRequired,
+  toggleDrawer: PropTypes.func.isRequired,
   openModalSignIn: PropTypes.func.isRequired,
 };
 
