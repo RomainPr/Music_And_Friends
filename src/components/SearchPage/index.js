@@ -20,16 +20,12 @@ import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
 
 import './style.scss';
 
-const categories = [
-  'Tous',
-  'Profils',
-  'Annonces',
-];
+export default function SearchPage({categories, categoryName, onChangeCategoryValue}) {
+  console.log(categories)
+  const handleCategoryChange = (event) => {
+    onChangeCategoryValue(event.target.value);
+  };
 
-export default function SearchPage() {
-  const [categoryName, setCategoryName] = React.useState([]);
-  // const handleChange = (event) => {
-  //   setSelectedValue(event.target.value);
   return (
     <div>
       <form id="form">
@@ -55,7 +51,7 @@ export default function SearchPage() {
               id="mutiple-checkbox"
               multiple
               value={categoryName}
-              // onChange
+              onChange={handleCategoryChange}
               input={<Input />}
               renderValue={(selected) => selected.join(', ')}
 
@@ -81,7 +77,13 @@ export default function SearchPage() {
   );
 }
 
-// SearchPage.propTypes = {
+SearchPage.propTypes = {
+  categories:PropTypes.array.isRequired,
+  // categories: PropTypes.arrayOf(
+  //     PropTypes.shape({
+  //       id: PropTypes.number,
+  //       name: PropTypes.string,
+  //     }).isRequired,
+  onChangeCategoryValue: PropTypes.func.isRequired,
+};
 
-
-// };

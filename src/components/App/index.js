@@ -2,7 +2,7 @@ import React from 'react';
 
 import './styles.scss';
 
-import SearchPage from 'src/components/SearchPage';
+import SearchPage from 'src/containers/SearchPage';
 
 const App = () => (
   <div className="app">

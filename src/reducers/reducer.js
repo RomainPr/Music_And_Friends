@@ -3,18 +3,24 @@ import {
   CHANGE_CITY_VALUE,
   CHANGE_INSTRUMENT_VALUE,
   CHANGE_STYLE_VALUE,
+  CHANGE_CATEGORY_VALUE
 } from 'src/actions';
 
 const initialState = {
+  //checkbox section
   band: false,
   musician: false,
   place: false,
+
+  //MultiSelect 1 section (multiSelect1 =result)
   cityName: [],
   instrumentName:[],
   styleName:[],
 
+  //MultiSelect 2 section (multiSelect2 = result + ad)
+  categoryName:[],
+
   cities: [
-   
     'Paris' ,
     'Bordeaux' ,
     'Toulouse' ,
@@ -26,7 +32,7 @@ const initialState = {
     'Brest' ,
   ],
 
-instruments: [
+  instruments: [
   'Guitare',
   'Batterie',
   'Piano',
@@ -39,7 +45,7 @@ instruments: [
   'Triangle',
 ],
 
-styles: [
+  styles: [
   'Jazz',
   'Rock',
   'Punk',
@@ -51,6 +57,13 @@ styles: [
   'Reggae',
   'Hip-hop',
 ],
+
+  categories: [
+  'Tous',
+  'Profils',
+  'Annonces',
+],
+/*
 user: [
   {
     id:1,
@@ -291,6 +304,7 @@ announce:[
     content:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.  "
   },
 ],
+*/
 };
 
 const reducer = (state = initialState, action) => {
@@ -323,6 +337,15 @@ const reducer = (state = initialState, action) => {
             ...state,
             styleName: action.value,
           };
+          case CHANGE_CATEGORY_VALUE: {
+            console.log('je passe dans le case CHANGE_CATEGORY_VALUE');
+          }
+            return {
+              ...state,
+              categoryName: action.value,
+            };  
+
+
     default:
       return state;
   }
