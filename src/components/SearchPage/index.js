@@ -51,7 +51,7 @@ export default function SearchPage({categories, categoryName, onChangeCategoryVa
               id="mutiple-checkbox"
               multiple
               value={categoryName}
-              onChange={handleCategoryChange}
+              onChange={onChangeCategoryValue}
               input={<Input />}
               renderValue={(selected) => selected.join(', ')}
 
