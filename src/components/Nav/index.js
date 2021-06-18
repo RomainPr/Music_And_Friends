@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Nav({ isLogged, openModalSignIn }) {
+function Nav({ isAuthenticated, openModalSignIn }) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -153,7 +153,7 @@ function Nav({ isLogged, openModalSignIn }) {
   return (
     <div className="navbar">
       <ModalSignIn />
-      {!isLogged
+      {!isAuthenticated
         ? (
           <div className="navbar__content">
             <div className="navbar__content__left">
@@ -275,7 +275,7 @@ function Nav({ isLogged, openModalSignIn }) {
 }
 
 Nav.propTypes = {
-  isLogged: PropTypes.bool.isRequired,
+  isAuthenticated: PropTypes.string.isRequired,
   openModalSignIn: PropTypes.func.isRequired,
 };
 

@@ -7,7 +7,7 @@ import LoginForm from 'src/components/ModalSignIn/LoginForm';
 const mapStateToProps = (state) => ({
   email: state.user.email,
   password: state.user.password,
-  isLogged: state.user.isLogged,
+  isLogged: localStorage.getItem('token'),
 });
 
 const mapDispatchToProps = (dispatch) => ({

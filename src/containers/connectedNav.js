@@ -4,8 +4,8 @@ import { openModal } from 'src/actions/modalSignIn';
 
 import Nav from 'src/components/Nav';
 
-const mapStateToProps = (state) => ({
-  isLogged: state.user.isLogged,
+const mapStateToProps = () => ({
+  isAuthenticated: localStorage.getItem('token'),
 });
 
 const mapDispatchToProps = (dispatch) => ({
