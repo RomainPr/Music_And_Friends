@@ -21,23 +21,23 @@ import {
 const apiMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_MUSICIANS:
-      axios.get('http://localhost:3001/')
+      axios.get('http://localhost:3001/musicians')
         .then((response) => {
-          store.dispatch(getMusiciansSuccess(response.data.results[0]));
+          store.dispatch(getMusiciansSuccess(response.data.results));
         });
       next(action);
       break;
     case GET_BANDS:
-      axios.get('http://localhost:3001/')
+      axios.get('http://localhost:3001/bands')
         .then((response) => {
-          store.dispatch(getBandsSuccess(response.data.results[1]));
+          store.dispatch(getBandsSuccess(response.data.results));
         });
       next(action);
       break;
     case GET_PLACES:
-      axios.get('http://localhost:3001/')
+      axios.get('http://localhost:3001/places')
         .then((response) => {
-          store.dispatch(getPlacesSuccess(response.data.results[2]));
+          store.dispatch(getPlacesSuccess(response.data.results));
         });
       next(action);
       break;

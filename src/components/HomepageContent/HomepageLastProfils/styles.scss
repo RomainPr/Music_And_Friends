@@ -7,6 +7,12 @@
     }
 }
 
+.slick-next:before,
+.slick-prev:before {
+  font-size: 25px;
+  color: #000;
+}
+
 #card {
     max-width: 350px;
     padding-bottom: vars.$paddingBottomSmall;
