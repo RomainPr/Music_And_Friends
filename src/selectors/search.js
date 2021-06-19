@@ -63,7 +63,12 @@ export function findSearchResult(
     console.log(user);
     console.log(place);
     // console.log(state.band[id].map(id => state.band[id].band_name))
+
     
+
+
+
+
   if (isBandChecked) {
     searchResult = band[0].find((band_name) => {
       console.log(band_name);

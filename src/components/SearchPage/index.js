@@ -73,10 +73,11 @@ export default function SearchPage({
         </div>
 
       </form>
-
+      
       {/* <ul className="container-card-result">
       {searchResult.map((name) => (
-        <li className="result" key={searchResult.id}>
+        //VOIR COMPONENT CARD ?
+        <li className="result" key={searchResult.id} {...searchResult}>
         {name}
         </li>
       ))}
@@ -93,6 +94,10 @@ SearchPage.propTypes = {
   categories:PropTypes.array.isRequired,
   onChangeCategoryValue: PropTypes.func.isRequired,
   onClickSearch:PropTypes.func.isRequired,
-  searchResult:PropTypes.array.isRequired,
+  searchResult: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }),
+  ),
 };
 
