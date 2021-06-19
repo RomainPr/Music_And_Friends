@@ -2,7 +2,7 @@
 
 //1st part
 #selector-field {
-  padding-right:3.7em ;
+  padding-right:12.5em ;
   
   }
   
@@ -19,6 +19,7 @@
   }
   #searchFields {
     display:flex;
+    justify-content: center;
   }
   #field {
     
@@ -51,17 +52,17 @@
     max-width: 400px;
   }
   
-  .container-card-result {
-    padding:2em;
-    background-image: url('/src/assets/img/sectionSearchPic.png');
-    background-size: cover;
-    color:rgb(65, 48, 48);
-    font-weight: bold;
-    font-size: larger;
-    margin-top: 2em;
-    width: 500px;
-    height: 500px;
-  }
+  // .container-card-result {
+  //   padding:2em;
+  //   background-image: url('/src/assets/img/sectionSearchPic.png');
+  //   background-size: cover;
+  //   color:rgb(65, 48, 48);
+  //   font-weight: bold;
+  //   font-size: larger;
+  //   margin-top: 2em;
+  //   width: 500px;
+  //   height: 500px;
+  // }
   
   #dropDown-arrow {
     width: 30%;
@@ -73,8 +74,13 @@
   //result part
 
 .profilsCards {
+  // display:flex;
+  // flex-wrap: wrap;
+  // justify-content: center;
     &__title {
-        font-size: 1.7em;
+      text-align: center;
+        font-size: 1.5em;
+        padding-top:vars.$paddingBottomSmall;
         padding-bottom: vars.$paddingBottomSmall;
     }
 }
@@ -96,9 +102,11 @@
     align-content: stretch;
     margin-bottom: 30px;
   &__image {
+
     position: relative;
     & img {
       height: 140px;
+      
     }
   }
   &__avatar {

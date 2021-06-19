@@ -40,10 +40,10 @@ export default function SearchPage({
   categoryName, 
   onChangeCategoryValue,
   onClickSearch,
-  searchResult 
+  // searchResult 
 }) {
   
-  console.log(searchResult)
+  // console.log(searchResult)
 
   const fullList = [...musicians, ...bands, ...places];
 
@@ -76,10 +76,11 @@ export default function SearchPage({
         </Button>
 
         <div id="result">
-          <p className="result-search">Résultat de votre recherche :</p>
+          <p className="result-search">Plus précis encore ?</p>
           <FormControl id='form-filter-result'>
 
             <InputLabel id="controlled-open-select-label">Filtrer par (tous, profils, annonces)</InputLabel>
+
             <Select
               labelId="mutiple-checkbox-label"
               id="mutiple-checkbox"
@@ -103,10 +104,18 @@ export default function SearchPage({
       </form>
       <div className="profilsCards">
       <Container maxWidth="lg">
-        <h2 className="profilsCards__title">Les derniers profils</h2>
+        <h2 className="profilsCards__title">{fullList.length} Zicos</h2>
         {/* <Slider {...settings}> */}
           {fullList.map((item) => (
-            <Grid item xs={4} md={12}>
+            <Grid 
+            item xs={6} md={2}
+            wrap
+            container
+            direction="row"
+            justify="space-between"
+            alignItems="center"
+            >          
+
               <Card id="card">
                 <div id="card__image">
                   <CardMedia
@@ -145,6 +154,7 @@ export default function SearchPage({
         {/* </Slider> */}
       </Container>
     </div>
+
       {/* <ul className="container-card-result">
       {searchResult.map((name) => (
         //VOIR COMPONENT CARD ?
@@ -168,10 +178,10 @@ SearchPage.propTypes = {
   categories:PropTypes.array.isRequired,
   onChangeCategoryValue: PropTypes.func.isRequired,
   onClickSearch:PropTypes.func.isRequired,
-  searchResult: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    }),
-  ),
+  // searchResult: PropTypes.arrayOf(
+  //   PropTypes.shape({
+  //     id: PropTypes.number.isRequired,
+  //   }),
+  // ),
 };
 
