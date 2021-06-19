@@ -62,7 +62,7 @@ export default function SearchPage({
          {/* onClick={handleChange} */}
         
           <CheckBox 
-           
+           //ramener les props pour condition
           />
         <div id="searchFields">  
           <CitiesField />
@@ -104,16 +104,22 @@ export default function SearchPage({
       </form>
       <div className="profilsCards">
       <Container maxWidth="lg">
-        <h2 className="profilsCards__title">{fullList.length} Zicos</h2>
+        <h2 className="profilsCards__title">{fullList.length} Zikos</h2>
         {/* <Slider {...settings}> */}
-          {fullList.map((item) => (
+        {/* condition box checked, item */}
+          {fullList.map((item) => {
+            console.log(item);
+            return (
+            
             <Grid 
-            item xs={6} md={2}
-            wrap
-            container
-            direction="row"
-            justify="space-between"
-            alignItems="center"
+            item xs={3} md={2} key={item}
+            //VOIR SI POSSIBLE CONDITION SUR KEY
+            //if 
+            // wrap
+            // container
+            // direction="row"
+            // justify="space-between"
+            // alignItems="center"
             >          
 
               <Card id="card">
@@ -150,7 +156,7 @@ export default function SearchPage({
                 </CardActions>
               </Card>
             </Grid>
-          ))}
+          )})}
         {/* </Slider> */}
       </Container>
     </div>

@@ -39,7 +39,7 @@ console.log(isBandChecked)
             <Checkbox checked={isBandChecked} 
             value={isBandChecked} 
             onChange={handleBoxChange} 
-            name="band" color="primary" />}
+            name="bands" color="primary" />}
             //if name = "band" -> 
             label="Groupes"
             labelPlacement="end"
@@ -52,7 +52,7 @@ console.log(isBandChecked)
             checked={isMusicianChecked} 
             value={isMusicianChecked} 
             onChange={handleBoxChange} 
-            name="musician" color="primary" />}
+            name="musicians" color="primary" />}
             //if name="band" -> 
             label="Musiciens"
             labelPlacement="end"
@@ -65,7 +65,7 @@ console.log(isBandChecked)
             checked={isPlaceChecked} 
             value={isPlaceChecked} 
             onChange={handleBoxChange} 
-            name="place" color="primary" />}
+            name="places" color="primary" />}
             label="Salles"
             labelPlacement="end"
           />

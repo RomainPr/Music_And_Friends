@@ -78,10 +78,10 @@
   // flex-wrap: wrap;
   // justify-content: center;
     &__title {
-      text-align: center;
+        text-align: center;
         font-size: 1.5em;
         padding-top:vars.$paddingBottomSmall;
-        padding-bottom: vars.$paddingBottomSmall;
+        padding-bottom: vars.$paddingBottomSmall * 2;
     }
 }
 
