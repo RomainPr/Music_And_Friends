@@ -65,7 +65,7 @@ export function findSearchResult(
     // console.log(state.band[id].map(id => state.band[id].band_name))
 
     
-
+    
 
 
 

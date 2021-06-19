@@ -15,7 +15,7 @@ export default function CheckBox({
   isPlaceChecked,
   onChangeBoxValue
 }) {
-
+console.log(isBandChecked)
   const handleBoxChange = (event) => {
     console.log(event.target.name)
 
@@ -40,6 +40,7 @@ export default function CheckBox({
             value={isBandChecked} 
             onChange={handleBoxChange} 
             name="band" color="primary" />}
+            //if name = "band" -> 
             label="Groupes"
             labelPlacement="end"
           />
@@ -52,6 +53,7 @@ export default function CheckBox({
             value={isMusicianChecked} 
             onChange={handleBoxChange} 
             name="musician" color="primary" />}
+            //if name="band" -> 
             label="Musiciens"
             labelPlacement="end"
           />
