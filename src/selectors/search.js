@@ -62,10 +62,11 @@ export function findSearchResult(
     console.log(band);
     console.log(user);
     console.log(place);
-
+    // console.log(state.band[id].map(id => state.band[id].band_name))
+    
   if (isBandChecked) {
-    searchResult = band.find((band_name) => {
-      console.log(band);
+    searchResult = band[0].find((band_name) => {
+      console.log(band_name);
       return band_name;
     });
 
@@ -87,16 +88,11 @@ export function findSearchResult(
   1-Selon checkbox 
   > groupes, musiciens, salles
 
-  If isBandChecked = true -> searchResult = state.band
-  If isMusicianChecked = true -> searchResult = state.user
-  If isPlaceChecked = true -> searchResult = state.place
+  If isBandChecked = true -> searchResult = state.band[0].band_name
+  If isMusicianChecked = true -> searchResult = state.user[0].pseudo
+  If isPlaceChecked = true -> searchResult = state.place[0].name
 
-  bdd
-      - band
-      - user
-      - place
       
-
   2-selon multiSelect Field -> par ville(s), par instrument(s), par style(s)
       - user.city
       - instrument

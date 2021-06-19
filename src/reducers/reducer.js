@@ -174,6 +174,7 @@ user: [
     city:"Bordeaux",
   },
 ],
+
 band: [
   {
     id:1,
@@ -309,6 +310,43 @@ announce:[
   },
 ],
 
+place:[
+  {
+    id:1,
+    name:"La Cigale",
+    description:"Une chouette salle de concert à Montmartre",
+    city:"Paris",
+    adress:"120 Boulevard de Rochechouart",
+    phone:"0149258999",
+    zipcode:"75018",
+    email:"la cigale@lacigale.fr ",
+    password: "monpetitpassword"
+  },
+
+  {
+    id:2,
+    name:"MusikVerein",
+    description:"Siège de la société philarmonique de Vienne",
+    city:"Vienne",
+    adress:"Musikvereinsplatz 1",
+    phone:"",
+    zipcode:"",
+    email:" musikverein@musik.fr  ",
+    password: "monpetitpassword"
+  },
+
+  {
+    id:3,
+    name:"La station",
+    description:"laboratoire convivial et festif consacré aux scènes artistiques émergente ",
+    city:"Paris",
+    adress:"29 Avenue de la Porte d'Aubervilliers ",
+    phone:"09 73 26 11 47",
+    zipcode:"75018",
+    email:"lastation@lastation.fr ",
+    password: "monpetitpassword"
+  },
+]
 };
 
 const reducer = (state = initialState, action) => {

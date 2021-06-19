@@ -4,8 +4,13 @@ import { changeCategoryValue,clickSearch} from 'src/actions';
 import { findSearchResult } from 'src/selectors/search';
 
 const mapStateToProps = (state) => {
-console.log(state)
 
+console.log(state);
+
+console.log(state.user[0].pseudo);
+// console.log(state.band[id].map(id => state.band[id].band_name))
+console.log(state.band[0].band_name);
+console.log(state.place[0].name);
 
 return {
   categories:state.categories,

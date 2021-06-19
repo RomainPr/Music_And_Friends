@@ -19,6 +19,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
 
 import './style.scss';
+import { RestoreOutlined } from '@material-ui/icons';
 
 export default function SearchPage({
   categories, 
@@ -72,9 +73,15 @@ export default function SearchPage({
         </div>
 
       </form>
-      <div className="container-card-result">
-        {searchResult}
-      </div>
+
+      {/* <ul className="container-card-result">
+      {searchResult.map((name) => (
+        <li className="result" key={searchResult.id}>
+        {name}
+        </li>
+      ))}
+      </ul> */}
+
       <Button>
         <ArrowDropDownCircleIcon id="dropDown-arrow" />
       </Button>
