@@ -47,6 +47,7 @@ export default function SearchPage({
 
   const fullList = [...musicians, ...bands, ...places];
 
+    console.log(fullList)
   // const settings = {
   //   dots: true,
   //   infinite: true,
@@ -62,7 +63,7 @@ export default function SearchPage({
          {/* onClick={handleChange} */}
         
           <CheckBox 
-           //ramener les props pour condition
+           
           />
         <div id="searchFields">  
           <CitiesField />
@@ -106,15 +107,14 @@ export default function SearchPage({
       <Container maxWidth="lg">
         <h2 className="profilsCards__title">{fullList.length} Zikos</h2>
         {/* <Slider {...settings}> */}
-        {/* condition box checked, item */}
-          {fullList.map((item) => {
+       
+          {fullList.map((item,index) => {
             console.log(item);
             return (
             
             <Grid 
-            item xs={3} md={2} key={item}
-            //VOIR SI POSSIBLE CONDITION SUR KEY
-            //if 
+            item xs={3} md={2} key={index}
+         
             // wrap
             // container
             // direction="row"
@@ -161,15 +161,6 @@ export default function SearchPage({
       </Container>
     </div>
 
-      {/* <ul className="container-card-result">
-      {searchResult.map((name) => (
-        //VOIR COMPONENT CARD ?
-        <li className="result" key={searchResult.id} {...searchResult}>
-        {name}
-        </li>
-      ))}
-      </ul> */}
-
       <Button>
         <ArrowDropDownCircleIcon id="dropDown-arrow" />
       </Button>
@@ -184,10 +175,5 @@ SearchPage.propTypes = {
   categories:PropTypes.array.isRequired,
   onChangeCategoryValue: PropTypes.func.isRequired,
   onClickSearch:PropTypes.func.isRequired,
-  // searchResult: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     id: PropTypes.number.isRequired,
-  //   }),
-  // ),
 };
 

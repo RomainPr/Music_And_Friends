@@ -3,10 +3,18 @@ import CheckBox from 'src/components/SearchPage/CheckBox';
 import { changeBoxValue } from 'src/actions';
 
 const mapStateToProps = (state, ownProps) => {
-  
-// console.log('ownProps == ', ownProps);
+ 
+console.log(state.isBandChecked)
+console.log(state);
 
-return {
+return { 
+  isBandChecked: state.isBandChecked,
+  isMusicianChecked: state.isMusicianChecked,
+  isPlaceChecked: state.isPlaceChecked,
+
+  musicians: state.user,
+  bands: state.band,
+  places: state.place,
   value: state[ownProps.name],
 }
 };
@@ -14,7 +22,7 @@ return {
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onChangeBoxValue: (value,key) => {
    
-    const action = changeBoxValue(value, ownProps.name,key);
+    const action = changeBoxValue(value, ownProps.value,key);
    
     dispatch(action);
 

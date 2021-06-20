@@ -19,7 +19,9 @@ const initialState = {
   musicians: [],
   bands: [],
   places: [],
+  
   loading: false,
+
   //checkbox section
   isBandChecked: false,
   isMusicianChecked: false,

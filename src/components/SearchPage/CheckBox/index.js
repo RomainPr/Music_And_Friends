@@ -13,6 +13,7 @@ export default function CheckBox({
   isBandChecked,
   isMusicianChecked,
   isPlaceChecked,
+  bands,musicians,places,
   onChangeBoxValue
 }) {
 console.log(isBandChecked)
@@ -20,7 +21,6 @@ console.log(isBandChecked)
     console.log(event.target.name)
 
     //as doc M UI https://material-ui.com/components/checkboxes/
-    // OnChangeBoxValue({[event.target.name]:event.target.checked});
     onChangeBoxValue({[event.target.name]:event.target.checked})
     
   };
@@ -37,10 +37,9 @@ console.log(isBandChecked)
             value={isBandChecked}
             control={
             <Checkbox checked={isBandChecked} 
-            value={isBandChecked} 
+            value={bands} 
             onChange={handleBoxChange} 
             name="bands" color="primary" />}
-            //if name = "band" -> 
             label="Groupes"
             labelPlacement="end"
           />
@@ -50,10 +49,9 @@ console.log(isBandChecked)
             control={
             <Checkbox 
             checked={isMusicianChecked} 
-            value={isMusicianChecked} 
+            value={musicians} 
             onChange={handleBoxChange} 
             name="musicians" color="primary" />}
-            //if name="band" -> 
             label="Musiciens"
             labelPlacement="end"
           />
@@ -63,7 +61,7 @@ console.log(isBandChecked)
             control={
             <Checkbox 
             checked={isPlaceChecked} 
-            value={isPlaceChecked} 
+            value={places} 
             onChange={handleBoxChange} 
             name="places" color="primary" />}
             label="Salles"
@@ -81,12 +79,9 @@ CheckBox.propTypes = {
   isBandChecked: PropTypes.bool,
   isMusicianChecked: PropTypes.bool,
   isPlaceChecked:PropTypes.bool,
+  musicians: PropTypes.array.isRequired,
+  bands: PropTypes.array.isRequired,
+  places: PropTypes.array.isRequired,
   onChangeBoxValue: PropTypes.func.isRequired,
 
 };
-
-// CheckBox.defaultProps = {
-//   band: false,
-//   musician: false,
-//   place:false,
-// };
