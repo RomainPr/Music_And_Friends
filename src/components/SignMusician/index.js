@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './styles.scss';
+import StylesField from 'src/containers/StylesField';
+import InstrumentsField from 'src/containers/InstrumentsField';
+import CitiesField from 'src/containers/CitiesField';
+
 
 import {
   Input,
@@ -22,7 +26,6 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import SaveIcon from '@material-ui/icons/Save';
 
 // destructuration data pour recup tableau intruments et styles
-const { instruments, styles } = data;
 
 const SignMusician = ({
   firstname,
@@ -42,7 +45,7 @@ const SignMusician = ({
   const handleOnChange = (event) => {
     onChangeValue(event.target.value);
   };
-console.log(`firstname = `, firstname);
+  console.log(`firstname = `, firstname);
 
   const instrumentName = [];
   const styleName = [];
@@ -77,13 +80,7 @@ console.log(`firstname = `, firstname);
                 name="phone"
                 value={phone}
               />
-              <TextField
-                className="input"
-                id="input-city"
-                label="Votre ville"
-                name="city"
-                value={city}
-              />
+              <CitiesField />
             </Grid>
 
             <Grid item xs={4}>
@@ -119,47 +116,10 @@ console.log(`firstname = `, firstname);
                   value={pseudo}
                 />
 
-                <FormControl id="input-intruments">
-                  <InputLabel id="demo-mutiple-checkbox-label">Instruments</InputLabel>
-                  <Select
-                    labelId="demo-mutiple-checkbox-label"
-                    id="demo-mutiple-checkbox"
-                    multiple
-                    value={instrumentName}
-                    // onChange={handleChange}
-                    input={<Input />}
-                    renderValue={(selected) => selected.join(', ')}
-                  // MenuProps={MenuProps}
-                  >
-                    {instruments.map((instrument) => (
-                      <MenuItem key={instrument} value={instrument}>
-                        <Checkbox checked={instrumentName.indexOf(instrument) > -1} />
-                        <ListItemText primary={instrument} />
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
+                <InstrumentsField />
 
-                <FormControl id="input-styles">
-                  <InputLabel id="demo-mutiple-checkbox-label">Styles</InputLabel>
-                  <Select
-                    labelId="demo-mutiple-checkbox-label"
-                    id="demo-mutiple-checkbox"
-                    multiple
-                    value={styleName}
-                    // onChange={handleChange}
-                    input={<Input />}
-                    renderValue={(selected) => selected.join(', ')}
-                  // MenuProps={MenuProps}
-                  >
-                    {styles.map((style) => (
-                      <MenuItem key={style} value={style}>
-                        <Checkbox checked={styleName.indexOf(style) > -1} />
-                        <ListItemText primary={style} />
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
+                <StylesField />
+
               </Grid>
             </Grid>
           </Grid>
