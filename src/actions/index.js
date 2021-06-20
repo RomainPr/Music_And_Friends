@@ -23,4 +23,3 @@ export const changeStyleValue = (value) => ({
   type: CHANGE_STYLE_VALUE,
   value,
 });
-

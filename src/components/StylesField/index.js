@@ -12,7 +12,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import './style.scss';
 
 export default function StylesField({ styles, styleName, onChangeStyleValue }) {
-  console.log(styles);
+  // console.log(styles);
 
   return (
 
@@ -46,6 +46,7 @@ export default function StylesField({ styles, styleName, onChangeStyleValue }) {
 
 StylesField.propTypes = {
   styles: PropTypes.array.isRequired,
+  styleName: PropTypes.array.isRequired,
   // styles: PropTypes.arrayOf(
   //     PropTypes.shape({
   //       id: PropTypes.number,

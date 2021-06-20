@@ -6,6 +6,8 @@ import StylesField from 'src/containers/StylesField';
 import InstrumentsField from 'src/containers/InstrumentsField';
 import CitiesField from 'src/containers/CitiesField';
 
+import InputTextField from 'src/containers/InputTextField';
+
 
 import {
   Input,
@@ -31,24 +33,17 @@ const SignMusician = ({
   firstname,
   lastname,
   phone,
-  city,
   pseudo,
   description,
   email,
   password,
   onChangeValue,
 }) => {
-  // const handleChange = (event) => {
-  //   setInstrumentName(event.target.value);
-  // };
-
   const handleOnChange = (event) => {
-    onChangeValue(event.target.value);
-  };
-  console.log(`firstname = `, firstname);
+    console.log(`event.target.name = `, event.target.name);
 
-  const instrumentName = [];
-  const styleName = [];
+    onChangeValue(event.target.value, event.target.name);
+  };
 
   return (
     <Grid container direction="column">
@@ -71,6 +66,7 @@ const SignMusician = ({
                 id="input-last-name"
                 label="Votre nom"
                 name="lastname"
+                onChange={handleOnChange}
                 value={lastname}
               />
               <TextField
@@ -78,6 +74,8 @@ const SignMusician = ({
                 id="input-phone"
                 label="Votre téléphone"
                 name="phone"
+                type="tel"
+                onChange={handleOnChange}
                 value={phone}
               />
               <CitiesField />
@@ -112,7 +110,9 @@ const SignMusician = ({
                 <TextField
                   id="input-pseudo"
                   label="Votre pseudo"
+                  type="text"
                   name="pseudo"
+                  onChange={handleOnChange}
                   value={pseudo}
                 />
 
@@ -131,6 +131,9 @@ const SignMusician = ({
               id="description"
               label="Votre Description"
               name="description"
+              type="text"
+              value={description}
+              onChange={handleOnChange}
               multiline
               rows={4}
               defaultValue=""
@@ -143,20 +146,28 @@ const SignMusician = ({
               margin="normal"
               id="outlined-basic"
               label="Email"
+              type="email"
               name="email"
+              onChange={handleOnChange}
+              value={email}
               variant="outlined"
             />
             <TextField
               margin="normal"
               id="outlined-basic"
               label="Mot de passe"
+              type="password"
               name="password"
+              onChange={handleOnChange}
+              value={password}
               variant="outlined"
             />
             <TextField
               margin="normal"
               id="outlined-basic"
               label="Confiration du mot de passe"
+              type="password"
+              onChange={handleOnChange}
               name="confirmpassword"
               variant="outlined"
             />
@@ -180,7 +191,6 @@ SignMusician.propTypes = {
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
   pseudo: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,

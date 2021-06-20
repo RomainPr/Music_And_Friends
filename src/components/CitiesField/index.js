@@ -12,7 +12,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 import './style.scss';
 
 export default function CitiesField({ cities, cityName, onChangeCityValue }) {
-  console.log(cities);
+  // console.log(cities);
+  
   // const handleChangeMultiple = (event) => {
   //   const { options } = event.target;
   //   const value = [];

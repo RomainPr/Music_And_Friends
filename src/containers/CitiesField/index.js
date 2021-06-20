@@ -3,8 +3,6 @@ import CitiesField from 'src/components/CitiesField';
 import { changeCityValue } from 'src/actions';
 
 const mapStateToProps = (state, ownProps) => {
-  console.log('state = ', state);
-  console.log('ownProps == ', ownProps);
 
   return {
     cities: state.cities,

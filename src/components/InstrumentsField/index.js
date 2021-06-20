@@ -12,7 +12,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import './style.scss';
 
 export default function InstrumentsField({ instruments, instrumentName, onChangeInstrumentValue }) {
-console.log(instruments)
+// console.log(instruments)
 
   // const handleChangeMultiple = (event) => {
   //   const { options } = event.target;

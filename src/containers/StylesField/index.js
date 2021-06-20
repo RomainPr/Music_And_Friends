@@ -3,8 +3,6 @@ import StylesField from 'src/components/StylesField';
 import { changeStyleValue } from 'src/actions';
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state);
-  console.log('ownProps == ', ownProps);
 
   return {
     styles: state.styles,

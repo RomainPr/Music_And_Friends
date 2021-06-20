@@ -3,8 +3,6 @@ import InstrumentsField from 'src/components/InstrumentsField';
 import { changeInstrumentValue } from 'src/actions';
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state);
-  console.log('ownProps == ', ownProps);
 
   return {
     instruments: state.instruments,
