@@ -33,21 +33,23 @@ console.log(isBandChecked)
         Vous recherchez ?</FormLabel>
         <FormGroup row aria-label="position" name="position" defaultValue="right">
           <FormControlLabel
-            id='selector-field'
+           
             value={isBandChecked}
             control={
-            <Checkbox checked={isBandChecked} 
+            <Checkbox  id='selector-field'
+            checked={isBandChecked} 
             value={bands} 
             onChange={handleBoxChange} 
-            name="bands" color="primary" />}
+            name="bands" 
+           />}
             label="Groupes"
             labelPlacement="end"
           />
           <FormControlLabel
-            id='selector-field'
+            
             value={isMusicianChecked}
             control={
-            <Checkbox 
+            <Checkbox id='selector-field'
             checked={isMusicianChecked} 
             value={musicians} 
             onChange={handleBoxChange} 
@@ -56,14 +58,14 @@ console.log(isBandChecked)
             labelPlacement="end"
           />
           <FormControlLabel
-            id='selector-field'
+           
             value={isPlaceChecked}
             control={
-            <Checkbox 
+            <Checkbox  id='selector-field'
             checked={isPlaceChecked} 
             value={places} 
             onChange={handleBoxChange} 
-            name="places" color="primary" />}
+            name="places" />}
             label="Salles"
             labelPlacement="end"
           />

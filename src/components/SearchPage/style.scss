@@ -1,9 +1,18 @@
 @use 'src/styles/vars';
 
 //1st part
+#check-box {
+  padding-top: vars.$paddingTopMedium;
+  background-image: url('/src/assets/img/searchHeadPic.png');
+  background-size:cover ;
+  color:vars.$light-color;
+  padding-bottom:vars.$paddingBottomSmall;
+  width: 100%;
+  height: auto;
+}
 #selector-field {
-  padding-right:12.5em ;
-  
+  color:vars.$light-color;
+  background-color:vars.$light-color;
   }
   
   #form {
@@ -13,10 +22,17 @@
   }
   
   #categories {
+    
+    color:vars.$light-color;
     font-size: 2em;
     padding-bottom: 1em;
-    // margin-right:1em;
+    margin-right:1em;
   }
+
+.tickbox {
+  background-color:"#f1f0f0";
+}
+
   #searchFields {
     display:flex;
     justify-content: center;
@@ -52,20 +68,9 @@
     max-width: 400px;
   }
   
-  // .container-card-result {
-  //   padding:2em;
-  //   background-image: url('/src/assets/img/sectionSearchPic.png');
-  //   background-size: cover;
-  //   color:rgb(65, 48, 48);
-  //   font-weight: bold;
-  //   font-size: larger;
-  //   margin-top: 2em;
-  //   width: 500px;
-  //   height: 500px;
-  // }
-  
   #dropDown-arrow {
-    width: 30%;
+    padding-top: vars.$paddingTopMedium;
+    width: 20%;
     height: auto;
     color:rgb(201, 191, 191);
     

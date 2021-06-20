@@ -164,9 +164,10 @@ export default function SearchPage({
       </Container>
     </div>
 
-      {/* <Button>
+      <Button
+      className="load-more-btn">
         <ArrowDropDownCircleIcon id="dropDown-arrow" />
-      </Button> */}
+      </Button>
     </div>
   );
 }
