@@ -9,16 +9,16 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
 
-import '../style.scss';
+import './style.scss';
 
 export default function StylesField({ styles, styleName, onChangeStyleValue }) {
-console.log(styles)
+  console.log(styles);
 
   return (
 
-    <div id='field'>
-      {/* Field if connected musician OR place -> AND box checked group or/and musician*/}
-      <FormControl id='form-control'>
+    <div id="field">
+      {/* Field if connected musician OR place -> AND box checked group or/and musician */}
+      <FormControl id="form-control">
         <InputLabel id="controlled-open-select-label">Par style(s)</InputLabel>
         <Select
           labelId="mutiple-checkbox-label"
@@ -31,7 +31,7 @@ console.log(styles)
 
         >
           {styles.map((style) => (
-            <MenuItem key={style}  value={style}>
+            <MenuItem key={style} value={style}>
               <Checkbox checked={styleName.indexOf(style) > -1} />
               <ListItemText primary={style} />
             </MenuItem>
@@ -45,7 +45,7 @@ console.log(styles)
 }
 
 StylesField.propTypes = {
-  styles:PropTypes.array.isRequired,
+  styles: PropTypes.array.isRequired,
   // styles: PropTypes.arrayOf(
   //     PropTypes.shape({
   //       id: PropTypes.number,

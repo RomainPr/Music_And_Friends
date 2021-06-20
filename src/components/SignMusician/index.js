@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-import data from 'src/data/dataTest';
-
 import {
   Input,
   InputLabel,
