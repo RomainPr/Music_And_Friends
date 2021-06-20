@@ -19,7 +19,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
 import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
-// import Slider from 'react-slick';
+import Slider from 'react-slick';
 
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -32,6 +32,9 @@ import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import StarIcon from '@material-ui/icons/Star';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 import './style.scss';
 
 export default function SearchPage({
@@ -40,22 +43,22 @@ export default function SearchPage({
   categoryName, 
   onChangeCategoryValue,
   onClickSearch,
-  // searchResult 
+  
 }) {
   
-  // console.log(searchResult)
 
   const fullList = [...musicians, ...bands, ...places];
 
     console.log(fullList)
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 3,
-  //   slidesToScroll: 3,
-  //   adaptiveHeight: true,
-  // };
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    adaptiveHeight: true,
+  };
 
   return (
     <div>
@@ -106,14 +109,14 @@ export default function SearchPage({
       <div className="profilsCards">
       <Container maxWidth="lg">
         <h2 className="profilsCards__title">{fullList.length} Zikos</h2>
-        {/* <Slider {...settings}> */}
+        <Slider {...settings}>
        
           {fullList.map((item,index) => {
             console.log(item);
             return (
             
             <Grid 
-            item xs={3} md={2} key={index}
+            item xs={4} md={12} key={index}
          
             // wrap
             // container
@@ -157,13 +160,13 @@ export default function SearchPage({
               </Card>
             </Grid>
           )})}
-        {/* </Slider> */}
+        </Slider>
       </Container>
     </div>
 
-      <Button>
+      {/* <Button>
         <ArrowDropDownCircleIcon id="dropDown-arrow" />
-      </Button>
+      </Button> */}
     </div>
   );
 }
