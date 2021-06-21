@@ -22,7 +22,7 @@ return {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   
-  // onChangeBoxValue({ [event.target.name]: event.target.checked });
+  // 
   onChangeBoxValue: (value) => {
    
     const action = changeBoxValue(value, ownProps.name);
