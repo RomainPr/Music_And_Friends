@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import StylesField from 'src/components/SearchPage/StylesField';
-import { changeStyleValue } from 'src/actions';
+import { changeStyleValue } from 'src/actions/search';
 
 const mapStateToProps = (state, ownProps) => {
 // console.log(state)

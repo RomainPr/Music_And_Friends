@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import InstrumentsField from 'src/components/SearchPage/InstrumentsField';
-import { changeInstrumentValue } from 'src/actions';
+import { changeInstrumentValue } from 'src/actions/search';
 
 const mapStateToProps = (state) => {
 // console.log(state)

@@ -4,7 +4,7 @@ import {
   changeCategoryValue, 
   clickSearch,
 
-} from 'src/actions';
+} from 'src/actions/search';
 // import { findSearchResult } from 'src/selectors/search';
 
 const mapStateToProps = (state) => {

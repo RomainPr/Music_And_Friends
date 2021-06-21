@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CheckBox from 'src/components/SearchPage/CheckBox';
-import { changeBoxValue } from 'src/actions';
+import { changeBoxValue } from 'src/actions/search';
 
 const mapStateToProps = (state, ownProps) => {
  
