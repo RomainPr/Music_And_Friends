@@ -10,15 +10,15 @@ const mapStateToProps = (state, ownProps) => {
 
     // value: state[ownProps.name],
 
-    firstname: state.signMusician.firstname,
-    lastname: state.signMusician.lastname,
-    phone: state.signMusician.phone,
-    city: state.signMusician.city,
-    pseudo: state.signMusician.pseudo,
-    description: state.signMusician.description,
-    email: state.signMusician.email,
-    password: state.signMusician.password,
-    confirmpassword: state.signMusician.confirmpassword,
+    firstname: state.sign.firstname,
+    lastname: state.sign.lastname,
+    phone: state.sign.phone,
+    city: state.sign.city,
+    pseudo: state.sign.pseudo,
+    description: state.sign.description,
+    email: state.sign.email,
+    password: state.sign.password,
+    confirmpassword: state.sign.confirmpassword,
   };
 };
 

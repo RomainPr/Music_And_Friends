@@ -5,9 +5,9 @@ import { changeInstrumentValue } from 'src/actions';
 const mapStateToProps = (state, ownProps) => {
 
   return {
-    instruments: state.signMusician.instruments,
-    value: state.signMusician[ownProps.name],
-    instrumentName: state.signMusician.instrumentName,
+    instruments: state.sign.instruments,
+    value: state.sign[ownProps.name],
+    instrumentName: state.sign.instrumentName,
   };
 };
 

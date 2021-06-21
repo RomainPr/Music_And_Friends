@@ -4,7 +4,7 @@ import modalSignInReducer from './modalSignIn';
 import navReducer from './nav';
 import userReducer from './user';
 import musiciansReducer from './musicians';
-import signMusician from './signMusician';
+import sign from './sign';
 import search from './searchpage';
 
 
@@ -16,7 +16,7 @@ const rootReducer = combineReducers({
   nav: navReducer,
   user: userReducer,
   musicians: musiciansReducer,
-  signMusician: signMusician,
+  sign: sign,
   search: search,
 });
 

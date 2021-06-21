@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Home from 'src/containers/connectedHomepageContent';
 import SignMusician from 'src/containers/SignMusician';
 import SearchPage from 'src/containers/SearchPage';
+import SignPlace from 'src/containers/SignPlace';
+
 import Loading from './Loading';
 
 import './styles.scss';
@@ -19,7 +21,9 @@ function App({ loadMusicians, loading }) {
 
   return (
     <div className="app">
-      <SearchPage />
+      {/* <SignPlace /> */}
+      <SignMusician />
+      {/* <SearchPage /> */}
       {/* <Home /> */}
     </div>
   );

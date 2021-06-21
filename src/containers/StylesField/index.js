@@ -3,11 +3,10 @@ import StylesField from 'src/components/StylesField';
 import { changeStyleValue } from 'src/actions';
 
 const mapStateToProps = (state, ownProps) => {
-
   return {
-    styles: state.signMusician.styles,
-    value: state.signMusician[ownProps.name],
-    styleName: state.signMusician.styleName,
+    styles: state.sign.styles,
+    value: state.sign[ownProps.name],
+    styleName: state.sign.styleName,
   };
 };
 
