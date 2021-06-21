@@ -38,9 +38,11 @@
     justify-content: center;
   }
   #field {
-    
+    padding-top: vars.$paddingTopSmall;
+    padding-bottom: vars.$paddingBottomSmall;
     width: 300px;
     display:flex;
+    justify-content: center;
     
   }
   #form-control {
@@ -51,6 +53,7 @@
   }
   
   #search-button {
+    
     margin-top: 2em;
     margin-bottom:2em;
   }
