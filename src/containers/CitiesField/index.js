@@ -3,11 +3,11 @@ import CitiesField from 'src/components/CitiesField';
 import { changeCityValue } from 'src/actions';
 
 const mapStateToProps = (state, ownProps) => {
-
+  console.log(`on est container citiesField`)
   return {
-    cities: state.cities,
-    value: state[ownProps.name],
-    cityName: state.cityName,
+    cities: state.signMusician.cities,
+    value: state.signMusician[ownProps.name],
+    cityName: state.signMusician.cityName,
   };
 };
 

@@ -133,7 +133,6 @@ const SignMusician = ({
               onChange={handleOnChange}
               multiline
               rows={4}
-              defaultValue=""
               variant="outlined"
             />
           </Grid>
