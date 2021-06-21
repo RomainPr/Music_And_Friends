@@ -9,6 +9,14 @@ import FormLabel from '@material-ui/core/FormLabel';
 
 import './styles.scss';
 
+//DOC FILTER MDN 
+//https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_interactivity_filtering_conditional_rendering
+//  /*console.log(isBandChecked)
+// //   const handleBoxChange = (event) => {
+// //     //as doc M UI https://material-ui.com/components/checkboxes/
+// //     console.log(event.target.value);
+// //     return ( onChangeBoxValue({ [event.target.value]: event.target.checked }))
+// // 
 export default function CheckBox({
   isBandChecked,
   isMusicianChecked,
@@ -16,13 +24,7 @@ export default function CheckBox({
   // bands, musicians, places,
   onChangeBoxValue
 }) {
-  // console.log(isBandChecked)
-  const handleBoxChange = (event) => {
-    //as doc M UI https://material-ui.com/components/checkboxes/
-    console.log(event.target.value);
-    return ( onChangeBoxValue({ [event.target.value]: event.target.checked }))
 
-  };
 
   return (
     <div id="check-box">
@@ -36,7 +38,7 @@ export default function CheckBox({
               <Checkbox id='selector-field'
                 checked={isBandChecked}
                 // value={isBandChecked}
-                onChange={handleBoxChange}
+                onChange={onChangeBoxValue}
                 name="isBandChecked"
               />}
             label="Groupes"
@@ -47,7 +49,7 @@ export default function CheckBox({
               <Checkbox id='selector-field'
                 checked={isMusicianChecked}
                 // value={isMusicianChecked}
-                onChange={handleBoxChange}
+                onChange={onChangeBoxValue}
                 name="isMusicianChecked"/>}
             label="Musiciens"
             labelPlacement="end"
@@ -57,7 +59,7 @@ export default function CheckBox({
               <Checkbox id='selector-field'
                 checked={isPlaceChecked}
                 // value={isPlaceChecked}
-                onChange={handleBoxChange}
+                onChange={onChangeBoxValue}
                 name="isPlaceChecked" />}
             label="Salles"
             labelPlacement="end"

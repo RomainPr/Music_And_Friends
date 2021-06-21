@@ -17,10 +17,8 @@ from 'src/actions/musicians';
 
 const mapStateToProps = (state) => {
 
-  // console.log(state);
-  // console.log(`state = `, state);
-  // console.log('state.search.use', state.search.user)
-
+  console.log(state);
+  
   return {
     categories: state.search.categories,
     categoryName: state.search.categoryName,
