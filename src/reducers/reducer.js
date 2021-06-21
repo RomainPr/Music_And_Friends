@@ -6,7 +6,7 @@ import {
 } from 'src/actions';
 
 const initialState = {
-  firstname: 'pouet',
+  firstname: '',
   lastname: '',
   phone: '',
   city: '',
@@ -75,7 +75,7 @@ const reducer = (state = initialState, action) => {
         cityName: action.value,
       };
 
-    case CHANGE_INSTRUMENT_VALUE: 
+    case CHANGE_INSTRUMENT_VALUE:
       console.log('je passe dans le case CHANGE_INSTRUMENT_VALUE');
       return {
         ...state,

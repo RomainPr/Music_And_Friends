@@ -6,9 +6,6 @@ import StylesField from 'src/containers/StylesField';
 import InstrumentsField from 'src/containers/InstrumentsField';
 import CitiesField from 'src/containers/CitiesField';
 
-import InputTextField from 'src/containers/InputTextField';
-
-
 import {
   Input,
   InputLabel,
