@@ -7,15 +7,8 @@ import InstrumentsField from 'src/containers/InstrumentsField';
 import CitiesField from 'src/containers/CitiesField';
 
 import {
-  Input,
-  InputLabel,
-  MenuItem,
   FormControl,
-  ListItemText,
-  Select,
-  Checkbox,
   Grid,
-  Container,
   TextField,
   Avatar,
   Button,
