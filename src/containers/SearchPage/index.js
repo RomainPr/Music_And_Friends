@@ -12,6 +12,7 @@ import {
   getBands, 
   getPlaces } 
 from 'src/actions/musicians';
+
 // import { findSearchResult } from 'src/selectors/search';
 
 const mapStateToProps = (state) => {
@@ -28,9 +29,9 @@ const mapStateToProps = (state) => {
     isMusicianChecked: state.search.isMusicianChecked,
     isPlaceChecked: state.search.isPlaceChecked,
 
-    musicians: state.search.user,
-    bands: state.search.band,
-    places: state.search.place,
+    musicians: state.musicians.musicians,
+    bands: state.musicians.bands,
+    places: state.musicians.places,
 
     loading: state.musicians.loading,
     
