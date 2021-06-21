@@ -21,8 +21,8 @@ function App({ loadMusicians, loading }) {
 
   return (
     <div className="app">
-      {/* <SignPlace /> */}
-      <SignMusician />
+      <SignPlace />
+      {/* <SignMusician /> */}
       {/* <SearchPage /> */}
       {/* <Home /> */}
     </div>

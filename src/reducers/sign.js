@@ -16,6 +16,10 @@ const initialState = {
   password: '',
   confirmpassword: '',
 
+  placeName: '',
+  adress: '',
+  postalCode: '',
+
   cityName: [],
   instrumentName: [],
   styleName: [],
