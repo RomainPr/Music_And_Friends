@@ -345,7 +345,7 @@ place:[
     adress:"Musikvereinsplatz 1",
     phone:"",
     zipcode:"",
-    email:" musikverein@musik.fr  ",
+    email:" musikverein@musik.fr ",
     password: "monpetitpassword"
   },
 
