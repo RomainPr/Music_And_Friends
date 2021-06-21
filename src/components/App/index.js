@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Home from 'src/containers/connectedHomepageContent';
 import SignMusician from 'src/containers/SignMusician';
+import SearchPage from 'src/containers/SearchPage';
 import Loading from './Loading';
 
 import './styles.scss';
@@ -18,7 +19,7 @@ function App({ loadMusicians, loading }) {
 
   return (
     <div className="app">
-      <SignMusician />
+      <SearchPage />
       {/* <Home /> */}
     </div>
   );
