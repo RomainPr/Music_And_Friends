@@ -37,7 +37,7 @@ function LastProfils({ musicians, bands, places }) {
         <Slider {...settings}>
           {fullList.map((item) => (
             <Grid item xs={4} md={12}>
-              <Card id="card">
+              <Card key={item.index} id="card">
                 <div id="card__image">
                   <CardMedia
                     component="img"
