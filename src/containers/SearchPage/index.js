@@ -18,6 +18,7 @@ const mapStateToProps = (state) => {
 
   // console.log(state);
   // console.log(`state = `, state);
+  console.log('state.searchpage', state.searchpage)
 
   return {
     categories: state.search.categories,

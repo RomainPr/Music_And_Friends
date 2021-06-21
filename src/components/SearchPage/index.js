@@ -45,10 +45,12 @@ export default function SearchPage({
   
 }) {
   
+  console.log('bands = ', bands)
+  console.log('musicians = ', musicians)
+  console.log('places = ', places)
 
   const fullList = [...musicians, ...bands, ...places];
 
-    console.log(fullList)
 
   const settings = {
     dots: true,
