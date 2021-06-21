@@ -27,16 +27,25 @@ const SignPlace = ({
   email,
   password,
   onChangeValue,
+  handleSignUp,
+
 }) => {
   const handleOnChange = (event) => {
     onChangeValue(event.target.value, event.target.name);
+  };
+
+  const handleOnSubmit = (event) => {
+    event.preventDefault();
+    handleSignUp();
   };
 
   return (
     <Grid container direction="column">
       <h1 className="title">Vos informations de Salle de concert</h1>
 
-      <form>
+      <form
+        onSubmit={handleOnSubmit}
+      >
         <FormControl id="mainForm" noValidate autoComplete="off">
           <Grid container direction="row" alignItems="center" id="inputIdPictureIntruments">
             <Grid item xs={4}>
@@ -120,7 +129,6 @@ const SignPlace = ({
                   onChange={handleOnChange}
                   value={postalCode}
                 />
-
               </Grid>
             </Grid>
           </Grid>
@@ -144,7 +152,7 @@ const SignPlace = ({
           <Grid item xs={12}>
             <TextField
               margin="normal"
-              id="outlined-basic"
+              id="email"
               label="Email"
               type="email"
               name="email"
@@ -154,7 +162,7 @@ const SignPlace = ({
             />
             <TextField
               margin="normal"
-              id="outlined-basic"
+              id="password"
               label="Mot de passe"
               type="password"
               name="password"
@@ -164,7 +172,7 @@ const SignPlace = ({
             />
             <TextField
               margin="normal"
-              id="outlined-basic"
+              id="confirmpassword"
               label="Confiration du mot de passe"
               type="password"
               onChange={handleOnChange}
@@ -179,6 +187,8 @@ const SignPlace = ({
           color="primary"
           size="large"
           startIcon={<SaveIcon />}
+          type="submit"
+          onClick={handleSignUp}
         >
           Save
         </Button>
@@ -198,6 +208,7 @@ SignPlace.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   onChangeValue: PropTypes.func.isRequired,
+  handleSignUp: PropTypes.func.isRequired,
 };
 
 export default SignPlace;

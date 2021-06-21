@@ -133,7 +133,7 @@ const SignMusician = ({
           <Grid item xs={12}>
             <TextField
               margin="normal"
-              id="outlined-basic"
+              id="email"
               label="Email"
               type="email"
               name="email"
@@ -143,7 +143,7 @@ const SignMusician = ({
             />
             <TextField
               margin="normal"
-              id="outlined-basic"
+              id="password"
               label="Mot de passe"
               type="password"
               name="password"
@@ -153,7 +153,7 @@ const SignMusician = ({
             />
             <TextField
               margin="normal"
-              id="outlined-basic"
+              id="confirmpassword"
               label="Confiration du mot de passe"
               type="password"
               onChange={handleOnChange}

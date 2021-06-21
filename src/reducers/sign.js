@@ -3,7 +3,7 @@ import {
   CHANGE_CITY_VALUE,
   CHANGE_INSTRUMENT_VALUE,
   CHANGE_STYLE_VALUE,
-} from 'src/actions';
+} from 'src/actions/changeInput';
 
 const initialState = {
   firstname: '',

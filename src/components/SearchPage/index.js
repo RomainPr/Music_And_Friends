@@ -39,7 +39,7 @@ import './style.scss';
 
 export default function SearchPage({
   musicians, bands, places,
-  categories, 
+  categories,
   categoryName, 
   onChangeCategoryValue,
   onClickSearch,

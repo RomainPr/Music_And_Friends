@@ -7,7 +7,6 @@ import musiciansReducer from './musicians';
 import sign from './sign';
 import search from './searchpage';
 
-
 // combineReducers permet de découper notre état et nos reducers
 // en plusieurs "tranches" aka SLICES
 // ici nous avons deux tranches : recipes et user
