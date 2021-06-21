@@ -18,7 +18,7 @@ const mapStateToProps = (state) => {
 
   // console.log(state);
   // console.log(`state = `, state);
-  console.log('state.searchpage', state.searchpage)
+  console.log('state.search.use', state.search.user)
 
   return {
     categories: state.search.categories,
@@ -28,9 +28,9 @@ const mapStateToProps = (state) => {
     isMusicianChecked: state.search.isMusicianChecked,
     isPlaceChecked: state.search.isPlaceChecked,
 
-    musicians: state.musicians.musicians,
-    bands: state.musicians.bands,
-    places: state.musicians.places,
+    musicians: state.search.user,
+    bands: state.search.band,
+    places: state.search.place,
 
     loading: state.musicians.loading,
     
