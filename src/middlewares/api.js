@@ -65,7 +65,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       const state = store.getState();
       const signUpRequest = {
         method: 'POST',
-        url: 'http://localhost:3001/sign/place',
+        url: 'http://localhost:3001/sign/places',
         data: {
           // firstname: state.sign.firstname,
           // lastname: state.sign.lastname,
@@ -81,9 +81,8 @@ const apiMiddleware = (store) => (next) => (action) => {
       };
       axios(signUpRequest)
         .then((response) => {
-          localStorage.setItem('token', response.data.token);
-          store.dispatch(loginSuccess());
-          store.dispatch(closeModal());
+          console.log('youuuuuu');
+          console.log(response);
         });
       break;
     }

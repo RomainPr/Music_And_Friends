@@ -5,6 +5,7 @@ import Home from 'src/containers/connectedHomepageContent';
 import SignMusician from 'src/containers/SignMusician';
 import SearchPage from 'src/containers/SearchPage';
 import SignPlace from 'src/containers/SignPlace';
+import Nav from 'src/containers/connectedNav';
 
 import Loading from './Loading';
 
@@ -21,6 +22,7 @@ function App({ loadMusicians, loading }) {
 
   return (
     <div className="app">
+      <Nav />
       <SignPlace />
       {/* <SignMusician /> */}
       {/* <SearchPage /> */}
