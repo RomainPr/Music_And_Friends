@@ -1,0 +1,31 @@
+.header {
+  position: relative;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  justify-content: space-between;
+  &__nav {
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+  &__middle {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 0;
+    right: 0;
+    font-size: 40px;
+    color: #fff;
+
+    &__search {
+      padding-top: 40px;
+    }
+  }
+}

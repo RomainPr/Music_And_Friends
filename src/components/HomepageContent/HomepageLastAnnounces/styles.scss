@@ -1,0 +1,84 @@
+@use 'src/styles/vars';
+
+.announcesCards {
+  padding-top: vars.$paddingTopMedium;
+  &__title {
+    font-size: 1.7em;
+    padding-bottom: vars.$paddingBottomSmall;
+  }
+}
+
+.content {
+    height: 160px;
+    color: #fff;
+    text-align: center;
+    background: #364d79;
+}
+
+#card {
+  max-width: 350px;
+  padding-bottom: vars.$paddingBottomSmall;
+  box-shadow: 10px 10px 15px 0 rgb(0 0 0 / 10%);
+  &__image {
+    position: relative;
+    & img {
+      height: 140px;
+    }
+  }
+  &__avatar {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: -30px;
+  }
+  &__favorite {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: yellow;
+  }
+  &__bandName {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    & .bandName {
+      text-align: center;
+      color: #fff;
+      font-size: 1.5em;
+    }
+  }
+  &__content {
+    padding-top: vars.$paddingTopMedium;
+    & .search {
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      padding-bottom: vars.$paddingBottomSmall;
+      & li {
+        font-size: 0.8em;
+        padding: 3px;
+      }
+      & span {
+        font-weight: 600;
+      }
+    }
+    & .title {
+      font-size: 1.2em;
+      font-weight: 500;
+      text-align: center;
+      padding-bottom: vars.$paddingBottomSmall;
+    }
+    & .description {
+      padding: 20px;
+      text-align: left;
+    }
+  }
+  &__footer {
+    justify-content: center;
+  }
+}
