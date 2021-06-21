@@ -8,13 +8,13 @@ console.log(state.isBandChecked)
 console.log(state);
 
 return { 
-  isBandChecked: state.isBandChecked,
-  isMusicianChecked: state.isMusicianChecked,
-  isPlaceChecked: state.isPlaceChecked,
+  isBandChecked: state.search.isBandChecked,
+  isMusicianChecked: state.search.isMusicianChecked,
+  isPlaceChecked: state.search.isPlaceChecked,
 
-  musicians: state.user,
-  bands: state.band,
-  places: state.place,
+  musicians: state.musicians.musicians,
+  bands: state.musicians.bands,
+  places: state.musicians.places,
   value: state[ownProps.name],
 }
 };

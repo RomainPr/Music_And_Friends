@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CitiesField from 'src/components/CitiesField';
-import { changeCityValue } from 'src/actions';
+import { changeCityValue } from 'src/actions/search';
 
 const mapStateToProps = (state, ownProps) => {
   console.log(`on est container citiesField`)

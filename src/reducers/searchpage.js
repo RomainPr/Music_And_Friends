@@ -5,15 +5,15 @@ import {
   CHANGE_STYLE_VALUE,
   CHANGE_CATEGORY_VALUE,
   CLICK_SEARCH,
-} from 'src/actions';
+} from 'src/actions/search';
 
 const initialState = {
 
-  musicians: [],
-  bands: [],
-  places: [],
+  // musicians: [],
+  // bands: [],
+  // places: [],
 
-  loading: false,
+  // loading: false,
 
   //checkbox section
   isBandChecked: false,

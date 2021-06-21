@@ -38,7 +38,7 @@ export default function CheckBox({
             control={
               <Checkbox id='selector-field'
                 checked={isBandChecked}
-                value={bands}
+                // value={bands}
                 onChange={handleBoxChange}
                 name="bands"
               />}
@@ -51,7 +51,7 @@ export default function CheckBox({
             control={
               <Checkbox id='selector-field'
                 checked={isMusicianChecked}
-                value={musicians}
+                // value={musicians}
                 onChange={handleBoxChange}
                 name="musicians" color="primary" />}
             label="Musiciens"
@@ -63,7 +63,7 @@ export default function CheckBox({
             control={
               <Checkbox id='selector-field'
                 checked={isPlaceChecked}
-                value={places}
+                // value={places}
                 onChange={handleBoxChange}
                 name="places" />}
             label="Salles"
