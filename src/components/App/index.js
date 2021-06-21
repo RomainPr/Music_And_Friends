@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Home from 'src/containers/connectedHomepageContent';
+import SignMusician from 'src/containers/SignMusician';
 import Loading from './Loading';
 
 import './styles.scss';
@@ -17,7 +18,8 @@ function App({ loadMusicians, loading }) {
 
   return (
     <div className="app">
-      <Home />
+      <SignMusician />
+      {/* <Home /> */}
     </div>
   );
 }

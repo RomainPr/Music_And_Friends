@@ -59,7 +59,7 @@ const initialState = {
   ],
 };
 
-const reducer = (state = initialState, action) => {
+const signMusician = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_INPUT_VALUE:
       console.log('je passe dans le case CHANGE_INPUT_VALUE');
@@ -94,4 +94,4 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
+export default signMusician;
