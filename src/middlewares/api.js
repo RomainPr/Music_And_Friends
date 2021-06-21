@@ -67,8 +67,8 @@ const apiMiddleware = (store) => (next) => (action) => {
         method: 'POST',
         url: 'http://localhost:3001/sign/place',
         data: {
-          firstname: state.sign.firstname,
-          lastname: state.sign.lastname,
+          // firstname: state.sign.firstname,
+          // lastname: state.sign.lastname,
           name: state.sign.placeName,
           description: state.sign.description,
           city: state.sign.city,
