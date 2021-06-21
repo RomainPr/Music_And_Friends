@@ -1,0 +1,155 @@
+@use 'src/styles/vars';
+
+//1st part
+#check-box {
+  padding-top: vars.$paddingTopMedium;
+  background-image: url('/src/assets/img/searchHeadPic.png');
+  background-size:cover ;
+  color:vars.$light-color;
+  padding-bottom:vars.$paddingBottomSmall;
+  width: 100%;
+  height: auto;
+}
+#selector-field {
+  color:vars.$light-color;
+  background-color:vars.$light-color;
+  }
+  
+  #form {
+    width: 100%;
+    height: auto;
+  
+  }
+  
+  #categories {
+    
+    color:vars.$light-color;
+    font-size: 2em;
+    padding-bottom: 1em;
+    margin-right:1em;
+  }
+
+.tickbox {
+  background-color:"#f1f0f0";
+}
+
+  #searchFields {
+    display:flex;
+    justify-content: center;
+  }
+  #field {
+    padding-top: vars.$paddingTopSmall;
+    padding-bottom: vars.$paddingBottomSmall;
+    width: 300px;
+    display:flex;
+    justify-content: center;
+    
+  }
+  #form-control {
+    
+    margin-right:1em;
+    min-width:150px;
+    max-width: 500px;
+  }
+  
+  #search-button {
+    
+    margin-top: 2em;
+    margin-bottom:2em;
+  }
+  
+  #result {
+    // display:flex;
+    // justify-content: space-between;
+    width: 100%;
+    margin-top: 0;
+  }
+  
+  #form-filter-result {
+    padding-top: 0;
+    min-width:300px;
+    max-width: 400px;
+  }
+  
+  #dropDown-arrow {
+    padding-top: vars.$paddingTopMedium;
+    width: 20%;
+    height: auto;
+    color:rgb(201, 191, 191);
+    
+  }
+
+  //result part
+
+.profilsCards {
+  // display:flex;
+  // flex-wrap: wrap;
+  // justify-content: center;
+    &__title {
+        text-align: center;
+        font-size: 1.5em;
+        padding-top:vars.$paddingBottomSmall;
+        padding-bottom: vars.$paddingBottomSmall * 2;
+    }
+}
+
+.slick-next:before,
+.slick-prev:before {
+  font-size: 25px;
+  color: #000;
+}
+
+#card {
+    max-width: 350px;
+    padding-bottom: vars.$paddingBottomSmall;
+    box-shadow: 10px 10px 15px 0 rgb(0 0 0 / 10%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-content: stretch;
+    margin-bottom: 30px;
+  &__image {
+
+    position: relative;
+    & img {
+      height: 140px;
+      
+    }
+  }
+  &__avatar {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: -30px;
+  }
+  &__favorite {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: yellow;
+  }
+  &__content {
+      padding-top: vars.$paddingTopMedium;
+      & .bandName {
+        text-align: center;
+        padding-bottom: 5px;
+        font-size: 1.5em;
+      }
+      & .localization {
+        text-align: center;
+        padding-bottom: vars.$paddingBottomSmall;
+        font-style: italic;
+      }
+      & .description {
+        padding: 20px;
+        text-align: left;
+      }
+  }
+  &__footer {
+      justify-content: center;
+  }
+}
