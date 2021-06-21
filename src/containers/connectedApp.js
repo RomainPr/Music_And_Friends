@@ -7,6 +7,9 @@ import { getMusicians, getBands, getPlaces } from '../actions/musicians';
 const mapStateToProps = (state) => ({
   loading: state.musicians.loading,
   isLogged: state.user.isLogged,
+  musicians: state.musicians.musicians,
+  bands: state.musicians.bands,
+  places: state.musicians.places,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -8,10 +8,10 @@ import Loading from './Loading';
 
 import './styles.scss';
 
-function App({ loadMusicians, loading }) {
-  // useEffect(() => {
-  //   loadMusicians();
-  // }, []);
+function App({ loadMusicians, loading, musicians, bands, places }) {
+useEffect(() => {
+loadMusicians();
+}, []);
 
   if (loading) {
     return <Loading />;
@@ -19,8 +19,12 @@ function App({ loadMusicians, loading }) {
 
   return (
     <div className="app">
-      <SearchPage />
-      {/* <Home /> */}
+     <SearchPage 
+      musicians={musicians}
+      bands={bands}
+      places={places}
+     />
+     {/* <Home /> */}
     </div>
   );
 }

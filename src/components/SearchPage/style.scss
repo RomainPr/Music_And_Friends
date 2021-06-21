@@ -69,10 +69,12 @@
     max-width: 400px;
   }
   
-  .load-more-btn {
+  #load-more-btn {
+    margin-top: vars.$paddingTopMedium;
     width: 100%;
     text-align: center;
   }
+
   #dropDown-arrow {
     justify-content: center;
     padding-top: vars.$paddingTopMedium;
@@ -85,9 +87,6 @@
   //result part
 
 .profilsCards {
-  // display:flex;
-  // flex-wrap: wrap;
-  // justify-content: center;
     &__title {
         text-align: center;
         font-size: 1.5em;

@@ -13,16 +13,7 @@ import './style.scss';
 
 export default function CitiesField({ cities, cityName, onChangeCityValue }) {
   // console.log(cities);
-  
-  // const handleChangeMultiple = (event) => {
-  //   const { options } = event.target;
-  //   const value = [];
-  //   for (let i = 0, l = options.length; i < l; i += 1) {
-  //     if (options[i].selected) {
-  //       value.push(options[i].value);
-  //     }
-  //   }
-  // };
+
   return (
 
     <div id='field'>
@@ -55,14 +46,9 @@ export default function CitiesField({ cities, cityName, onChangeCityValue }) {
 
 CitiesField.propTypes = {
   cities: PropTypes.array.isRequired,
-  // cities: PropTypes.arrayOf(
-  //     PropTypes.shape({
-  //       id: PropTypes.number,
-  //       name: PropTypes.string,
-  //     }).isRequired,
   onChangeCityValue: PropTypes.func.isRequired,
 };
-//
+
 
 
 

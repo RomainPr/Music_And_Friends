@@ -19,7 +19,7 @@ const mapStateToProps = (state) => {
 
   // console.log(state);
   // console.log(`state = `, state);
-  console.log('state.search.use', state.search.user)
+  // console.log('state.search.use', state.search.user)
 
   return {
     categories: state.search.categories,
@@ -34,14 +34,14 @@ const mapStateToProps = (state) => {
     places: state.musicians.places,
 
     loading: state.musicians.loading,
-    
+   
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
 
   onChangeCategoryValue: (event) => {
-    dispatch(changeCategoryValue(event.target.value));
+    dispatch(changeCategoryValue(event.target.name));
   },
 
   onClickSearch: (searchResult) => {

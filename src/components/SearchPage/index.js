@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import PropTypes, { func } from 'prop-types';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 //import containers
 import CheckBox from 'src/containers/CheckBox';
@@ -42,12 +42,7 @@ export default function SearchPage({
   categoryName, 
   onChangeCategoryValue,
   onClickSearch,
-  loadMusicians,
 }) {
-
-  useEffect(() => {
-  loadMusicians();
-  }, []);
   
   console.log('bands = ', bands)
   console.log('musicians = ', musicians)
@@ -71,7 +66,7 @@ export default function SearchPage({
          {/* onClick={handleChange} */}
         
           <CheckBox 
-           
+          
           />
         <div id="searchFields">  
           <CitiesField />
@@ -117,7 +112,7 @@ export default function SearchPage({
         <Slider {...settings}>
        
           {fullList.map((item,index) => {
-            console.log(item);
+            {/* console.log(item); */}
             return (
             
             <Grid 
@@ -164,7 +159,7 @@ export default function SearchPage({
     </div>
 
       <Button
-      className="load-more-btn">
+      id="load-more-btn">
         <ArrowDropDownCircleIcon id="dropDown-arrow" />
       </Button>
     </div>
@@ -178,6 +173,5 @@ SearchPage.propTypes = {
   categories:PropTypes.array.isRequired,
   onChangeCategoryValue: PropTypes.func.isRequired,
   onClickSearch:PropTypes.func.isRequired,
-  loadMusician:func.isRequired,
 };
 

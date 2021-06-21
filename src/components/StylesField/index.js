@@ -47,10 +47,5 @@ export default function StylesField({ styles, styleName, onChangeStyleValue }) {
 StylesField.propTypes = {
   styles: PropTypes.array.isRequired,
   styleName: PropTypes.array.isRequired,
-  // styles: PropTypes.arrayOf(
-  //     PropTypes.shape({
-  //       id: PropTypes.number,
-  //       name: PropTypes.string,
-  //     }).isRequired,
   onChangeStyleValue: PropTypes.func.isRequired,
 };
