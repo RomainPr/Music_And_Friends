@@ -1,15 +1,13 @@
 import { connect } from 'react-redux';
 import StylesField from 'src/components/StylesField';
-import { changeStyleValue } from 'src/actions/search';
+import { changeStyleValue } from 'src/actions/changeInput';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, ownProps) => ({
+  styles: state.sign.styles,
+  value: state.sign[ownProps.name],
+  styleName: state.sign.styleName,
 
-  return {
-    styles: state.signMusician.styles,
-    value: state.signMusician[ownProps.name],
-    styleName: state.signMusician.styleName,
-  };
-};
+});
 
 const mapDispatchToProps = (dispatch) => ({
   onChangeStyleValue: (event) => {
