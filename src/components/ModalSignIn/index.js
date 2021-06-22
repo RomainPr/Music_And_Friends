@@ -23,7 +23,7 @@ const ModalSignIn = ({ openSignIn, handleClose }) => (
       }}
     >
       <Fade in={openSignIn}>
-        <div className="modal__content">
+        <div className="modal--content">
           <LoginForm />
         </div>
       </Fade>
