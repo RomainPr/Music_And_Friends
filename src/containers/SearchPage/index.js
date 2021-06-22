@@ -47,7 +47,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
 
   onClickSearch: (event) => {
-    // event.preventDefault()
+    event.preventDefault()
     dispatch(clickSearch(event.target.value));
   },
 

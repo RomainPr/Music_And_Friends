@@ -47,9 +47,16 @@ export default function SearchPage({
   onClickSearch,
 }) {
 
-if (isBandChecked) {
+if (!isBandChecked) {
+  console.log(!isBandChecked)
     // searchResult = [...bands];
     searchResult.push(...bands)
+    console.log("searchResult bands:", searchResult);
+    
+  };
+  if (isBandChecked) {
+    // searchResult = [...bands];
+    searchResult
     console.log("searchResult bands:", searchResult);
     
   };
@@ -137,7 +144,7 @@ console.log(searchResult)
           <Slider {...settings}>
 
             {searchResult.map((item, index) => {
-              console.log(item);
+              {/* console.log(item); */}
               return (
 
                 <Grid
