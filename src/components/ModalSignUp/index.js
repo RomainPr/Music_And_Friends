@@ -98,6 +98,7 @@ function ModalSignUp({ openSignUp, handleClose }) {
                     className={classes.actionArea}
                     component={Link}
                     to="/sign/place"
+                    onClick={handleClose}
                   >
                     <Card className={classes.card}>
                       <CardMedia component="img" image={place} />
