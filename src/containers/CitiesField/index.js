@@ -1,15 +1,12 @@
 import { connect } from 'react-redux';
 import CitiesField from 'src/components/CitiesField';
-import { changeCityValue } from 'src/actions/search';
+import { changeCityValue } from 'src/actions/changeInput';
 
-const mapStateToProps = (state, ownProps) => {
-  console.log(`on est container citiesField`)
-  return {
-    cities: state.signMusician.cities,
-    value: state.signMusician[ownProps.name],
-    cityName: state.signMusician.cityName,
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  cities: state.sign.cities,
+  value: state.sign[ownProps.name],
+  cityName: state.sign.cityName,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   onChangeCityValue: (event) => {

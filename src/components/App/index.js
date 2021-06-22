@@ -9,6 +9,9 @@ import SignMusician from 'src/containers/SignMusician';
 import SearchPage from 'src/containers/SearchPage';
 import MusicianProfilEdition from 'src/components/MusicianProfilEdition';
 import Footer from 'src/components/Footer';
+import SignPlace from 'src/containers/SignPlace';
+
+
 import Loading from './Loading';
 
 import './styles.scss';

@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 
-import SignMusician from 'src/components/SignMusician';
+import SignPlace from 'src/components/SignPlace';
 
 import { changeInputValue } from 'src/actions/changeInput';
-import { submitSignUpMusician } from 'src/actions/user';
+import { submitSignUpPlace } from 'src/actions/user';
 
 // connecter le composant en lecture du state
 const mapStateToProps = (state) => ({
@@ -11,7 +11,9 @@ const mapStateToProps = (state) => ({
   lastname: state.sign.lastname,
   phone: state.sign.phone,
   city: state.sign.city,
-  pseudo: state.sign.pseudo,
+  placeName: state.sign.placeName,
+  adress: state.sign.adress,
+  postalCode: state.sign.postalCode,
   description: state.sign.description,
   email: state.sign.email,
   password: state.sign.password,
@@ -25,8 +27,8 @@ const mapDispatchToProps = (dispatch) => ({
   },
 
   handleSignUp: () => {
-    dispatch(submitSignUpMusician());
+    dispatch(submitSignUpPlace());
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignMusician);
+export default connect(mapStateToProps, mapDispatchToProps)(SignPlace);
