@@ -2,6 +2,7 @@
 
 .profilsCards {
     &__title {
+        text-align: left;
         font-size: 1.7em;
         padding-bottom: vars.$paddingBottomSmall;
     }

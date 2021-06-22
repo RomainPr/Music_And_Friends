@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 import Nav from 'src/containers/connectedNav';
 
@@ -15,6 +16,8 @@ const Header = () => (
       <h1>Trouvez votre prochain "Groupe/Musicien/Evènement"</h1>
       <div className="header__middle__search">
         <Button
+          component={Link}
+          to="/search"
           variant="contained"
           size="large"
           color="primary"

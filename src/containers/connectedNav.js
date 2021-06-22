@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { openModal } from 'src/actions/modalSignIn';
+import { openModal, openModalSignUp } from 'src/actions/modalSignIn';
 import { setAnchorEl, handleMenuClose, openToggler } from 'src/actions/nav';
 
 import Nav from 'src/components/Nav';
@@ -15,6 +15,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   openModalSignIn: () => {
     dispatch(openModal());
+  },
+  openModalSignUp: () => {
+    dispatch(openModalSignUp());
   },
   handleProfileMenuOpen: (event) => {
     dispatch(setAnchorEl(event.currentTarget));

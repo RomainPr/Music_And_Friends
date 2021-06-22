@@ -8,12 +8,12 @@ import LoginForm from 'src/containers/connectedLoginForm';
 
 import './styles.scss';
 
-const ModalSignIn = ({ open, handleClose }) => (
+const ModalSignIn = ({ openSignIn, handleClose }) => (
   <div className="modalSign">
     <Modal
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
-      open={open}
+      open={openSignIn}
       onClose={handleClose}
       className="modalSignIn"
       closeAfterTransition
@@ -22,8 +22,8 @@ const ModalSignIn = ({ open, handleClose }) => (
         timeout: 500,
       }}
     >
-      <Fade in={open}>
-        <div className="modal__content">
+      <Fade in={openSignIn}>
+        <div className="modal--content">
           <LoginForm />
         </div>
       </Fade>
@@ -32,7 +32,7 @@ const ModalSignIn = ({ open, handleClose }) => (
 );
 
 ModalSignIn.propTypes = {
-  open: PropTypes.bool.isRequired,
+  openSignIn: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
 };
 

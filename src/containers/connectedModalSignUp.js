@@ -2,10 +2,10 @@ import { connect } from 'react-redux';
 
 import { closeModal } from 'src/actions/modalSignIn';
 
-import ModalSignIn from 'src/components/ModalSignIn';
+import ModalSignUp from 'src/components/ModalSignUp';
 
 const mapStateToProps = (state) => ({
-  openSignIn: state.modalSignIn.openSignIn,
+  openSignUp: state.modalSignIn.openSignUp,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ModalSignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(ModalSignUp);

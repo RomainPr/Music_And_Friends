@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -26,6 +27,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import ModalSignIn from 'src/containers/connectedModalSignIn';
+import ModalSignUp from 'src/containers/connectedModalSignUp';
 
 import './styles.scss';
 
@@ -72,6 +74,7 @@ function Nav({
   open,
   isMenuOpen,
   openModalSignIn,
+  openModalSignUp,
   handleProfileMenuOpen,
   handleMenuClose,
   toggleDrawer,
@@ -98,11 +101,14 @@ function Nav({
   return (
     <div className="navbar">
       <ModalSignIn />
+      <ModalSignUp />
       {!isAuthenticated
         ? (
           <div className="navbar__content">
             <div className="navbar__content__left">
-              <img src="" alt="Logo M&F" />
+              <Link to="/">
+                <img src="" alt="Logo M&F" />
+              </Link>
             </div>
             <div className="navbar__content__right">
               <Button
@@ -116,6 +122,7 @@ function Nav({
                 className="navbar__content__right__buttons"
                 variant="contained"
                 color="secondary"
+                onClick={openModalSignUp}
               >
                 Inscription
               </Button>
@@ -225,6 +232,7 @@ Nav.propTypes = {
   handleMenuClose: PropTypes.func.isRequired,
   toggleDrawer: PropTypes.func.isRequired,
   openModalSignIn: PropTypes.func.isRequired,
+  openModalSignUp: PropTypes.func.isRequired,
 };
 
 export default Nav;

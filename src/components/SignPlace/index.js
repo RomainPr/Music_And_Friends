@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './styles.scss';
-import StylesField from 'src/containers/StylesField';
-import InstrumentsField from 'src/containers/InstrumentsField';
+
 import CitiesField from 'src/containers/CitiesField';
 
 import {
@@ -17,22 +16,21 @@ import {
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import SaveIcon from '@material-ui/icons/Save';
 
-// destructuration data pour recup tableau intruments et styles
-
-const SignMusician = ({
+const SignPlace = ({
   firstname,
   lastname,
   phone,
-  pseudo,
+  placeName,
+  adress,
+  postalCode,
   description,
   email,
   password,
   onChangeValue,
   handleSignUp,
+
 }) => {
   const handleOnChange = (event) => {
-    console.log(`event.target.name = `, event.target.name);
-
     onChangeValue(event.target.value, event.target.name);
   };
 
@@ -43,9 +41,11 @@ const SignMusician = ({
 
   return (
     <Grid container direction="column">
-      <h1 className="title">Vos informations de profil musicien</h1>
+      <h1 className="title">Vos informations de Salle de concert</h1>
 
-      <form>
+      <form
+        onSubmit={handleOnSubmit}
+      >
         <FormControl id="mainForm" noValidate autoComplete="off">
           <Grid container direction="row" alignItems="center" id="inputIdPictureIntruments">
             <Grid item xs={4}>
@@ -79,7 +79,7 @@ const SignMusician = ({
 
             <Grid item xs={4}>
 
-              <Avatar id="profil-picture" alt="photo de profil random" src="https://cdn.pixabay.com/photo/2015/01/06/16/14/woman-590490_960_720.jpg" />
+              <Avatar id="profil-picture" alt="photo de profil random" src="https://cdn.pixabay.com/photo/2019/11/02/01/15/headphones-4595492_960_720.jpg" />
               <div className="">
                 <input
                   accept="image/*"
@@ -104,18 +104,31 @@ const SignMusician = ({
             <Grid item xs={4}>
               <Grid container direction="column" justify="space-between" alignItems="center" spacing={4}>
                 <TextField
-                  id="input-pseudo"
-                  label="Votre pseudo"
+                  id="input-placeName"
+                  label="Votre nom de lieu"
                   type="text"
-                  name="pseudo"
+                  name="placeName"
                   onChange={handleOnChange}
-                  value={pseudo}
+                  value={placeName}
                 />
 
-                <InstrumentsField />
+                <TextField
+                  id="input-adress"
+                  label="Votre adresse"
+                  type="text"
+                  name="adress"
+                  onChange={handleOnChange}
+                  value={adress}
+                />
 
-                <StylesField />
-
+                <TextField
+                  id="input-postalCode"
+                  label="Votre code postale"
+                  type="text"
+                  name="postalCode"
+                  onChange={handleOnChange}
+                  value={postalCode}
+                />
               </Grid>
             </Grid>
           </Grid>
@@ -183,11 +196,13 @@ const SignMusician = ({
   );
 };
 
-SignMusician.propTypes = {
+SignPlace.propTypes = {
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
-  pseudo: PropTypes.string.isRequired,
+  placeName: PropTypes.string.isRequired,
+  adress: PropTypes.string.isRequired,
+  postalCode: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
@@ -195,4 +210,4 @@ SignMusician.propTypes = {
   handleSignUp: PropTypes.func.isRequired,
 };
 
-export default SignMusician;
+export default SignPlace;

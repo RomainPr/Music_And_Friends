@@ -1,15 +1,12 @@
 import { connect } from 'react-redux';
 import InstrumentsField from 'src/components/InstrumentsField';
-import { changeInstrumentValue } from 'src/actions/search';
+import { changeInstrumentValue } from 'src/actions/changeInput';
 
-const mapStateToProps = (state, ownProps) => {
-
-  return {
-    instruments: state.signMusician.instruments,
-    value: state.signMusician[ownProps.name],
-    instrumentName: state.signMusician.instrumentName,
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  instruments: state.sign.instruments,
+  value: state.sign[ownProps.name],
+  instrumentName: state.sign.instrumentName,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   onChangeInstrumentValue: (event) => {
