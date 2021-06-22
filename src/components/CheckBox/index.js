@@ -41,7 +41,7 @@ const handleBoxChecked = (event) => {
           <FormControlLabel           
             control={
               <Checkbox id='selector-field'
-                checked={isBandChecked}
+                checked={checked}
                 value={bands}
                 onChange={handleBoxChecked}
                 name="bands"
@@ -52,7 +52,7 @@ const handleBoxChecked = (event) => {
           <FormControlLabel
             control={
               <Checkbox id='selector-field'
-                checked={isMusicianChecked}
+                checked={checked}
                 value={musicians}
                 onChange={handleBoxChecked}
                 name="musicians"/>}
@@ -62,7 +62,7 @@ const handleBoxChecked = (event) => {
           <FormControlLabel
             control={
               <Checkbox id='selector-field'
-                checked={isPlaceChecked}
+                checked={checked}
                 value={places}
                 onChange={handleBoxChecked}
                 name="places" />}
