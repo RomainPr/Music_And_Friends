@@ -21,21 +21,21 @@ import {
 const apiMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_MUSICIANS:
-      axios.get('http://localhost:3001/musicians')
+      axios.get('https://music-and-friends.herokuapp.com/musicians')
         .then((response) => {
           store.dispatch(getMusiciansSuccess(response.data.results));
         });
       next(action);
       break;
     case GET_BANDS:
-      axios.get('http://localhost:3001/bands')
+      axios.get('https://music-and-friends.herokuapp.com/bands')
         .then((response) => {
           store.dispatch(getBandsSuccess(response.data.results));
         });
       next(action);
       break;
     case GET_PLACES:
-      axios.get('http://localhost:3001/places')
+      axios.get('https://music-and-friends.herokuapp.com/places')
         .then((response) => {
           store.dispatch(getPlacesSuccess(response.data.results));
         });
@@ -45,7 +45,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       const state = store.getState();
       const loginRequest = {
         method: 'POST',
-        url: 'http://localhost:3001/signin/user',
+        url: 'https://music-and-friends.herokuapp.com/signin/user',
         data: {
           email: state.user.email,
           password: state.user.password,

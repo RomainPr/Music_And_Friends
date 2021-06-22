@@ -16,9 +16,9 @@ import './styles.scss';
 function App({
   loadMusicians, loading, musicians, bands, places,
 }) {
-  // useEffect(() => {
-  //   loadMusicians();
-  // }, []);
+  useEffect(() => {
+    loadMusicians();
+  }, []);
 
   if (loading) {
     return <Loading />;
@@ -32,14 +32,18 @@ function App({
           <Footer />
         </Route>
         <Route exact path="/search">
+          <Nav />
           <SearchPage
             musicians={musicians}
             bands={bands}
             places={places}
           />
+          <Footer />
         </Route>
         <Route exact path="/sign/musician">
+          <Nav />
           <SignMusician />
+          <Footer />
         </Route>
       </Switch>
     </div>

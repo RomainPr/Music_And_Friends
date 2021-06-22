@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -105,7 +106,9 @@ function Nav({
         ? (
           <div className="navbar__content">
             <div className="navbar__content__left">
-              <img src="" alt="Logo M&F" />
+              <Link to="/">
+                <img src="" alt="Logo M&F" />
+              </Link>
             </div>
             <div className="navbar__content__right">
               <Button
