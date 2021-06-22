@@ -187,8 +187,7 @@ const SignPlace = ({
           color="primary"
           size="large"
           startIcon={<SaveIcon />}
-          type="submit"
-          onClick={handleSignUp}
+          onClick={handleOnSubmit}
         >
           Save
         </Button>
