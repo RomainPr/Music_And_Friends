@@ -17,7 +17,7 @@ from 'src/actions/musicians';
 
 const mapStateToProps = (state) => {
 
-  console.log(state);
+  console.log(state.search.searchResult);
   
   return {
     categories: state.search.categories,
@@ -27,12 +27,16 @@ const mapStateToProps = (state) => {
     isMusicianChecked: state.search.isMusicianChecked,
     isPlaceChecked: state.search.isPlaceChecked,
 
+    cityName:state.search.cityName,
+    instrumentName:state.search.instrumentName,
+    styleName:state.search.styleName,
+
     musicians: state.musicians.musicians,
     bands: state.musicians.bands,
     places: state.musicians.places,
 
     loading: state.musicians.loading,
-   
+    searchResult:state.search.searchResult
   };
 };
 
@@ -42,8 +46,9 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(changeCategoryValue(event.target.name));
   },
 
-  onClickSearch: (searchResult) => {
-    dispatch(clickSearch(searchResult));
+  onClickSearch: (event) => {
+    // event.preventDefault()
+    dispatch(clickSearch(event.target.value));
   },
 
   loadMusicians: () => {

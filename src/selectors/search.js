@@ -50,9 +50,9 @@ id |firstname| lastname |pseudo|phone|email |password |
 */
 export function findSearchResult(
   searchResult,
-  band, 
-  user, 
-  place,
+  bands, 
+  musicians, 
+  places,
   isBandChecked,
   isMusicianChecked,
   isPlaceChecked
@@ -64,28 +64,23 @@ export function findSearchResult(
     console.log(place);
     // console.log(state.band[id].map(id => state.band[id].band_name))
 
-    
-    
-
-
-
   if (isBandChecked) {
-    searchResult = band[0].find((band_name) => {
-      console.log(band_name);
-      return band_name;
-    });
+    searchResult = bands => {
+      
+      return searchResult;
+    };
 
   } else if (isMusicianChecked) {
-    searchResult = user.find((pseudo) => {
-      console.log(pseudo)
-      return pseudo;
-    });
+    searchResult = musicians => {
+     
+      return searchResult;
+    };
 
   } else if (isPlaceChecked) {
-    searchResult = place.find((name) => {
-      console.log(place)
-      return name;
-    });
+    searchResult = places => {
+
+      return searchResult;
+    };
   }
   return searchResult;
 }
