@@ -48,6 +48,11 @@ function App({
           <SignMusician />
           <Footer />
         </Route>
+        <Route exact path="/sign/place">
+          <Nav />
+          <SignPlace />
+          <Footer />
+        </Route>
       </Switch>
     </div>
   );
