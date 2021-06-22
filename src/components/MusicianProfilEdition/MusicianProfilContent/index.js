@@ -175,8 +175,6 @@ function MusicianProfilContent() {
                   <h4 className="profilEditionContent__content__video__title">Vidéos</h4>
                   <Paper elevation={3} className={classes.paperRight}>
                     <MovieRoundedIcon className={classes.buttonsLeft} />
-                    <div className="" />
-
                     <div className="profilEditionContent__content__action">
                       <Fab size="small" color="primary" aria-label="add">
                         <AddIcon />
