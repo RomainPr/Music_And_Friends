@@ -6,14 +6,17 @@ import Nav from 'src/containers/connectedNav';
 import SignMusician from 'src/containers/SignMusician';
 import SearchPage from 'src/containers/SearchPage';
 import MusicianProfilEdition from 'src/components/MusicianProfilEdition';
+import Footer from 'src/components/Footer';
 import Loading from './Loading';
 
 import './styles.scss';
 
-function App({ loadMusicians, loading, musicians, bands, places }) {
-useEffect(() => {
-loadMusicians();
-}, []);
+function App({
+  loadMusicians, loading, musicians, bands, places,
+}) {
+  // useEffect(() => {
+  //   loadMusicians();
+  // }, []);
 
   if (loading) {
     return <Loading />;
@@ -21,19 +24,13 @@ loadMusicians();
 
   return (
     <div className="app">
-<<<<<<< HEAD
-     <SearchPage 
-      musicians={musicians}
-      bands={bands}
-      places={places}
-     />
-     {/* <Home /> */}
-=======
-      {/* <SearchPage /> */}
-      {/* <Home /> */}
-      <Nav />
-      <MusicianProfilEdition />
->>>>>>> Component_editing_Profil_Musician
+      {/* <SearchPage
+        musicians={musicians}
+        bands={bands}
+        places={places}
+      /> */}
+      <Home />
+      <Footer />
     </div>
   );
 }
