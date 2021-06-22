@@ -54,23 +54,25 @@ if (!isBandChecked) {
     console.log("searchResult bands:", searchResult);
     
   };
-  if (isBandChecked) {
-    // searchResult = [...bands];
-    searchResult
-    console.log("searchResult bands:", searchResult);
+  // if (isBandChecked) {
+  //   // searchResult = [...bands];
+  //   searchResult.filter(band_name){
+  //     return band_name
+  //   }
+  //   console.log("searchResult bands:", searchResult);
     
-  };
+  // };
 
-if (isMusicianChecked) {
-      // searchResult = [...musicians];
-      searchResult.push(...musicians)
-      console.log("searchResult musicians:", searchResult);
-    };
-if (isPlaceChecked) {
-      // searchResult = [...places];
-      searchResult.push(...places)
-      console.log("searchResult places:", searchResult);
-    };
+// if (isMusicianChecked) {
+//       // searchResult = [...musicians];
+//       searchResult.push(...musicians)
+//       console.log("searchResult musicians:", searchResult);
+//     };
+// if (isPlaceChecked) {
+//       // searchResult = [...places];
+//       searchResult.push(...places)
+//       console.log("searchResult places:", searchResult);
+//     };
 console.log(searchResult)
 
   const fullList = [...musicians, ...bands, ...places];
