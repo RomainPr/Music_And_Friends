@@ -46,11 +46,11 @@ export default function SearchPage({
   onClickSearch,
 }) {
 
-
 if (isBandChecked) {
     // searchResult = [...bands];
     searchResult.push(...bands)
     console.log("searchResult bands:", searchResult);
+    
   };
 
 if (isMusicianChecked) {
