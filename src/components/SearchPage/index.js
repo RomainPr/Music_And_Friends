@@ -65,9 +65,7 @@ export default function SearchPage({
       <form id="form">
          {/* onClick={handleChange} */}
         
-          <CheckBox 
-          
-          />
+          <CheckBox />
         <div id="searchFields">  
           <CitiesField />
           <InstrumentsField />

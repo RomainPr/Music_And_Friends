@@ -21,14 +21,17 @@ export default function CheckBox({
   isBandChecked,
   isMusicianChecked,
   isPlaceChecked,
-  bands, musicians, places,
+  value,
+  // bands, musicians, places,
   onChangeBoxValue
 }) {
 
 const handleBoxChecked = (event) => {
           //as doc M UI https://material-ui.com/components/checkboxes/
-          console.log(event.target.value);
-          return ( onChangeBoxValue({ [event.target.value]: event.target.checked }))
+          console.log(event.target.name);
+          console.log(event.target.checked);
+          // return ( onChangeBoxValue({ [event.target.name]: event.target.checked }))
+          return (onChangeBoxValue(event.target.checked, event.target.name))
   };
   
   return (
@@ -40,32 +43,35 @@ const handleBoxChecked = (event) => {
         <FormGroup row aria-label="position" name="position" defaultValue="right">
           <FormControlLabel           
             control={
-              <Checkbox id='selector-field'
+              <Checkbox 
+              // id='isBandChecked'
                 checked={isBandChecked}
-                value={bands}
+                // value={value}
                 onChange={handleBoxChecked}
-                name="bands"
+                name="isBandChecked"
               />}
             label="Groupes"
             labelPlacement="end"
           />
           <FormControlLabel
             control={
-              <Checkbox id='selector-field'
+              <Checkbox 
+                // id='isMusicianChecked'
                 checked={isMusicianChecked}
-                value={musicians}
+                // value={value}
                 onChange={handleBoxChecked}
-                name="musicians"/>}
+                name="isMusicianChecked"/>}
             label="Musiciens"
             labelPlacement="end"
           />
           <FormControlLabel
             control={
-              <Checkbox id='selector-field'
+              <Checkbox
+                // id='isPaceChecked'
                 checked={isPlaceChecked}
-                value={places}
+                // value={value}
                 onChange={handleBoxChecked}
-                name="places" />}
+                name="isPlaceChecked" />}
             label="Salles"
             labelPlacement="end"
           />
@@ -78,19 +84,19 @@ const handleBoxChecked = (event) => {
 }
 
 CheckBox.propTypes = {
-  isBandChecked: PropTypes.bool.isRequired,
-  isMusicianChecked: PropTypes.bool.isRequired,
-  isPlaceChecked: PropTypes.bool.isRequired,
-  musicians: PropTypes.array.isRequired,
-  bands: PropTypes.array.isRequired,
-  places: PropTypes.array.isRequired,
+  isBandChecked: PropTypes.bool,
+  isMusicianChecked: PropTypes.bool,
+  isPlaceChecked: PropTypes.bool,
+  // musicians: PropTypes.array.isRequired,
+  // bands: PropTypes.array.isRequired,
+  // places: PropTypes.array.isRequired,
   onChangeBoxValue: PropTypes.func.isRequired,
 
 };
-/*
+
 CheckBox.defaultProps = {
   isBandChecked: false,
   isMusicianChecked: false,
   isPlaceChecked: false,
 }
-*/
+

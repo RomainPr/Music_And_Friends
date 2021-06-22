@@ -8,24 +8,25 @@ const mapStateToProps = (state, ownProps) => {
 // console.log(state);
 // console.log(state.search)
 // console.log(state[ownProps])
+
 return { 
   isBandChecked: state.search.isBandChecked,
   isMusicianChecked: state.search.isMusicianChecked,
   isPlaceChecked: state.search.isPlaceChecked,
 
-  musicians: state.musicians.musicians,
-  bands: state.musicians.bands,
-  places: state.musicians.places,
+  // musicians: state.musicians.musicians,
+  // bands: state.musicians.bands,
+  // places: state.musicians.places,
   value: state.search[ownProps.name],
 }
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch) => ({
   
   // 
-  onChangeBoxValue: (value) => {
+  onChangeBoxValue: (value,key) => {
    
-    const action = changeBoxValue(value, ownProps.name);
+    const action = changeBoxValue(value,key);
    
     dispatch(action);
 
