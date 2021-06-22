@@ -29,7 +29,7 @@ const useStyles = makeStyles(() => ({
     flexGrow: 1,
   },
   paperLeft: {
-    width: '250px',
+    width: '270px',
     borderRadius: '10px',
     padding: '30px',
   },
