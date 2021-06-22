@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
+
 import SignMusician from 'src/components/SignMusician';
+
 import { changeInputValue } from 'src/actions/changeInput';
+import { submitSignUpMusician } from 'src/actions/user';
 
 // connecter le composant en lecture du state
 const mapStateToProps = (state) => ({
@@ -19,6 +22,10 @@ const mapDispatchToProps = (dispatch) => ({
   onChangeValue: (value, key) => {
     const action = changeInputValue(value, key);
     dispatch(action);
+  },
+
+  handleSignUp: () => {
+    dispatch(submitSignUpMusician());
   },
 });
 

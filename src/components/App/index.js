@@ -22,9 +22,9 @@ function App({ loadMusicians, loading }) {
 
   return (
     <div className="app">
-      <Nav />
-      <SignPlace />
-      {/* <SignMusician /> */}
+      {/* <Nav /> */}
+      {/* <SignPlace /> */}
+      <SignMusician />
       {/* <SearchPage /> */}
       {/* <Home /> */}
     </div>

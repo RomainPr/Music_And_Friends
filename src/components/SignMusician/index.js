@@ -28,11 +28,17 @@ const SignMusician = ({
   email,
   password,
   onChangeValue,
+  handleSignUp,
 }) => {
   const handleOnChange = (event) => {
     console.log(`event.target.name = `, event.target.name);
 
     onChangeValue(event.target.value, event.target.name);
+  };
+
+  const handleOnSubmit = (event) => {
+    event.preventDefault();
+    handleSignUp();
   };
 
   return (
@@ -168,6 +174,7 @@ const SignMusician = ({
           color="primary"
           size="large"
           startIcon={<SaveIcon />}
+          onClick={handleOnSubmit}
         >
           Save
         </Button>
@@ -185,6 +192,7 @@ SignMusician.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   onChangeValue: PropTypes.func.isRequired,
+  handleSignUp: PropTypes.func.isRequired,
 };
 
 export default SignMusician;
