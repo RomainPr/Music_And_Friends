@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Avatar from '@material-ui/core/Avatar';
@@ -65,6 +66,8 @@ function LastProfils({ musicians, bands, places }) {
                     variant="contained"
                     size="large"
                     color="primary"
+                    component={Link}
+                    to={`/musicians/${item.id}`}
                   >
                     Voir le profil
                   </Button>

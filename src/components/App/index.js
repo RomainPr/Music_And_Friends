@@ -8,9 +8,9 @@ import Nav from 'src/containers/connectedNav';
 import SignMusician from 'src/containers/SignMusician';
 import SearchPage from 'src/containers/SearchPage';
 import MusicianProfilEdition from 'src/components/MusicianProfilEdition';
+import MusicianProfil from 'src/components/Profils/MusicianProfil';
 import Footer from 'src/components/Footer';
 import SignPlace from 'src/containers/SignPlace';
-
 
 import Loading from './Loading';
 
@@ -51,6 +51,11 @@ function App({
         <Route exact path="/sign/place">
           <Nav />
           <SignPlace />
+          <Footer />
+        </Route>
+        <Route exact path="/musician/id">
+          <Nav />
+          <MusicianProfil />
           <Footer />
         </Route>
       </Switch>
