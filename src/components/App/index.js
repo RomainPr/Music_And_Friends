@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { Route, Switch, Redirect } from 'react-router';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Home from 'src/containers/connectedHomepageContent';
 import SignMusician from 'src/containers/SignMusician';
@@ -27,18 +27,26 @@ function App({
         <Route exact path="/">
           <Home />
         </Route>
+        <Route exact path="/search">
+          <SearchPage
+            musicians={musicians}
+            bands={bands}
+            places={places}
+          />
+        </Route>
+        <Route exact path="/sign/musician">
+          <SignMusician />
+        </Route>
       </Switch>
-      <SearchPage
-        musicians={musicians}
-        bands={bands}
-        places={places}
-      />
     </div>
   );
 }
 
 App.propTypes = {
   loadMusicians: PropTypes.func.isRequired,
+  musicians: PropTypes.array.isRequired,
+  bands: PropTypes.array.isRequired,
+  places: PropTypes.array.isRequired,
   loading: PropTypes.bool,
 };
 
