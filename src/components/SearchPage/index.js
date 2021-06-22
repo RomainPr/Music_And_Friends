@@ -46,20 +46,24 @@ export default function SearchPage({
   onClickSearch,
 }) {
 
-  if (isBandChecked) {
-    searchResult = [...bands];
+
+if (isBandChecked) {
+    // searchResult = [...bands];
+    searchResult.push(...bands)
     console.log("searchResult bands:", searchResult);
-
-    if (isMusicianChecked) {
-      searchResult = [...musicians];
-      console.log("searchResult musicians:", searchResult);
-
-      if (isPlaceChecked) {
-        searchResult = [...places];
-        console.log("searchResult places:", searchResult);
-      }
-    }
   };
+
+if (isMusicianChecked) {
+      // searchResult = [...musicians];
+      searchResult.push(...musicians)
+      console.log("searchResult musicians:", searchResult);
+    };
+if (isPlaceChecked) {
+      // searchResult = [...places];
+      searchResult.push(...places)
+      console.log("searchResult places:", searchResult);
+    };
+console.log(searchResult)
 
   const fullList = [...musicians, ...bands, ...places];
 
