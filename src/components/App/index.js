@@ -13,9 +13,9 @@ import './styles.scss';
 function App({
   loadMusicians, loading, musicians, bands, places,
 }) {
-  useEffect(() => {
-    loadMusicians();
-  }, []);
+  // useEffect(() => {
+  //   loadMusicians();
+  // }, []);
 
   if (loading) {
     return <Loading />;
