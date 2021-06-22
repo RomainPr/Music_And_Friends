@@ -1,7 +1,8 @@
-import { OPEN_MODAL_SIGNIN, CLOSE_MODAL_SIGNIN } from 'src/actions/modalSignIn';
+import { OPEN_MODAL_SIGNIN, OPEN_MODAL_SIGNUP, CLOSE_MODAL_SIGNIN } from 'src/actions/modalSignIn';
 
 const initialState = {
-  open: false,
+  openSignIn: false,
+  openSignUp: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -9,12 +10,18 @@ const reducer = (state = initialState, action) => {
     case OPEN_MODAL_SIGNIN:
       return {
         ...state,
-        open: true,
+        openSignIn: true,
+      };
+    case OPEN_MODAL_SIGNUP:
+      return {
+        ...state,
+        openSignUp: true,
       };
     case CLOSE_MODAL_SIGNIN:
       return {
         ...state,
-        open: false,
+        openSignIn: false,
+        openSignUp: false,
       };
     default:
       return state;

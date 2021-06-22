@@ -26,6 +26,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import ModalSignIn from 'src/containers/connectedModalSignIn';
+import ModalSignUp from 'src/containers/connectedModalSignUp';
 
 import './styles.scss';
 
@@ -72,6 +73,7 @@ function Nav({
   open,
   isMenuOpen,
   openModalSignIn,
+  openModalSignUp,
   handleProfileMenuOpen,
   handleMenuClose,
   toggleDrawer,
@@ -98,6 +100,7 @@ function Nav({
   return (
     <div className="navbar">
       <ModalSignIn />
+      <ModalSignUp />
       {!isAuthenticated
         ? (
           <div className="navbar__content">
@@ -116,6 +119,7 @@ function Nav({
                 className="navbar__content__right__buttons"
                 variant="contained"
                 color="secondary"
+                onClick={openModalSignUp}
               >
                 Inscription
               </Button>
@@ -225,6 +229,7 @@ Nav.propTypes = {
   handleMenuClose: PropTypes.func.isRequired,
   toggleDrawer: PropTypes.func.isRequired,
   openModalSignIn: PropTypes.func.isRequired,
+  openModalSignUp: PropTypes.func.isRequired,
 };
 
 export default Nav;
