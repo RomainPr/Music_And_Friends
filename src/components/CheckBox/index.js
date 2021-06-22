@@ -9,21 +9,31 @@ import FormLabel from '@material-ui/core/FormLabel';
 
 import './styles.scss';
 
+//DOC FILTER MDN 
+//https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_interactivity_filtering_conditional_rendering
+//  /*console.log(isBandChecked)
+// //   const handleBoxChange = (event) => {
+// //     //as doc M UI https://material-ui.com/components/checkboxes/
+// //     console.log(event.target.value);
+// //     return ( onChangeBoxValue({ [event.target.value]: event.target.checked }))
+// // 
 export default function CheckBox({
   isBandChecked,
   isMusicianChecked,
   isPlaceChecked,
+  value,
   // bands, musicians, places,
   onChangeBoxValue
 }) {
-  // console.log(isBandChecked)
-  const handleBoxChange = (event) => {
-    //as doc M UI https://material-ui.com/components/checkboxes/
-    console.log(event.target.value);
-    return ( onChangeBoxValue({ [event.target.value]: event.target.checked }))
 
+const handleBoxChecked = (event) => {
+          //as doc M UI https://material-ui.com/components/checkboxes/
+          console.log(event.target.name);
+          console.log(event.target.checked);
+          // return ( onChangeBoxValue({ [event.target.name]: event.target.checked }))
+          return (onChangeBoxValue(event.target.checked, event.target.name))
   };
-
+  
   return (
     <div id="check-box">
       <FormControl component="fieldset">
@@ -33,10 +43,11 @@ export default function CheckBox({
         <FormGroup row aria-label="position" name="position" defaultValue="right">
           <FormControlLabel           
             control={
-              <Checkbox id='selector-field'
+              <Checkbox 
+              // id='isBandChecked'
                 checked={isBandChecked}
-                // value={isBandChecked}
-                onChange={handleBoxChange}
+                // value={value}
+                onChange={handleBoxChecked}
                 name="isBandChecked"
               />}
             label="Groupes"
@@ -44,20 +55,22 @@ export default function CheckBox({
           />
           <FormControlLabel
             control={
-              <Checkbox id='selector-field'
+              <Checkbox 
+                // id='isMusicianChecked'
                 checked={isMusicianChecked}
-                // value={isMusicianChecked}
-                onChange={handleBoxChange}
+                // value={value}
+                onChange={handleBoxChecked}
                 name="isMusicianChecked"/>}
             label="Musiciens"
             labelPlacement="end"
           />
           <FormControlLabel
             control={
-              <Checkbox id='selector-field'
+              <Checkbox
+                // id='isPaceChecked'
                 checked={isPlaceChecked}
-                // value={isPlaceChecked}
-                onChange={handleBoxChange}
+                // value={value}
+                onChange={handleBoxChecked}
                 name="isPlaceChecked" />}
             label="Salles"
             labelPlacement="end"
@@ -86,3 +99,4 @@ CheckBox.defaultProps = {
   isMusicianChecked: false,
   isPlaceChecked: false,
 }
+

@@ -51,20 +51,22 @@
   }
   
   #search-button {
-    
+    color:vars.$light-color;
+    background-color:vars.$alternarive-color ;
+    padding-left: vars.$gutter * 5;
+    padding-right: vars.$gutter * 5;
     margin-top: 2em;
     margin-bottom:2em;
   }
   
   #result {
-    // display:flex;
-    // justify-content: space-between;
     width: 100%;
     margin-top: 0;
   }
   
   #form-filter-result {
-    padding-top: 0;
+    margin-top: vars.$gutter/2;
+    margin-bottom:vars.$gutter;
     min-width:300px;
     max-width: 400px;
   }

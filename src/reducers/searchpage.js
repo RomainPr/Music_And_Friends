@@ -19,11 +19,11 @@ const initialState = {
   instrumentName: [],
   styleName: [],
 
+ //"RECHERCHER" button 
+  searchResult: [],
+
   //MultiSelect 2 section (multiSelect2 = result + ad)
   categoryName: [],
-
-  //"RECHERCHER" button with selector search
-  searchResult: [],
 
   cities: [
     'Paris',
