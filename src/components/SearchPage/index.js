@@ -47,35 +47,54 @@ export default function SearchPage({
   onClickSearch,
 }) {
 
-if (!isBandChecked) {
-  console.log(!isBandChecked)
-    // searchResult = [...bands];
-    searchResult.push(...bands)
+const fullList = [...musicians, ...bands, ...places];
+// console.log(fullList);
+
+if (isBandChecked) {
+  //https://medium.com/@jv.quilichini/comment-supprimer-les-doublons-dun-tableau-en-es6-c547a5b2bcf3
+ 
+    const bandChecked=[];
+    bandChecked.push(...bands);
+    new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
+    searchResult = [...bandChecked];
     console.log("searchResult bands:", searchResult);
     
+    if (!isBandChecked) {
+     searchResult = [];
+   }
   };
-  // if (isBandChecked) {
-  //   // searchResult = [...bands];
-  //   searchResult.filter(band_name){
-  //     return band_name
-  //   }
-  //   console.log("searchResult bands:", searchResult);
+  
+  if (isMusicianChecked) {
+
+    const musicianChecked=[];
+    musicianChecked.push(...musicians);
+    // console.log(bandsChecked);
+    new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
     
-  // };
+    searchResult = [...musicianChecked];
+    console.log("searchResult musicians:", searchResult);
+   
+    if (!isBandChecked) {
+     searchResult = [];
+   }
+    
+  };
 
-// if (isMusicianChecked) {
-//       // searchResult = [...musicians];
-//       searchResult.push(...musicians)
-//       console.log("searchResult musicians:", searchResult);
-//     };
-// if (isPlaceChecked) {
-//       // searchResult = [...places];
-//       searchResult.push(...places)
-//       console.log("searchResult places:", searchResult);
-//     };
-console.log(searchResult)
+  if (isPlaceChecked) {
 
-  const fullList = [...musicians, ...bands, ...places];
+    const placeChecked=[];
+    placeChecked.push(...places);
+    
+    new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
+  
+    searchResult = [...placeChecked];
+    console.log("searchResult places:", searchResult);
+   
+    if (!isPlaceChecked) {
+     searchResult = [];
+   }
+    
+  };
 
   const settings = {
     dots: true,
@@ -172,7 +191,10 @@ console.log(searchResult)
                       </IconButton>
                     </div>
                     <CardContent id="card__content">
-                      <h2 className="bandName">{item.name}<span>{item.band_name}</span><span>{item.pseudo}</span></h2>
+                      <h2 className="bandName">{item.name}
+                      <span>{item.band_name}</span>
+                      <span>{item.pseudo}</span>
+                      </h2>
                       <h4 className="localization">{item.city}</h4>
                       <p className="description">{item.description}</p>
                     </CardContent>
