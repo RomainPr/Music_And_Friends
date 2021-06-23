@@ -1,34 +1,36 @@
 @use 'src/styles/vars';
 
-.profilEditionContent {
-    margin-top: 150px;
-    margin-bottom: 30px;
+.profilMusicianContent {
+  margin-top: 60px;
+  margin-bottom: 40px;
 
-    &__content {
-        &__title {
-            font-size: 1.5em;
-            padding-bottom: vars.$paddingBottomSmall;
-        }
-        &__list {
-            padding-left: 30px;
-        }
-        &__list li {
-            list-style-type: disc;
-        }
-        &__action {
-            text-align: right;
-            padding-top: vars.$paddingBottomSmall;
-        }
-        &__video {
-            &__title {
-                font-size: 1.3em;
-                padding-bottom: vars.$paddingBottomMedium;
-                text-align: center;
-            }
-        }
+  &__description {
+    &__title {
+      font-size: 1.3em;
+      padding-bottom: vars.$paddingBottomSmall;
     }
-    &__description {
-        margin-top: vars.$paddingTopMedium;
-        margin-bottom: vars.$paddingBottomMedium;
+  }
+  &__content {
+    &__list {
+      padding-left: 30px;
     }
+    &__list li {
+      list-style-type: disc;
+    }
+    &__action {
+      text-align: right;
+      padding-top: vars.$paddingBottomSmall;
+    }
+    &__media {
+        margin: 40px 0;
+      &__title {
+        font-size: 1.3em;
+        padding-bottom: vars.$paddingBottomSmall;
+      }
+    }
+  }
+  &__description {
+    margin-top: vars.$paddingTopMedium;
+    margin-bottom: vars.$paddingBottomMedium;
+  }
 }
