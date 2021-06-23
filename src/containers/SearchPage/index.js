@@ -17,7 +17,7 @@ from 'src/actions/musicians';
 
 const mapStateToProps = (state) => {
 
-  console.log(state.search.searchResult);
+  // console.log(state.search.searchResult);
   
   return {
     categories: state.search.categories,
@@ -47,7 +47,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
 
   onClickSearch: (event) => {
-    // event.preventDefault()
+    event.preventDefault()
     dispatch(clickSearch(event.target.value));
   },
 
