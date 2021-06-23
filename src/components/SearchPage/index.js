@@ -47,9 +47,11 @@ export default function SearchPage({
   onClickSearch,
 }) {
 
-  const fullList = [...musicians, ...bands, ...places];
-  // console.log(fullList);
+//DOC FILTER MDN 
+//https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_interactivity_filtering_conditional_rendering
+//  /*console.log(isBandChecked)
 
+//search with checkbox (bands, musicians,places)
   if (isBandChecked) {
     //https://medium.com/@jv.quilichini/comment-supprimer-les-doublons-dun-tableau-en-es6-c547a5b2bcf3
 
@@ -256,6 +258,31 @@ export default function SearchPage({
       console.log("searchResult bands + musicians + places:", searchResult);
     }
   };
+
+  //search with multiSelect Field (city, instrumentName,styleName)
+    
+    console.log(instrumentName,styleName);
+    console.log(searchResult)
+    if ((instrumentName.length >= 1) || (styleName.lenght >= 1)) {
+      console.log(instrumentName)
+      for (const index of instrumentName) {
+        searchResult.filter(element => element.instrumentName.find(index => element = searchResult.user_instrument));
+        console.log(searchResult)
+      }
+        console.log("searchResult",searchResult);
+      
+    }
+
+    if (styleName.lenght >= 1) {
+      for (const index of styleName) {
+        searchResult.filter(element => element.styleName.find(element => element = index));
+       
+        console.log("searchResult",searchResult);
+      }
+      return searchResult
+  } 
+
+  //Slider setting
   const settings = {
     dots: true,
     infinite: true,
@@ -321,7 +348,7 @@ export default function SearchPage({
       </form>
       <div className="profilsCards">
         <Container maxWidth="lg">
-          <h2 className="profilsCards__title">{searchResult.length} Zikos</h2>
+          <h2 className="profilsCards__title">{searchResult.length} Profil(s)</h2>
           <Slider {...settings}>
 
             {searchResult.map((item, index) => {
