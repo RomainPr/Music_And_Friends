@@ -41,61 +41,221 @@ export default function SearchPage({
   cityName, instrumentName, styleName,
   musicians, bands, places,
   categories,
-  categoryName, 
+  categoryName,
   onChangeCategoryValue,
   searchResult,
   onClickSearch,
 }) {
 
-const fullList = [...musicians, ...bands, ...places];
-// console.log(fullList);
+  const fullList = [...musicians, ...bands, ...places];
+  // console.log(fullList);
 
-if (isBandChecked) {
-  //https://medium.com/@jv.quilichini/comment-supprimer-les-doublons-dun-tableau-en-es6-c547a5b2bcf3
- 
-    const bandChecked=[];
+  if (isBandChecked) {
+    //https://medium.com/@jv.quilichini/comment-supprimer-les-doublons-dun-tableau-en-es6-c547a5b2bcf3
+
+    const bandChecked = [];
     bandChecked.push(...bands);
     new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
     searchResult = [...bandChecked];
     console.log("searchResult bands:", searchResult);
-    
-    if (!isBandChecked) {
-     searchResult = [];
-   }
-  };
-  
-  if (isMusicianChecked) {
 
-    const musicianChecked=[];
+    if (isBandChecked && isMusicianChecked) {
+      const bandChecked = [];
+      bandChecked.push(...bands);
+      new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
+      searchResult = [...bandChecked];
+      console.log("searchResult bands:", searchResult);
+
+      const musicianChecked = [];
+      musicianChecked.push(...musicians);
+      // console.log(bandsChecked);
+      new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...bandChecked, ...musicianChecked];
+      console.log("searchResult bands + musicians:", searchResult);
+
+    }
+
+    if (isBandChecked && isPlaceChecked) {
+      const bandChecked = [];
+      bandChecked.push(...bands);
+      new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
+      searchResult = [...bandChecked];
+      console.log("searchResult bands:", searchResult);
+
+      const placeChecked = [];
+      placeChecked.push(...places);
+      console.log(placeChecked);
+      new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...bandChecked, ...placeChecked];
+      console.log("searchResult bands + places:", searchResult);
+    }
+
+    if (isBandChecked && isMusicianChecked && isPlaceChecked) {
+      const bandChecked = [];
+      bandChecked.push(...bands);
+      new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
+      searchResult = [...bandChecked];
+      console.log("searchResult bands:", searchResult);
+
+      const musicianChecked = [];
+      musicianChecked.push(...musicians);
+      // console.log(bandsChecked);
+      new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...bandChecked, ...musicianChecked];
+      console.log("searchResult bands + musicians:", searchResult);
+
+      const placeChecked = [];
+      placeChecked.push(...places);
+
+      new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...bandChecked, ...musicianChecked, ...placeChecked];
+      console.log("searchResult bands + musicians + places:", searchResult);
+    }
+  };
+
+  if (isMusicianChecked) {
+    //https://medium.com/@jv.quilichini/comment-supprimer-les-doublons-dun-tableau-en-es6-c547a5b2bcf3
+
+    const musicianChecked = [];
     musicianChecked.push(...musicians);
     // console.log(bandsChecked);
     new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
-    
     searchResult = [...musicianChecked];
-    console.log("searchResult musicians:", searchResult);
-   
-    if (!isBandChecked) {
-     searchResult = [];
-   }
-    
+
+    if (isMusicianChecked && isBandChecked) {
+
+      const musicianChecked = [];
+      musicianChecked.push(...musicians);
+      // console.log(bandsChecked);
+      new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...musicianChecked];
+      console.log("searchResult musicians :", searchResult);
+
+      const bandChecked = [];
+      bandChecked.push(...bands);
+      new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
+      searchResult = [...musicianChecked, ...bandChecked];
+      console.log("searchResult bands:", searchResult);
+    }
+
+    if (isMusicianChecked && isPlaceChecked) {
+      const musicianChecked = [];
+      musicianChecked.push(...musicians);
+      // console.log(bandsChecked);
+      new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...musicianChecked];
+      console.log("searchResult musicians :", searchResult);
+
+      const placeChecked = [];
+      placeChecked.push(...places);
+      console.log(placeChecked);
+      new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...musicianChecked, ...placeChecked];
+      console.log("searchResult musicians + places:", searchResult);
+    }
+
+    if (isMusicianChecked && isBandChecked && isPlaceChecked) {
+      const musicianChecked = [];
+      musicianChecked.push(...musicians);
+      // console.log(bandsChecked);
+      new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...musicianChecked];
+      console.log("searchResult musicians:", searchResult);
+
+      const bandChecked = [];
+      bandChecked.push(...bands);
+      new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
+      searchResult = [...bandChecked, ...musicianChecked];
+      console.log("searchResult bands + musician:", searchResult);
+
+      const placeChecked = [];
+      placeChecked.push(...places);
+
+      new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...bandChecked, ...musicianChecked, ...placeChecked];
+      console.log("searchResult bands + musicians + places:", searchResult);
+    }
   };
 
   if (isPlaceChecked) {
+    //https://medium.com/@jv.quilichini/comment-supprimer-les-doublons-dun-tableau-en-es6-c547a5b2bcf3
 
-    const placeChecked=[];
+    const placeChecked = [];
     placeChecked.push(...places);
-    
+    console.log(placeChecked);
     new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
-  
+
     searchResult = [...placeChecked];
     console.log("searchResult places:", searchResult);
-   
-    if (!isPlaceChecked) {
-     searchResult = [];
-   }
-    
-  };
 
+    if (isBandChecked && isPlaceChecked) {
+
+      const placeChecked = [];
+      placeChecked.push(...places);
+      console.log(placeChecked);
+      new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...placeChecked];
+      console.log("searchResult places:", searchResult);
+
+      const bandChecked = [];
+      bandChecked.push(...bands);
+      new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
+      searchResult = [...bandChecked,...placeChecked];
+      console.log("searchResult bands:", searchResult);
+    }
+
+    if (isMusicianChecked && isPlaceChecked) {
+      const musicianChecked = [];
+      musicianChecked.push(...musicians);
+      // console.log(bandsChecked);
+      new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...musicianChecked];
+      console.log("searchResult musicians :", searchResult);
+
+      const placeChecked = [];
+      placeChecked.push(...places);
+      console.log(placeChecked);
+      new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...musicianChecked, ...placeChecked];
+      console.log("searchResult musicians + places:", searchResult);
+    }
+
+    if (isMusicianChecked && isBandChecked && isPlaceChecked) {
+      const musicianChecked = [];
+      musicianChecked.push(...musicians);
+      // console.log(bandsChecked);
+      new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...musicianChecked];
+      console.log("searchResult musicians:", searchResult);
+
+      const bandChecked = [];
+      bandChecked.push(...bands);
+      new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
+      searchResult = [...bandChecked, ...musicianChecked];
+      console.log("searchResult bands + musician:", searchResult);
+
+      const placeChecked = [];
+      placeChecked.push(...places);
+
+      new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...bandChecked, ...musicianChecked, ...placeChecked];
+      console.log("searchResult bands + musicians + places:", searchResult);
+    }
+  };
   const settings = {
     dots: true,
     infinite: true,
@@ -165,7 +325,7 @@ if (isBandChecked) {
           <Slider {...settings}>
 
             {searchResult.map((item, index) => {
-              {/* console.log(item); */}
+              {/* console.log(item); */ }
               return (
 
                 <Grid
@@ -192,8 +352,8 @@ if (isBandChecked) {
                     </div>
                     <CardContent id="card__content">
                       <h2 className="bandName">{item.name}
-                      <span>{item.band_name}</span>
-                      <span>{item.pseudo}</span>
+                        <span>{item.band_name}</span>
+                        <span>{item.pseudo}</span>
                       </h2>
                       <h4 className="localization">{item.city}</h4>
                       <p className="description">{item.description}</p>
