@@ -34,6 +34,8 @@ import StarIcon from '@material-ui/icons/Star';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+// import musicalAnimation from './musical_animation.json';
+// import Lottie from 'lottie-react';
 import './style.scss';
 
 export default function SearchPage({
@@ -44,6 +46,7 @@ export default function SearchPage({
   categoryName,
   onChangeCategoryValue,
   searchResult,
+
   onClickSearch,
 }) {
 
@@ -262,7 +265,8 @@ export default function SearchPage({
   //search with multiSelect Field (city, instrumentName,styleName)
     
     console.log(instrumentName,styleName);
-    console.log(searchResult)
+    console.log(searchResult);
+
     if ((instrumentName.length >= 1) || (styleName.lenght >= 1)) {
       console.log(instrumentName)
       for (const index of instrumentName) {
@@ -275,8 +279,7 @@ export default function SearchPage({
 
     if (styleName.lenght >= 1) {
       for (const index of styleName) {
-        searchResult.filter(element => element.styleName.find(element => element = index));
-       
+        searchResult.filter(element => element.styleName.find(element => element = index));       
         console.log("searchResult",searchResult);
       }
       return searchResult
@@ -311,18 +314,20 @@ export default function SearchPage({
           />
           <StylesField
             value={styleName}
-          />
+          />         
         </div>
-        <Button
+         {/* <Lottie animationData={musicalAnimation} className="loading" /> */}
+        {/* <Button
           id="search-button"
           onClick={onClickSearch}
           variant="contained">Rechercher
-        </Button>
-
+        </Button> */}
+        
         <div id="result">
           <p className="result-search">Plus précis encore ?</p>
-          <FormControl id='form-filter-result'>
 
+          <FormControl id='form-filter-result'>
+            
             <InputLabel id="controlled-open-select-label">Filtrer par (tous, profils, annonces)</InputLabel>
 
             <Select
