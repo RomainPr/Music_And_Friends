@@ -56,7 +56,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function MusicianProfilHeader() {
+function MusicianProfilHeader({ city, pseudo, instruments, styles }) {
   const classes = useStyles();
   return (
     <>
@@ -74,21 +74,21 @@ function MusicianProfilHeader() {
               <Grid item xs={12}>
                 <Paper elevation={3} className={classes.paper}>
                   <ul>
-                    <li>Ville</li>
+                    <li>{city}</li>
                   </ul>
                 </Paper>
               </Grid>
               <Grid item xs={12}>
                 <Paper elevation={3} className={classes.paper}>
                   <ul>
-                    <li>Instruments</li>
+                    <li>{instruments}</li>
                   </ul>
                 </Paper>
               </Grid>
               <Grid item xs={12}>
                 <Paper elevation={3} className={classes.paper}>
                   <ul>
-                    <li>Style</li>
+                    <li>{styles}</li>
                   </ul>
                 </Paper>
               </Grid>
@@ -96,7 +96,7 @@ function MusicianProfilHeader() {
           </div>
         </Grid>
         <Grid item xs={3} className={classes.pseudo}>
-          <h2 className="profilHeader__info__pseudo">Pseudo</h2>
+          <h2 className="profilHeader__info__pseudo">{pseudo}</h2>
         </Grid>
         <div className="profilHeaderContent">
           <Grid item xs={2}>

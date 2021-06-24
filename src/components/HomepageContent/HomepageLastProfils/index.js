@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Slider from 'react-slick';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -12,6 +12,9 @@ import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import StarIcon from '@material-ui/icons/Star';
+
+import CardMusician from './card';
+
 // import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
 // import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
 
@@ -32,47 +35,22 @@ function LastProfils({ musicians, bands, places }) {
   };
 
   return (
-    <div className="profilsCards">
+    <div className="cardProfiles">
       <Container maxWidth="lg">
-        <h2 className="profilsCards__title">Les derniers profils</h2>
+        <h2 className="cardProfiles__title">Les derniers profils</h2>
         <Slider {...settings}>
-          {fullList.map((item) => (
-            <Grid item xs={4} md={12}>
-              <Card key={item.index} id="card">
-                <div id="card__image">
-                  <CardMedia
-                    component="img"
-                    alt="BandBackground"
-                    title="BandBackground"
-                    image="https://images.unsplash.com/photo-1517147177326-b37599372b73"
-                  />
-                  <Avatar
-                    id="card__avatar"
-                    src="https://i.pravatar.cc/300"
-                  />
-                  <IconButton
-                    id="card__favorite"
-                  >
-                    <StarIcon />
-                  </IconButton>
-                </div>
-                <CardContent id="card__content">
-                  <h2 className="bandName">{item.name}<span>{item.band_name}</span><span>{item.pseudo}</span></h2>
-                  <h4 className="localization">{item.city}</h4>
-                  <p className="description">{item.description}</p>
-                </CardContent>
-                <CardActions id="card__footer">
-                  <Button
-                    variant="contained"
-                    size="large"
-                    color="primary"
-                    component={Link}
-                    to={`/musicians/${item.id}`}
-                  >
-                    Voir le profil
-                  </Button>
-                </CardActions>
-              </Card>
+          {musicians.map((musician) => (
+            <Grid item xs={12}>
+              <CardMusician
+                key={musician.id}
+                pseudo={musician.user_pseudo}
+                instruments={musician.user_instrument}
+                styles={musician.array_agg}
+                city={musician.city}
+                id={musician.id}
+                name={musician.name}
+                band_name={musician.band_name}
+              />
             </Grid>
           ))}
         </Slider>

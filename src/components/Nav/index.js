@@ -29,6 +29,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ModalSignIn from 'src/containers/connectedModalSignIn';
 import ModalSignUp from 'src/containers/connectedModalSignUp';
 
+import Logo from 'src/assets/Music&Friends.png';
 import './styles.scss';
 
 const useStyles = makeStyles((theme) => ({
@@ -107,7 +108,7 @@ function Nav({
           <div className="navbar__content">
             <div className="navbar__content__left">
               <Link to="/">
-                <img src="" alt="Logo M&F" />
+                <img src={Logo} alt="Logo M&F" />
               </Link>
             </div>
             <div className="navbar__content__right">
@@ -129,96 +130,104 @@ function Nav({
             </div>
           </div>
         ) : (
-          <div className={classes.grow}>
-            <AppBar position="static" className={classes.bg}>
-              <Toolbar>
-                <div className={classes.sectionMobile}>
-                  <IconButton
-                    edge="start"
-                    className={classes.menuButton}
-                    color="inherit"
-                    aria-label="open drawer"
-                    aria-controls={mobileMenuId}
-                    aria-haspopup="true"
-                    onClick={toggleDrawer}
-                  >
-                    <MenuIcon />
-                  </IconButton>
-                </div>
-                <div>
-                  <img src="" alt="Logo M&F" />
-                </div>
-                <div className={classes.grow} />
-                <div className={classes.sectionDesktop}>
-                  <IconButton aria-label="show 4 new mails" color="inherit">
-                    <Badge badgeContent={4} color="secondary">
-                      <MailIcon />
-                    </Badge>
-                  </IconButton>
-                  <IconButton color="inherit">
-                    <SearchRoundedIcon />
-                  </IconButton>
-                  <IconButton color="inherit">
-                    <BookmarkRoundedIcon />
-                  </IconButton>
-                  <IconButton
-                    edge="end"
-                    aria-label="account of current user"
-                    aria-controls={menuId}
-                    aria-haspopup="true"
-                    onClick={handleProfileMenuOpen}
-                    color="inherit"
-                  >
-                    <AccountCircle />
-                  </IconButton>
-                </div>
-              </Toolbar>
-            </AppBar>
-            {renderMenu}
-            <Drawer
-              anchor="left"
-              open={open}
-              onClose={toggleDrawer}
-            >
-              <div className={classes.toolbar} />
-              <Divider />
-              <List className={classes.list}>
-                {['Accueil', 'Recherche', 'Mes annonces', 'Mes messages', 'Mes groupes', 'Mes favoris', 'Mon profil', 'Déconnexion'].map((text, index) => (
-                  <ListItem button key={text}>
-                    <ListItemIcon>
-                      {index === 0 && (
-                      <HomeRoundedIcon />
-                      )}
-                      {index === 1 && (
-                      <SearchRoundedIcon />
-                      )}
-                      {index === 2 && (
-                      <HomeRoundedIcon />
-                      )}
-                      {index === 3 && (
+          <div className="navbar__content">
+            <div className={classes.grow}>
+              <AppBar position="static" className={classes.bg}>
+                <Toolbar>
+                  <div className={classes.sectionMobile}>
+                    <IconButton
+                      edge="start"
+                      className={classes.menuButton}
+                      color="inherit"
+                      aria-label="open drawer"
+                      aria-controls={mobileMenuId}
+                      aria-haspopup="true"
+                      onClick={toggleDrawer}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                  </div>
+                  <div className="navbar__content__left">
+                    <Link to="/">
+                      <img src={Logo} alt="Logo M&F" />
+                    </Link>
+                  </div>
+                  <div className={classes.grow} />
+                  <div className={classes.sectionDesktop}>
+                    <IconButton aria-label="show 4 new mails" color="inherit">
                       <Badge badgeContent={4} color="secondary">
                         <MailIcon />
                       </Badge>
-                      )}
-                      {index === 4 && (
-                      <GroupRoundedIcon />
-                      )}
-                      {index === 5 && (
+                    </IconButton>
+                    <IconButton
+                      color="inherit"
+                      component={Link}
+                      to="/search"
+                    >
+                      <SearchRoundedIcon />
+                    </IconButton>
+                    <IconButton color="inherit">
                       <BookmarkRoundedIcon />
-                      )}
-                      {index === 6 && (
-                      <AccountCircleRoundedIcon />
-                      )}
-                      {index === 7 && (
-                      <ExitToAppRoundedIcon />
-                      )}
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItem>
-                ))}
-              </List>
-              <Divider />
-            </Drawer>
+                    </IconButton>
+                    <IconButton
+                      edge="end"
+                      aria-label="account of current user"
+                      aria-controls={menuId}
+                      aria-haspopup="true"
+                      onClick={handleProfileMenuOpen}
+                      color="inherit"
+                    >
+                      <AccountCircle />
+                    </IconButton>
+                  </div>
+                </Toolbar>
+              </AppBar>
+              {renderMenu}
+              <Drawer
+                anchor="left"
+                open={open}
+                onClose={toggleDrawer}
+              >
+                <div className={classes.toolbar} />
+                <Divider />
+                <List className={classes.list}>
+                  {['Accueil', 'Recherche', 'Mes annonces', 'Mes messages', 'Mes groupes', 'Mes favoris', 'Mon profil', 'Déconnexion'].map((text, index) => (
+                    <ListItem button key={text}>
+                      <ListItemIcon>
+                        {index === 0 && (
+                        <HomeRoundedIcon />
+                        )}
+                        {index === 1 && (
+                        <SearchRoundedIcon />
+                        )}
+                        {index === 2 && (
+                        <HomeRoundedIcon />
+                        )}
+                        {index === 3 && (
+                        <Badge badgeContent={4} color="secondary">
+                          <MailIcon />
+                        </Badge>
+                        )}
+                        {index === 4 && (
+                        <GroupRoundedIcon />
+                        )}
+                        {index === 5 && (
+                        <BookmarkRoundedIcon />
+                        )}
+                        {index === 6 && (
+                        <AccountCircleRoundedIcon />
+                        )}
+                        {index === 7 && (
+                        <ExitToAppRoundedIcon />
+                        )}
+                      </ListItemIcon>
+                      <ListItemText primary={text} />
+                    </ListItem>
+                  ))}
+                </List>
+                <Divider />
+              </Drawer>
+            </div>
           </div>
         )}
     </div>

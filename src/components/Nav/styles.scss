@@ -11,6 +11,9 @@
           color:#fff;
       }
     }
+    &__left img {
+      max-width: 80px;
+    }
   }
   &__content__connected {
     display: flex;

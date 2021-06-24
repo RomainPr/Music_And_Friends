@@ -1,6 +1,6 @@
 @use 'src/styles/vars';
 
-.profilsCards {
+.cardProfiles {
     &__title {
         text-align: left;
         font-size: 1.7em;
@@ -14,8 +14,9 @@
   color: #000;
 }
 
+
 #card {
-    max-width: 350px;
+    max-width: 300px;
     padding-bottom: vars.$paddingBottomSmall;
     box-shadow: 10px 10px 15px 0 rgb(0 0 0 / 10%);
     display: flex;
@@ -47,6 +48,7 @@
   }
   &__content {
       padding-top: vars.$paddingTopMedium;
+      width: 100%;
       & .bandName {
         text-align: center;
         padding-bottom: 5px;
@@ -60,6 +62,23 @@
       & .description {
         padding: 20px;
         text-align: left;
+      }
+      & .flex {
+        display: flex;
+      }
+      & .attributes {
+        display: flex;
+      }
+      & .userAttributes {
+        display: flex;
+      }
+      & .boxAttributes {
+        font-size: 0.75em;
+        border: 1px solid #e0e0e0;
+        border-radius: 3px;
+        padding: 7px;
+        margin-right: 9px;
+        margin-bottom: 8px;
       }
   }
   &__footer {
