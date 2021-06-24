@@ -5,7 +5,7 @@ import {
 import { LOGOUT } from 'src/actions/user';
 
 const initialState = {
-  isLogged: false,
+  isAuthenticated: null,
   anchorEl: null,
   open: false,
   isMenuOpen: false,
@@ -35,7 +35,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         anchorEl: null,
         isMenuOpen: false,
-        isLogged: localStorage.setItem('token', ''),
+        isAuthenticated: localStorage.setItem('token', ''),
       };
     default:
       return state;

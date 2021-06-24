@@ -9,7 +9,6 @@ import Nav from 'src/components/Nav';
 const mapStateToProps = (state) => ({
   anchorEl: state.nav.anchorEl,
   open: state.nav.open,
-  isLogged: state.user.isLogged,
   isMenuOpen: state.nav.isMenuOpen,
   isAuthenticated: localStorage.getItem('token'),
 });
