@@ -1,3 +1,5 @@
+@use 'src/styles/vars';
+
 .profilHeader {
     position: relative;
 
@@ -28,11 +30,9 @@
 }
 
 .profilHeaderContent {
-    display: flex;
-    align-items: flex-end;
     &__avatar {
         position: absolute;
-        bottom: 70px;
+        bottom: 30px;
         left: 10%;
     }
     &__actions {
@@ -49,3 +49,39 @@
         }
     }
 }
+
+.profilMusicianContent {
+  margin-top: 60px;
+  margin-bottom: 40px;
+
+  &__description {
+    &__title {
+      font-size: 1.3em;
+      padding-bottom: vars.$paddingBottomSmall;
+    }
+  }
+  &__content {
+    &__list {
+      padding-left: 30px;
+    }
+    &__list li {
+      list-style-type: disc;
+    }
+    &__action {
+      text-align: right;
+      padding-top: vars.$paddingBottomSmall;
+    }
+    &__media {
+        margin: 40px 0;
+      &__title {
+        font-size: 1.3em;
+        padding-bottom: vars.$paddingBottomSmall;
+      }
+    }
+  }
+  &__description {
+    margin-top: vars.$paddingTopMedium;
+    margin-bottom: vars.$paddingBottomMedium;
+  }
+}
+
