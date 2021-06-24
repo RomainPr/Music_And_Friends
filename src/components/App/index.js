@@ -9,6 +9,8 @@ import SignMusician from 'src/containers/SignMusician';
 import SearchPage from 'src/containers/SearchPage';
 import MusicianProfilEdition from 'src/components/MusicianProfilEdition';
 import MusicianProfil from 'src/containers/Profils/MusicianProfil';
+import BandProfil from 'src/containers/Profils/BandProfil';
+import PlaceProfil from 'src/containers/Profils/PlaceProfil';
 import Footer from 'src/components/Footer';
 import SignPlace from 'src/containers/SignPlace';
 
@@ -56,6 +58,16 @@ function App({
         <Route exact path="/musicians/:name">
           <Nav />
           <MusicianProfil />
+          <Footer />
+        </Route>
+        <Route exact path="/bands/:name">
+          <Nav />
+          <BandProfil />
+          <Footer />
+        </Route>
+        <Route exact path="/places/:name">
+          <Nav />
+          <PlaceProfil />
           <Footer />
         </Route>
       </Switch>

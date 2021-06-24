@@ -13,10 +13,9 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import StarIcon from '@material-ui/icons/Star';
 
-import CardMusician from './card';
-
-// import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
-// import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
+import CardMusician from './cardMusician';
+import CardBand from './cardBand';
+import CardPlaces from './cardPlaces';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -31,7 +30,6 @@ function LastProfils({ musicians, bands, places }) {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
-    adaptiveHeight: true,
   };
 
   return (
@@ -40,18 +38,34 @@ function LastProfils({ musicians, bands, places }) {
         <h2 className="cardProfiles__title">Les derniers profils</h2>
         <Slider {...settings}>
           {musicians.map((musician) => (
-            <Grid item xs={12}>
-              <CardMusician
-                key={musician.id}
-                pseudo={musician.user_pseudo}
-                instruments={musician.user_instrument}
-                styles={musician.array_agg}
-                city={musician.city}
-                id={musician.id}
-                name={musician.name}
-                band_name={musician.band_name}
-              />
-            </Grid>
+            <CardMusician
+              key={musician.id}
+              pseudo={musician.user_pseudo}
+              instruments={musician.user_instrument}
+              styles={musician.array_agg}
+              city={musician.city}
+              id={musician.id}
+              name={musician.name}
+            />
+          ))}
+          {bands.map((band) => (
+            <CardBand
+              key={band.id}
+              instruments={band.band_instrument}
+              styles={band.band_style}
+              city={band.city}
+              id={band.id}
+              band_name={band.band_name}
+            />
+          ))}
+          {places.map((place) => (
+            <CardPlaces
+              key={place.id}
+              name={place.name}
+              description={place.description}
+              city={place.city}
+              id={place.id}
+            />
           ))}
         </Slider>
       </Container>

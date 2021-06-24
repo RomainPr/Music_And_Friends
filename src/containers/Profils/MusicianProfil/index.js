@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import MusicianProfil from 'src/components/Profils/MusicianProfil';
+import MusicianProfil from 'src/components/Profils/MusicianProfil/musician';
 
 import { findMusician } from 'src/selectors/musician';
 

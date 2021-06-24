@@ -56,7 +56,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function MusicianProfilHeader({
+function BandProfilHeader({
   city, pseudo, instruments, styles,
 }) {
   const classes = useStyles();
@@ -134,4 +134,4 @@ function MusicianProfilHeader({
   );
 }
 
-export default MusicianProfilHeader;
+export default BandProfilHeader;

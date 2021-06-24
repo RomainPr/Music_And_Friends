@@ -45,7 +45,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function MusicianProfilContent({ description }) {
+function bandProfilContent({ description }) {
   const classes = useStyles();
   return (
     <Container maxWidth="lg">
@@ -92,4 +92,4 @@ function MusicianProfilContent({ description }) {
   );
 }
 
-export default MusicianProfilContent;
+export default bandProfilContent;

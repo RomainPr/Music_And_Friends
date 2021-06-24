@@ -1,7 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
-
 import Header from './Header';
 import Content from './Content';
 
@@ -14,7 +13,9 @@ function MusicianProfil({ musician }) {
         styles={musician.array_agg}
         city={musician.user_city}
       />
-      <Content />
+      <Content
+        description={musician.description}
+      />
     </>
   );
 }
