@@ -77,6 +77,7 @@ function Nav({
   anchorEl,
   open,
   isMenuOpen,
+  handleLogout,
   openModalSignIn,
   openModalSignUp,
   handleProfileMenuOpen,
@@ -98,7 +99,7 @@ function Nav({
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profil</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Déconnexion</MenuItem>
+      <MenuItem onClick={handleLogout}>Déconnexion</MenuItem>
     </Menu>
   );
 
@@ -160,8 +161,8 @@ function Nav({
                     <div className={classes.sectionDesktop}>
                       <IconButton aria-label="show 4 new mails" color="inherit">
                         <Badge badgeContent={4} color="secondary">
-                        <MailIcon />
-                      </Badge>
+                          <MailIcon />
+                        </Badge>
                       </IconButton>
                       <IconButton
                         color="inherit"
@@ -198,33 +199,33 @@ function Nav({
                     {['Accueil', 'Recherche', 'Mes annonces', 'Mes messages', 'Mes groupes', 'Mes favoris', 'Mon profil', 'Déconnexion'].map((text, index) => (
                       <ListItem button key={text}>
                         <ListItemIcon>
-                        {index === 0 && (
+                          {index === 0 && (
                           <HomeRoundedIcon />
-                        )}
-                        {index === 1 && (
+                          )}
+                          {index === 1 && (
                           <SearchRoundedIcon />
-                        )}
-                        {index === 2 && (
+                          )}
+                          {index === 2 && (
                           <HomeRoundedIcon />
-                        )}
-                        {index === 3 && (
+                          )}
+                          {index === 3 && (
                           <Badge badgeContent={4} color="secondary">
                             <MailIcon />
                           </Badge>
-                        )}
-                        {index === 4 && (
+                          )}
+                          {index === 4 && (
                           <GroupRoundedIcon />
-                        )}
-                        {index === 5 && (
+                          )}
+                          {index === 5 && (
                           <BookmarkRoundedIcon />
-                        )}
-                        {index === 6 && (
+                          )}
+                          {index === 6 && (
                           <AccountCircleRoundedIcon />
-                        )}
-                        {index === 7 && (
+                          )}
+                          {index === 7 && (
                           <ExitToAppRoundedIcon />
-                        )}
-                      </ListItemIcon>
+                          )}
+                        </ListItemIcon>
                         <ListItemText primary={text} />
                       </ListItem>
                     ))}
@@ -244,6 +245,7 @@ Nav.propTypes = {
   isMenuOpen: PropTypes.bool.isRequired,
   handleProfileMenuOpen: PropTypes.func.isRequired,
   handleMenuClose: PropTypes.func.isRequired,
+  handleLogout: PropTypes.func.isRequired,
   toggleDrawer: PropTypes.func.isRequired,
   openModalSignIn: PropTypes.func.isRequired,
   openModalSignUp: PropTypes.func.isRequired,

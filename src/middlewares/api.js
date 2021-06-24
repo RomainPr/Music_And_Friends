@@ -5,7 +5,6 @@ import {
   SUBMIT_LOGIN,
   SUBMIT_SIGNUP_PLACE,
   SUBMIT_SIGNUP_MUSICIAN,
-
 } from 'src/actions/user';
 
 import {
