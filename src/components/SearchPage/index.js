@@ -63,7 +63,7 @@ export default function SearchPage({
     new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
     searchResult = [...bandChecked];
     // console.log("searchResult bands:", searchResult);
-
+    console.log(searchResult);
     if (isBandChecked && isMusicianChecked) {
       const bandChecked = [];
       bandChecked.push(...bands);
@@ -130,7 +130,7 @@ export default function SearchPage({
     // console.log(bandsChecked);
     new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
     searchResult = [...musicianChecked];
-
+   
     if (isMusicianChecked && isBandChecked) {
 
       const musicianChecked = [];
@@ -258,12 +258,12 @@ export default function SearchPage({
       new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
 
       searchResult = [...bandChecked, ...musicianChecked, ...placeChecked];
-      // console.log("searchResult bands + musicians + places:", searchResult);
+      console.log("searchResult bands + musicians + places:", searchResult);
     }
   };
 
-  //search with multiSelect Field (city, instrumentName,styleName)
-
+//search with multiSelect Field (city, instrumentName,styleName)
+ 
 // Si instrument(s) coché >> boucle sur le tableau d'instruement et compare si l'instrument est present dans les objets
   if (instrumentName.length >= 1) {
     const newSearchResult = [];
@@ -308,6 +308,7 @@ export default function SearchPage({
   };
 
   return (
+    
     <div>
       <form id="form">
         {/* onClick={handleChange} */}
@@ -415,6 +416,7 @@ export default function SearchPage({
                 </Grid>
               )
             })}
+            
           </Slider>
         </Container>
       </div>
