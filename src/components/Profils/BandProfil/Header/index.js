@@ -14,9 +14,8 @@ import bandBackground from 'src/assets/ExempleBand.png';
 const useStyles = makeStyles(() => ({
   profilInfo: {
     position: 'absolute',
-    top: '35%',
-    left: '5%',
-    right: '0',
+    top: '25%',
+    right: '5%',
   },
   pseudo: {
     position: 'absolute',
@@ -68,7 +67,7 @@ function BandProfilHeader({
             <div className="profilHeader__info">
               <Grid
                 container
-                direction="column"
+                direction="row"
                 justify="space-between"
                 alignItems="flex-start"
                 spacing={2}
@@ -82,16 +81,16 @@ function BandProfilHeader({
                 </Grid>
                 <Grid item xs={12}>
                   <Paper elevation={3} className={classes.paper}>
-                    <ul>
-                      <li>{instruments}</li>
-                    </ul>
+                    {instruments.map((instrument) => (
+                      <li className="profilHeader__info__list">{instrument}</li>
+                    ))}
                   </Paper>
                 </Grid>
                 <Grid item xs={12}>
                   <Paper elevation={3} className={classes.paper}>
-                    <ul>
-                      <li>{styles}</li>
-                    </ul>
+                    {styles.map((style) => (
+                      <li className="profilHeader__info__list">{style}</li>
+                    ))}
                   </Paper>
                 </Grid>
               </Grid>
