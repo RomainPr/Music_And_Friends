@@ -1,3 +1,4 @@
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -18,20 +19,22 @@ import ListItemText from '@material-ui/core/ListItemText';
 //M UI card musicians
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
-// import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
+import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
 import Slider from 'react-slick';
-
+import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import Avatar from '@material-ui/core/Avatar';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import IconButton from '@material-ui/core/IconButton';
+import StarIcon from '@material-ui/icons/Star';
 
 //Slider
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import CardMusician from '../HomepageContent/HomepageLastProfils/cardMusician';
-import CardBand from '../HomepageContent/HomepageLastProfils/cardBand';
-import CardPlaces from '../HomepageContent/HomepageLastProfils/cardPlaces';
-
-// import LastAnnounces from '../HomepageContent/HomepageLastAnnounces';
 // import musicalAnimation from './musical_animation.json';
 // import Lottie from 'lottie-react';
 import './style.scss';
@@ -43,11 +46,258 @@ export default function SearchPage({
   categories,
   categoryName,
   onChangeCategoryValue,
-  // searchResult,
-  onClickSearch,
+  searchResult,
 
+  onClickSearch,
 }) {
- 
+
+  //DOC FILTER MDN 
+  //https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_interactivity_filtering_conditional_rendering
+  //  /*console.log(isBandChecked)
+
+  //search with checkbox (bands, musicians,places)
+  if (isBandChecked) {
+    //https://medium.com/@jv.quilichini/comment-supprimer-les-doublons-dun-tableau-en-es6-c547a5b2bcf3
+
+    const bandChecked = [];
+    bandChecked.push(...bands);
+    new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
+    searchResult = [...bandChecked];
+    // console.log("searchResult bands:", searchResult);
+    console.log(searchResult);
+    if (isBandChecked && isMusicianChecked) {
+      const bandChecked = [];
+      bandChecked.push(...bands);
+      new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
+      searchResult = [...bandChecked];
+      // console.log("searchResult bands:", searchResult);
+
+      const musicianChecked = [];
+      musicianChecked.push(...musicians);
+      // console.log(bandsChecked);
+      new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...bandChecked, ...musicianChecked];
+      // console.log("searchResult bands + musicians:", searchResult);
+
+    }
+
+    if (isBandChecked && isPlaceChecked) {
+      const bandChecked = [];
+      bandChecked.push(...bands);
+      new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
+      searchResult = [...bandChecked];
+      // console.log("searchResult bands:", searchResult);
+
+      const placeChecked = [];
+      placeChecked.push(...places);
+      // console.log(placeChecked);
+      new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...bandChecked, ...placeChecked];
+      // console.log("searchResult bands + places:", searchResult);
+    }
+
+    if (isBandChecked && isMusicianChecked && isPlaceChecked) {
+      const bandChecked = [];
+      bandChecked.push(...bands);
+      new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
+      searchResult = [...bandChecked];
+      // console.log("searchResult bands:", searchResult);
+
+      const musicianChecked = [];
+      musicianChecked.push(...musicians);
+      // console.log(bandsChecked);
+      new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...bandChecked, ...musicianChecked];
+      // console.log("searchResult bands + musicians:", searchResult);
+
+      const placeChecked = [];
+      placeChecked.push(...places);
+
+      new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...bandChecked, ...musicianChecked, ...placeChecked];
+      // console.log("searchResult bands + musicians + places:", searchResult);
+    }
+  };
+
+  if (isMusicianChecked) {
+    //https://medium.com/@jv.quilichini/comment-supprimer-les-doublons-dun-tableau-en-es6-c547a5b2bcf3
+
+    const musicianChecked = [];
+    musicianChecked.push(...musicians);
+    // console.log(bandsChecked);
+    new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
+    searchResult = [...musicianChecked];
+
+    if (isMusicianChecked && isBandChecked) {
+
+      const musicianChecked = [];
+      musicianChecked.push(...musicians);
+      // console.log(bandsChecked);
+      new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...musicianChecked];
+      // console.log("searchResult musicians :", searchResult);
+
+      const bandChecked = [];
+      bandChecked.push(...bands);
+      new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
+      searchResult = [...musicianChecked, ...bandChecked];
+      // console.log("searchResult bands:", searchResult);
+    }
+
+    if (isMusicianChecked && isPlaceChecked) {
+      const musicianChecked = [];
+      musicianChecked.push(...musicians);
+      // console.log(bandsChecked);
+      new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...musicianChecked];
+      // console.log("searchResult musicians :", searchResult);
+
+      const placeChecked = [];
+      placeChecked.push(...places);
+      // console.log(placeChecked);
+      new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...musicianChecked, ...placeChecked];
+      // console.log("searchResult musicians + places:", searchResult);
+    }
+
+    if (isMusicianChecked && isBandChecked && isPlaceChecked) {
+      const musicianChecked = [];
+      musicianChecked.push(...musicians);
+      // console.log(bandsChecked);
+      new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...musicianChecked];
+      // console.log("searchResult musicians:", searchResult);
+
+      const bandChecked = [];
+      bandChecked.push(...bands);
+      new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
+      searchResult = [...bandChecked, ...musicianChecked];
+      // console.log("searchResult bands + musician:", searchResult);
+
+      const placeChecked = [];
+      placeChecked.push(...places);
+
+      new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...bandChecked, ...musicianChecked, ...placeChecked];
+      // console.log("searchResult bands + musicians + places:", searchResult);
+    }
+  };
+
+  if (isPlaceChecked) {
+    //https://medium.com/@jv.quilichini/comment-supprimer-les-doublons-dun-tableau-en-es6-c547a5b2bcf3
+
+    const placeChecked = [];
+    placeChecked.push(...places);
+    // console.log(placeChecked);
+    new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
+
+    searchResult = [...placeChecked];
+    // console.log("searchResult places:", searchResult);
+
+    if (isBandChecked && isPlaceChecked) {
+
+      const placeChecked = [];
+      placeChecked.push(...places);
+      // console.log(placeChecked);
+      new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...placeChecked];
+      // console.log("searchResult places:", searchResult);
+
+      const bandChecked = [];
+      bandChecked.push(...bands);
+      new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
+      searchResult = [...bandChecked, ...placeChecked];
+      // console.log("searchResult bands:", searchResult);
+    }
+
+    if (isMusicianChecked && isPlaceChecked) {
+      const musicianChecked = [];
+      musicianChecked.push(...musicians);
+      // console.log(bandsChecked);
+      new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...musicianChecked];
+      // console.log("searchResult musicians :", searchResult);
+
+      const placeChecked = [];
+      placeChecked.push(...places);
+      // console.log(placeChecked);
+      new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...musicianChecked, ...placeChecked];
+      // console.log("searchResult musicians + places:", searchResult);
+    }
+
+    if (isMusicianChecked && isBandChecked && isPlaceChecked) {
+      const musicianChecked = [];
+      musicianChecked.push(...musicians);
+      // console.log(bandsChecked);
+      new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...musicianChecked];
+      // console.log("searchResult musicians:", searchResult);
+
+      const bandChecked = [];
+      bandChecked.push(...bands);
+      new Set(bandChecked);// supprime les doublons dans le tableau (ES6)
+      searchResult = [...bandChecked, ...musicianChecked];
+      // console.log("searchResult bands + musician:", searchResult);
+
+      const placeChecked = [];
+      placeChecked.push(...places);
+
+      new Set(placeChecked);// supprime les doublons dans le tableau (ES6)
+
+      searchResult = [...bandChecked, ...musicianChecked, ...placeChecked];
+      console.log("searchResult bands + musicians + places:", searchResult);
+    }
+  };
+
+//search with multiSelect Field (city, instrumentName,styleName)
+
+// Si instrument(s) coché >> boucle sur le tableau d'instruement et compare si l'instrument est present dans les objets
+  if (instrumentName.length >= 1) {
+    const newSearchResult = [];
+
+    for (const instrument of instrumentName) {
+      for (const object of searchResult) {
+        for (const element of object.band_instrument) { //!\\ changer le champ band_instrument quand new bdd. 
+          if (element == instrument) {
+            newSearchResult.push(object)
+          };
+        };
+      };
+    };
+    searchResult = newSearchResult;
+  };
+
+
+  // Si style(s) coché >> boucle sur le tableau de style et compare si le style est present dans les objets
+  if (styleName.length >= 1) {
+    const newSearchResult = [];
+
+    for (const style of styleName) {
+      for (const object of searchResult) {
+        for (const element of object.band_style) {  //!\\ changer le champ band_style quand new bdd. 
+          if (element == style) {
+            newSearchResult.push(object)
+          };
+        };
+      };
+    };
+    searchResult = newSearchResult;
+  };
+
   //Slider setting
   const settings = {
     dots: true,
@@ -59,7 +309,7 @@ export default function SearchPage({
   };
 
   return (
-    
+
     <div>
       <form id="form">
         {/* onClick={handleChange} */}
@@ -81,11 +331,11 @@ export default function SearchPage({
           />
         </div>
         {/* <Lottie animationData={musicalAnimation} className="loading" /> */}
-        <Button
+        {/* <Button
           id="search-button"
           onClick={onClickSearch}
           variant="contained">Rechercher
-        </Button>
+        </Button> */}
 
         <div id="result">
           <p className="result-search">Plus précis encore ?</p>
@@ -115,51 +365,67 @@ export default function SearchPage({
         </div>
 
       </form>
-      <div className="cardProfiles">
-      <Container maxWidth="lg">
-        <h2 className="cardProfiles__title"> Profils</h2>
-        <Slider {...settings}>
-          {musicians.map((musician) => (
-            <CardMusician
-              key={musician.id}
-              pseudo={musician.user_pseudo}
-              instruments={musician.user_instrument}
-              styles={musician.array_agg}
-              city={musician.city}
-              id={musician.id}
-              name={musician.name}
-            />
-          ))}
-          {bands.map((band) => (
-            <CardBand
-              key={band.id}
-              instruments={band.band_instrument}
-              styles={band.band_style}
-              city={band.city}
-              id={band.id}
-              band_name={band.band_name}
-            />
-          ))}
-          {places.map((place) => (
-            <CardPlaces
-              key={place.id}
-              name={place.name}
-              description={place.description}
-              city={place.city}
-              id={place.id}
-            />
-          ))}
-          {/* <LastAnnounces /> */}
-          
-        </Slider>
-      </Container>
-    </div>
+      <div className="profilsCards">
+        <Container maxWidth="lg">
+          <h2 className="profilsCards__title">{searchResult.length} Profil(s)</h2>
+          <Slider {...settings}>
 
-      {/* <Button
+            {searchResult.map((item, index) => {
+              {/* console.log(item); */ }
+              return (
+
+                <Grid
+                  item xs={4} md={12} key={index}
+                >
+
+                  <Card id="card">
+                    <div id="card__image">
+                      <CardMedia
+                        component="img"
+                        alt="BandBackground"
+                        title="BandBackground"
+                        image="https://images.unsplash.com/photo-1517147177326-b37599372b73"
+                      />
+                      <Avatar
+                        id="card__avatar"
+                        src="https://i.pravatar.cc/300"
+                      />
+                      <IconButton
+                        id="card__favorite"
+                      >
+                        <StarIcon />
+                      </IconButton>
+                    </div>
+                    <CardContent id="card__content">
+                      <h2 className="bandName">{item.name}
+                        <span>{item.band_name}</span>
+                        <span>{item.pseudo}</span>
+                      </h2>
+                      <h4 className="localization">{item.city}</h4>
+                      <p className="description">{item.description}</p>
+                    </CardContent>
+                    <CardActions id="card__footer">
+                      <Button
+                        variant="contained"
+                        size="large"
+                        color="primary"
+                      >
+                        Voir le profil
+                  </Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              )
+            })}
+
+          </Slider>
+        </Container>
+      </div>
+
+      <Button
         id="load-more-btn">
         <ArrowDropDownCircleIcon id="dropDown-arrow" />
-      </Button> */}
-
+      </Button>
     </div>
   );
 }
@@ -180,7 +446,7 @@ SearchPage.propTypes = {
   categories: PropTypes.array.isRequired,
   onChangeCategoryValue: PropTypes.func.isRequired,
 
-  // searchResult: PropTypes.array.isRequired,
+  searchResult: PropTypes.array.isRequired,
   onClickSearch: PropTypes.func.isRequired,
 };
 
