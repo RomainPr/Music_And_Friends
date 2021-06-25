@@ -7,7 +7,7 @@ import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 
-import bandBackground from 'src/assets/ExempleBand.jpg';
+import bandBackground from 'src/assets/ExempleBand.png';
 import './styles.scss';
 
 const useStyles = makeStyles(() => ({

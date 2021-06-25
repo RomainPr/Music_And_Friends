@@ -5,7 +5,6 @@ import {
   SUBMIT_LOGIN,
   SUBMIT_SIGNUP_PLACE,
   SUBMIT_SIGNUP_MUSICIAN,
-
 } from 'src/actions/user';
 
 import {
@@ -57,6 +56,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       axios(loginRequest)
         .then((response) => {
           localStorage.setItem('token', response.data.token);
+          localStorage.setItem('user', response.data.user_id);
           store.dispatch(loginSuccess());
           store.dispatch(closeModal());
         });

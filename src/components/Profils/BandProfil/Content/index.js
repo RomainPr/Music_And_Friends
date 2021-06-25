@@ -8,7 +8,6 @@ import VolumeUpRoundedIcon from '@material-ui/icons/VolumeUpRounded';
 import MusicNoteRoundedIcon from '@material-ui/icons/MusicNoteRounded';
 
 import { makeStyles } from '@material-ui/core/styles';
-import './styles.scss';
 
 const useStyles = makeStyles(() => ({
   root: {

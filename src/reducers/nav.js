@@ -2,8 +2,10 @@ import {
   SET_ANCHOR_EL, HANDLE_MENU_CLOSE, OPEN_TOGGLER,
 } from 'src/actions/nav';
 
+import { LOGOUT } from 'src/actions/user';
+
 const initialState = {
-  isLogged: false,
+  isAuthenticated: null,
   anchorEl: null,
   open: false,
   isMenuOpen: false,
@@ -27,6 +29,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         open: !state.open,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        anchorEl: null,
+        isMenuOpen: false,
+        isAuthenticated: localStorage.setItem('token', ''),
       };
     default:
       return state;

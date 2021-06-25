@@ -9,19 +9,17 @@ import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
-import bandBackground from 'src/assets/ExempleBand.jpg';
-import './styles.scss';
+import bandBackground from 'src/assets/ExempleBand.png';
 
 const useStyles = makeStyles(() => ({
   profilInfo: {
     position: 'absolute',
     top: '25%',
-    left: '5%',
-    right: '0',
+    right: '5%',
   },
   pseudo: {
     position: 'absolute',
-    top: '10%',
+    top: '35%',
     right: '0',
     left: '0',
     margin: '0 auto',
@@ -39,7 +37,7 @@ const useStyles = makeStyles(() => ({
   },
   actions: {
     paddingTop: '40px',
-    marginLeft: '8%',
+    marginLeft: '18%',
   },
   actionButtons: {
     textTransform: 'none',
@@ -69,7 +67,7 @@ function BandProfilHeader({
             <div className="profilHeader__info">
               <Grid
                 container
-                direction="column"
+                direction="row"
                 justify="space-between"
                 alignItems="flex-start"
                 spacing={2}
@@ -83,16 +81,16 @@ function BandProfilHeader({
                 </Grid>
                 <Grid item xs={12}>
                   <Paper elevation={3} className={classes.paper}>
-                    <ul>
-                      <li>{instruments}</li>
-                    </ul>
+                    {instruments.map((instrument) => (
+                      <li className="profilHeader__info__list">{instrument}</li>
+                    ))}
                   </Paper>
                 </Grid>
                 <Grid item xs={12}>
                   <Paper elevation={3} className={classes.paper}>
-                    <ul>
-                      <li>{styles}</li>
-                    </ul>
+                    {styles.map((style) => (
+                      <li className="profilHeader__info__list">{style}</li>
+                    ))}
                   </Paper>
                 </Grid>
               </Grid>

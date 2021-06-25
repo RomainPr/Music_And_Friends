@@ -1,18 +1,17 @@
 .header {
   position: relative;
-  z-index: 1;
   background-size: cover;
   background-position: center;
-  height: 500px;
   display: flex;
   justify-content: space-between;
   &__nav {
     background: rgb(39 39 39 / 80%);
+    padding: 10px 60px;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2;
+    z-index: 1;
   }
   &__middle {
     text-align: center;

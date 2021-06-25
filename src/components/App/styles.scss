@@ -3,6 +3,13 @@
   margin: 0 auto;
 }
 
-.navbar__content {
-  background: rgb(39 39 39 / 100%);
+.navbar {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 10px 60px;
+  background: rgb(39 39 39 / 80%);
 }
