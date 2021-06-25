@@ -150,6 +150,7 @@ export default function SearchPage({
             />
           ))}
           {/* <LastAnnounces /> */}
+          
         </Slider>
       </Container>
     </div>
@@ -158,7 +159,7 @@ export default function SearchPage({
         id="load-more-btn">
         <ArrowDropDownCircleIcon id="dropDown-arrow" />
       </Button> */}
-      
+
     </div>
   );
 }
