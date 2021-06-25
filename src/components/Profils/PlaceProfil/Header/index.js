@@ -87,7 +87,7 @@ function MusicianProfilHeader({
                       {styles && (
                         <>
                           {styles.map((style) => (
-                            <li className="profilHeader__info__list">{style}</li>
+                            <li key={style} className="profilHeader__info__list">{style}</li>
                           ))}
                         </>
                       )}
