@@ -50,14 +50,14 @@ const CardMusician = ({
       <Grid item xs={6}>
         <div className="attributes">
           {instruments.map((instrument) => (
-            <p className="boxAttributes">{instrument}</p>
+            <p key={instrument} className="boxAttributes">{instrument}</p>
           ))}
         </div>
       </Grid>
       <Grid item xs={6}>
         <div className="attributes">
           {styles.map((style) => (
-            <p className="boxAttributes">{style}</p>
+            <p key={style} className="boxAttributes">{style}</p>
           ))}
         </div>
       </Grid>
