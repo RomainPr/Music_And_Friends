@@ -47,7 +47,7 @@ export default function SearchPage({
   onClickSearch,
 
 }) {
-
+ 
   //Slider setting
   const settings = {
     dots: true,

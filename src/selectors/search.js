@@ -50,70 +50,66 @@ id |firstname| lastname |pseudo|phone|email |password |
 */
 export function findSearchResult(
   searchResult,
-  bands, 
-  musicians, 
+  bands,
+  musicians,
   places,
   isBandChecked,
   isMusicianChecked,
   isPlaceChecked
-  ) {
+) {
 
-    console.log(searchResult);
-    console.log(band);
-    console.log(user);
-    console.log(place);
-    // console.log(state.band[id].map(id => state.band[id].band_name))
+  console.log(searchResult);
+  console.log(band);
+  console.log(user);
+  console.log(place);
+  // console.log(state.band[id].map(id => state.band[id].band_name))
 
   if (isBandChecked) {
-    searchResult = bands => {
-      
-      return searchResult;
-    };
 
-  } else if (isMusicianChecked) {
-    searchResult = musicians => {
-     
-      return searchResult;
-    };
-
-  } else if (isPlaceChecked) {
-    searchResult = places => {
-
-      return searchResult;
-    };
+    return bands;
   }
-  return searchResult;
-}
-/*1st Search section
-  1-Selon checkbox 
-  > groupes, musiciens, salles
+  if (isMusicianChecked) {
 
-  If isBandChecked = true -> searchResult = state.band[0].band_name
-  If isMusicianChecked = true -> searchResult = state.user[0].pseudo
-  If isPlaceChecked = true -> searchResult = state.place[0].name
+    return musicians;
 
-      
-  2-selon multiSelect Field -> par ville(s), par instrument(s), par style(s)
-      - user.city
-      - instrument
-      - style
-      
-= const result=[]
+  }
+  if (isPlaceChecked) {
 
-*/
+    return places;
+  };
 
 
-export function filterSearchResult() {
-  /*2nd Search section
-    Selon multiSelect Field -> Tous, Profils, Annonces de result
-        - TOUS = result + ad (filtré selon section 1) 
-            if select 
-              - add.instrument
-              - add.style
-              - add.category (groupe,musicien,salles)
-              - result
+
+  /*1st Search section
+    1-Selon checkbox 
+    > groupes, musiciens, salles
+  
+    If isBandChecked = true -> searchResult = state.band[0].band_name
+    If isMusicianChecked = true -> searchResult = state.user[0].pseudo
+    If isPlaceChecked = true -> searchResult = state.place[0].name
+  
+        
+    2-selon multiSelect Field -> par ville(s), par instrument(s), par style(s)
+        - user.city
+        - instrument
+        - style
+        
+  = const result=[]
+  
   */
-}
+
+
+  export function filterSearchResult() {
+    /*2nd Search section
+      Selon multiSelect Field -> Tous, Profils, Annonces de result
+          - TOUS = result + ad (filtré selon section 1) 
+              if select 
+                - add.instrument
+                - add.style
+                - add.category (groupe,musicien,salles)
+                - result
+    */
+  }
 
 // import React from 'react';
 // import PropTypes from 'prop-types';
@@ -247,7 +243,7 @@ export function filterSearchResult() {
 //     // console.log(bandsChecked);
 //     new Set(musicianChecked);// supprime les doublons dans le tableau (ES6)
 //     searchResult = [...musicianChecked];
-   
+
 //     if (isMusicianChecked && isBandChecked) {
 
 //       const musicianChecked = [];
@@ -380,7 +376,7 @@ export function filterSearchResult() {
 //   };
 
 // //search with multiSelect Field (city, instrumentName,styleName)
- 
+
 // // Si instrument(s) coché >> boucle sur le tableau d'instruement et compare si l'instrument est present dans les objets
 //   if (instrumentName.length >= 1) {
 //     const newSearchResult = [];
@@ -425,7 +421,7 @@ export function filterSearchResult() {
 //   };
 
 //   return (
-    
+
 //     <div>
 //       <form id="form">
 //         {/* onClick={handleChange} */}
@@ -533,7 +529,7 @@ export function filterSearchResult() {
 //                 </Grid>
 //               )
 //             })}
-            
+
 //           </Slider>
 //         </Container>
 //       </div>
