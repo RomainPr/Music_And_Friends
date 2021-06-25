@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -85,13 +86,13 @@ function BandProfilHeader({
                   <Grid item className={classes.paperItem}>
                     <h2 className="profilHeader__info__title">Instruments : </h2>
                     {instruments.map((instrument) => (
-                      <li className="profilHeader__info__list">{instrument}</li>
+                      <li key={instrument} className="profilHeader__info__list">{instrument}</li>
                     ))}
                   </Grid>
                   <Grid item className={classes.paperItem}>
                     <h2 className="profilHeader__info__title">Styles : </h2>
                     {styles.map((style) => (
-                      <li className="profilHeader__info__list">{style}</li>
+                      <li key={style} className="profilHeader__info__list">{style}</li>
                     ))}
                   </Grid>
                 </Grid>
