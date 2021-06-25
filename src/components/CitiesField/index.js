@@ -16,9 +16,9 @@ export default function CitiesField({ cities, cityName, onChangeCityValue }) {
 
   return (
 
-    <div id='field'>
+    <div>
       {/* Field if connected musician OR place -> AND box checked group or/and musician*/}
-      <FormControl id='form-control'>
+      <FormControl required id='form-control'>
         <InputLabel id="controlled-open-select-label">Par ville(s)</InputLabel>
         <Select
           labelId="mutiple-checkbox-label"

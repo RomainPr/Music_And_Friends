@@ -18,7 +18,7 @@ export default function InstrumentsField({ instruments, instrumentName, onChange
 
     <div id="field">
       {/* Field if connected musician OR place -> AND box checked group or/and musician */}
-      <FormControl id="form-control">
+      <FormControl required id="form-control">
         <InputLabel id="controlled-open-select-label">Par instrument(s)</InputLabel>
         <Select
           labelId="mutiple-checkbox-label"
