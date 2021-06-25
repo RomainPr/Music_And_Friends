@@ -180,7 +180,7 @@ SearchPage.propTypes = {
   categories: PropTypes.array.isRequired,
   onChangeCategoryValue: PropTypes.func.isRequired,
 
-  searchResult: PropTypes.array.isRequired,
+  // searchResult: PropTypes.array.isRequired,
   onClickSearch: PropTypes.func.isRequired,
 };
 
