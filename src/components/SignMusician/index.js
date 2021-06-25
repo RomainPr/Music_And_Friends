@@ -73,7 +73,6 @@ const SignMusician = ({
         <FormControl required id="mainForm" className={classes.form} autoComplete="off">
           <Grid container>
             <Grid item xs={4}>
-<<<<<<< HEAD
               <Grid container direction="column" alignItems="center" justify="center" spacing={5} id="inputIdPictureIntruments">
                 <Grid item>
                   <TextField
@@ -113,41 +112,6 @@ const SignMusician = ({
                   <CitiesField />
                 </Grid>
               </Grid>
-=======
-              <TextField
-                className="input"
-                id="input-first-name"
-                label="Votre prénom"
-                name="firstname"
-                onChange={handleOnChange}
-                value={firstname}
-              />
-              <TextField
-                className="input"
-                id="input-last-name"
-                label="Votre nom"
-                name="lastname"
-                onChange={handleOnChange}
-                value={lastname}
-              />
-              <TextField
-                className="input"
-                id="input-phone"
-                label="Votre téléphone"
-                name="phone"
-                type="tel"
-                onChange={handleOnChange}
-                value={phone}
-              />
-              <TextField
-                className="input"
-                id="input-city"
-                label="Votre ville"
-                name="city"
-                onChange={handleOnChange}
-                value={city}
-              />
->>>>>>> d491b592e6ff3844d38022f83c74299c629ad89e
             </Grid>
 
             <Grid item xs={4}>
