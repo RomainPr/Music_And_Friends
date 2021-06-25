@@ -219,7 +219,7 @@ const SignMusician = ({
                     margin="normal"
                     id="confirmpassword"
                     required
-                    label="Confiration du mot de passe"
+                    label="Confirmation du mot de passe"
                     type="password"
                     onChange={handleOnChange}
                     name="confirmpassword"
