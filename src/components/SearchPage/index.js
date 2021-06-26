@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // import containers
-import CheckBox from 'src/containers/CheckBox';
 import CitiesField from 'src/containers/CitiesField';
 import InstrumentsField from 'src/containers/InstrumentsField';
 import StylesField from 'src/containers/StylesField';
@@ -14,10 +13,13 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import ListItemText from '@material-ui/core/ListItemText';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormLabel from '@material-ui/core/FormLabel';
 
 // M UI card musicians
 import Select from '@material-ui/core/Select';
-import Checkbox from '@material-ui/core/Checkbox';
 import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
 import Slider from 'react-slick';
 import Grid from '@material-ui/core/Grid';
@@ -46,25 +48,63 @@ export default function SearchPage({
   onChangeCategoryValue,
   searchResult,
   onClickSearch,
+  onChangeBoxBandValue,
+  onChangeBoxMusicianValue,
+  onChangeBoxPlaceValue,
 }) {
+  // if (isBandChecked) {
+  //   searchResult.push(...bands);
+  // }
+  // if (isMusicianChecked) {
+  //   searchResult.push(...musicians);
+  // }
+  // if (isBandChecked) {
+  //   searchResult.push(...bands);
+  // }
 
-  if (isBandChecked) {
-    // searchResult = [...bands];
-    searchResult.push(...bands);
-    console.log('searchResult bands:', searchResult);
-  }
+  // if (isBandChecked && isMusicianChecked) {
+  //   searchResult.length = 0;
+  //   searchResult.push(...bands, ...musicians)
+  // }
 
-  if (isMusicianChecked) {
-    // searchResult = [...musicians];
-    searchResult.push(...musicians);
-    console.log('searchResult musicians:', searchResult);
-  }
-  if (isPlaceChecked) {
-    // searchResult = [...places];
-    searchResult.push(...places);
-    console.log('searchResult places:', searchResult);
-  }
-  console.log(searchResult);
+  // if (isBandChecked && isMusicianChecked && isPlaceChecked) {
+  //   searchResult.length = 0;
+  //   searchResult.push(...bands, ...musicians, ...places)
+  // }
+
+
+
+  // if (isBandChecked) {
+  //   searchResult.push(...bands);
+  // } else if (isMusicianChecked) {
+  //   searchResult.push(...musicians);
+  // } else if (isPlaceChecked) {
+  //   searchResult.push(...places);
+  // } else if (isBandChecked && isMusicianChecked && isPlaceChecked) {
+  //   searchResult.push(...bands, ...musicians, ...places);
+  // } else {
+  //   searchResult.length = 0;
+  // }
+
+  // if (isBandChecked) {
+  //   searchResult.push(...bands);
+  // } else {
+  //   searchResult.length = 0;
+  // }
+
+  // if (isMusicianChecked) {
+  //   searchResult.push(...musicians);
+  // } else {
+  //   searchResult.length = 0;
+  // }
+
+  // if (isPlaceChecked) {
+  //   searchResult.push(...places);
+  // } else {
+  //   searchResult.length = 0;
+  // }
+
+  console.log(`SEARCHRESULT = `, searchResult);
 
   const fullList = [...musicians, ...bands, ...places];
 
@@ -74,19 +114,55 @@ export default function SearchPage({
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
-    adaptiveHeight: true,
   };
 
   return (
     <div>
       <form id="form">
-        {/* onClick={handleChange} */}
+        <div id="check-box">
+          <FormControl component="fieldset">
+            <FormLabel id='categories' component="legend">
+              Vous recherchez ?
+            </FormLabel>
+            <FormGroup row aria-label="position" name="position" defaultValue="right">
+              <FormControlLabel
+                control={
+                  <Checkbox 
+                    checked={isBandChecked}
+                    onChange={onChangeBoxBandValue}
+                    name="isBandChecked"
+                  />
+                }
+                label="Groupes"
+                labelPlacement="end"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    // id='isMusicianChecked'
+                    checked={isMusicianChecked}
+                    // value={value}
+                    onChange={onChangeBoxMusicianValue}
+                    name="isMusicianChecked" />}
+                label="Musiciens"
+                labelPlacement="end"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    // id='isPaceChecked'
+                    checked={isPlaceChecked}
+                    // value={value}
+                    onChange={onChangeBoxPlaceValue}
+                    name="isPlaceChecked" />}
+                label="Salles"
+                labelPlacement="end"
+              />
 
-        <CheckBox
-          isBandChecked={isBandChecked}
-          isMusicianChecked={isMusicianChecked}
-          isPlaceChecked={isPlaceChecked}
-        />
+            </FormGroup>
+          </FormControl>
+
+        </div>
         <div id="searchFields">
           <CitiesField
             value={cityName}
@@ -99,18 +175,12 @@ export default function SearchPage({
             value={styleName}
           />
         </div>
-        <Button
-          id="search-button"
-          onClick={onClickSearch}
-          variant="contained"
-        >Rechercher
-        </Button>
 
         <div id="result">
           <p className="result-search">Plus précis encore ?</p>
           <FormControl id="form-filter-result">
 
-            <InputLabel id="controlled-open-select-label">Filtrer par (tous, profils, annonces)</InputLabel>
+            <InputLabel id="controlled-open-select-label">Filtrer par (profils, annonces)</InputLabel>
 
             <Select
               labelId="mutiple-checkbox-label"
@@ -135,7 +205,7 @@ export default function SearchPage({
       </form>
       <div className="profilsCards">
         <Container maxWidth="lg">
-          <h2 className="profilsCards__title">{searchResult.length} Zikos</h2>
+          <h2 className="profilsCards__title">{searchResult.length} Résultats</h2>
           <Slider {...settings}>
 
             {searchResult.map((item, index) => {

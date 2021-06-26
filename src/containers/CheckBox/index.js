@@ -1,35 +1,27 @@
 import { connect } from 'react-redux';
 import CheckBox from 'src/components/CheckBox';
-import { changeBoxValue } from 'src/actions/search';
+import { onChangeBoxBandValue, onChangeBoxMusicianValue, onChangeBoxPlaceValue } from 'src/actions/search';
 
-const mapStateToProps = (state, ownProps) => {
-// console.log(state.search[ownProps.name])
-// console.log(state.search.isBandChecked)
-// console.log(state);
-// console.log(state.search)
-// console.log(state[ownProps])
-
-return { 
+const mapStateToProps = (state, ownProps) => ({
   isBandChecked: state.search.isBandChecked,
   isMusicianChecked: state.search.isMusicianChecked,
   isPlaceChecked: state.search.isPlaceChecked,
-
-  // musicians: state.musicians.musicians,
-  // bands: state.musicians.bands,
-  // places: state.musicians.places,
+  searchResult: state.search.searchResult,
+  musicians: state.musicians.musicians,
+  bands: state.musicians.bands,
+  places: state.musicians.places,
   value: state.search[ownProps.name],
-}
-};
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  
-  // 
-  onChangeBoxValue: (value,key) => {
-   
-    const action = changeBoxValue(value,key);
-   
-    dispatch(action);
-
+  onChangeBoxBandValue: () => {
+    dispatch(onChangeBoxBandValue());
+  },
+  onChangeBoxMusicianValue: () => {
+    dispatch(onChangeBoxMusicianValue());
+  },
+  onChangeBoxPlaceValue: () => {
+    dispatch(onChangeBoxPlaceValue());
   },
 });
 

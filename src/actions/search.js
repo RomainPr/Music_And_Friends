@@ -1,14 +1,24 @@
-export const CHANGE_BOX_VALUE = 'CHANGE_BOX_VALUE';
+export const CHANGE_BOX_BAND_VALUE = 'CHANGE_BOX_BAND_VALUE';
+export const CHANGE_BOX_MUSICIAN_VALUE = 'CHANGE_BOX_MUSICIAN_VALUE';
+export const CHANGE_BOX_PLACE_VALUE = 'CHANGE_BOX_PLACE_VALUE';
 export const CHANGE_CITY_VALUE = 'CHANGE_CITY_VALUE';
 export const CHANGE_INSTRUMENT_VALUE = 'CHANGE_INSTRUMENT_VALUE';
 export const CHANGE_STYLE_VALUE = 'CHANGE_STYLE_VALUE';
 export const CHANGE_CATEGORY_VALUE = 'CHANGE_CATEGORY_VALUE';
 export const CLICK_SEARCH = 'CLICK_SEARCH';
 
-export const changeBoxValue = (value, key) => ({
-  type: CHANGE_BOX_VALUE,
-  value,
-  key,
+export const onChangeBoxBandValue = () => ({
+  type: CHANGE_BOX_BAND_VALUE,
+
+});
+export const onChangeBoxMusicianValue = (musicians) => ({
+  type: CHANGE_BOX_MUSICIAN_VALUE,
+  musicians,
+
+});
+export const onChangeBoxPlaceValue = () => ({
+  type: CHANGE_BOX_PLACE_VALUE,
+
 });
 
 export const changeCityValue = (value) => ({

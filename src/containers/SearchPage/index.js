@@ -4,7 +4,10 @@ import SearchPage from 'src/components/SearchPage';
 import {
   changeCategoryValue,
   clickSearch,
-
+  onChangeBoxBandValue,
+  onChangeBoxMusicianValue,
+  onChangeBoxPlaceValue,
+  CHANGE_BOX_MUSICIAN_VALUE,
 } from 'src/actions/search';
 
 import {
@@ -42,6 +45,20 @@ const mapStateToProps = (state) => {
   };
 };
 
+function getAllMusicians() {
+  return (dispatch, getState) => {
+    const state = getState();
+    const musicians = state.musicians.musicians
+
+    dispatch({
+      type: CHANGE_BOX_MUSICIAN_VALUE,
+      payload: {
+        musicians,
+      }
+    })
+  }
+}
+
 const mapDispatchToProps = (dispatch) => ({
 
   onChangeCategoryValue: (event) => {
@@ -58,6 +75,15 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(getBands());
     dispatch(getPlaces());
     dispatch(getInstruments());
+  },
+  onChangeBoxBandValue: () => {
+    dispatch(onChangeBoxBandValue());
+  },
+  onChangeBoxMusicianValue: () => {
+    getAllMusicians();
+  },
+  onChangeBoxPlaceValue: () => {
+    dispatch(onChangeBoxPlaceValue());
   },
 });
 
