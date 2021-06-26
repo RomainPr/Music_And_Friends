@@ -22,7 +22,7 @@ function PlaceProfil({ place }) {
 
 PlaceProfil.propTypes = {
   place: PropTypes.shape({
-    pseudo: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,
   }),

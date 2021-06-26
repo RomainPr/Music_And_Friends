@@ -18,7 +18,7 @@ export default function StylesField({ styles, styleName, onChangeStyleValue }) {
 
     <div id="field">
       {/* Field if connected musician OR place -> AND box checked group or/and musician */}
-      <FormControl id="form-control">
+      <FormControl required id="form-control">
         <InputLabel id="controlled-open-select-label">Par style(s)</InputLabel>
         <Select
           labelId="mutiple-checkbox-label"

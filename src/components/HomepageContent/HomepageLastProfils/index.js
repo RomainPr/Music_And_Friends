@@ -40,9 +40,10 @@ function LastProfils({ musicians, bands, places }) {
           {musicians.map((musician) => (
             <CardMusician
               key={musician.id}
-              pseudo={musician.user_pseudo}
-              instruments={musician.user_instrument}
-              styles={musician.array_agg}
+              pseudo={musician.name}
+              instruments={musician.instrument}
+              styles={musician.styles}
+              description={musician.description}
               city={musician.city}
               id={musician.id}
               name={musician.name}
@@ -51,11 +52,12 @@ function LastProfils({ musicians, bands, places }) {
           {bands.map((band) => (
             <CardBand
               key={band.id}
-              instruments={band.band_instrument}
-              styles={band.band_style}
+              instruments={band.instrument}
+              styles={band.styles}
+              description={band.description}
               city={band.city}
               id={band.id}
-              band_name={band.band_name}
+              band_name={band.name}
             />
           ))}
           {places.map((place) => (

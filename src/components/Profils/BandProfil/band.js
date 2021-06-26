@@ -10,9 +10,9 @@ function BandProfil({ band }) {
   return (
     <>
       <Header
-        pseudo={band.band_name}
-        instruments={band.band_instrument}
-        styles={band.band_style}
+        pseudo={band.name}
+        instruments={band.instrument}
+        styles={band.styles}
         city={band.city}
       />
       <Content
@@ -24,7 +24,7 @@ function BandProfil({ band }) {
 
 BandProfil.propTypes = {
   band: PropTypes.shape({
-    pseudo: PropTypes.string.isRequired,
+    band_name: PropTypes.string.isRequired,
     instruments: PropTypes.array.isRequired,
     styles: PropTypes.array.isRequired,
     city: PropTypes.string.isRequired,

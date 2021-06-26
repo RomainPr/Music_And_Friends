@@ -15,8 +15,8 @@ import bandBackground from 'src/assets/ExempleBand.png';
 const useStyles = makeStyles(() => ({
   profilInfo: {
     position: 'absolute',
-    top: '25%',
-    right: '5%',
+    bottom: '12%',
+    right: '6%',
   },
   pseudo: {
     position: 'absolute',
@@ -49,9 +49,12 @@ const useStyles = makeStyles(() => ({
     marginRight: '10px',
   },
   paper: {
-    width: '200px',
     borderRadius: '10px',
-    padding: '10px',
+    padding: '20px',
+  },
+  paperItem: {
+    display: 'flex',
+    alignItems: 'center',
   },
 }));
 
@@ -67,30 +70,30 @@ function MusicianProfilHeader({
           <div className="profilHeader__top">
             <Grid item xs={3} className={classes.profilInfo}>
               <div className="profilHeader__info">
-                <Grid
-                  container
-                  direction="column"
-                  justify="space-between"
-                  alignItems="flex-start"
-                  spacing={2}
-                >
-                  <Grid item xs={12}>
-                    <Paper elevation={3} className={classes.paper}>
+                <Paper elevation={3} className={classes.paper}>
+                  <Grid
+                    container
+                    direction="column"
+                    justify="space-between"
+                    alignItems="flex-start"
+                    spacing={2}
+                  >
+                    <Grid item className={classes.paperItem}>
                       <ul>
                         <li>{city}</li>
                       </ul>
-                    </Paper>
+                    </Grid>
+                    <Grid item className={classes.paperItem}>
+                      {styles && (
+                        <>
+                          {styles.map((style) => (
+                            <li key={style} className="profilHeader__info__list">{style}</li>
+                          ))}
+                        </>
+                      )}
+                    </Grid>
                   </Grid>
-                  <Grid item xs={12}>
-                    {styles && (
-                    <Paper elevation={3} className={classes.paper}>
-                      {styles.map((style) => (
-                        <li className="profilHeader__info__list">{style}</li>
-                      ))}
-                    </Paper>
-                    )}
-                  </Grid>
-                </Grid>
+                </Paper>
               </div>
             </Grid>
             <Grid item xs={3} className={classes.pseudo}>

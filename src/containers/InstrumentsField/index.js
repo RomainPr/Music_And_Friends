@@ -5,7 +5,7 @@ import { changeInstrumentValue } from 'src/actions/changeInput';
 const mapStateToProps = (state, ownProps) => ({
   instruments: state.sign.instruments,
   value: state.sign[ownProps.name],
-  instrumentName: state.sign.instrumentName,
+  instrumentName: state.search.instrumentName,
 });
 
 const mapDispatchToProps = (dispatch) => ({
