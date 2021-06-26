@@ -42,7 +42,7 @@ const CardBand = ({
       <h2 className="bandName">{band_name}</h2>
       <h4 className="localization">{city}</h4>
       {description && (
-      <p className="description" />
+      <p className="description">{description}</p>
       )}
       <Grid item xs={6}>
         <div className="attributes">
@@ -51,9 +51,9 @@ const CardBand = ({
           ))}
         </div>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={12}>
         <div className="attributes">
-          {styles.map((style) => (
+          {styles.slice(0, 3).map((style) => (
             <p key={style} className="boxAttributes">{style}</p>
           ))}
         </div>

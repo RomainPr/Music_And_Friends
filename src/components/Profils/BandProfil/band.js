@@ -10,9 +10,9 @@ function BandProfil({ band }) {
   return (
     <>
       <Header
-        pseudo={band.band_name}
-        instruments={band.band_instrument}
-        styles={band.band_style}
+        pseudo={band.name}
+        instruments={band.instrument}
+        styles={band.styles}
         city={band.city}
       />
       <Content

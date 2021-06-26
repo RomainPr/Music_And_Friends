@@ -122,7 +122,6 @@ const SignMusician = ({
                     <input
                       accept="image/*"
                       className=""
-                      required
                       id="contained-button-file"
                       multiple
                       type="file"

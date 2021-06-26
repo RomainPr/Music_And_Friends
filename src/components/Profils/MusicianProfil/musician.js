@@ -10,10 +10,10 @@ function MusicianProfil({ musician }) {
   return (
     <>
       <Header
-        pseudo={musician.user_pseudo}
-        instruments={musician.user_instrument}
-        styles={musician.array_agg}
-        city={musician.user_city}
+        pseudo={musician.name}
+        instruments={musician.instrument}
+        styles={musician.styles}
+        city={musician.city}
       />
       <Content
         description={musician.description}
