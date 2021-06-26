@@ -14,6 +14,8 @@ import {
   getBandsSuccess,
   GET_PLACES,
   getPlacesSuccess,
+  GET_INSTRUMENTS,
+  getInstrumentsSuccess,
 } from 'src/actions/musicians';
 
 import {
@@ -40,6 +42,13 @@ const apiMiddleware = (store) => (next) => (action) => {
       axios.get('https://music-and-friends.herokuapp.com/places')
         .then((response) => {
           store.dispatch(getPlacesSuccess(response.data.results));
+        });
+      next(action);
+      break;
+    case GET_INSTRUMENTS:
+      axios.get('https://music-and-friends.herokuapp.com/instruments')
+        .then((response) => {
+          store.dispatch(getInstrumentsSuccess(response.data.results));
         });
       next(action);
       break;

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import App from 'src/components/App';
 
-import { getMusicians, getBands, getPlaces } from '../actions/musicians';
+import { getMusicians, getBands, getPlaces, getInstruments } from '../actions/musicians';
 
 const mapStateToProps = (state) => ({
   loading: state.musicians.loading,
@@ -17,6 +17,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(getMusicians());
     dispatch(getBands());
     dispatch(getPlaces());
+    dispatch(getInstruments());
   },
 });
 

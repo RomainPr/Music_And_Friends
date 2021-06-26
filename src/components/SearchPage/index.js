@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-//import containers
+// import containers
 import CheckBox from 'src/containers/CheckBox';
 import CitiesField from 'src/containers/CitiesField';
 import InstrumentsField from 'src/containers/InstrumentsField';
 import StylesField from 'src/containers/StylesField';
 
-//M UI
+// M UI
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -15,7 +15,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import ListItemText from '@material-ui/core/ListItemText';
 
-//M UI card musicians
+// M UI card musicians
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
 import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
@@ -29,8 +29,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import StarIcon from '@material-ui/icons/Star';
+import Loading from 'src/components/App/Loading';
 
-//Slider
+// Slider
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -39,32 +40,31 @@ import './style.scss';
 export default function SearchPage({
   isBandChecked, isMusicianChecked, isPlaceChecked,
   cityName, instrumentName, styleName,
-  musicians, bands, places,
+  musicians, bands, places, instruments,
   categories,
-  categoryName, 
+  categoryName,
   onChangeCategoryValue,
   searchResult,
   onClickSearch,
 }) {
 
-if (isBandChecked) {
+  if (isBandChecked) {
     // searchResult = [...bands];
-    searchResult.push(...bands)
-    console.log("searchResult bands:", searchResult);
-    
-  };
+    searchResult.push(...bands);
+    console.log('searchResult bands:', searchResult);
+  }
 
-if (isMusicianChecked) {
-      // searchResult = [...musicians];
-      searchResult.push(...musicians)
-      console.log("searchResult musicians:", searchResult);
-    };
-if (isPlaceChecked) {
-      // searchResult = [...places];
-      searchResult.push(...places)
-      console.log("searchResult places:", searchResult);
-    };
-console.log(searchResult)
+  if (isMusicianChecked) {
+    // searchResult = [...musicians];
+    searchResult.push(...musicians);
+    console.log('searchResult musicians:', searchResult);
+  }
+  if (isPlaceChecked) {
+    // searchResult = [...places];
+    searchResult.push(...places);
+    console.log('searchResult places:', searchResult);
+  }
+  console.log(searchResult);
 
   const fullList = [...musicians, ...bands, ...places];
 
@@ -92,6 +92,7 @@ console.log(searchResult)
             value={cityName}
           />
           <InstrumentsField
+            instruments={instruments}
             value={instrumentName}
           />
           <StylesField
@@ -101,12 +102,13 @@ console.log(searchResult)
         <Button
           id="search-button"
           onClick={onClickSearch}
-          variant="contained">Rechercher
+          variant="contained"
+        >Rechercher
         </Button>
 
         <div id="result">
           <p className="result-search">Plus précis encore ?</p>
-          <FormControl id='form-filter-result'>
+          <FormControl id="form-filter-result">
 
             <InputLabel id="controlled-open-select-label">Filtrer par (tous, profils, annonces)</InputLabel>
 
@@ -141,7 +143,10 @@ console.log(searchResult)
               return (
 
                 <Grid
-                  item xs={4} md={12} key={index}
+                  item
+                  xs={4}
+                  md={12}
+                  key={index}
                 >
 
                   <Card id="card">
@@ -174,18 +179,19 @@ console.log(searchResult)
                         color="primary"
                       >
                         Voir le profil
-                  </Button>
+                      </Button>
                     </CardActions>
                   </Card>
                 </Grid>
-              )
+              );
             })}
           </Slider>
         </Container>
       </div>
 
       <Button
-        id="load-more-btn">
+        id="load-more-btn"
+      >
         <ArrowDropDownCircleIcon id="dropDown-arrow" />
       </Button>
     </div>
@@ -204,6 +210,7 @@ SearchPage.propTypes = {
   musicians: PropTypes.array.isRequired,
   bands: PropTypes.array.isRequired,
   places: PropTypes.array.isRequired,
+  instruments: PropTypes.array.isRequired,
 
   categories: PropTypes.array.isRequired,
   onChangeCategoryValue: PropTypes.func.isRequired,
@@ -216,4 +223,4 @@ SearchPage.defaultProps = {
   isBandChecked: false,
   isMusicianChecked: false,
   isPlaceChecked: false,
-}
+};

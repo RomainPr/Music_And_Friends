@@ -12,7 +12,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import './style.scss';
 
 export default function InstrumentsField({ instruments, instrumentName, onChangeInstrumentValue }) {
-// console.log(instruments)
+console.log(instrumentName);
 
   return (
 
@@ -31,9 +31,9 @@ export default function InstrumentsField({ instruments, instrumentName, onChange
 
         >
           {instruments.map((instrument) => (
-            <MenuItem key={instrument} value={instrument}>
-              <Checkbox checked={instrumentName.indexOf(instrument) > -1} />
-              <ListItemText primary={instrument} />
+            <MenuItem key={instrument} value={instrument.name}>
+              <Checkbox checked={instrumentName.indexOf(instrument.name) > -1} />
+              <ListItemText primary={instrument.name} />
             </MenuItem>
           ))}
         </Select>

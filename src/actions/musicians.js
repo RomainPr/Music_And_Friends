@@ -4,6 +4,8 @@ export const GET_BANDS = 'GET_BANDS';
 export const GET_BANDS_SUCCESS = 'GET_BANDS_SUCCESS';
 export const GET_PLACES = 'GET_PLACES';
 export const GET_PLACES_SUCCESS = 'GET_PLACES_SUCCESS';
+export const GET_INSTRUMENTS = 'GET_INSTRUMENTS';
+export const GET_INSTRUMENTS_SUCCESS = 'GET_INSTRUMENTS_SUCCESS';
 
 export const getMusicians = () => ({
   type: GET_MUSICIANS,
@@ -30,4 +32,13 @@ export const getPlaces = () => ({
 export const getPlacesSuccess = (places) => ({
   type: GET_PLACES_SUCCESS,
   places: places,
+});
+
+export const getInstruments = () => ({
+  type: GET_INSTRUMENTS,
+});
+
+export const getInstrumentsSuccess = (instruments) => ({
+  type: GET_INSTRUMENTS_SUCCESS,
+  instruments: instruments,
 });

@@ -20,7 +20,7 @@ import Loading from './Loading';
 import './styles.scss';
 
 function App({
-  loadMusicians, loading, musicians, bands, places,
+  loadMusicians, loading, musicians, bands, places, instruments,
 }) {
   useEffect(() => {
     loadMusicians();
@@ -44,6 +44,7 @@ function App({
             musicians={musicians}
             bands={bands}
             places={places}
+            instruments={instruments}
           />
           <Footer />
         </Route>
@@ -82,6 +83,7 @@ App.propTypes = {
   musicians: PropTypes.array.isRequired,
   bands: PropTypes.array.isRequired,
   places: PropTypes.array.isRequired,
+  instruments: PropTypes.array.isRequired,
   loading: PropTypes.bool,
 };
 

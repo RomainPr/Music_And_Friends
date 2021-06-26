@@ -1,24 +1,25 @@
 import { connect } from 'react-redux';
 import SearchPage from 'src/components/SearchPage';
 
-import { 
-  changeCategoryValue, 
+import {
+  changeCategoryValue,
   clickSearch,
 
 } from 'src/actions/search';
 
-import { 
-  getMusicians, 
-  getBands, 
-  getPlaces } 
-from 'src/actions/musicians';
+import {
+  getMusicians,
+  getBands,
+  getPlaces,
+  getInstruments,
+}
+  from 'src/actions/musicians';
 
 // import { findSearchResult } from 'src/selectors/search';
 
 const mapStateToProps = (state) => {
-
   console.log(state.search.searchResult);
-  
+
   return {
     categories: state.search.categories,
     categoryName: state.search.categoryName,
@@ -27,16 +28,17 @@ const mapStateToProps = (state) => {
     isMusicianChecked: state.search.isMusicianChecked,
     isPlaceChecked: state.search.isPlaceChecked,
 
-    cityName:state.search.cityName,
-    instrumentName:state.search.instrumentName,
-    styleName:state.search.styleName,
+    cityName: state.search.cityName,
+    instrumentName: state.search.instrumentName,
+    styleName: state.search.styleName,
 
     musicians: state.musicians.musicians,
     bands: state.musicians.bands,
     places: state.musicians.places,
+    instruments: state.musicians.instruments,
 
     loading: state.musicians.loading,
-    searchResult:state.search.searchResult
+    searchResult: state.search.searchResult,
   };
 };
 
@@ -55,6 +57,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(getMusicians());
     dispatch(getBands());
     dispatch(getPlaces());
+    dispatch(getInstruments());
   },
 });
 
