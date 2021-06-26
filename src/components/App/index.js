@@ -20,7 +20,12 @@ import Loading from './Loading';
 import './styles.scss';
 
 function App({
-  loadMusicians, loading, musicians, bands, places, instruments,
+  loadMusicians,
+  loading,
+  musicians,
+  bands,
+  places,
+  instruments,
 }) {
   useEffect(() => {
     loadMusicians();

@@ -7,7 +7,6 @@ import {
   onChangeBoxBandValue,
   onChangeBoxMusicianValue,
   onChangeBoxPlaceValue,
-  CHANGE_BOX_MUSICIAN_VALUE,
 } from 'src/actions/search';
 
 import {
@@ -45,46 +44,54 @@ const mapStateToProps = (state) => {
   };
 };
 
-function getAllMusicians() {
-  return (dispatch, getState) => {
-    const state = getState();
-    const musicians = state.musicians.musicians
+function mapDispatchToProps(dispatch) {
+  return {
+    onChangeCategoryValue: (event) => {
+      dispatch(changeCategoryValue(event.target.name));
+    },
 
-    dispatch({
-      type: CHANGE_BOX_MUSICIAN_VALUE,
-      payload: {
-        musicians,
-      }
-    })
-  }
-}
-
-const mapDispatchToProps = (dispatch) => ({
-
-  onChangeCategoryValue: (event) => {
-    dispatch(changeCategoryValue(event.target.name));
-  },
-
-  onClickSearch: (event) => {
+    onClickSearch: (event) => {
     // event.preventDefault()
-    dispatch(clickSearch(event.target.value));
-  },
+      dispatch(clickSearch(event.target.value));
+    },
 
-  loadMusicians: () => {
-    dispatch(getMusicians());
-    dispatch(getBands());
-    dispatch(getPlaces());
-    dispatch(getInstruments());
-  },
-  onChangeBoxBandValue: () => {
-    dispatch(onChangeBoxBandValue());
-  },
-  onChangeBoxMusicianValue: () => {
-    getAllMusicians();
-  },
-  onChangeBoxPlaceValue: () => {
-    dispatch(onChangeBoxPlaceValue());
-  },
-});
+    loadMusicians: () => {
+      dispatch(getMusicians());
+      dispatch(getBands());
+      dispatch(getPlaces());
+      dispatch(getInstruments());
+    },
+    onChangeBoxBandValue: () => {
+      function getAllBands() {
+        return (dispatch, getState) => {
+          const { bands } = getState().musicians;
+          dispatch(onChangeBoxBandValue(bands));
+          console.log(bands);
+        };
+      }
+      dispatch(getAllBands());
+    },
+    onChangeBoxMusicianValue: () => {
+      function getAllMusicians() {
+        return (dispatch, getState) => {
+          const { musicians } = getState().musicians;
+          dispatch(onChangeBoxMusicianValue(musicians));
+          console.log(musicians);
+        };
+      }
+      dispatch(getAllMusicians());
+    },
+    onChangeBoxPlaceValue: () => {
+      function getAllPlaces() {
+        return (dispatch, getState) => {
+          const { places } = getState().musicians;
+          dispatch(onChangeBoxPlaceValue(places));
+          console.log(places);
+        };
+      }
+      dispatch(getAllPlaces());
+    },
+  };
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);

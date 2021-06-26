@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
   musicians: state.musicians.musicians,
   bands: state.musicians.bands,
   places: state.musicians.places,
+  instruments: state.musicians.instruments,
 });
 
 const mapDispatchToProps = (dispatch) => ({
