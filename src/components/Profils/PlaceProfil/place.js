@@ -6,7 +6,7 @@ import Content from './Content';
 
 import '../styles.scss';
 
-function PlaceProfil({ place }) {
+function PlaceProfil({ places, place }) {
   return (
     <>
       <Header

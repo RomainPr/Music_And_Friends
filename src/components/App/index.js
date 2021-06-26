@@ -65,17 +65,26 @@ function App({
         </Route>
         <Route exact path="/musicians/:name">
           <Nav />
-          <MusicianProfil />
+          <MusicianProfil
+            musicians={musicians}
+            instruments={instruments}
+          />
           <Footer />
         </Route>
         <Route exact path="/bands/:name">
           <Nav />
-          <BandProfil />
+          <BandProfil
+            bands={bands}
+            instruments={instruments}
+          />
           <Footer />
         </Route>
         <Route exact path="/places/:name">
           <Nav />
-          <PlaceProfil />
+          <PlaceProfil
+            places={places}
+            instruments={instruments}
+          />
           <Footer />
         </Route>
       </Switch>

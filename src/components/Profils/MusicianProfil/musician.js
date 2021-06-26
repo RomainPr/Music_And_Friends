@@ -6,8 +6,7 @@ import Content from './Content';
 
 import '../styles.scss';
 
-function MusicianProfil({ musician }) {
-  return (
+const MusicianProfil = ({ musicians, instruments, musician }) => (
     <>
       <Header
         pseudo={musician.name}
@@ -19,8 +18,7 @@ function MusicianProfil({ musician }) {
         description={musician.description}
       />
     </>
-  );
-}
+)
 
 MusicianProfil.propTypes = {
   musician: PropTypes.shape({

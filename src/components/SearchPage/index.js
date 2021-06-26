@@ -238,11 +238,11 @@ export default function SearchPage({
                   <Grid item xs={6}>
                     <div className="attributes">
                       {item.instrument && (
-                        <>
-                          {item.instrument.map((instrument) => (
-                            <p key={instrument} className="boxAttributes">{instrument}</p>
-                          ))}
-                        </>
+                      <>
+                        {item.instrument.map((instrument) => (
+                          <p key={instrument} className="boxAttributes">{instrument}</p>
+                        ))}
+                      </>
                       )}
                     </div>
                   </Grid>
@@ -259,6 +259,7 @@ export default function SearchPage({
                   </Grid>
                 </CardContent>
                 <CardActions id="card__footer">
+                  {isMusicianChecked && !isBandChecked && !isPlaceChecked && (
                   <Button
                     variant="contained"
                     size="large"
@@ -268,18 +269,36 @@ export default function SearchPage({
                   >
                     Voir le profil
                   </Button>
+                  )}
+
+                  {isBandChecked && (
+                  <Button
+                    variant="contained"
+                    size="large"
+                    color="primary"
+                    component={Link}
+                    to={`/bands/${item.name}`}
+                  >
+                    Voir le profil
+                  </Button>
+                  )}
+                  {isPlaceChecked && (
+                  <Button
+                    variant="contained"
+                    size="large"
+                    color="primary"
+                    component={Link}
+                    to={`/places/${item.name}`}
+                  >
+                    Voir le profil
+                  </Button>
+                  )}
                 </CardActions>
               </Card>
             ))}
           </Slider>
         </Container>
       </div>
-
-      <Button
-        id="load-more-btn"
-      >
-        <ArrowDropDownCircleIcon id="dropDown-arrow" />
-      </Button>
     </div>
   );
 }

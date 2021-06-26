@@ -7,6 +7,7 @@ import { findPlace } from 'src/selectors/musician';
 function mapStateToProps(state, ownProps) {
   return {
     place: findPlace(state.musicians.places, ownProps.match.params.name),
+    places: state.musicians.places,
   };
 }
 
