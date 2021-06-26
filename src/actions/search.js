@@ -10,12 +10,10 @@ export const CLICK_SEARCH = 'CLICK_SEARCH';
 export const onChangeBoxBandValue = (bands) => ({
   type: CHANGE_BOX_BAND_VALUE,
   bands,
-
 });
 export const onChangeBoxMusicianValue = (musicians) => ({
   type: CHANGE_BOX_MUSICIAN_VALUE,
   musicians,
-
 });
 export const onChangeBoxPlaceValue = (places) => ({
   type: CHANGE_BOX_PLACE_VALUE,
