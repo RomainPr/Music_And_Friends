@@ -14,7 +14,6 @@ import PlaceProfil from 'src/containers/Profils/PlaceProfil';
 import Footer from 'src/components/Footer';
 import SignPlace from 'src/containers/SignPlace';
 
-import ScrollToTop from 'src/components/ScrollToTop';
 import Loading from './Loading';
 
 import './styles.scss';
@@ -32,7 +31,6 @@ function App({
 
   return (
     <div className="app">
-      <ScrollToTop />
       <Switch>
         <Route exact path="/">
           <Home />
