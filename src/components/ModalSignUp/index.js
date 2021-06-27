@@ -120,7 +120,7 @@ function ModalSignUp({ openSignUp, handleClose }) {
 }
 
 ModalSignUp.propTypes = {
-  open: PropTypes.bool.isRequired,
+  openSignUp: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
 };
 

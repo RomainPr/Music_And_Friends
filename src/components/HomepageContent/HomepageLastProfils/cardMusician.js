@@ -42,22 +42,22 @@ const CardMusician = ({
       </IconButton>
     </div>
     <CardContent id="card__content">
-      <h2 className="bandName">{name}<span>{band_name}</span><span>{pseudo}</span></h2>
+      <h2 className="bandName">{name}</h2>
       <h4 className="localization">{city}</h4>
       {description && (
-      <p className="description" />
+      <p className="description">{description}</p>
       )}
       <Grid item xs={6}>
         <div className="attributes">
           {instruments.map((instrument) => (
-            <p className="boxAttributes">{instrument}</p>
+            <p key={instrument} className="boxAttributes">{instrument}</p>
           ))}
         </div>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={12}>
         <div className="attributes">
-          {styles.map((style) => (
-            <p className="boxAttributes">{style}</p>
+          {styles.slice(0, 3).map((style) => (
+            <p key={style} className="boxAttributes">{style}</p>
           ))}
         </div>
       </Grid>

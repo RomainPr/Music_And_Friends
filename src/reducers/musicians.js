@@ -5,12 +5,15 @@ import {
   GET_BANDS_SUCCESS,
   GET_PLACES,
   GET_PLACES_SUCCESS,
+  GET_INSTRUMENTS,
+  GET_INSTRUMENTS_SUCCESS,
 } from 'src/actions/musicians';
 
 const initialState = {
   musicians: [],
   bands: [],
   places: [],
+  instruments: [],
   loading: false,
 };
 
@@ -48,6 +51,16 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         places: action.places,
         loading: false,
+      };
+    case GET_INSTRUMENTS:
+      return {
+        ...state,
+        loading: true,
+      };
+    case GET_INSTRUMENTS_SUCCESS:
+      return {
+        ...state,
+        instruments: action.instruments,
       };
     default:
       return state;

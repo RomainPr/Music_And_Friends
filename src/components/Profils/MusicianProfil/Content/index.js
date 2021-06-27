@@ -8,7 +8,6 @@ import VolumeUpRoundedIcon from '@material-ui/icons/VolumeUpRounded';
 import MusicNoteRoundedIcon from '@material-ui/icons/MusicNoteRounded';
 
 import { makeStyles } from '@material-ui/core/styles';
-import './styles.scss';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -52,9 +51,9 @@ function MusicianProfilContent({ description }) {
       <div className="profilMusicianContent">
         <Grid item xs={12}>
           <div className="profilMusicianContent__description">
-            <h4 className="profilMusicianContent__description__title">{description}</h4>
+            <h4 className="profilMusicianContent__description__title">Description</h4>
             <Paper elevation={3} className={classes.paper}>
-              <p>Lorem Ipsum....</p>
+              <p>{description}</p>
             </Paper>
           </div>
         </Grid>

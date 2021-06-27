@@ -3,9 +3,9 @@ import InstrumentsField from 'src/components/InstrumentsField';
 import { changeInstrumentValue } from 'src/actions/changeInput';
 
 const mapStateToProps = (state, ownProps) => ({
-  instruments: state.sign.instruments,
+  instruments: state.musicians.instruments,
   value: state.sign[ownProps.name],
-  instrumentName: state.sign.instrumentName,
+  instrumentName: state.search.instrumentName,
 });
 
 const mapDispatchToProps = (dispatch) => ({

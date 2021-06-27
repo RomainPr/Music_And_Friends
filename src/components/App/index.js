@@ -14,12 +14,18 @@ import PlaceProfil from 'src/containers/Profils/PlaceProfil';
 import Footer from 'src/components/Footer';
 import SignPlace from 'src/containers/SignPlace';
 
+import ScrollToTop from 'src/components/ScrollToTop';
 import Loading from './Loading';
 
 import './styles.scss';
 
 function App({
-  loadMusicians, loading, musicians, bands, places,
+  loadMusicians,
+  loading,
+  musicians,
+  bands,
+  places,
+  instruments,
 }) {
   useEffect(() => {
     loadMusicians();
@@ -31,6 +37,7 @@ function App({
 
   return (
     <div className="app">
+      <ScrollToTop />
       <Switch>
         <Route exact path="/">
           <Home />
@@ -42,6 +49,7 @@ function App({
             musicians={musicians}
             bands={bands}
             places={places}
+            instruments={instruments}
           />
           <Footer />
         </Route>
@@ -57,17 +65,26 @@ function App({
         </Route>
         <Route exact path="/musicians/:name">
           <Nav />
-          <MusicianProfil />
+          <MusicianProfil
+            musicians={musicians}
+            instruments={instruments}
+          />
           <Footer />
         </Route>
         <Route exact path="/bands/:name">
           <Nav />
-          <BandProfil />
+          <BandProfil
+            bands={bands}
+            instruments={instruments}
+          />
           <Footer />
         </Route>
         <Route exact path="/places/:name">
           <Nav />
-          <PlaceProfil />
+          <PlaceProfil
+            places={places}
+            instruments={instruments}
+          />
           <Footer />
         </Route>
       </Switch>
@@ -80,6 +97,7 @@ App.propTypes = {
   musicians: PropTypes.array.isRequired,
   bands: PropTypes.array.isRequired,
   places: PropTypes.array.isRequired,
+  instruments: PropTypes.array.isRequired,
   loading: PropTypes.bool,
 };
 

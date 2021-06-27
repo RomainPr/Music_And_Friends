@@ -5,7 +5,6 @@ import {
   SUBMIT_LOGIN,
   SUBMIT_SIGNUP_PLACE,
   SUBMIT_SIGNUP_MUSICIAN,
-
 } from 'src/actions/user';
 
 import {
@@ -15,6 +14,8 @@ import {
   getBandsSuccess,
   GET_PLACES,
   getPlacesSuccess,
+  GET_INSTRUMENTS,
+  getInstrumentsSuccess,
 } from 'src/actions/musicians';
 
 import {
@@ -44,6 +45,13 @@ const apiMiddleware = (store) => (next) => (action) => {
         });
       next(action);
       break;
+    case GET_INSTRUMENTS:
+      axios.get('https://music-and-friends.herokuapp.com/instruments')
+        .then((response) => {
+          store.dispatch(getInstrumentsSuccess(response.data.results));
+        });
+      next(action);
+      break;
     case SUBMIT_LOGIN: {
       const state = store.getState();
       const loginRequest = {
@@ -57,6 +65,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       axios(loginRequest)
         .then((response) => {
           localStorage.setItem('token', response.data.token);
+          localStorage.setItem('user', response.data.user_id);
           store.dispatch(loginSuccess());
           store.dispatch(closeModal());
         });

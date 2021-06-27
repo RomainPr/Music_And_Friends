@@ -7,6 +7,8 @@ import { findMusician } from 'src/selectors/musician';
 function mapStateToProps(state, ownProps) {
   return {
     musician: findMusician(state.musicians.musicians, ownProps.match.params.name),
+    musicians: state.musicians.musicians,
+    instruments: state.musicians.instruments,
   };
 }
 

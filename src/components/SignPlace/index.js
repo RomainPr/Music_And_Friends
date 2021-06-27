@@ -24,6 +24,7 @@ const SignPlace = ({
   adress,
   postalCode,
   description,
+  city,
   email,
   password,
   onChangeValue,
@@ -74,7 +75,14 @@ const SignPlace = ({
                 onChange={handleOnChange}
                 value={phone}
               />
-              <CitiesField />
+              <TextField
+                className="input"
+                id="input-city"
+                label="Votre ville"
+                name="city"
+                onChange={handleOnChange}
+                value={city}
+              />
             </Grid>
 
             <Grid item xs={4}>

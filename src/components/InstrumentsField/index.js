@@ -12,13 +12,13 @@ import Checkbox from '@material-ui/core/Checkbox';
 import './style.scss';
 
 export default function InstrumentsField({ instruments, instrumentName, onChangeInstrumentValue }) {
-// console.log(instruments)
+console.log(instrumentName);
 
   return (
 
     <div id="field">
       {/* Field if connected musician OR place -> AND box checked group or/and musician */}
-      <FormControl id="form-control">
+      <FormControl required id="form-control">
         <InputLabel id="controlled-open-select-label">Par instrument(s)</InputLabel>
         <Select
           labelId="mutiple-checkbox-label"
@@ -31,9 +31,9 @@ export default function InstrumentsField({ instruments, instrumentName, onChange
 
         >
           {instruments.map((instrument) => (
-            <MenuItem key={instrument} value={instrument}>
-              <Checkbox checked={instrumentName.indexOf(instrument) > -1} />
-              <ListItemText primary={instrument} />
+            <MenuItem key={instrument} value={instrument.name}>
+              <Checkbox checked={instrumentName.indexOf(instrument.name) > -1} />
+              <ListItemText primary={instrument.name} />
             </MenuItem>
           ))}
         </Select>

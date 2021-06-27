@@ -11,14 +11,14 @@
  */
 export function findMusician(musicians, searchedIdMusician) {
   const musician = musicians.find((musicianId) => {
-    return musicianId.user_pseudo[0] === searchedIdMusician;
+    return musicianId.name[0] === searchedIdMusician;
   });
   return musician;
 }
 
 export function findBand(bands, searchedIdBand) {
   const band = bands.find((bandId) => {
-    return bandId.band_name === searchedIdBand;
+    return bandId.name[0] === searchedIdBand;
   });
   return band;
 }

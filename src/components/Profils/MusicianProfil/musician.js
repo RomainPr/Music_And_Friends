@@ -4,21 +4,21 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import Content from './Content';
 
-function MusicianProfil({ musician }) {
-  return (
+import '../styles.scss';
+
+const MusicianProfil = ({ musicians, instruments, musician }) => (
     <>
       <Header
-        pseudo={musician.user_pseudo}
-        instruments={musician.user_instrument}
-        styles={musician.array_agg}
-        city={musician.user_city}
+        pseudo={musician.name}
+        instruments={musician.instrument}
+        styles={musician.styles}
+        city={musician.city}
       />
       <Content
         description={musician.description}
       />
     </>
-  );
-}
+)
 
 MusicianProfil.propTypes = {
   musician: PropTypes.shape({

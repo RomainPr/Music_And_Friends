@@ -1,23 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-//import containers
-import CheckBox from 'src/containers/CheckBox';
+// import containers
 import CitiesField from 'src/containers/CitiesField';
 import InstrumentsField from 'src/containers/InstrumentsField';
 import StylesField from 'src/containers/StylesField';
 
-//M UI
+// M UI
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import ListItemText from '@material-ui/core/ListItemText';
-
-//M UI card musicians
-import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormLabel from '@material-ui/core/FormLabel';
+
+// M UI card musicians
+import Select from '@material-ui/core/Select';
 import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
 import Slider from 'react-slick';
 import Grid from '@material-ui/core/Grid';
@@ -29,8 +32,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import StarIcon from '@material-ui/icons/Star';
+import Loading from 'src/components/App/Loading';
 
-//Slider
+// Slider
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -39,76 +43,146 @@ import './style.scss';
 export default function SearchPage({
   isBandChecked, isMusicianChecked, isPlaceChecked,
   cityName, instrumentName, styleName,
-  musicians, bands, places,
+  musicians, bands, places, instruments,
   categories,
-  categoryName, 
+  categoryName,
   onChangeCategoryValue,
   searchResult,
   onClickSearch,
+  onChangeBoxBandValue,
+  onChangeBoxMusicianValue,
+  onChangeBoxPlaceValue,
 }) {
+  // if (isBandChecked) {
+  //   searchResult.push(...bands);
+  // }
+  // if (isMusicianChecked) {
+  //   searchResult.push(...musicians);
+  // }
+  // if (isBandChecked) {
+  //   searchResult.push(...bands);
+  // }
 
-if (isBandChecked) {
-    // searchResult = [...bands];
-    searchResult.push(...bands)
-    console.log("searchResult bands:", searchResult);
-    
-  };
+  // if (isBandChecked && isMusicianChecked) {
+  //   searchResult.length = 0;
+  //   searchResult.push(...bands, ...musicians)
+  // }
 
-if (isMusicianChecked) {
-      // searchResult = [...musicians];
-      searchResult.push(...musicians)
-      console.log("searchResult musicians:", searchResult);
-    };
-if (isPlaceChecked) {
-      // searchResult = [...places];
-      searchResult.push(...places)
-      console.log("searchResult places:", searchResult);
-    };
-console.log(searchResult)
+  // if (isBandChecked && isMusicianChecked && isPlaceChecked) {
+  //   searchResult.length = 0;
+  //   searchResult.push(...bands, ...musicians, ...places)
+  // }
+
+  // if (isBandChecked) {
+  //   searchResult.push(...bands);
+  // } else if (isMusicianChecked) {
+  //   searchResult.push(...musicians);
+  // } else if (isPlaceChecked) {
+  //   searchResult.push(...places);
+  // } else if (isBandChecked && isMusicianChecked && isPlaceChecked) {
+  //   searchResult.push(...bands, ...musicians, ...places);
+  // } else {
+  //   searchResult.length = 0;
+  // }
+
+  // if (isBandChecked) {
+  //   searchResult.push(...bands);
+  // } else {
+  //   searchResult.length = 0;
+  // }
+
+  // if (isMusicianChecked) {
+  //   searchResult.push(...musicians);
+  // } else {
+  //   searchResult.length = 0;
+  // }
+
+  // if (isPlaceChecked) {
+  //   searchResult.push(...places);
+  // } else {
+  //   searchResult.length = 0;
+  // }
+
+  console.log('SEARCHRESULT = ', searchResult);
 
   const fullList = [...musicians, ...bands, ...places];
 
   const settings = {
     dots: true,
-    infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 3,
-    adaptiveHeight: true,
+    slidesToScroll: 2,
+    infinite: searchResult.length > 3,
   };
 
   return (
     <div>
       <form id="form">
-        {/* onClick={handleChange} */}
+        <div id="check-box">
+          <FormControl component="fieldset">
+            <FormLabel id="categories" component="legend">
+              Vous recherchez ?
+            </FormLabel>
+            <FormGroup row aria-label="position" name="position" defaultValue="right">
+              <FormControlLabel
+                control={(
+                  <Checkbox
+                    checked={isBandChecked}
+                    onChange={onChangeBoxBandValue}
+                    name="isBandChecked"
+                  />
+                )}
+                label="Groupes"
+                labelPlacement="end"
+              />
+              <FormControlLabel
+                control={(
+                  <Checkbox
+                    // id='isMusicianChecked'
+                    checked={isMusicianChecked}
+                    // value={value}
+                    onChange={onChangeBoxMusicianValue}
+                    name="isMusicianChecked"
+                  />
+                )}
+                label="Musiciens"
+                labelPlacement="end"
+              />
+              <FormControlLabel
+                control={(
+                  <Checkbox
+                    // id='isPaceChecked'
+                    checked={isPlaceChecked}
+                    // value={value}
+                    onChange={onChangeBoxPlaceValue}
+                    name="isPlaceChecked"
+                  />
+                )}
+                label="Salles"
+                labelPlacement="end"
+              />
+            </FormGroup>
+          </FormControl>
 
-        <CheckBox
-          isBandChecked={isBandChecked}
-          isMusicianChecked={isMusicianChecked}
-          isPlaceChecked={isPlaceChecked}
-        />
+        </div>
         <div id="searchFields">
           <CitiesField
             value={cityName}
           />
           <InstrumentsField
+            instruments={instruments}
             value={instrumentName}
           />
           <StylesField
             value={styleName}
           />
         </div>
-        <Button
-          id="search-button"
-          onClick={onClickSearch}
-          variant="contained">Rechercher
-        </Button>
 
         <div id="result">
           <p className="result-search">Plus précis encore ?</p>
-          <FormControl id='form-filter-result'>
+          <FormControl id="form-filter-result">
 
-            <InputLabel id="controlled-open-select-label">Filtrer par (tous, profils, annonces)</InputLabel>
+            <InputLabel id="controlled-open-select-label">Filtrer par (profils, annonces)</InputLabel>
 
             <Select
               labelId="mutiple-checkbox-label"
@@ -133,61 +207,98 @@ console.log(searchResult)
       </form>
       <div className="profilsCards">
         <Container maxWidth="lg">
-          <h2 className="profilsCards__title">{searchResult.length} Zikos</h2>
+          <h2 className="profilsCards__title">{searchResult.length} Résultats</h2>
           <Slider {...settings}>
 
-            {searchResult.map((item, index) => {
-              console.log(item);
-              return (
-
-                <Grid
-                  item xs={4} md={12} key={index}
-                >
-
-                  <Card id="card">
-                    <div id="card__image">
-                      <CardMedia
-                        component="img"
-                        alt="BandBackground"
-                        title="BandBackground"
-                        image="https://images.unsplash.com/photo-1517147177326-b37599372b73"
-                      />
-                      <Avatar
-                        id="card__avatar"
-                        src="https://i.pravatar.cc/300"
-                      />
-                      <IconButton
-                        id="card__favorite"
-                      >
-                        <StarIcon />
-                      </IconButton>
+            {searchResult.map((item) => (
+              <Card id="card">
+                <div id="card__image">
+                  <CardMedia
+                    component="img"
+                    alt="BandBackground"
+                    title="BandBackground"
+                    image="https://images.unsplash.com/photo-1517147177326-b37599372b73"
+                  />
+                  <Avatar
+                    id="card__avatar"
+                    src="https://i.pravatar.cc/300"
+                  />
+                  <IconButton
+                    id="card__favorite"
+                  >
+                    <StarIcon />
+                  </IconButton>
+                </div>
+                <CardContent id="card__content">
+                  <h2 className="bandName">{item.name}</h2>
+                  <h4 className="localization">{item.city}</h4>
+                  {item.description && (
+                  <p className="description">{item.description}</p>
+                  )}
+                  <Grid item xs={6}>
+                    <div className="attributes">
+                      {item.instrument && (
+                      <>
+                        {item.instrument.map((instrument) => (
+                          <p key={instrument} className="boxAttributes">{instrument}</p>
+                        ))}
+                      </>
+                      )}
                     </div>
-                    <CardContent id="card__content">
-                      <h2 className="bandName">{item.name}<span>{item.band_name}</span><span>{item.pseudo}</span></h2>
-                      <h4 className="localization">{item.city}</h4>
-                      <p className="description">{item.description}</p>
-                    </CardContent>
-                    <CardActions id="card__footer">
-                      <Button
-                        variant="contained"
-                        size="large"
-                        color="primary"
-                      >
-                        Voir le profil
+                  </Grid>
+                  <Grid item xs={12}>
+                    <div className="attributes">
+                      {item.styles && (
+                      <>
+                        {item.styles.slice(0, 3).map((style) => (
+                          <p key={style} className="boxAttributes">{style}</p>
+                        ))}
+                      </>
+                      )}
+                    </div>
+                  </Grid>
+                </CardContent>
+                <CardActions id="card__footer">
+                  {isMusicianChecked && !isBandChecked && !isPlaceChecked && (
+                  <Button
+                    variant="contained"
+                    size="large"
+                    color="primary"
+                    component={Link}
+                    to={`/musicians/${item.name}`}
+                  >
+                    Voir le profil
                   </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              )
-            })}
+                  )}
+
+                  {isBandChecked && (
+                  <Button
+                    variant="contained"
+                    size="large"
+                    color="primary"
+                    component={Link}
+                    to={`/bands/${item.name}`}
+                  >
+                    Voir le profil
+                  </Button>
+                  )}
+                  {isPlaceChecked && (
+                  <Button
+                    variant="contained"
+                    size="large"
+                    color="primary"
+                    component={Link}
+                    to={`/places/${item.name}`}
+                  >
+                    Voir le profil
+                  </Button>
+                  )}
+                </CardActions>
+              </Card>
+            ))}
           </Slider>
         </Container>
       </div>
-
-      <Button
-        id="load-more-btn">
-        <ArrowDropDownCircleIcon id="dropDown-arrow" />
-      </Button>
     </div>
   );
 }
@@ -204,6 +315,7 @@ SearchPage.propTypes = {
   musicians: PropTypes.array.isRequired,
   bands: PropTypes.array.isRequired,
   places: PropTypes.array.isRequired,
+  instruments: PropTypes.array.isRequired,
 
   categories: PropTypes.array.isRequired,
   onChangeCategoryValue: PropTypes.func.isRequired,
@@ -216,4 +328,4 @@ SearchPage.defaultProps = {
   isBandChecked: false,
   isMusicianChecked: false,
   isPlaceChecked: false,
-}
+};
