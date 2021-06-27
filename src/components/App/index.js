@@ -18,6 +18,7 @@ import ScrollToTop from 'src/components/ScrollToTop';
 import Loading from './Loading';
 
 import './styles.scss';
+import { ids } from 'webpack';
 
 function App({
   loadMusicians,
@@ -34,6 +35,11 @@ function App({
   if (loading) {
     return <Loading />;
   }
+
+  const storeMusicians = localStorage.getItem('musicians');
+  console.log(storeMusicians);
+  // const item = storeMusicians.filter((item) => item);
+  // console.log(item)
 
   return (
     <div className="app">
