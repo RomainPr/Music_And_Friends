@@ -5,30 +5,27 @@
  *  on trouve la recette voulue dans la liste des recettes
  * @param {Array} musicians - tous les musiciens
  * @param {Array} bands - tous les groupes
- * @param {Array} places - toutes les salles
- * @param {string} searchedNameMusician - le Name du musicien recherché
- * @param {string} searchedNameBand - le Name du groupe recherché
- * @param {string} searchedNamePlace - le Name de la salle recherchée
- * @return {Object} - Le musicien trouvé ou le groupe trouvé ou la salle trouvée
+ * @param {string} searchedIdMusician - l'Id du musicien recherché
+ * @param {string} searchedIdBand - l'Id du groupe recherché
+ * @return {Object} - Le musicien trouvé
  */
-
-export function findMusician(musicians, searchedNameMusician) {
-  const musician = musicians.find((musicianName) => {
-    return musicianName.name[0] === searchedNameMusician;
+export function findMusician(musicians, searchedIdMusician) {
+  const musician = musicians.find((musicianId) => {
+    return musicianId.name[0] === searchedIdMusician;
   });
   return musician;
 }
 
-export function findBand(bands, searchedNameBand) {
-  const band = bands.find((bandName) => {
-    return bandName.name[0] === searchedNameBand;
+export function findBand(bands, searchedIdBand) {
+  const band = bands.find((bandId) => {
+    return bandId.name[0] === searchedIdBand;
   });
   return band;
 }
 
-export function findPlace(places, searchedNamePlace) {
-  const place = places.find((placeName) => {
-    return placeName.name === searchedNamePlace;
+export function findPlace(places, searchedIdPlace) {
+  const place = places.find((placeId) => {
+    return placeId.name === searchedIdPlace;
   });
   return place;
 }
