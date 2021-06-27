@@ -9,18 +9,19 @@ import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
-import bandBackground from 'src/assets/ExempleBand.png';
+import bandBackground from 'src/assets/ExempleBand.jpg';
+import './styles.scss';
 
 const useStyles = makeStyles(() => ({
   profilInfo: {
     position: 'absolute',
-    top: '35%',
+    top: '25%',
     left: '5%',
     right: '0',
   },
   pseudo: {
     position: 'absolute',
-    top: '35%',
+    top: '10%',
     right: '0',
     left: '0',
     margin: '0 auto',
@@ -38,7 +39,7 @@ const useStyles = makeStyles(() => ({
   },
   actions: {
     paddingTop: '40px',
-    marginLeft: '18%',
+    marginLeft: '8%',
   },
   actionButtons: {
     textTransform: 'none',
