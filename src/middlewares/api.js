@@ -28,6 +28,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       axios.get('https://music-and-friends.herokuapp.com/musicians')
         .then((response) => {
           store.dispatch(getMusiciansSuccess(response.data.results));
+          localStorage.setItem('musicians', JSON.stringify(response.data.results));
         });
       next(action);
       break;
@@ -35,6 +36,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       axios.get('https://music-and-friends.herokuapp.com/bands')
         .then((response) => {
           store.dispatch(getBandsSuccess(response.data.results));
+          localStorage.setItem('bands', JSON.stringify(response.data.results));
         });
       next(action);
       break;
@@ -42,6 +44,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       axios.get('https://music-and-friends.herokuapp.com/places')
         .then((response) => {
           store.dispatch(getPlacesSuccess(response.data.results));
+          localStorage.setItem('places', JSON.stringify(response.data.results));
         });
       next(action);
       break;
@@ -49,6 +52,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       axios.get('https://music-and-friends.herokuapp.com/instruments')
         .then((response) => {
           store.dispatch(getInstrumentsSuccess(response.data.results));
+          localStorage.setItem('instruments', JSON.stringify(response.data.results));
         });
       next(action);
       break;

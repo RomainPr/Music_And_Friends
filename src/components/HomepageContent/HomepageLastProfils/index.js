@@ -22,8 +22,6 @@ import 'slick-carousel/slick/slick-theme.css';
 import './styles.scss';
 
 function LastProfils({ musicians, bands, places }) {
-  const fullList = [...musicians, ...bands, ...places];
-
   const settings = {
     dots: true,
     infinite: true,
