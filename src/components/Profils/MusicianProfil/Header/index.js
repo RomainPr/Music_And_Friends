@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -15,8 +14,9 @@ import bandBackground from 'src/assets/ExempleBand.png';
 const useStyles = makeStyles(() => ({
   profilInfo: {
     position: 'absolute',
-    bottom: '12%',
-    right: '6%',
+    top: '35%',
+    left: '5%',
+    right: '0',
   },
   pseudo: {
     position: 'absolute',
@@ -49,12 +49,9 @@ const useStyles = makeStyles(() => ({
     marginRight: '10px',
   },
   paper: {
+    width: '200px',
     borderRadius: '10px',
-    padding: '20px',
-  },
-  paperItem: {
-    display: 'flex',
-    alignItems: 'center',
+    padding: '10px',
   },
 }));
 
@@ -67,37 +64,37 @@ function MusicianProfilHeader({
       <div className="header">
         <div className="profilHeader">
           <img src={bandBackground} alt="" />
-          <Grid item xs={6} className={classes.profilInfo}>
+          <Grid item xs={3} className={classes.profilInfo}>
             <div className="profilHeader__info">
-              <Paper elevation={3} className={classes.paper}>
-                <Grid
-                  container
-                  direction="column"
-                  justify="space-between"
-                  alignItems="flex-start"
-                  spacing={2}
-                >
-                  <Grid item className={classes.paperItem}>
-                    <h2 className="profilHeader__info__title">Ville : </h2>
+              <Grid
+                container
+                direction="column"
+                justify="space-between"
+                alignItems="flex-start"
+                spacing={2}
+              >
+                <Grid item xs={12}>
+                  <Paper elevation={3} className={classes.paper}>
                     <ul>
-                      <li>Paris</li>
+                      <li>{city}</li>
                     </ul>
-                  </Grid>
-                  <Grid item className={classes.paperItem}>
-                    <h2 className="profilHeader__info__title">Instruments : </h2>
-                    {instruments.map((instrument) => (
-                      <li className="profilHeader__info__list">{instrument}</li>
-                    ))}
-                  </Grid>
-                  <Grid item className={classes.paperItem}>
-                    <h2 className="profilHeader__info__title">Styles : </h2>
-                    {styles.map((style) => (
-                      <li className="profilHeader__info__list">{style}</li>
-                    ))}
-                  </Grid>
+                  </Paper>
                 </Grid>
-
-              </Paper>
+                <Grid item xs={12}>
+                  <Paper elevation={3} className={classes.paper}>
+                    <ul>
+                      <li>{instruments}</li>
+                    </ul>
+                  </Paper>
+                </Grid>
+                <Grid item xs={12}>
+                  <Paper elevation={3} className={classes.paper}>
+                    <ul>
+                      <li>{styles}</li>
+                    </ul>
+                  </Paper>
+                </Grid>
+              </Grid>
             </div>
           </Grid>
           <Grid item xs={3} className={classes.pseudo}>

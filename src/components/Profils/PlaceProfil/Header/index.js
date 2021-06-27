@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -15,8 +14,9 @@ import bandBackground from 'src/assets/ExempleBand.png';
 const useStyles = makeStyles(() => ({
   profilInfo: {
     position: 'absolute',
-    top: '25%',
-    right: '5%',
+    top: '35%',
+    left: '5%',
+    right: '0',
   },
   pseudo: {
     position: 'absolute',
@@ -56,7 +56,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 function MusicianProfilHeader({
-  city, pseudo, styles,
+  city, pseudo, instruments, styles,
 }) {
   const classes = useStyles();
   return (
@@ -82,13 +82,18 @@ function MusicianProfilHeader({
                     </Paper>
                   </Grid>
                   <Grid item xs={12}>
-                    {styles && (
                     <Paper elevation={3} className={classes.paper}>
-                      {styles.map((style) => (
-                        <li className="profilHeader__info__list">{style}</li>
-                      ))}
+                      <ul>
+                        <li>{instruments}</li>
+                      </ul>
                     </Paper>
-                    )}
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Paper elevation={3} className={classes.paper}>
+                      <ul>
+                        <li>{styles}</li>
+                      </ul>
+                    </Paper>
                   </Grid>
                 </Grid>
               </div>
