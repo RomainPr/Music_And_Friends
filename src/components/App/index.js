@@ -39,8 +39,7 @@ function App({
 
   return (
     <div className="app">
-      <NewAd />
-      {/* <ScrollToTop />
+      <ScrollToTop />
       <Switch>
         <Route exact path="/">
           <Home />
@@ -91,7 +90,7 @@ function App({
           />
           <Footer />
         </Route>
-      </Switch> */}
+      </Switch>
     </div>
   );
 }

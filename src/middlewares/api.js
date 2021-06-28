@@ -70,6 +70,13 @@ const apiMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('user', response.data.user_id);
+          localStorage.setItem('role', response.data.role);
+
+          const role = localStorage.getItem('role');
+          const id = localStorage.getItem('user');
+    
+          console.log(`role = `, role);
+          console.log(`id = `, id);
           store.dispatch(loginSuccess());
           store.dispatch(closeModal());
         });
@@ -123,15 +130,20 @@ const apiMiddleware = (store) => (next) => (action) => {
     }
     case SUBMIT_NEW_AD: {
       const state = store.getState();
+      const role = localStorage.getItem('role');
+      const id = localStorage.getItem('user');
+
+      console.log(`role = `, role);
+      console.log(`id = `, id);
       const signUpRequest = {
         method: 'POST',
-        url: 'https://music-and-friends.herokuapp.com/profils/:role/id/newad',
+        url: `https://music-and-friends.herokuapp.com/profils/${role}/${id}/newad`,
         data: {
-          userSelected: state.newAd.userSelected,
-          styleName: state.newAd.styleName,
-          instrumentName: state.newAd.instrumentName,
+          category: state.newAd.userSelected,
+          style: state.newAd.styleName,
+          instrument: state.newAd.instrumentName,
           title: state.newAd.title,
-          content: state.newAd.content,
+          description: state.newAd.content,
         },
       };
       axios(signUpRequest)
