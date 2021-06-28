@@ -11,99 +11,100 @@ import IconButton from '@material-ui/core/IconButton';
 import StarIcon from '@material-ui/icons/Star';
 import Grid from '@material-ui/core/Grid';
 
-const GlobalCardProfils = ({
-  searchResult, isBandChecked, isMusicianChecked, isPlaceChecked,
-}) => (
-  <Grid container direction="row" justify="center" alignItems="center">
-  <Grid item xs={12}>
-    {searchResult.map((item) => (
-      <Card id="card">
-        <div id="card__image">
-          <CardMedia
-            component="img"
-            alt="BandBackground"
-            title="BandBackground"
-            image="https://images.unsplash.com/photo-1517147177326-b37599372b73"
-          />
-          <Avatar
-            id="card__avatar"
-            src="https://i.pravatar.cc/300"
-          />
-          <IconButton
-            id="card__favorite"
-          >
-            <StarIcon />
-          </IconButton>
-        </div>
-        <CardContent id="card__content">
-          <h2 className="bandName">{item.name}</h2>
-          <h4 className="localization">{item.city}</h4>
-          {item.description && (
-          <p className="description">{item.description}</p>
-          )}
-          <Grid item xs={6}>
-            <div className="attributes">
-              {item.instrument && (
-              <>
-                {item.instrument.map((instrument) => (
-                  <p key={instrument} className="boxAttributes">{instrument}</p>
-                ))}
-              </>
-              )}
-            </div>
-          </Grid>
-          <Grid item xs={12}>
-            <div className="attributes">
-              {item.styles && (
-              <>
-                {item.styles.slice(0, 3).map((style) => (
-                  <p key={style} className="boxAttributes">{style}</p>
-                ))}
-              </>
-              )}
-            </div>
-          </Grid>
-        </CardContent>
-        <CardActions id="card__footer">
-          {isMusicianChecked && !isBandChecked && !isPlaceChecked && (
-          <Button
-            variant="contained"
-            size="large"
-            color="primary"
-            component={Link}
-            to={`/musicians/${item.name}`}
-          >
-            Voir le profil
-          </Button>
-          )}
-
-          {isBandChecked && (
-          <Button
-            variant="contained"
-            size="large"
-            color="primary"
-            component={Link}
-            to={`/bands/${item.name}`}
-          >
-            Voir le profil
-          </Button>
-          )}
-          {isPlaceChecked && (
-          <Button
-            variant="contained"
-            size="large"
-            color="primary"
-            component={Link}
-            to={`/places/${item.name}`}
-          >
-            Voir le profil
-          </Button>
-          )}
-        </CardActions>
-      </Card>
-    ))}
-    </Grid>
-  </Grid>
-);
+function GlobalCardProfils({
+  name,
+  city,
+  description,
+  instrument,
+  styles,
+  roleMusicien,
+  rolePlace,
+}) {
+  return (
+    <Card id="card">
+      <div id="card__image">
+        <CardMedia
+          component="img"
+          alt="BandBackground"
+          title="BandBackground"
+          image="https://images.unsplash.com/photo-1517147177326-b37599372b73"
+        />
+        <Avatar
+          id="card__avatar"
+          src="https://i.pravatar.cc/300"
+        />
+        <IconButton
+          id="card__favorite"
+        >
+          <StarIcon />
+        </IconButton>
+      </div>
+      <CardContent id="card__content">
+        <h2 className="bandName">{name}</h2>
+        <h4 className="localization">{city}</h4>
+        {description && (
+        <p className="description">{description}</p>
+        )}
+        <Grid item xs={6}>
+          <div className="attributes">
+            {instrument && (
+            <>
+              {instrument.map((instru) => (
+                <p key={instru} className="boxAttributes">{instru}</p>
+              ))}
+            </>
+            )}
+          </div>
+        </Grid>
+        <Grid item xs={12}>
+          <div className="attributes">
+            {styles && (
+            <>
+              {styles.slice(0, 3).map((style) => (
+                <p key={style} className="boxAttributes">{style}</p>
+              ))}
+            </>
+            )}
+          </div>
+        </Grid>
+      </CardContent>
+      <CardActions id="card__footer">
+        {roleMusicien === 'musicien' && (
+        <Button
+          variant="contained"
+          size="large"
+          color="primary"
+          component={Link}
+          to={`/musicians/${name}`}
+        >
+          Voir le profil
+        </Button>
+        )}
+        {roleMusicien === 'groupes' && (
+        <Button
+          variant="contained"
+          size="large"
+          color="primary"
+          component={Link}
+          to={`/bands/${name}`}
+        >
+          Voir le profil
+        </Button>
+        )}
+        {rolePlace === 'place' && (
+        <Button
+          variant="contained"
+          size="large"
+          color="primary"
+          component={Link}
+          to={`/places/${name}`}
+        >
+          Voir le profil
+        </Button>
+        )}
+      </CardActions>
+    </Card>
+  );
+}
 
 export default GlobalCardProfils;

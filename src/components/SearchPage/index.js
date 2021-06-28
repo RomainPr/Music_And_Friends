@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -36,6 +36,7 @@ import IconButton from '@material-ui/core/IconButton';
 import StarIcon from '@material-ui/icons/Star';
 
 import GlobalCardProfils from './GlobalCardProfils';
+import GlobalCardProfilsAll from './GlobalCardProfilsAll';
 
 // Slider
 import 'slick-carousel/slick/slick.css';
@@ -81,7 +82,6 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function SearchPage({
-  isBandChecked, isMusicianChecked, isPlaceChecked,
   cityName, instrumentName, styleName,
   musicians, bands, places, instruments,
   categories,
@@ -145,16 +145,67 @@ export default function SearchPage({
   //   searchResult.length = 0;
   // }
 
+  const searchResultAll = [...musicians, ...places];
+
+  const [filter, setFilter] = useState('none');
+  const [isMusicianChecked, setMusicianChecked] = useState(false);
+  const [isBandChecked, setBandChecked] = useState(false);
+  const [isPlaceChecked, setPlaceChecked] = useState(false);
+
+  const handleCheckboxMusician = (e) => {
+    if (filter === e.target.value) {
+      setFilter('none');
+      setMusicianChecked(false);
+    }
+    else {
+      setFilter(e.target.value);
+      setMusicianChecked(true);
+    }
+  };
+  const handleCheckboxBands = (e) => {
+    if (filter === e.target.value) {
+      setFilter('none');
+      setBandChecked(false);
+    }
+    else {
+      setFilter(e.target.value);
+      setBandChecked(true);
+    }
+  };
+  const handleCheckboxPlaces = (e) => {
+    if (filter === e.target.value) {
+      setFilter('none');
+      setPlaceChecked(false);
+    }
+    else {
+      setFilter(e.target.value);
+      setPlaceChecked(true);
+    }
+  };
+
   const settings = {
     dots: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 2,
-    infinite: searchResult.length > 3,
+    slidesToScroll: 3,
+    infinite: searchResultAll.length > 4,
   };
 
-  const searchResultAll = [...musicians, ...bands, ...places];
-  console.log(searchResultAll);
+  const mapped = searchResultAll.map((item) => {
+    if (item.role === filter || item.role[0] === filter || filter === 'none') {
+      return (
+        <GlobalCardProfils
+          name={item.name}
+          city={item.city}
+          description={item.description}
+          styles={item.style}
+          instrument={item.instrument}
+          roleMusicien={item.role[0]}
+          rolePlace={item.role}
+        />
+      );
+    }
+  });
 
   return (
     <div>
@@ -171,8 +222,9 @@ export default function SearchPage({
               control={(
                 <Checkbox
                   className={classes.checkbox}
+                  onChange={handleCheckboxBands}
                   checked={isBandChecked}
-                  onChange={onChangeBoxBandValue}
+                  value="groupe"
                   name="isBandChecked"
                 />
                 )}
@@ -183,7 +235,8 @@ export default function SearchPage({
                 <Checkbox
                   className={classes.checkbox}
                   checked={isMusicianChecked}
-                  onChange={onChangeBoxMusicianValue}
+                  value="musicien"
+                  onChange={handleCheckboxMusician}
                   name="isMusicianChecked"
                 />
                 )}
@@ -194,7 +247,8 @@ export default function SearchPage({
                 <Checkbox
                   className={classes.checkbox}
                   checked={isPlaceChecked}
-                  onChange={onChangeBoxPlaceValue}
+                  value="place"
+                  onChange={handleCheckboxPlaces}
                   name="isPlaceChecked"
                 />
                 )}
@@ -248,122 +302,10 @@ export default function SearchPage({
       </Container>
       <div className="profilsCards">
         <Container maxWidth="lg">
-          <h2 className="profilsCards__title">{searchResult.length} Résultats</h2>
           <Slider {...settings}>
-            {(isBandChecked && isMusicianChecked && isPlaceChecked)
-              && (
-                <GlobalCardProfils
-                  searchResult={searchResult}
-                  isBandChecked={isBandChecked}
-                  isMusicianChecked={isMusicianChecked}
-                  isPlaceChecked={isPlaceChecked}
-                />
-              )}
-            {isBandChecked && (
-            <GlobalCardProfils
-              searchResult={searchResult}
-              isBandChecked={isBandChecked}
-              isMusicianChecked={isMusicianChecked}
-              isPlaceChecked={isPlaceChecked}
-            />
-            )}
-            {isMusicianChecked && (
-            <GlobalCardProfils
-              searchResult={searchResult}
-              isBandChecked={isBandChecked}
-              isMusicianChecked={isMusicianChecked}
-              isPlaceChecked={isPlaceChecked}
-            />
-            )}
-            {isPlaceChecked && (
-              searchResult.map((item) => (
-                <Card id="card">
-                  <div id="card__image">
-                    <CardMedia
-                      component="img"
-                      alt="BandBackground"
-                      title="BandBackground"
-                      image="https://images.unsplash.com/photo-1517147177326-b37599372b73"
-                    />
-                    <Avatar
-                      id="card__avatar"
-                      src="https://i.pravatar.cc/300"
-                    />
-                    <IconButton
-                      id="card__favorite"
-                    >
-                      <StarIcon />
-                    </IconButton>
-                  </div>
-                  <CardContent id="card__content">
-                    <h2 className="bandName">{item.name}</h2>
-                    <h4 className="localization">{item.city}</h4>
-                    {item.description && (
-                      <p className="description">{item.description}</p>
-                    )}
-                    <Grid item xs={6}>
-                      <div className="attributes">
-                        {item.instrument && (
-                          <>
-                            {item.instrument.map((instrument) => (
-                              <p key={instrument} className="boxAttributes">{instrument}</p>
-                            ))}
-                          </>
-                          )}
-                      </div>
-                    </Grid>
-                    <Grid item xs={12}>
-                      <div className="attributes">
-                        {item.styles && (
-                          <>
-                            {item.styles.slice(0, 3).map((style) => (
-                              <p key={style} className="boxAttributes">{style}</p>
-                            ))}
-                          </>
-                          )}
-                      </div>
-                    </Grid>
-                  </CardContent>
-                  <CardActions id="card__footer">
-                    {isMusicianChecked && !isBandChecked && !isPlaceChecked && (
-                      <Button
-                        variant="contained"
-                        size="large"
-                        color="primary"
-                        component={Link}
-                        to={`/musicians/${item.name}`}
-                      >
-                        Voir le profil
-                      </Button>
-                    )}
-
-                    {isBandChecked && (
-                      <Button
-                        variant="contained"
-                        size="large"
-                        color="primary"
-                        component={Link}
-                        to={`/bands/${item.name}`}
-                      >
-                        Voir le profil
-                      </Button>
-                    )}
-                    {isPlaceChecked && (
-                      <Button
-                        variant="contained"
-                        size="large"
-                        color="primary"
-                        component={Link}
-                        to={`/places/${item.name}`}
-                      >
-                        Voir le profil
-                      </Button>
-                    )}
-                  </CardActions>
-                </Card>
-              ))
-            )}
+            {mapped}
           </Slider>
+          <h2 className="profilsCards__title">{searchResult.length} Résultats</h2>
         </Container>
       </div>
     </div>
