@@ -43,18 +43,14 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function InstrumentsField({
-  searchResultAll, instruments, instrumentName, onChangeInstru,
+  searchResultAll, bands, musicians, instruments, instrumentName, onChangeInstru,
 }) {
   const classes = useStyles();
+  console.log('musiciens', musicians);
+  console.log('instruments', instruments);
 
   const onChangeInstrumentValue = (event) => {
     onChangeInstru(event);
-    const zoubida = searchResultAll.filter((musician) => {
-      const { instrument } = musician;
-      console.log(musician.instrument);
-      return instrument.some((inst) => instruments.includes(inst));
-    });
-    console.log(zoubida);
   };
 
   return (

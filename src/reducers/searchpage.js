@@ -41,6 +41,7 @@ const initialState = {
     'Grenoble',
     'Strasbourg',
     'Brest',
+    'Vienne',
   ],
 
   instruments: [

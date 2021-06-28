@@ -27,13 +27,6 @@ import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
 import Slider from 'react-slick';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import Avatar from '@material-ui/core/Avatar';
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import IconButton from '@material-ui/core/IconButton';
-import StarIcon from '@material-ui/icons/Star';
 
 import GlobalCardProfils from './GlobalCardProfils';
 import GlobalCardProfilsAll from './GlobalCardProfilsAll';
@@ -152,22 +145,56 @@ export default function SearchPage({
   const [isBandChecked, setBandChecked] = useState(false);
   const [isPlaceChecked, setPlaceChecked] = useState(false);
 
-  const mapped = searchResultAll.map((item) => {
+  let filteredResults = searchResultAll.filter((item) => {
     if (item.role === filter || item.role[0] === filter || filter === 'none') {
-      return (
-        <GlobalCardProfils
-          key={item}
-          name={item.name}
-          city={item.city}
-          description={item.description}
-          styles={item.style}
-          instrument={item.instrument}
-          roleMusicien={item.role[0]}
-          rolePlace={item.role}
-        />
-      );
+      return item;
     }
   });
+
+  console.log('firstFfilteredResult', filteredResults);
+
+  if (instrumentName.length !== 0 || cityName.length !== 0 || styleName.length !== 0) {
+    filteredResults = filteredResults.filter((musician) => {
+      const {
+        instrument, styles, city, role,
+      } = musician;
+      if (role === 'place' || role[0] === 'place') {
+        if (cityName.length !== 0) {
+          let place;
+          cityName.map((cityPlace) => {
+            console.log('place', `${cityPlace} / ${city}`);
+            if (cityPlace == city) {
+              console.log('dans le if', musician);
+              place = musician;
+            }
+          });
+          return place;
+        }
+        return false;
+      }
+
+      return (instrumentName.length === 0 || instrument.some((r) => instrumentName.includes(r))) && (styleName.length === 0 || styles.some((r) => styleName.includes(r))) && (cityName.length === 0 || city.some((r) => cityName.includes(r)));
+    });
+  }
+
+  console.log('filteredResultsPlus', filteredResults);
+
+  let mapped;
+
+  if (filteredResults.length !== 0) {
+    mapped = filteredResults.map((item) => (
+      <GlobalCardProfils
+        key={item}
+        name={item.name}
+        city={item.city}
+        description={item.description}
+        styles={item.style}
+        instrument={item.instrument}
+        roleMusicien={item.role[0]}
+        rolePlace={item.role}
+      />
+    ));
+  }
 
   const handleCheckboxMusician = (e) => {
     if (filter === e.target.value) {
@@ -269,6 +296,8 @@ export default function SearchPage({
           />
           <InstrumentsField
             searchResultAll={searchResultAll}
+            bands={bands}
+            musicians={musicians}
             instruments={instruments}
             value={instrumentName}
           />
@@ -304,9 +333,11 @@ export default function SearchPage({
       </Container>
       <div className="profilsCards">
         <Container maxWidth="lg">
-          <Slider {...settings}>
-            {mapped}
-          </Slider>
+          {mapped ? (
+            <Slider {...settings}>
+              {mapped}
+            </Slider>
+          ) : <div>Aucun résultat</div>}
           <h2 className="profilsCards__title">{searchResultAll.length} Résultats</h2>
         </Container>
       </div>
