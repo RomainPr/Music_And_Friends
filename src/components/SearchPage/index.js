@@ -7,7 +7,12 @@ import CitiesField from 'src/containers/CitiesField';
 import InstrumentsField from 'src/containers/InstrumentsField';
 import StylesField from 'src/containers/StylesField';
 
+import CardMusician from 'src/components/HomepageContent/HomepageLastProfils/cardMusician';
+import CardBand from 'src/components/HomepageContent/HomepageLastProfils/cardBand';
+import CardPlaces from 'src/components/HomepageContent/HomepageLastProfils/cardPlaces';
+
 // M UI
+import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -18,6 +23,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
+import { makeStyles } from '@material-ui/core/styles';
 
 // M UI card musicians
 import Select from '@material-ui/core/Select';
@@ -32,13 +38,46 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import StarIcon from '@material-ui/icons/Star';
-import Loading from 'src/components/App/Loading';
 
 // Slider
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import './style.scss';
+
+const useStyles = makeStyles(() => ({
+  title: {
+    fontSize: '2em',
+    color: '#fff',
+    paddingBottom: '40px',
+  },
+  form: {
+    position: 'absolute',
+    top: '20%',
+    left: 0,
+    right: 0,
+    textAlign: 'center',
+  },
+  checkbox: {
+    position: 'absolute',
+    left: '-100vw',
+    '&.Mui-checked': {
+      '&, & + .MuiTypography-body1 p': {
+        backgroundColor: '#53ce00',
+      },
+    },
+  },
+  formControlLabel: {
+    color: '#fff',
+    fontFamily: 'inherit',
+    fontSize: '1.3em',
+    margin: '0 20px',
+    background: '#E87121',
+    borderRadius: '20px',
+    padding: '10px 40px',
+    transition: 'background .2s ease',
+  },
+}));
 
 export default function SearchPage({
   isBandChecked, isMusicianChecked, isPlaceChecked,
@@ -53,6 +92,8 @@ export default function SearchPage({
   onChangeBoxMusicianValue,
   onChangeBoxPlaceValue,
 }) {
+  const classes = useStyles();
+
   // if (isBandChecked) {
   //   searchResult.push(...bands);
   // }
@@ -103,10 +144,6 @@ export default function SearchPage({
   //   searchResult.length = 0;
   // }
 
-  console.log('SEARCHRESULT = ', searchResult);
-
-  const fullList = [...musicians, ...bands, ...places];
-
   const settings = {
     dots: true,
     speed: 500,
@@ -115,56 +152,55 @@ export default function SearchPage({
     infinite: searchResult.length > 3,
   };
 
+  const searchResultAll = [...musicians, ...bands, ...places];
+  console.log(searchResultAll);
+
   return (
     <div>
-      <form id="form">
-        <div id="check-box">
-          <FormControl component="fieldset">
-            <FormLabel id="categories" component="legend">
-              Vous recherchez ?
-            </FormLabel>
-            <FormGroup row aria-label="position" name="position" defaultValue="right">
-              <FormControlLabel
-                control={(
-                  <Checkbox
-                    checked={isBandChecked}
-                    onChange={onChangeBoxBandValue}
-                    name="isBandChecked"
-                  />
+      <Container maxWidth="lg" className={classes.form}>
+        <h2 className={classes.title}>Vous recherchez ?</h2>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
+          <FormGroup row justify="center">
+            <FormControlLabel
+              control={(
+                <Checkbox
+                  className={classes.checkbox}
+                  checked={isBandChecked}
+                  onChange={onChangeBoxBandValue}
+                  name="isBandChecked"
+                />
                 )}
-                label="Groupes"
-                labelPlacement="end"
-              />
-              <FormControlLabel
-                control={(
-                  <Checkbox
-                    // id='isMusicianChecked'
-                    checked={isMusicianChecked}
-                    // value={value}
-                    onChange={onChangeBoxMusicianValue}
-                    name="isMusicianChecked"
-                  />
+              label={<Typography className={classes.formControlLabel}>Groupes</Typography>}
+            />
+            <FormControlLabel
+              control={(
+                <Checkbox
+                  className={classes.checkbox}
+                  checked={isMusicianChecked}
+                  onChange={onChangeBoxMusicianValue}
+                  name="isMusicianChecked"
+                />
                 )}
-                label="Musiciens"
-                labelPlacement="end"
-              />
-              <FormControlLabel
-                control={(
-                  <Checkbox
-                    // id='isPaceChecked'
-                    checked={isPlaceChecked}
-                    // value={value}
-                    onChange={onChangeBoxPlaceValue}
-                    name="isPlaceChecked"
-                  />
+              label={<Typography className={classes.formControlLabel}>Musiciens</Typography>}
+            />
+            <FormControlLabel
+              control={(
+                <Checkbox
+                  className={classes.checkbox}
+                  checked={isPlaceChecked}
+                  onChange={onChangeBoxPlaceValue}
+                  name="isPlaceChecked"
+                />
                 )}
-                label="Salles"
-                labelPlacement="end"
-              />
-            </FormGroup>
-          </FormControl>
-
-        </div>
+              label={<Typography className={classes.formControlLabel}>Salles</Typography>}
+            />
+          </FormGroup>
+        </Grid>
         <div id="searchFields">
           <CitiesField
             value={cityName}
@@ -192,7 +228,6 @@ export default function SearchPage({
               onChange={onChangeCategoryValue}
               input={<Input />}
               renderValue={(selected) => selected.join(', ')}
-
             >
               {categories.map((category) => (
                 <MenuItem key={category} value={category}>
@@ -203,101 +238,192 @@ export default function SearchPage({
             </Select>
           </FormControl>
         </div>
-
-      </form>
-      <div className="profilsCards">
-        <Container maxWidth="lg">
-          <h2 className="profilsCards__title">{searchResult.length} Résultats</h2>
-          <Slider {...settings}>
-
-            {searchResult.map((item) => (
-              <Card id="card">
-                <div id="card__image">
-                  <CardMedia
-                    component="img"
-                    alt="BandBackground"
-                    title="BandBackground"
-                    image="https://images.unsplash.com/photo-1517147177326-b37599372b73"
-                  />
-                  <Avatar
-                    id="card__avatar"
-                    src="https://i.pravatar.cc/300"
-                  />
-                  <IconButton
-                    id="card__favorite"
-                  >
-                    <StarIcon />
-                  </IconButton>
-                </div>
-                <CardContent id="card__content">
-                  <h2 className="bandName">{item.name}</h2>
-                  <h4 className="localization">{item.city}</h4>
-                  {item.description && (
-                  <p className="description">{item.description}</p>
-                  )}
-                  <Grid item xs={6}>
-                    <div className="attributes">
-                      {item.instrument && (
-                      <>
-                        {item.instrument.map((instrument) => (
-                          <p key={instrument} className="boxAttributes">{instrument}</p>
-                        ))}
-                      </>
-                      )}
+      </Container>
+      <div>
+        <div className="profilsCards">
+          <Container maxWidth="lg">
+            <h2 className="profilsCards__title">{searchResult.length} Résultats</h2>
+            <Slider {...settings}>
+              {(isBandChecked && isMusicianChecked && isPlaceChecked)
+              && (
+                searchResultAll.map((item) => (
+                  <Card id="card">
+                    <div id="card__image">
+                      <CardMedia
+                        component="img"
+                        alt="BandBackground"
+                        title="BandBackground"
+                        image="https://images.unsplash.com/photo-1517147177326-b37599372b73"
+                      />
+                      <Avatar
+                        id="card__avatar"
+                        src="https://i.pravatar.cc/300"
+                      />
+                      <IconButton
+                        id="card__favorite"
+                      >
+                        <StarIcon />
+                      </IconButton>
                     </div>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <div className="attributes">
-                      {item.styles && (
-                      <>
-                        {item.styles.slice(0, 3).map((style) => (
-                          <p key={style} className="boxAttributes">{style}</p>
-                        ))}
-                      </>
+                    <CardContent id="card__content">
+                      <h2 className="bandName">{item.name}</h2>
+                      <h4 className="localization">{item.city}</h4>
+                      {item.description && (
+                        <p className="description">{item.description}</p>
                       )}
-                    </div>
-                  </Grid>
-                </CardContent>
-                <CardActions id="card__footer">
-                  {isMusicianChecked && !isBandChecked && !isPlaceChecked && (
-                  <Button
-                    variant="contained"
-                    size="large"
-                    color="primary"
-                    component={Link}
-                    to={`/musicians/${item.name}`}
-                  >
-                    Voir le profil
-                  </Button>
-                  )}
+                      <Grid item xs={6}>
+                        <div className="attributes">
+                          {item.instrument && (
+                            <>
+                              {item.instrument.map((instrument) => (
+                                <p key={instrument} className="boxAttributes">{instrument}</p>
+                              ))}
+                            </>
+                          )}
+                        </div>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <div className="attributes">
+                          {item.styles && (
+                            <>
+                              {item.styles.slice(0, 3).map((style) => (
+                                <p key={style} className="boxAttributes">{style}</p>
+                              ))}
+                            </>
+                          )}
+                        </div>
+                      </Grid>
+                    </CardContent>
+                    <CardActions id="card__footer">
+                      {isMusicianChecked && !isBandChecked && !isPlaceChecked && (
+                        <Button
+                          variant="contained"
+                          size="large"
+                          color="primary"
+                          component={Link}
+                          to={`/musicians/${item.name}`}
+                        >
+                          Voir le profil
+                        </Button>
+                      )}
 
-                  {isBandChecked && (
-                  <Button
-                    variant="contained"
-                    size="large"
-                    color="primary"
-                    component={Link}
-                    to={`/bands/${item.name}`}
-                  >
-                    Voir le profil
-                  </Button>
-                  )}
-                  {isPlaceChecked && (
-                  <Button
-                    variant="contained"
-                    size="large"
-                    color="primary"
-                    component={Link}
-                    to={`/places/${item.name}`}
-                  >
-                    Voir le profil
-                  </Button>
-                  )}
-                </CardActions>
-              </Card>
-            ))}
-          </Slider>
-        </Container>
+                      {isBandChecked && (
+                        <Button
+                          variant="contained"
+                          size="large"
+                          color="primary"
+                          component={Link}
+                          to={`/bands/${item.name}`}
+                        >
+                          Voir le profil
+                        </Button>
+                      )}
+                      {isPlaceChecked && (
+                        <Button
+                          variant="contained"
+                          size="large"
+                          color="primary"
+                          component={Link}
+                          to={`/places/${item.name}`}
+                        >
+                          Voir le profil
+                        </Button>
+                      )}
+                    </CardActions>
+                  </Card>
+                ))
+              )}
+              {isBandChecked && (
+                searchResult.map((item) => (
+                  <Card id="card">
+                    <div id="card__image">
+                      <CardMedia
+                        component="img"
+                        alt="BandBackground"
+                        title="BandBackground"
+                        image="https://images.unsplash.com/photo-1517147177326-b37599372b73"
+                      />
+                      <Avatar
+                        id="card__avatar"
+                        src="https://i.pravatar.cc/300"
+                      />
+                      <IconButton
+                        id="card__favorite"
+                      >
+                        <StarIcon />
+                      </IconButton>
+                    </div>
+                    <CardContent id="card__content">
+                      <h2 className="bandName">{item.name}</h2>
+                      <h4 className="localization">{item.city}</h4>
+                      {item.description && (
+                      <p className="description">{item.description}</p>
+                      )}
+                      <Grid item xs={6}>
+                        <div className="attributes">
+                          {item.instrument && (
+                          <>
+                            {item.instrument.map((instrument) => (
+                              <p key={instrument} className="boxAttributes">{instrument}</p>
+                            ))}
+                          </>
+                          )}
+                        </div>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <div className="attributes">
+                          {item.styles && (
+                          <>
+                            {item.styles.slice(0, 3).map((style) => (
+                              <p key={style} className="boxAttributes">{style}</p>
+                            ))}
+                          </>
+                          )}
+                        </div>
+                      </Grid>
+                    </CardContent>
+                    <CardActions id="card__footer">
+                      {isMusicianChecked && !isBandChecked && !isPlaceChecked && (
+                      <Button
+                        variant="contained"
+                        size="large"
+                        color="primary"
+                        component={Link}
+                        to={`/musicians/${item.name}`}
+                      >
+                        Voir le profil
+                      </Button>
+                      )}
+
+                      {isBandChecked && (
+                      <Button
+                        variant="contained"
+                        size="large"
+                        color="primary"
+                        component={Link}
+                        to={`/bands/${item.name}`}
+                      >
+                        Voir le profil
+                      </Button>
+                      )}
+                      {isPlaceChecked && (
+                      <Button
+                        variant="contained"
+                        size="large"
+                        color="primary"
+                        component={Link}
+                        to={`/places/${item.name}`}
+                      >
+                        Voir le profil
+                      </Button>
+                      )}
+                    </CardActions>
+                  </Card>
+                ))
+              )}
+            </Slider>
+          </Container>
+        </div>
       </div>
     </div>
   );

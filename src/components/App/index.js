@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Home from 'src/containers/connectedHomepageContent';
+import HeaderPage from '../HeaderPage';
 import Nav from 'src/containers/connectedNav';
 import SignMusician from 'src/containers/SignMusician';
 import SearchPage from 'src/containers/SearchPage';
@@ -45,6 +46,7 @@ function App({
         </Route>
         <Route exact path="/search">
           <Nav />
+          <HeaderPage />
           <SearchPage
             musicians={musicians}
             bands={bands}

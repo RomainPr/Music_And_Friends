@@ -12,9 +12,9 @@ import {
 const initialState = {
 
   // checkbox section
-  isBandChecked: true,
-  isMusicianChecked: true,
-  isPlaceChecked: true,
+  isBandChecked: false,
+  isMusicianChecked: false,
+  isPlaceChecked: false,
 
   // MultiSelect 1 section (multiSelect1 =result)
   cityName: [],
