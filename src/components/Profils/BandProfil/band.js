@@ -6,7 +6,7 @@ import Content from './Content';
 
 import '../styles.scss';
 
-function BandProfil({ band }) {
+function BandProfil({ bands, instruments, band }) {
   return (
     <>
       <Header

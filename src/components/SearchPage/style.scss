@@ -1,21 +1,24 @@
 @use 'src/styles/vars';
 
-//1st part
-#check-box {
-
-  padding-top: vars.$paddingTopMedium;
-  background-image: url('/src/assets/img/searchHeadPic.png');
-  background-size: cover;
-  color: vars.$light-color;
-  padding-bottom: vars.$paddingBottomSmall;
-  width: 100%;
-  height: auto;
+.form {
+  &__checkBoxes {
+    color:vars.$light-color;
+    padding-bottom:vars.$paddingBottomSmall;
+  }
 }
 
 #selector-field {
-  color: vars.$light-color;
-  background-color: vars.$light-color;
-}
+  color:vars.$light-color;
+  background-color:vars.$light-color;
+  }
+  
+  #categories {
+    
+    color:vars.$light-color;
+    font-size: 2em;
+    padding-bottom: 1em;
+    margin-right:1em;
+  }
 
 #form {
   text-align: center;

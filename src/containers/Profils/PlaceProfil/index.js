@@ -6,7 +6,8 @@ import { findPlace } from 'src/selectors/musician';
 
 function mapStateToProps(state, ownProps) {
   return {
-    place: findPlace(state.musicians.places, ownProps.match.params.name),
+    place: findPlace(JSON.parse(localStorage.getItem('places')), ownProps.match.params.name),
+    places: state.musicians.places,
   };
 }
 

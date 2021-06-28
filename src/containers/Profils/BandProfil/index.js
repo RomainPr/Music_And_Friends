@@ -6,7 +6,9 @@ import { findBand } from 'src/selectors/musician';
 
 function mapStateToProps(state, ownProps) {
   return {
-    band: findBand(state.musicians.bands, ownProps.match.params.name),
+    band: findBand(JSON.parse(localStorage.getItem('bands')), ownProps.match.params.name),
+    bands: state.musicians.bands,
+    instruments: state.musicians.instruments,
   };
 }
 
