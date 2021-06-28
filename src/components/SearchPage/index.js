@@ -2,14 +2,10 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-// import containers
+// import components
 import CitiesField from 'src/containers/CitiesField';
 import InstrumentsField from 'src/containers/InstrumentsField';
 import StylesField from 'src/containers/StylesField';
-
-import CardMusician from 'src/components/HomepageContent/HomepageLastProfils/cardMusician';
-import CardBand from 'src/components/HomepageContent/HomepageLastProfils/cardBand';
-import CardPlaces from 'src/components/HomepageContent/HomepageLastProfils/cardPlaces';
 
 // M UI
 import Typography from '@material-ui/core/Typography';
@@ -38,6 +34,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import StarIcon from '@material-ui/icons/Star';
+
+import GlobalCardProfils from './GlobalCardProfils';
 
 // Slider
 import 'slick-carousel/slick/slick.css';
@@ -248,151 +246,86 @@ export default function SearchPage({
           </FormControl>
         </div>
       </Container>
-      <div>
-        <div className="profilsCards">
-          <Container maxWidth="lg">
-            <h2 className="profilsCards__title">{searchResult.length} Résultats</h2>
-            <Slider {...settings}>
-              {(isBandChecked && isMusicianChecked && isPlaceChecked)
+      <div className="profilsCards">
+        <Container maxWidth="lg">
+          <h2 className="profilsCards__title">{searchResult.length} Résultats</h2>
+          <Slider {...settings}>
+            {(isBandChecked && isMusicianChecked && isPlaceChecked)
               && (
-                searchResultAll.map((item) => (
-                  <Card id="card">
-                    <div id="card__image">
-                      <CardMedia
-                        component="img"
-                        alt="BandBackground"
-                        title="BandBackground"
-                        image="https://images.unsplash.com/photo-1517147177326-b37599372b73"
-                      />
-                      <Avatar
-                        id="card__avatar"
-                        src="https://i.pravatar.cc/300"
-                      />
-                      <IconButton
-                        id="card__favorite"
-                      >
-                        <StarIcon />
-                      </IconButton>
-                    </div>
-                    <CardContent id="card__content">
-                      <h2 className="bandName">{item.name}</h2>
-                      <h4 className="localization">{item.city}</h4>
-                      {item.description && (
-                        <p className="description">{item.description}</p>
-                      )}
-                      <Grid item xs={6}>
-                        <div className="attributes">
-                          {item.instrument && (
-                            <>
-                              {item.instrument.map((instrument) => (
-                                <p key={instrument} className="boxAttributes">{instrument}</p>
-                              ))}
-                            </>
-                          )}
-                        </div>
-                      </Grid>
-                      <Grid item xs={12}>
-                        <div className="attributes">
-                          {item.styles && (
-                            <>
-                              {item.styles.slice(0, 3).map((style) => (
-                                <p key={style} className="boxAttributes">{style}</p>
-                              ))}
-                            </>
-                          )}
-                        </div>
-                      </Grid>
-                    </CardContent>
-                    <CardActions id="card__footer">
-                      {isMusicianChecked && !isBandChecked && !isPlaceChecked && (
-                        <Button
-                          variant="contained"
-                          size="large"
-                          color="primary"
-                          component={Link}
-                          to={`/musicians/${item.name}`}
-                        >
-                          Voir le profil
-                        </Button>
-                      )}
-
-                      {isBandChecked && (
-                        <Button
-                          variant="contained"
-                          size="large"
-                          color="primary"
-                          component={Link}
-                          to={`/bands/${item.name}`}
-                        >
-                          Voir le profil
-                        </Button>
-                      )}
-                      {isPlaceChecked && (
-                        <Button
-                          variant="contained"
-                          size="large"
-                          color="primary"
-                          component={Link}
-                          to={`/places/${item.name}`}
-                        >
-                          Voir le profil
-                        </Button>
-                      )}
-                    </CardActions>
-                  </Card>
-                ))
+                <GlobalCardProfils
+                  searchResult={searchResult}
+                  isBandChecked={isBandChecked}
+                  isMusicianChecked={isMusicianChecked}
+                  isPlaceChecked={isPlaceChecked}
+                />
               )}
-              {isBandChecked && (
-                searchResult.map((item) => (
-                  <Card id="card">
-                    <div id="card__image">
-                      <CardMedia
-                        component="img"
-                        alt="BandBackground"
-                        title="BandBackground"
-                        image="https://images.unsplash.com/photo-1517147177326-b37599372b73"
-                      />
-                      <Avatar
-                        id="card__avatar"
-                        src="https://i.pravatar.cc/300"
-                      />
-                      <IconButton
-                        id="card__favorite"
-                      >
-                        <StarIcon />
-                      </IconButton>
-                    </div>
-                    <CardContent id="card__content">
-                      <h2 className="bandName">{item.name}</h2>
-                      <h4 className="localization">{item.city}</h4>
-                      {item.description && (
+            {isBandChecked && (
+            <GlobalCardProfils
+              searchResult={searchResult}
+              isBandChecked={isBandChecked}
+              isMusicianChecked={isMusicianChecked}
+              isPlaceChecked={isPlaceChecked}
+            />
+            )}
+            {isMusicianChecked && (
+            <GlobalCardProfils
+              searchResult={searchResult}
+              isBandChecked={isBandChecked}
+              isMusicianChecked={isMusicianChecked}
+              isPlaceChecked={isPlaceChecked}
+            />
+            )}
+            {isPlaceChecked && (
+              searchResult.map((item) => (
+                <Card id="card">
+                  <div id="card__image">
+                    <CardMedia
+                      component="img"
+                      alt="BandBackground"
+                      title="BandBackground"
+                      image="https://images.unsplash.com/photo-1517147177326-b37599372b73"
+                    />
+                    <Avatar
+                      id="card__avatar"
+                      src="https://i.pravatar.cc/300"
+                    />
+                    <IconButton
+                      id="card__favorite"
+                    >
+                      <StarIcon />
+                    </IconButton>
+                  </div>
+                  <CardContent id="card__content">
+                    <h2 className="bandName">{item.name}</h2>
+                    <h4 className="localization">{item.city}</h4>
+                    {item.description && (
                       <p className="description">{item.description}</p>
-                      )}
-                      <Grid item xs={6}>
-                        <div className="attributes">
-                          {item.instrument && (
+                    )}
+                    <Grid item xs={6}>
+                      <div className="attributes">
+                        {item.instrument && (
                           <>
                             {item.instrument.map((instrument) => (
                               <p key={instrument} className="boxAttributes">{instrument}</p>
                             ))}
                           </>
                           )}
-                        </div>
-                      </Grid>
-                      <Grid item xs={12}>
-                        <div className="attributes">
-                          {item.styles && (
+                      </div>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <div className="attributes">
+                        {item.styles && (
                           <>
                             {item.styles.slice(0, 3).map((style) => (
                               <p key={style} className="boxAttributes">{style}</p>
                             ))}
                           </>
                           )}
-                        </div>
-                      </Grid>
-                    </CardContent>
-                    <CardActions id="card__footer">
-                      {isMusicianChecked && !isBandChecked && !isPlaceChecked && (
+                      </div>
+                    </Grid>
+                  </CardContent>
+                  <CardActions id="card__footer">
+                    {isMusicianChecked && !isBandChecked && !isPlaceChecked && (
                       <Button
                         variant="contained"
                         size="large"
@@ -402,9 +335,9 @@ export default function SearchPage({
                       >
                         Voir le profil
                       </Button>
-                      )}
+                    )}
 
-                      {isBandChecked && (
+                    {isBandChecked && (
                       <Button
                         variant="contained"
                         size="large"
@@ -414,8 +347,8 @@ export default function SearchPage({
                       >
                         Voir le profil
                       </Button>
-                      )}
-                      {isPlaceChecked && (
+                    )}
+                    {isPlaceChecked && (
                       <Button
                         variant="contained"
                         size="large"
@@ -425,14 +358,13 @@ export default function SearchPage({
                       >
                         Voir le profil
                       </Button>
-                      )}
-                    </CardActions>
-                  </Card>
-                ))
-              )}
-            </Slider>
-          </Container>
-        </div>
+                    )}
+                  </CardActions>
+                </Card>
+              ))
+            )}
+          </Slider>
+        </Container>
       </div>
     </div>
   );
