@@ -58,12 +58,15 @@ const useStyles = makeStyles(() => ({
     right: 0,
     textAlign: 'center',
   },
+  formGroupCheckboxes: {
+    paddingBottom: '40px',
+  },
   checkbox: {
     position: 'absolute',
     left: '-100vw',
     '&.Mui-checked': {
       '&, & + .MuiTypography-body1 p': {
-        backgroundColor: '#53ce00',
+        backgroundColor: '#FDA13D',
       },
     },
   },
@@ -165,7 +168,7 @@ export default function SearchPage({
           justify="center"
           alignItems="center"
         >
-          <FormGroup row justify="center">
+          <FormGroup row justify="center" className={classes.formGroupCheckboxes}>
             <FormControlLabel
               control={(
                 <Checkbox
@@ -201,7 +204,13 @@ export default function SearchPage({
             />
           </FormGroup>
         </Grid>
-        <div id="searchFields">
+        <Grid
+          container
+          direction="row"
+          justify="space-around"
+          alignItems="center"
+          spacing={4}
+        >
           <CitiesField
             value={cityName}
           />
@@ -212,7 +221,7 @@ export default function SearchPage({
           <StylesField
             value={styleName}
           />
-        </div>
+        </Grid>
 
         <div id="result">
           <p className="result-search">Plus précis encore ?</p>
