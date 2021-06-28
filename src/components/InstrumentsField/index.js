@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -41,9 +42,20 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function InstrumentsField({ instruments, instrumentName, onChangeInstrumentValue }) {
-console.log(instrumentName);
-const classes = useStyles();
+export default function InstrumentsField({
+  searchResultAll, instruments, instrumentName, onChangeInstru,
+}) {
+  const classes = useStyles();
+
+  const onChangeInstrumentValue = (event) => {
+    onChangeInstru(event);
+    const zoubida = searchResultAll.filter((musician) => {
+      const { instrument } = musician;
+      console.log(musician.instrument);
+      return instrument.some((inst) => instruments.includes(inst));
+    });
+    console.log(zoubida);
+  };
 
   return (
 
@@ -75,6 +87,6 @@ const classes = useStyles();
 }
 
 InstrumentsField.propTypes = {
-  instruments:PropTypes.array.isRequired,
+  instruments: PropTypes.array.isRequired,
   onChangeInstrumentValue: PropTypes.func.isRequired,
 };

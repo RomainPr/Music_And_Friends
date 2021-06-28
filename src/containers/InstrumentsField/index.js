@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onChangeInstrumentValue: (event) => {
+  onChangeInstru: (event) => {
     dispatch(changeInstrumentValue(event.target.value));
   },
 });

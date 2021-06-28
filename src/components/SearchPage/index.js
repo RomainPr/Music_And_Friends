@@ -145,12 +145,29 @@ export default function SearchPage({
   //   searchResult.length = 0;
   // }
 
-  const searchResultAll = [...musicians, ...places];
+  const searchResultAll = [...musicians, ...bands, ...places];
 
   const [filter, setFilter] = useState('none');
   const [isMusicianChecked, setMusicianChecked] = useState(false);
   const [isBandChecked, setBandChecked] = useState(false);
   const [isPlaceChecked, setPlaceChecked] = useState(false);
+
+  const mapped = searchResultAll.map((item) => {
+    if (item.role === filter || item.role[0] === filter || filter === 'none') {
+      return (
+        <GlobalCardProfils
+          key={item}
+          name={item.name}
+          city={item.city}
+          description={item.description}
+          styles={item.style}
+          instrument={item.instrument}
+          roleMusicien={item.role[0]}
+          rolePlace={item.role}
+        />
+      );
+    }
+  });
 
   const handleCheckboxMusician = (e) => {
     if (filter === e.target.value) {
@@ -188,24 +205,8 @@ export default function SearchPage({
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
-    infinite: searchResultAll.length > 4,
+    infinite: searchResultAll.length > 200,
   };
-
-  const mapped = searchResultAll.map((item) => {
-    if (item.role === filter || item.role[0] === filter || filter === 'none') {
-      return (
-        <GlobalCardProfils
-          name={item.name}
-          city={item.city}
-          description={item.description}
-          styles={item.style}
-          instrument={item.instrument}
-          roleMusicien={item.role[0]}
-          rolePlace={item.role}
-        />
-      );
-    }
-  });
 
   return (
     <div>
@@ -224,7 +225,7 @@ export default function SearchPage({
                   className={classes.checkbox}
                   onChange={handleCheckboxBands}
                   checked={isBandChecked}
-                  value="groupe"
+                  value="band"
                   name="isBandChecked"
                 />
                 )}
@@ -267,6 +268,7 @@ export default function SearchPage({
             value={cityName}
           />
           <InstrumentsField
+            searchResultAll={searchResultAll}
             instruments={instruments}
             value={instrumentName}
           />
@@ -305,7 +307,7 @@ export default function SearchPage({
           <Slider {...settings}>
             {mapped}
           </Slider>
-          <h2 className="profilsCards__title">{searchResult.length} Résultats</h2>
+          <h2 className="profilsCards__title">{searchResultAll.length} Résultats</h2>
         </Container>
       </div>
     </div>
