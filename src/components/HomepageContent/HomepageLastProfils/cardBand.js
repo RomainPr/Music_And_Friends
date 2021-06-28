@@ -42,7 +42,7 @@ const CardBand = ({
       <h2 className="bandName">{band_name}</h2>
       <h4 className="localization">{city}</h4>
       {description && (
-      <p className="description">{description}</p>
+        <p className="description">{description}</p>
       )}
       <Grid item xs={6}>
         <div className="attributes">

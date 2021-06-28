@@ -13,9 +13,10 @@ import BandProfil from 'src/containers/Profils/BandProfil';
 import PlaceProfil from 'src/containers/Profils/PlaceProfil';
 import Footer from 'src/components/Footer';
 import SignPlace from 'src/containers/SignPlace';
-
 import ScrollToTop from 'src/components/ScrollToTop';
 import Loading from './Loading';
+//ads
+import MyAds from 'src/components/MyAds';
 
 import './styles.scss';
 
@@ -70,6 +71,11 @@ function App({
         <Route exact path="/places/:name">
           <Nav />
           <PlaceProfil />
+          <Footer />
+        </Route>
+        <Route exact path="/profil/role/:id/myads">
+          <Nav />
+          <MyAds/>
           <Footer />
         </Route>
       </Switch>

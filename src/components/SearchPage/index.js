@@ -281,7 +281,6 @@ export default function SearchPage({
     searchResult = newSearchResult;
   };
 
-
   // Si style(s) coché >> boucle sur le tableau de style et compare si le style est present dans les objets
   if (styleName.length >= 1) {
     const newSearchResult = [];

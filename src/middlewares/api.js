@@ -57,6 +57,7 @@ const apiMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('user', response.data.user_id);
+          localStorage.setItem('role', response.data.role)
           store.dispatch(loginSuccess());
           store.dispatch(closeModal());
         });
