@@ -5,6 +5,7 @@ import {
   SUBMIT_LOGIN,
   SUBMIT_SIGNUP_PLACE,
   SUBMIT_SIGNUP_MUSICIAN,
+  SUBMIT_NEW_AD,
 } from 'src/actions/user';
 
 import {
@@ -112,6 +113,25 @@ const apiMiddleware = (store) => (next) => (action) => {
           description: state.sign.description,
           email: state.sign.email,
           password: state.sign.password,
+        },
+      };
+      axios(signUpRequest)
+        .then((response) => {
+          console.log(response);
+        });
+      break;
+    }
+    case SUBMIT_NEW_AD: {
+      const state = store.getState();
+      const signUpRequest = {
+        method: 'POST',
+        url: 'https://music-and-friends.herokuapp.com/profils/:role/id/newad',
+        data: {
+          userSelected: state.newAd.userSelected,
+          styleName: state.newAd.styleName,
+          instrumentName: state.newAd.instrumentName,
+          title: state.newAd.title,
+          content: state.newAd.content,
         },
       };
       axios(signUpRequest)

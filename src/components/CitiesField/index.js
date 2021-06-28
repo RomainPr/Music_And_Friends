@@ -42,7 +42,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function CitiesField({ cities, cityName, onChangeCityValue }) {
-const classes = useStyles();
+  const classes = useStyles();
 
   return (
 
@@ -75,13 +75,6 @@ const classes = useStyles();
 
 CitiesField.propTypes = {
   cities: PropTypes.array.isRequired,
+  cityName: PropTypes.array.isRequired,
   onChangeCityValue: PropTypes.func.isRequired,
 };
-
-
-
-
-// CitiesField.defaultProps = {
-//   name: 'Toulouse',
-//  
-// };

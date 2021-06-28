@@ -13,9 +13,8 @@ import {
   TextField,
   Avatar,
   Button,
+  Container,
 } from '@material-ui/core';
-
-import Container from '@material-ui/core/Container';
 
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import SaveIcon from '@material-ui/icons/Save';

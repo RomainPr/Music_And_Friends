@@ -14,6 +14,7 @@ import BandProfil from 'src/containers/Profils/BandProfil';
 import PlaceProfil from 'src/containers/Profils/PlaceProfil';
 import Footer from 'src/components/Footer';
 import SignPlace from 'src/containers/SignPlace';
+import NewAd from 'src/containers/NewAd';
 
 import ScrollToTop from 'src/components/ScrollToTop';
 import Loading from './Loading';
@@ -38,7 +39,8 @@ function App({
 
   return (
     <div className="app">
-      <ScrollToTop />
+      <NewAd />
+      {/* <ScrollToTop />
       <Switch>
         <Route exact path="/">
           <Home />
@@ -89,7 +91,7 @@ function App({
           />
           <Footer />
         </Route>
-      </Switch>
+      </Switch> */}
     </div>
   );
 }

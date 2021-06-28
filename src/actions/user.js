@@ -2,6 +2,7 @@ export const CHANGE_EMAIL_INPUT = 'CHANGE_EMAIL_INPUT';
 export const CHANGE_PASSWORD_INPUT = 'CHANGE_PASSWORD_INPUT';
 export const SUBMIT_SIGNUP_PLACE = 'SUBMIT_SIGNUP_PLACE';
 export const SUBMIT_SIGNUP_MUSICIAN = 'SUBMIT_SIGNUP_MUSICIAN';
+export const SUBMIT_NEW_AD = 'SUBMIT_NEW_AD';
 export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
@@ -24,6 +25,11 @@ export const submitSignUpPlace = (value) => ({
 
 export const submitSignUpMusician = (value) => ({
   type: SUBMIT_SIGNUP_MUSICIAN,
+  value,
+});
+
+export const submitNewAd = (value) => ({
+  type: SUBMIT_NEW_AD,
   value,
 });
 

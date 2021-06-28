@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-
 import SignMusician from 'src/components/SignMusician';
 
 import { changeInputValue } from 'src/actions/changeInput';
