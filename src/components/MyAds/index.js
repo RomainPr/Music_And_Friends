@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 
 // import Slider from 'react-slick';
 
-import { Container, Button } from '@material-ui/core';
-
+import { Container } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import CardAds from './CardAds';
 
 import { Link } from 'react-router-dom';
@@ -39,7 +39,7 @@ function MyAds({ announces }) {
         size="large"
         color="primary"
         component={Link}
-        to={`/profil/newad`}
+        to={`/profil/:role/:id/myAds/newads`}
       >
         Créer une annonce
     </Button>

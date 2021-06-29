@@ -1,0 +1,60 @@
+@use 'src/styles/vars';
+
+.announcesCards {
+  
+  padding-top: vars.$paddingTopMedium;
+  // &__title {
+  //   font-size: 1.7em;
+  //   padding-bottom: vars.$paddingBottomSmall;
+  // }
+}
+
+.content {
+  
+    height: 160px;
+    color: #fff;
+    text-align: center;
+    background: #364d79;
+}
+
+#cardAd {
+   max-width: 100%;
+  &__ad {
+   
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    & .ad {
+      text-align: center;
+      color: #fff;
+      font-size: 1.5em;
+    }
+  }
+  &__content {
+    & .search {
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      padding-bottom: vars.$paddingBottomSmall;
+      & li {
+        font-size: 0.8em;
+        padding: 3px;
+      }
+      & span {
+        font-weight: 600;
+      }
+    }
+    & .adTitle {
+      font-size: 1.2em;
+      font-weight: 500;
+      text-align: center;
+      padding-bottom: vars.$paddingBottomSmall;
+    }
+
+    #contact_author_ad {
+    
+    }
+  }
+}

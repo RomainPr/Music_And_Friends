@@ -19,9 +19,8 @@ import NewAd from 'src/containers/NewAd';
 import ScrollToTop from 'src/components/ScrollToTop';
 import Loading from './Loading';
 //ads
-// import MyAds from 'src/components/MyAds';
 import MyAds from 'src/containers/MyAds';
-
+import Ad from 'src/components/Ad';
 import './styles.scss';
 
 function App({
@@ -93,15 +92,21 @@ function App({
           />
           <Footer />
         </Route>
-        <Route exact path="/profil/myads">
+         <Route exact path="/announces/:id">
+          <Nav />
+          <Ad />
+          <Footer />
+        <Route exact path="/profil/:role/:id/myAds">
           <Nav />
           <MyAds />
           <Footer />
         </Route>
-        <Route exact path="/profil/newad">
+        <Route exact path="/profil/:role/:id/myAds/newads">
           <Nav />
           <NewAd />
           <Footer />
+        </Route>
+       
         </Route>
       </Switch>
     </div>

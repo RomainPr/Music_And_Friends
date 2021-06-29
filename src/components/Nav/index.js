@@ -160,7 +160,7 @@ function Nav({
                     </div>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
-                      <Link to="/profil/myads"
+                      <Link to="/profil/:role/:id/myAds"
                       onClick={handleGetAnnounces}
                       >Mes annonces</Link>
                       <IconButton aria-label="show 4 new mails" color="inherit">
@@ -253,6 +253,7 @@ Nav.propTypes = {
   toggleDrawer: PropTypes.func.isRequired,
   openModalSignIn: PropTypes.func.isRequired,
   openModalSignUp: PropTypes.func.isRequired,
+  handleGetAnnounces: PropTypes.func.isRequired,
 };
 
 export default Nav;
