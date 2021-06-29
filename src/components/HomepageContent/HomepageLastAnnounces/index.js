@@ -47,7 +47,7 @@ const LastAnnounces = () => (
                 <li>Instrument : <span>Batterie</span></li>
                 <li>Style : <span>Pop</span></li>
               </ul>
-              <h3 className="title">Titre de l'annonce</h3>
+              <h3 className="adTitle">Titre de l'annonce</h3>
               <p className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
             </CardContent>
             <CardActions id="card__footer">
@@ -89,7 +89,7 @@ const LastAnnounces = () => (
                 <li>Instrument : <span>Batterie</span></li>
                 <li>Style : <span>Pop</span></li>
               </ul>
-              <h3 className="title">Titre de l'annonce</h3>
+              <h3 className="adTitle">Titre de l'annonce</h3>
               <p className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
             </CardContent>
             <CardActions id="card__footer">
@@ -131,7 +131,7 @@ const LastAnnounces = () => (
                 <li>Instrument : <span>Batterie</span></li>
                 <li>Style : <span>Pop</span></li>
               </ul>
-              <h3 className="title">Titre de l'annonce</h3>
+              <h3 className="adTitle">Titre de l'annonce</h3>
               <p className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
             </CardContent>
             <CardActions id="card__footer">

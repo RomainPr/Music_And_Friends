@@ -17,27 +17,39 @@ const useStyles = makeStyles(() => ({
   form: {
     minWidth: 300,
     maxWidth: 500,
-    '&:hover': {
-      '& .MuiInputLabel-formControl': {
-        color: '#FDA13D',
-      },
-    },
   },
   label: {
-    color: '#fff',
+    zIndex: 2,
+    color: '#000',
+    paddingLeft: '20px',
     '&.Mui-focused': {
       color: '#fff',
     },
+    '& .MuiInputLabel-animated': {
+      transition: 'color 200ms cubic-bezier(255,255,255, 0.2, 1) 0ms,transform 200ms cubic-bezier(255,255,255, 0.2, 1) 0ms',
+    },
   },
-  input: {
+  select: {
+    '& .MuiSelect-select': {
+      backgroundColor: '#fff',
+      boxShadow: '10px 10px 15px 0 rgb(0 0 0 / 25%)',
+      border: '1px solid #fff',
+      borderRadius: '50px',
+    },
+    '& .MuiSelect-select:focus': {
+      backgroundColor: '#fff',
+      '& .MuiInputLabel-formControl': {
+        color: '#fff',
+      },
+    },
     '&::before': {
-      borderBottom: '1px solid #fff',
+      borderBottom: 'none',
     },
     '&::after': {
-      borderBottom: '2px solid #FDA13D',
+      borderBottom: 'none',
     },
     '&:hover:not(.Mui-disabled):before': {
-      borderBottom: '2px solid #FDA13D',
+      borderBottom: 'none',
     },
   },
 }));
@@ -46,8 +58,6 @@ export default function InstrumentsField({
   searchResultAll, bands, musicians, instruments, instrumentName, onChangeInstru,
 }) {
   const classes = useStyles();
-  console.log('musiciens', musicians);
-  console.log('instruments', instruments);
 
   const onChangeInstrumentValue = (event) => {
     onChangeInstru(event);
@@ -57,9 +67,11 @@ export default function InstrumentsField({
 
     <div id="field">
       {/* Field if connected musician OR place -> AND box checked group or/and musician */}
-      <FormControl required className={classes.form}>
+      <FormControl className={classes.form}>
         <InputLabel className={classes.label} id="controlled-open-select-label">Par instrument(s)</InputLabel>
         <Select
+          className={classes.select}
+          inputProps={{ MenuProps: {disableScrollLock: true }}}
           labelId="mutiple-checkbox-label"
           id="mutiple-checkbox"
           multiple

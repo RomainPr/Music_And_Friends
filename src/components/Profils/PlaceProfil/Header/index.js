@@ -16,11 +16,13 @@ const useStyles = makeStyles(() => ({
   profilInfo: {
     position: 'absolute',
     bottom: '12%',
-    right: '6%',
+    right: 0,
+    left: 0,
+    margin: '0 auto',
   },
   pseudo: {
     position: 'absolute',
-    top: '35%',
+    top: '10%',
     right: '0',
     left: '0',
     margin: '0 auto',
@@ -68,7 +70,7 @@ function MusicianProfilHeader({
         <div className="profilHeader">
           <img src={bandBackground} alt="" />
           <div className="profilHeader__top">
-            <Grid item xs={3} className={classes.profilInfo}>
+            <Grid item xs={12} className={classes.profilInfo}>
               <div className="profilHeader__info">
                 <Paper elevation={3} className={classes.paper}>
                   <Grid
@@ -83,15 +85,13 @@ function MusicianProfilHeader({
                         <li>{city}</li>
                       </ul>
                     </Grid>
+                    {styles && (
                     <Grid item className={classes.paperItem}>
-                      {styles && (
-                        <>
-                          {styles.map((style) => (
-                            <li key={style} className="profilHeader__info__list">{style}</li>
-                          ))}
-                        </>
-                      )}
+                      {styles.map((style) => (
+                        <li key={style} className="profilHeader__info__list">{style}</li>
+                      ))}
                     </Grid>
+                    )}
                   </Grid>
                 </Paper>
               </div>

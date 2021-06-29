@@ -80,7 +80,7 @@ function GlobalCardProfils({
           Voir le profil
         </Button>
         )}
-        {roleMusicien === 'groupes' && (
+        {roleMusicien === 'band' && (
         <Button
           variant="contained"
           size="large"

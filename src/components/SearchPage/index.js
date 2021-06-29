@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 // import components
 import CitiesField from 'src/containers/CitiesField';
@@ -9,7 +8,6 @@ import StylesField from 'src/containers/StylesField';
 
 // M UI
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -18,18 +16,15 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
 import { makeStyles } from '@material-ui/core/styles';
 
 // M UI card musicians
 import Select from '@material-ui/core/Select';
-import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
 import Slider from 'react-slick';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 
 import GlobalCardProfils from './GlobalCardProfils';
-import GlobalCardProfilsAll from './GlobalCardProfilsAll';
 
 // Slider
 import 'slick-carousel/slick/slick.css';
@@ -80,11 +75,6 @@ export default function SearchPage({
   categories,
   categoryName,
   onChangeCategoryValue,
-  searchResult,
-  onClickSearch,
-  onChangeBoxBandValue,
-  onChangeBoxMusicianValue,
-  onChangeBoxPlaceValue,
 }) {
   const classes = useStyles();
 
@@ -173,7 +163,10 @@ export default function SearchPage({
         return false;
       }
 
-      return (instrumentName.length === 0 || instrument.some((r) => instrumentName.includes(r))) && (styleName.length === 0 || styles.some((r) => styleName.includes(r))) && (cityName.length === 0 || city.some((r) => cityName.includes(r)));
+      return (
+        instrumentName.length === 0 || instrument.some((r) => instrumentName.includes(r)))
+        && (styleName.length === 0 || styles.some((r) => styleName.includes(r)))
+        && (cityName.length === 0 || city.some((r) => cityName.includes(r)));
     });
   }
 
@@ -188,7 +181,7 @@ export default function SearchPage({
         name={item.name}
         city={item.city}
         description={item.description}
-        styles={item.style}
+        styles={item.styles}
         instrument={item.instrument}
         roleMusicien={item.role[0]}
         rolePlace={item.role}
@@ -332,13 +325,13 @@ export default function SearchPage({
         </div>
       </Container>
       <div className="profilsCards">
+        <h2 className="profilsCards__title">{filteredResults.length} Résultats</h2>
         <Container maxWidth="lg">
           {mapped ? (
             <Slider {...settings}>
               {mapped}
             </Slider>
           ) : <div>Aucun résultat</div>}
-          <h2 className="profilsCards__title">{searchResultAll.length} Résultats</h2>
         </Container>
       </div>
     </div>
