@@ -78,5 +78,5 @@ export default function InstrumentsField({
 
 InstrumentsField.propTypes = {
   instruments: PropTypes.array.isRequired,
-  onChangeInstrumentValue: PropTypes.func.isRequired,
+  onChangeInstru: PropTypes.func.isRequired,
 };

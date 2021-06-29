@@ -82,6 +82,7 @@ function Nav({
   openModalSignUp,
   handleProfileMenuOpen,
   handleMenuClose,
+  handleGetAnnounces,
   toggleDrawer,
 }) {
   const classes = useStyles();
@@ -159,7 +160,9 @@ function Nav({
                     </div>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
-                      <Link to="/profil/role/:id/myads">Mes annonces</Link>
+                      <Link to="/profil/myads"
+                      onClick={handleGetAnnounces}
+                      >Mes annonces</Link>
                       <IconButton aria-label="show 4 new mails" color="inherit">
                         <Badge badgeContent={4} color="secondary">
                           <MailIcon />
