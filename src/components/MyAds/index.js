@@ -39,7 +39,7 @@ function MyAds({ announces }) {
         size="large"
         color="primary"
         component={Link}
-        to={`/profil/:role/:id/myAds/newads`}
+        to={`/profil/newads`}
       >
         Créer une annonce
     </Button>
@@ -62,6 +62,7 @@ function MyAds({ announces }) {
 }
 
 MyAds.propTypes = {
+  announces:PropTypes.array.isRequired,
   // name:PropTypes.string.isRequired,
   // role:PropTypes.string.isRequired,
   // instruments:PropTypes.array.isRequired,

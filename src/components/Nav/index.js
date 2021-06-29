@@ -160,7 +160,7 @@ function Nav({
                     </div>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
-                      <Link to="/profil/:role/:id/myAds"
+                      <Link to="/profil/myAds"
                       onClick={handleGetAnnounces}
                       >Mes annonces</Link>
                       <IconButton aria-label="show 4 new mails" color="inherit">

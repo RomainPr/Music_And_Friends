@@ -96,12 +96,12 @@ function App({
           <Nav />
           <Ad />
           <Footer />
-        <Route exact path="/profil/:role/:id/myAds">
+        <Route exact path="/profil/myAds">
           <Nav />
           <MyAds />
           <Footer />
         </Route>
-        <Route exact path="/profil/:role/:id/myAds/newads">
+        <Route exact path="/profil/newads">
           <Nav />
           <NewAd />
           <Footer />
