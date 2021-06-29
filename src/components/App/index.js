@@ -8,7 +8,7 @@ import HeaderPage from '../HeaderPage';
 import Nav from 'src/containers/connectedNav';
 import SignMusician from 'src/containers/SignMusician';
 import SearchPage from 'src/containers/SearchPage';
-import MusicianProfilEdition from 'src/components/MusicianProfilEdition';
+import MusicianProfilEdition from 'src/containers/connectedMusicianProfilEdition';
 import MusicianProfil from 'src/containers/Profils/MusicianProfil';
 import BandProfil from 'src/containers/Profils/BandProfil';
 import PlaceProfil from 'src/containers/Profils/PlaceProfil';
@@ -17,9 +17,10 @@ import SignPlace from 'src/containers/SignPlace';
 import NewAd from 'src/containers/NewAd';
 
 import ScrollToTop from 'src/components/ScrollToTop';
-import Loading from './Loading';
 //ads
 import MyAds from 'src/components/MyAds';
+
+import Loading from './Loading';
 
 import './styles.scss';
 
@@ -70,31 +71,27 @@ function App({
         </Route>
         <Route exact path="/musicians/:name">
           <Nav />
-          <MusicianProfil
-            musicians={musicians}
-            instruments={instruments}
-          />
+          <MusicianProfil />
           <Footer />
         </Route>
         <Route exact path="/bands/:name">
           <Nav />
-          <BandProfil
-            bands={bands}
-            instruments={instruments}
-          />
+          <BandProfil />
           <Footer />
         </Route>
         <Route exact path="/places/:name">
           <Nav />
-          <PlaceProfil
-            places={places}
-            instruments={instruments}
-          />
+          <PlaceProfil />
           <Footer />
         </Route>
         <Route exact path="/profil/role/:id/myads">
           <Nav />
           <MyAds />
+          <Footer />
+        </Route>
+        <Route exact path="/profil/:id">
+          <Nav />
+          <MusicianProfilEdition />
           <Footer />
         </Route>
       </Switch>

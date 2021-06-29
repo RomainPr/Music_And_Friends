@@ -29,7 +29,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function MusicianProfilHeader() {
+function MusicianProfilHeader({ name }) {
   const classes = useStyles();
   return (
     <>
@@ -37,7 +37,7 @@ function MusicianProfilHeader() {
         <img src={bandBackground} alt="" />
         <Grid item xs={6} className={classes.profilInfo}>
           <div className="profilHeader__info">
-            <h2 className="profilHeader__info__pseudo">Pseudo</h2>
+            <h2 className="profilHeader__info__pseudo">{name}</h2>
             <h3 className="profilHeader__info__city">Ma Région / Ville</h3>
           </div>
         </Grid>

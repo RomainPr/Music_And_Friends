@@ -5,9 +5,11 @@ import PropTypes from 'prop-types';
 import MusicianProfilHeader from 'src/components/MusicianProfilEdition/MusicianProfilHeader';
 import MusicianProfilContent from 'src/components/MusicianProfilEdition/MusicianProfilContent';
 
-const MusicianProfilEdition = () => (
+const MusicianProfilEdition = ({ musicianProfil }) => (
   <>
-    <MusicianProfilHeader />
+    <MusicianProfilHeader 
+      name={musicianProfil.name}
+    />
     <MusicianProfilContent />
   </>
 );

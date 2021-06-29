@@ -29,3 +29,11 @@ export function findPlace(places, searchedIdPlace) {
   });
   return place;
 }
+
+export function findMusicianProfil(musicians, searchedIdMusician) {
+  const musician = musicians.find((musicianId) => {
+    return musicianId.id.toString() === searchedIdMusician;
+  });
+  console.log(musician)
+  return musician;
+}
