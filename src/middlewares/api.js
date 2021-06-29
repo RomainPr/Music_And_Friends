@@ -109,6 +109,15 @@ const apiMiddleware = (store) => (next) => (action) => {
         });
       break;
     }
+    // case GET_ANNOUNCES: {
+    //   axios.get('https://music-and-friends.herokuapp.com/announces')
+    //     .then((response) => {
+    //       store.dispatch(getAnnounces(response.data.results));
+    //     });
+    //   next(action);
+    //   break;
+    // }
+
     default:
       next(action);
       break;

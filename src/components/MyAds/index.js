@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Link } from 'react-router-dom';
+
 
 // import Slider from 'react-slick';
 
@@ -34,7 +34,7 @@ function MyAds({ announces }) {
         <h2 className="cardProfiles__title">Mes annonces</h2>
 
         {/* <Slider {...settings}> */}
-    
+  
           <CardBandAds
             // name={name}
             // role={role}

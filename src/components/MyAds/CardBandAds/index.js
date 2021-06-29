@@ -12,7 +12,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import StarIcon from '@material-ui/icons/Star';
+// import StarIcon from '@material-ui/icons/Star';
 // import Carousel from 'react-material-ui-carousel';
 
 //crud ad
@@ -35,18 +35,18 @@ const CardBandAds = ({
 
 
   <div className="announcesCards">
-    
+
     <Container maxWidth="lg">
       <h2 className="announcesCards__title">Si groupe</h2>
       <Button
-      id="create_ad_btn"
-      variant="contained"
-      size="large"
-      color="primary"
-      component={Link}
-      to={`/profil/:role/id/newad`}   
-    >
-      Créer une annonce
+        id="create_ad_btn"
+        variant="contained"
+        size="large"
+        color="primary"
+        component={Link}
+        to={`/profil/:role/id/newad`}
+      >
+        Créer une annonce
     </Button>
       <Grid container>
 
@@ -69,45 +69,42 @@ const CardBandAds = ({
                 <StarIcon />
               </IconButton> */}
               <div id="card__bandName">
-                <h2 className="bandName">Nom du groupe</h2>
+                <h2 className="bandName">{name}Nom du groupe</h2>
               </div>
             </div>
             <CardContent id="card__content">
               <ul className="search">
-                <li>Recherche : <span>Musicien</span></li>
-                <li>Instrument : <span>Batterie</span></li>
-                <li>Style : <span>Pop</span></li>
+                <li>Recherche : <span>{role}Musicien</span></li>
+                <li>Instrument : <span>{instruments}Batterie</span></li>
+                <li>Style : <span>{styles}Pop</span></li>
               </ul>
-              <h3 className="title">Titre de l'annonce</h3>
-              <p className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+              <h3 className="title">{title}Titre de l'annonce</h3>
+              <p className="description">{description}Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
             </CardContent>
             <CardActions id="card__footer">
 
 
               {/* CRUD Announces */}
-               {/* add DELETE on middleware api */}
+              {/* add DELETE on middleware api */}
               <IconButton>
                 <DeleteForeverOutlinedIcon />
               </IconButton>
 
               {/* par la suite, req api GET-> Voir avec David si route car non répertoriée dans liste des routes */}
-              <IconButton>                 
-                <VisibilityIcon 
-                  // component={Link}
-                  // to={`/profil/role/:id/myads/:id`}
-                />             
-              </IconButton>
-
-              {/* par la suite, req api UPDATE -> Voir avec David si route car non répertoriée dans liste des routes */ }
               <IconButton>
-                 
-                <BorderColorIcon 
-                  // component={Link}
-                  // to= {`/profil/role/:id/myads/:id/edit`}
+                <VisibilityIcon
+                // component={Link}
+                // to={`/profil/role/:id/myads/:id`}
                 />
-                  
               </IconButton>
 
+              {/* par la suite, req api UPDATE -> Voir avec David si route car non répertoriée dans liste des routes */}
+              <IconButton>
+                <BorderColorIcon
+                // component={Link}
+                // to= {`/profil/role/:id/myads/:id/edit`}
+                />
+              </IconButton>
 
             </CardActions>
           </Card>
