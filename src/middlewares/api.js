@@ -70,7 +70,6 @@ const apiMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('user', response.data.user_id);
-<<<<<<< HEAD
           localStorage.setItem('role', response.data.role);
 
           const role = localStorage.getItem('role');
@@ -78,9 +77,7 @@ const apiMiddleware = (store) => (next) => (action) => {
     
           console.log(`role = `, role);
           console.log(`id = `, id);
-=======
           localStorage.setItem('role', response.data.role)
->>>>>>> My_Ads
           store.dispatch(loginSuccess());
           store.dispatch(closeModal());
         });
@@ -132,7 +129,6 @@ const apiMiddleware = (store) => (next) => (action) => {
         });
       break;
     }
-<<<<<<< HEAD
     case SUBMIT_NEW_AD: {
       const state = store.getState();
       const role = localStorage.getItem('role');
@@ -157,7 +153,6 @@ const apiMiddleware = (store) => (next) => (action) => {
         });
       break;
     }
-=======
     // case GET_ANNOUNCES: {
     //   axios.get('https://music-and-friends.herokuapp.com/announces')
     //     .then((response) => {
@@ -167,7 +162,6 @@ const apiMiddleware = (store) => (next) => (action) => {
     //   break;
     // }
 
->>>>>>> My_Ads
     default:
       next(action);
       break;

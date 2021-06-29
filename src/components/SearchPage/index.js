@@ -222,11 +222,6 @@ export default function SearchPage({
     }
   };
 
-
-
-/
-
-
   //Slider setting
   const settings = {
     dots: true,
