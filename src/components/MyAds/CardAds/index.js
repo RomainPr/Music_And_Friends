@@ -69,7 +69,6 @@ const CardAds = ({
                 <li>Style : <span>{style}</span></li>
               </ul>
               <h3 className="title">{title}</h3>
-              <p>{idAnnounce}</p>
               <p className="description">{description}.</p>
             </CardContent>
             <CardActions id="card__footer">

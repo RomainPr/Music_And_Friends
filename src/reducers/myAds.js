@@ -53,7 +53,6 @@ const initialState = {
       instrument: [
         'basse',
       ],
-
       title: 'Groupe à la recherche de son nouveau membre',
       description: 'Yop tlm, groupe amateur cherche bassiste pour rejoindre son groupe',
     },

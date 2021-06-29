@@ -8,9 +8,11 @@ import { submitEditedAd } from 'src/actions/user';
 import { findAnnounce } from 'src/selectors/announces';
 
 // connecter le composant en lecture du state
-const mapStateToProps = (state) => ({
-  announces: state.myAds.announces,
-});
+function mapStateToProps(state, ownProps) {
+  return {
+    announce: findAnnounce(state.myAds.announces, ownProps.match.params.id),
+  }
+};
 
 // permettre au composant connecter de modifier le state
 const mapDispatchToProps = (dispatch) => ({

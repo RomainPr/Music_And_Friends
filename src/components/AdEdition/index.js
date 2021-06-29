@@ -36,7 +36,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function AdEdition({ announces, title, content, onChangeValue, handleCreateAd }) {
+export default function AdEdition({ announce, title, content, onChangeValue, handleCreateAd }) {
   const classes = useStyles();
 
   const handleOnChange = (event) => {
@@ -48,22 +48,6 @@ export default function AdEdition({ announces, title, content, onChangeValue, ha
     handleCreateAd();
   };
 
-  console.log(announces);
-
-  // export function findAnnounce(announces, searchedIdAnnounce) {
-  //   const announce = announces.find((announceId) => {
-  //     console.log(`announceId.id =`, announceId.id)
-  //     return announceId.id === searchedIdAnnounce;
-  //   });
-  //   console.log(`announce`, announce)
-  //   return announce;
-  // }
-
-  const annonce = announces.filter((announce) => {
-    return announce;
-  });
-  console.log(annonce);
-
   return (
     <Container maxWidth="lg">
       <h1 className="title">Modifier une annonce</h1>
@@ -71,15 +55,15 @@ export default function AdEdition({ announces, title, content, onChangeValue, ha
         <FormControl required id="mainForm" className={classes.form} autoComplete="off">
 
           <Grid item>
-            <UserField />
+            <UserField announce={announce} />
           </Grid>
 
           <Grid item>
-            <StylesField />
+            <StylesField announce={announce} />
           </Grid>
 
           <Grid item>
-            <InstrumentsField />
+            <InstrumentsField announce={announce} />
           </Grid>
 
           <Grid item>
