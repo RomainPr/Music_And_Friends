@@ -80,70 +80,63 @@ export default function SearchPage({
 }) {
   const classes = useStyles();
 
-  // if (isBandChecked) {
-  //   searchResult.push(...bands);
-  // }
-  // if (isMusicianChecked) {
-  //   searchResult.push(...musicians);
-  // }
-  // if (isBandChecked) {
-  //   searchResult.push(...bands);
-  // }
-
-  // if (isBandChecked && isMusicianChecked) {
-  //   searchResult.length = 0;
-  //   searchResult.push(...bands, ...musicians)
-  // }
-
-  // if (isBandChecked && isMusicianChecked && isPlaceChecked) {
-  //   searchResult.length = 0;
-  //   searchResult.push(...bands, ...musicians, ...places)
-  // }
-
-  // if (isBandChecked) {
-  //   searchResult.push(...bands);
-  // } else if (isMusicianChecked) {
-  //   searchResult.push(...musicians);
-  // } else if (isPlaceChecked) {
-  //   searchResult.push(...places);
-  // } else if (isBandChecked && isMusicianChecked && isPlaceChecked) {
-  //   searchResult.push(...bands, ...musicians, ...places);
-  // } else {
-  //   searchResult.length = 0;
-  // }
-
-  // if (isBandChecked) {
-  //   searchResult.push(...bands);
-  // } else {
-  //   searchResult.length = 0;
-  // }
-
-  // if (isMusicianChecked) {
-  //   searchResult.push(...musicians);
-  // } else {
-  //   searchResult.length = 0;
-  // }
-
-  // if (isPlaceChecked) {
-  //   searchResult.push(...places);
-  // } else {
-  //   searchResult.length = 0;
-  // }
-
-  const searchResultAll = [...musicians, ...bands, ...places];
+  let searchResultAll = [...musicians, ...bands, ...places];
 
   const [filter, setFilter] = useState('none');
   const [isMusicianChecked, setMusicianChecked] = useState(false);
   const [isBandChecked, setBandChecked] = useState(false);
   const [isPlaceChecked, setPlaceChecked] = useState(false);
 
-  let filteredResults = searchResultAll.filter((item) => {
-    if (item.role === filter || item.role[0] === filter || filter === 'none') {
-      return item;
-    }
-  });
+  let filteredResults = searchResultAll.filter((item) => item);
 
-  console.log('firstFfilteredResult', filteredResults);
+  if (isBandChecked && !isMusicianChecked && !isPlaceChecked) {
+    searchResultAll = [...bands];
+    filteredResults = searchResultAll;
+  }
+
+  if (isBandChecked && isMusicianChecked && !isPlaceChecked) {
+    searchResultAll = [...musicians, ...bands];
+    filteredResults = searchResultAll;
+  }
+
+  if (isBandChecked && !isMusicianChecked && isPlaceChecked) {
+    searchResultAll = [...bands, ...places];
+    filteredResults = searchResultAll;
+  }
+
+  if (!isBandChecked && isMusicianChecked && !isPlaceChecked) {
+    searchResultAll = [...musicians];
+    filteredResults = searchResultAll;
+  }
+
+  if (!isBandChecked && isMusicianChecked && isPlaceChecked) {
+    searchResultAll = [...musicians, ...places];
+    filteredResults = searchResultAll;
+  }
+
+  if (!isBandChecked && isMusicianChecked && isPlaceChecked) {
+    searchResultAll = [...musicians, ...places];
+    filteredResults = searchResultAll;
+  }
+
+  if (isPlaceChecked && !isMusicianChecked && !isBandChecked) {
+    searchResultAll = [...places];
+    filteredResults = searchResultAll;
+  }
+
+  if (isPlaceChecked && !isMusicianChecked && isBandChecked) {
+    searchResultAll = [...places, ...bands];
+    filteredResults = searchResultAll;
+  }
+
+  if (isPlaceChecked && isMusicianChecked && !isBandChecked) {
+    searchResultAll = [...places, ...musicians];
+    filteredResults = searchResultAll;
+  }
+
+  if (isBandChecked && isMusicianChecked && isPlaceChecked) {
+    filteredResults = searchResultAll;
+  }
 
   if (instrumentName.length !== 0 || cityName.length !== 0 || styleName.length !== 0) {
     filteredResults = filteredResults.filter((musician) => {
@@ -154,9 +147,7 @@ export default function SearchPage({
         if (cityName.length !== 0) {
           let place;
           cityName.map((cityPlace) => {
-            console.log('place', `${cityPlace} / ${city}`);
             if (cityPlace == city) {
-              console.log('dans le if', musician);
               place = musician;
             }
           });
@@ -171,8 +162,6 @@ export default function SearchPage({
         && (cityName.length === 0 || city.some((r) => cityName.includes(r)));
     });
   }
-
-  console.log('filteredResultsPlus', filteredResults);
 
   let mapped;
 
@@ -302,7 +291,7 @@ export default function SearchPage({
             value={styleName}
           />
         </Grid>
-
+        {/*
         <div id="result">
           <p className="result-search">Plus précis encore ?</p>
           <FormControl id="form-filter-result">
@@ -326,7 +315,7 @@ export default function SearchPage({
               ))}
             </Select>
           </FormControl>
-        </div>
+        </div> */}
       </Container>
       <div className="profilsCards">
         <h2 className="profilsCards__title">{filteredResults.length} Résultats</h2>
