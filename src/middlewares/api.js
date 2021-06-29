@@ -3,6 +3,7 @@ import axios from 'axios';
 import {
   loginSuccess,
   SUBMIT_LOGIN,
+  SUBMIT_LOGIN_PLACE,
   SUBMIT_SIGNUP_PLACE,
   SUBMIT_SIGNUP_MUSICIAN,
   SUBMIT_NEW_AD,
@@ -71,13 +72,32 @@ const apiMiddleware = (store) => (next) => (action) => {
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('user', response.data.user_id);
           localStorage.setItem('role', response.data.role);
-
           const role = localStorage.getItem('role');
           const id = localStorage.getItem('user');
     
           console.log(`role = `, role);
           console.log(`id = `, id);
           localStorage.setItem('role', response.data.role)
+          store.dispatch(loginSuccess());
+          store.dispatch(closeModal());
+        });
+      break;
+    }
+    case SUBMIT_LOGIN_PLACE: {
+      const state = store.getState();
+      const loginRequest = {
+        method: 'POST',
+        url: 'https://music-and-friends.herokuapp.com/signin/place',
+        data: {
+          email: state.user.email,
+          password: state.user.password,
+        },
+      };
+      axios(loginRequest)
+        .then((response) => {
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('user', response.data.user_id);
+          localStorage.setItem('role', response.data.role);
           store.dispatch(loginSuccess());
           store.dispatch(closeModal());
         });

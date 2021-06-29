@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
-import { changeEmailInput, changePasswordInput, submitLogin } from 'src/actions/user';
+import { changeEmailInput, changePasswordInput, submitLoginPlace } from 'src/actions/user';
 
-import LoginForm from 'src/components/ModalSignIn/LoginForm';
+import LoginFormPlace from 'src/components/ModalSignIn/LoginFormPlace';
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
@@ -18,8 +18,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(changePasswordInput(event.target.value));
   },
   handleLogin: () => {
-    dispatch(submitLogin());
+    dispatch(submitLoginPlace());
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginFormPlace);

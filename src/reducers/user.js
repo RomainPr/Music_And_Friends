@@ -1,4 +1,6 @@
-import { CHANGE_EMAIL_INPUT, CHANGE_PASSWORD_INPUT, LOGIN_SUCCESS } from 'src/actions/user';
+import {
+  CHANGE_EMAIL_INPUT, CHANGE_PASSWORD_INPUT, LOGIN_SUCCESS, LOGIN_SUCCESS_PLACE,
+} from 'src/actions/user';
 
 const initialState = {
   email: '',
@@ -21,6 +23,14 @@ const reducer = (state = initialState, action = {}) => {
         password: action.newValue,
       };
     case LOGIN_SUCCESS:
+      return {
+        ...state,
+        isLogged: true,
+        open: false,
+        email: '',
+        password: '',
+      };
+    case LOGIN_SUCCESS_PLACE:
       return {
         ...state,
         isLogged: true,

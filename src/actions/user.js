@@ -4,6 +4,8 @@ export const SUBMIT_SIGNUP_PLACE = 'SUBMIT_SIGNUP_PLACE';
 export const SUBMIT_SIGNUP_MUSICIAN = 'SUBMIT_SIGNUP_MUSICIAN';
 export const SUBMIT_NEW_AD = 'SUBMIT_NEW_AD';
 export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
+export const SUBMIT_LOGIN_PLACE = 'SUBMI_LOGIN_PLACE';
+export const LOGIN_SUCCESS_PLACE = 'LOGIN_SUCCESS_PLACE';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const LOGOUT = 'LOGOUT';
@@ -39,6 +41,14 @@ export const submitLogin = () => ({
 
 export const loginSuccess = () => ({
   type: LOGIN_SUCCESS,
+});
+
+export const submitLoginPlace = () => ({
+  type: SUBMIT_LOGIN_PLACE,
+});
+
+export const loginSuccessPlace = () => ({
+  type: LOGIN_SUCCESS_PLACE,
 });
 
 export const loginError = () => ({

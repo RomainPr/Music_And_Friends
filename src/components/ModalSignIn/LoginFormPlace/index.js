@@ -5,9 +5,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
-import './styles.scss';
-
-const LoginForm = ({
+const LoginFormPlace = ({
   email,
   password,
   onChangeEmail,
@@ -68,7 +66,7 @@ const LoginForm = ({
   );
 };
 
-LoginForm.propTypes = {
+LoginFormPlace.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   onChangeEmail: PropTypes.func.isRequired,
@@ -76,4 +74,4 @@ LoginForm.propTypes = {
   handleLogin: PropTypes.func.isRequired,
 };
 
-export default LoginForm;
+export default LoginFormPlace;
