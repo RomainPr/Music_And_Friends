@@ -287,7 +287,7 @@ export default function SearchPage({
             value={styleName}
           />
         </Grid>
-
+        {/*
         <div id="result">
           <p className="result-search">Plus précis encore ?</p>
           <FormControl id="form-filter-result">
@@ -311,7 +311,7 @@ export default function SearchPage({
               ))}
             </Select>
           </FormControl>
-        </div>
+        </div> */}
       </Container>
       <div className="profilsCards">
         <h2 className="profilsCards__title">{filteredResults.length} Résultats</h2>
