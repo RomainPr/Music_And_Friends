@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { openModal, openModalSignUp } from 'src/actions/modalSignIn';
 import { setAnchorEl, handleMenuClose, openToggler } from 'src/actions/nav';
 import { logout } from 'src/actions/user';
+//get ads nav link
+import { getAnnounces } from 'src/actions/announces';
+
 
 import Nav from 'src/components/Nav';
 
@@ -31,6 +34,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   handleLogout: () => {
     dispatch(logout());
+  },
+  handleGetAnnounces: () => {
+    dispatch(getAnnounces());
   },
 });
 

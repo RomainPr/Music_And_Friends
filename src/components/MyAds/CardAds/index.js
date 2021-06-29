@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Link } from 'react-router-dom';
+
 //Material UI
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -24,8 +24,8 @@ import BorderColorIcon from '@material-ui/icons/BorderColor';
 import '../styles.scss';
 
 
-const CardBandAds = ({
-  
+const CardAds = ({
+
   userSelected,
   instrument,
   style,
@@ -38,16 +38,6 @@ const CardBandAds = ({
 
     <Container maxWidth="lg">
       {/* <h2 className="announcesCards__title">Si groupe</h2> */}
-      <Button
-        id="create_ad_btn"
-        variant="contained"
-        size="large"
-        color="primary"
-        component={Link}
-        to={`/profil/newad`}
-      >
-        Créer une annonce
-    </Button>
       <Grid container>
 
         <Grid item xs={4} md={12}>
@@ -74,12 +64,12 @@ const CardBandAds = ({
             </div>
             <CardContent id="card__content">
               <ul className="search">
-                <li>Recherche : <span>{userSelected}Musicien</span></li>
-                <li>Instrument : <span>{instrument}Batterie</span></li>
-                <li>Style : <span>{style}Pop</span></li>
+                <li>Recherche : <span>{userSelected}</span></li>
+                <li>Instrument : <span>{instrument}</span></li>
+                <li>Style : <span>{style}</span></li>
               </ul>
-              <h3 className="title">{title}Titre de l'annonce</h3>
-              <p className="description">{description}Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+              <h3 className="title">{title}</h3>
+              <p className="description">{description}.</p>
             </CardContent>
             <CardActions id="card__footer">
 
@@ -108,7 +98,7 @@ const CardBandAds = ({
 
             </CardActions>
           </Card>
-        
+
         </Grid>
       </Grid>
     </Container>
@@ -117,4 +107,4 @@ const CardBandAds = ({
 
 );
 
-export default CardBandAds;
+export default CardAds;

@@ -6,6 +6,7 @@ import userReducer from './user';
 import musiciansReducer from './musicians';
 import sign from './sign';
 import search from './searchpage';
+import myAds from './myAds';
 import newAd from './newAd';
 
 // combineReducers permet de découper notre état et nos reducers
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   musicians: musiciansReducer,
   sign: sign,
   search: search,
+  myAds: myAds,
   newAd: newAd,
 });
 
