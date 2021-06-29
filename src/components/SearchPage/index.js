@@ -77,15 +77,6 @@ export default function SearchPage({
   categories,
   categoryName,
   onChangeCategoryValue,
-<<<<<<< HEAD
-=======
-  searchResult,
-
-  onClickSearch,
-  onChangeBoxBandValue,
-  onChangeBoxMusicianValue,
-  onChangeBoxPlaceValue,
->>>>>>> 751a1be19f220222a2f97bba1d21c0ecfb9fe9b7
 }) {
   const classes = useStyles();
 
