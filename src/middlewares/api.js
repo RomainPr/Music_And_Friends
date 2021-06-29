@@ -5,6 +5,7 @@ import {
   SUBMIT_LOGIN,
   SUBMIT_SIGNUP_PLACE,
   SUBMIT_SIGNUP_MUSICIAN,
+  SUBMIT_NEW_AD,
 } from 'src/actions/user';
 
 import {
@@ -69,6 +70,13 @@ const apiMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('user', response.data.user_id);
+          localStorage.setItem('role', response.data.role);
+
+          const role = localStorage.getItem('role');
+          const id = localStorage.getItem('user');
+    
+          console.log(`role = `, role);
+          console.log(`id = `, id);
           store.dispatch(loginSuccess());
           store.dispatch(closeModal());
         });
@@ -112,6 +120,30 @@ const apiMiddleware = (store) => (next) => (action) => {
           description: state.sign.description,
           email: state.sign.email,
           password: state.sign.password,
+        },
+      };
+      axios(signUpRequest)
+        .then((response) => {
+          console.log(response);
+        });
+      break;
+    }
+    case SUBMIT_NEW_AD: {
+      const state = store.getState();
+      const role = localStorage.getItem('role');
+      const id = localStorage.getItem('user');
+
+      console.log(`role = `, role);
+      console.log(`id = `, id);
+      const signUpRequest = {
+        method: 'POST',
+        url: `https://music-and-friends.herokuapp.com/profils/${role}/${id}/newad`,
+        data: {
+          category: state.newAd.userSelected,
+          style: state.newAd.styleName,
+          instrument: state.newAd.instrumentName,
+          title: state.newAd.title,
+          description: state.newAd.content,
         },
       };
       axios(signUpRequest)

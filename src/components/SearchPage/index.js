@@ -30,6 +30,8 @@ import GlobalCardProfils from './GlobalCardProfils';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+// import musicalAnimation from './musical_animation.json';
+// import Lottie from 'lottie-react';
 import './style.scss';
 
 const useStyles = makeStyles(() => ({
@@ -75,6 +77,15 @@ export default function SearchPage({
   categories,
   categoryName,
   onChangeCategoryValue,
+<<<<<<< HEAD
+=======
+  searchResult,
+
+  onClickSearch,
+  onChangeBoxBandValue,
+  onChangeBoxMusicianValue,
+  onChangeBoxPlaceValue,
+>>>>>>> 751a1be19f220222a2f97bba1d21c0ecfb9fe9b7
 }) {
   const classes = useStyles();
 
@@ -229,6 +240,7 @@ export default function SearchPage({
   };
 
   return (
+
     <div>
       <Container maxWidth="lg" className={classes.form}>
         <h2 className={classes.title}>Vous recherchez ?</h2>
