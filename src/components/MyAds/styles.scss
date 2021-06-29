@@ -1,0 +1,14 @@
+@use 'src/styles/vars';
+
+#announcesCards {
+  align-content: center;
+}
+
+.cardProfiles__title{
+  text-align: center;
+  padding-top: vars.$paddingTopMedium;
+}
+
+#create_ad_btn {
+  background-color: #FDA13D;
+}
