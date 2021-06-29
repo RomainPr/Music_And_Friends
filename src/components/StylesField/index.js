@@ -18,37 +18,19 @@ const useStyles = makeStyles(() => ({
     maxWidth: 500,
   },
   label: {
-    zIndex: 2,
     color: '#000',
-    paddingLeft: '20px',
     '&.Mui-focused': {
-      color: '#fff',
-    },
-    '& .MuiInputLabel-animated': {
-      transition: 'color 200ms cubic-bezier(255,255,255, 0.2, 1) 0ms,transform 200ms cubic-bezier(255,255,255, 0.2, 1) 0ms',
+      color: '#000',
     },
   },
   select: {
-    '& .MuiSelect-select': {
-      backgroundColor: '#fff',
-      boxShadow: '10px 10px 15px 0 rgb(0 0 0 / 25%)',
-      border: '1px solid #fff',
-      borderRadius: '50px',
-    },
-    '& .MuiSelect-select:focus': {
-      backgroundColor: '#fff',
-      '& .MuiInputLabel-formControl': {
-        color: '#fff',
+    background: '#fff',
+    borderRadius: '4px',
+    '&.Mui-focused': {
+      '& .MuiOutlinedInput-notchedOutline': {
+        borderColor: '#000',
+        borderWidth: '1px',
       },
-    },
-    '&::before': {
-      borderBottom: 'none',
-    },
-    '&::after': {
-      borderBottom: 'none',
-    },
-    '&:hover:not(.Mui-disabled):before': {
-      borderBottom: 'none',
     },
   },
 }));
@@ -61,7 +43,7 @@ export default function StylesField({ styles, styleName, onChangeStyleValue }) {
     <div id="field">
       {/* Field if connected musician OR place -> AND box checked group or/and musician */}
       <FormControl variant="outlined" className={classes.form}>
-        <InputLabel id="controlled-open-select-label">Par style(s)</InputLabel>
+        <InputLabel className={classes.label} id="controlled-open-select-label">Par style(s)</InputLabel>
         <Select
           className={classes.select}
           inputProps={{ MenuProps: {disableScrollLock: true }}}
