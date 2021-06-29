@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import Container from '@material-ui/core/Container';
 
 import CardBandAds from './CardBandAds';
-import CardMusicianAds from './CardMusicianAds ';
+import CardMusicianAds from './CardMusicianAds';
 import CardPlaceAds from './CardPlaceAds';
 
 import 'slick-carousel/slick/slick.css';
