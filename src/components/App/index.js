@@ -15,6 +15,7 @@ import PlaceProfil from 'src/containers/Profils/PlaceProfil';
 import Footer from 'src/components/Footer';
 import SignPlace from 'src/containers/SignPlace';
 import NewAd from 'src/containers/NewAd';
+import AdEdition from 'src/containers/AdEdition';
 
 import ScrollToTop from 'src/components/ScrollToTop';
 import Loading from './Loading';
@@ -31,6 +32,7 @@ function App({
   bands,
   places,
   instruments,
+  announces,
 }) {
   useEffect(() => {
     loadMusicians();
@@ -93,9 +95,16 @@ function App({
           />
           <Footer />
         </Route>
-        <Route exact path="/profil/myads">
+        <Route exact path="/profil/:role/:id/myads">
           <Nav />
           <MyAds />
+          <Footer />
+        </Route>
+        <Route exact path="/profil/myads/:id/edit">
+          <Nav />
+          <AdEdition
+            announces={announces}
+          />
           <Footer />
         </Route>
         <Route exact path="/profil/newad">

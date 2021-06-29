@@ -3,6 +3,7 @@ export const CHANGE_PASSWORD_INPUT = 'CHANGE_PASSWORD_INPUT';
 export const SUBMIT_SIGNUP_PLACE = 'SUBMIT_SIGNUP_PLACE';
 export const SUBMIT_SIGNUP_MUSICIAN = 'SUBMIT_SIGNUP_MUSICIAN';
 export const SUBMIT_NEW_AD = 'SUBMIT_NEW_AD';
+export const SUBMIT_EDITED_AD = 'SUBMIT_EDITED_AD';
 export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
 export const SUBMIT_LOGIN_PLACE = 'SUBMI_LOGIN_PLACE';
 export const LOGIN_SUCCESS_PLACE = 'LOGIN_SUCCESS_PLACE';
@@ -30,9 +31,12 @@ export const submitSignUpMusician = (value) => ({
   value,
 });
 
-export const submitNewAd = (value) => ({
+export const submitNewAd = () => ({
   type: SUBMIT_NEW_AD,
-  value,
+});
+
+export const submitEditedAd = () => ({
+  type: SUBMIT_EDITED_AD,
 });
 
 export const submitLogin = () => ({

@@ -34,27 +34,28 @@ function MyAds({ announces }) {
         <h2 className="cardProfiles__title">Mes annonces</h2>
 
         <Button
-        id="create_ad_btn"
-        variant="contained"
-        size="large"
-        color="primary"
-        component={Link}
-        to={`/profil/newad`}
-      >
-        Créer une annonce
-    </Button>
+          id="create_ad_btn"
+          variant="contained"
+          size="large"
+          color="primary"
+          component={Link}
+          to={`/profil/newad`}
+        >
+          Créer une annonce
+        </Button>
 
         {/* <Slider {...settings}> */}
-  {announces.map((announce,index) => (
+        {announces.map((announce, index) => (
           <CardAds
-            key={index}
+            key={announce.id}
+            idAnnounce={announce.id}
             userSelected={announce.category}
             instrument={announce.instrument}
             style={announce.style}
             title={announce.title}
             description={announce.description}
           />
-  ))}
+        ))}
         {/* </Slider> */}
       </Container>
     </div>

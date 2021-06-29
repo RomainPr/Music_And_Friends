@@ -1,0 +1,39 @@
+@use 'src/styles/vars';
+
+.title {
+  margin: 2rem 4rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+#contained-button-file {
+  display: none;
+}
+
+#profil-picture {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+#input-intruments {
+  width: 100%;
+}
+
+#input-intruments input,
+#input-styles input {
+  margin: 10px;
+}
+
+#input-styles {
+  width: 100%;
+}
+
+#inputIdPictureIntruments {
+  margin-bottom: 50px;
+}
+
+#description {
+  width: 100%;
+}
