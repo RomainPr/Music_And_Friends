@@ -7,9 +7,7 @@ import PropTypes from 'prop-types';
 
 import Container from '@material-ui/core/Container';
 
-import CardBandAds from './CardBandAds';
-import CardMusicianAds from './CardMusicianAds ';
-import CardPlaceAds from './CardPlaceAds';
+import CardAds from './CardAds';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -35,37 +33,16 @@ function MyAds({ announces }) {
 
         {/* <Slider {...settings}> */}
   
-          <CardBandAds
-            // name={name}
-            // role={role}
-            // instruments={instruments}
-            // styles={styles}
+          <CardAds 
+            // userSelected={category}
+            // instrument={instrument}
+            // style={style}
             // title={title}
             // description={description}
           />
         {/* </Slider> */}
 
-        {/* <Slider {...settings}> */}
-          <CardMusicianAds
-            // name={name}
-            // role={role}
-            // instruments={instruments}
-            // styles={styles}
-            // title={title}
-            // description={description}
-          />
-        {/* </Slider> */}
-
-        {/* <Slider {...settings}> */}
-          <CardPlaceAds
-            // name={name}
-            // role={role}
-            // instruments={instruments}
-            // styles={styles}
-            // title={title}
-            // description={description}
-          />
-        {/* </Slider> */}
+      
 
       </Container>
     </div>

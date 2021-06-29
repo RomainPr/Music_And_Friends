@@ -20,6 +20,7 @@ import ScrollToTop from 'src/components/ScrollToTop';
 import Loading from './Loading';
 //ads
 import MyAds from 'src/components/MyAds';
+// import MyAds from 'src/containers/MyAds';
 
 import './styles.scss';
 
@@ -95,6 +96,11 @@ function App({
         <Route exact path="/profil/role/:id/myads">
           <Nav />
           <MyAds />
+          <Footer />
+        </Route>
+        <Route exact path="/profil/newad">
+          <Nav />
+          <NewAd />
           <Footer />
         </Route>
       </Switch>
