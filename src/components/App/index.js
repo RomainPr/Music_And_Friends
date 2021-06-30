@@ -18,15 +18,16 @@ import AdEdition from 'src/containers/AdEdition';
 
 import ScrollToTop from 'src/components/ScrollToTop';
 // ads
-// import MyAds from 'src/components/MyAds';
-import MyAds from 'src/containers/MyAds';
 import HeaderPage from '../HeaderPage';
 
 import Loading from './Loading';
-
+//ads
+import MyAds from 'src/containers/MyAds';
+import Ad from 'src/containers/Ad';
 import './styles.scss';
 
 function App({
+  announces,
   loadMusicians,
   isAuthenticated,
   loading,
@@ -34,7 +35,7 @@ function App({
   bands,
   places,
   instruments,
-  announces,
+  
 }) {
   useEffect(() => {
     loadMusicians();
@@ -95,14 +96,24 @@ function App({
             <Footer />
           </Route>
         ) : <Redirect to="/" />}
-        <Route exact path="/profil/myads/:id/edit">
+        
+        <Route exact path="/announce/:title">
+          <Nav />
+          <Ad
+          announces={announces}
+          />
+          <Footer />
+        </Route>
+
+        <Route exact path="/profil/myads/:id/edit">      
           <Nav />
           <AdEdition
             announces={announces}
           />
           <Footer />
         </Route>
-        <Route exact path="/profil/newad">
+
+        <Route exact path="/profil/newads">
           <Nav />
           <NewAd />
         </Route>

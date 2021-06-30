@@ -9,6 +9,7 @@ import search from './searchpage';
 import myAds from './myAds';
 import newAd from './newAd';
 
+
 // combineReducers permet de découper notre état et nos reducers
 // en plusieurs "tranches" aka SLICES
 // ici nous avons deux tranches : recipes et user
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   search: search,
   myAds: myAds,
   newAd: newAd,
+
 });
 
 export default rootReducer;

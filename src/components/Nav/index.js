@@ -175,7 +175,7 @@ function Nav({
                         color="inherit"
                         component={Link}
                         to={`/profil/${role}/${id}/myAds`}
-                        onClick={handleGetAnnounces}
+                        
                       >
                         <ImportContactsRoundedIcon />
                       </IconButton>
@@ -271,6 +271,7 @@ Nav.propTypes = {
   toggleDrawer: PropTypes.func.isRequired,
   openModalSignIn: PropTypes.func.isRequired,
   openModalSignUp: PropTypes.func.isRequired,
+  handleGetAnnounces: PropTypes.func.isRequired,
 };
 
 export default Nav;

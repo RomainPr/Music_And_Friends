@@ -10,7 +10,7 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Button from '@material-ui/core/Button';
+
 import IconButton from '@material-ui/core/IconButton';
 import { Link } from 'react-router-dom';
 
@@ -19,7 +19,7 @@ import { Link } from 'react-router-dom';
 
 //crud ad
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
-import VisibilityIcon from '@material-ui/icons/Visibility';
+
 import BorderColorIcon from '@material-ui/icons/BorderColor';
 
 import '../styles.scss';
@@ -79,15 +79,6 @@ const CardAds = ({
               <IconButton>
                 <DeleteForeverOutlinedIcon />
               </IconButton>
-
-              {/* par la suite, req api GET-> Voir avec David si route car non répertoriée dans liste des routes */}
-              <IconButton>
-                <VisibilityIcon
-                // component={Link}
-                // to={`/profil/role/:id/myads/:id`}
-                />
-              </IconButton>
-
 
               {/* par la suite, req api UPDATE -> Voir avec David si route car non répertoriée dans liste des routes */}
               <IconButton

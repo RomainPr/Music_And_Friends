@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 
 // import Slider from 'react-slick';
 
-import { Container, Button } from '@material-ui/core';
-
+import { Container } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import CardAds from './CardAds';
 
 import { Link } from 'react-router-dom';
@@ -63,6 +63,7 @@ function MyAds({ announces }) {
 }
 
 MyAds.propTypes = {
+  announces:PropTypes.array.isRequired,
   // name:PropTypes.string.isRequired,
   // role:PropTypes.string.isRequired,
   // instruments:PropTypes.array.isRequired,
