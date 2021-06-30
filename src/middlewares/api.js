@@ -153,12 +153,14 @@ const apiMiddleware = (store) => (next) => (action) => {
       const state = store.getState();
       const role = localStorage.getItem('role');
       const id = localStorage.getItem('user');
+      const token = localStorage.getItem('token');
+      console.log(`localStorage = `, localStorage);
 
       console.log(`role = `, role);
       console.log(`id = `, id);
       const signUpRequest = {
         method: 'POST',
-        url: `https://music-and-friends.herokuapp.com/profils/${role}/${id}/newad`,
+        url: `https://localhost:3001/newads/users/${id}`,
         data: {
           category: state.newAd.userSelected,
           style: state.newAd.styleName,
