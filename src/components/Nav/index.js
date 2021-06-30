@@ -83,7 +83,6 @@ function Nav({
   openModalSignUp,
   handleProfileMenuOpen,
   handleMenuClose,
-  handleGetAnnounces,
   toggleDrawer,
 }) {
   const classes = useStyles();

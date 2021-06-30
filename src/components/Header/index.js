@@ -8,7 +8,10 @@ import './styles.scss';
 
 const useStyles = makeStyles(() => ({
   searchButton: {
-    background: '#FDA13D',
+    background: '#E87121',
+    '&:hover': {
+      backgroundColor: '#FDA13D',
+    },
   },
 }));
 
