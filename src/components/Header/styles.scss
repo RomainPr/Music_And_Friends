@@ -1,4 +1,6 @@
 .header {
+  background-image: url(src/assets/HeaderBg.jpg);
+  height: 500px;
   position: relative;
   background-size: cover;
   background-position: center;
@@ -12,15 +14,36 @@
   &__middle {
     text-align: center;
     position: absolute;
-    top: 50%;
+    top: 30%;
     bottom: 50%;
     left: 0;
     right: 0;
-    font-size: 40px;
     color: #fff;
-
+    &__centeredAnimation {
+      margin-left: 10px;
+    }
+    & h1 {
+      font-size: 3em;
+    }
     &__search {
       padding-top: 40px;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .header {
+    height: 300px;
+    &__nav {
+      padding: 10px;
+    }
+    &__middle {
+      & h1 {
+        font-size: 1.8em;
+      }
+      &__search {
+        padding-top: 20px;
+      }
     }
   }
 }

@@ -20,13 +20,22 @@ const useStyles = makeStyles(() => ({
   },
   label: {
     color: '#000',
+    '&.MuiInputLabel-outlined.MuiInputLabel-shrink': {
+      transform: 'translate(13px, -16px) scale(0.75)',
+      color: '#fff',
+    },
     '&.Mui-focused': {
-      color: '#000',
+      color: '#fff',
     },
   },
   select: {
     background: '#fff',
     borderRadius: '4px',
+    '&:focus': {
+      '& .MuiInputLabel-formControl': {
+        color: '#fff',
+      },
+    },
     '&.Mui-focused': {
       '& .MuiOutlinedInput-notchedOutline': {
         borderColor: '#000',

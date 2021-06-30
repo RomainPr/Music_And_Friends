@@ -45,3 +45,21 @@
     }
   }
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .navbar {
+    &__content {
+      width: 100%;
+      &__right {
+        text-align: center;
+        & button {
+          margin: auto;
+          width: auto;
+        }
+      }
+    }
+  }
+  .makeStyles-navbar-24 {
+    justify-content: space-between;
+  }
+}

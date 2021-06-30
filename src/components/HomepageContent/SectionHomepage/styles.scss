@@ -24,6 +24,11 @@
         line-height: vars.$lineHeight;
     }
 }
+.section__Bottom {
+    &__orderOnMobile {
+        order: 0;
+    }
+}
 .section__Bottom__left {
     padding: 30px;
     text-align: left;
@@ -38,5 +43,49 @@
         font-size: 1.2em;
         padding-bottom: vars.$paddingBottomSmall;
         line-height: vars.$lineHeight;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .section {
+        margin-top: 10px;
+    }
+    .section__top__left {
+        margin-left: 0;
+        padding: 20px 30px;
+
+        &__title {
+            font-size: 1.6em;
+            padding-bottom: vars.$paddingBottomSmall;
+        }
+        &__content {
+            font-size: 1em;
+        }
+    }
+    .section__top__right {
+        & img {
+            width: 100%;
+        }
+    }
+    .section__Bottom {
+        padding-bottom: 20px;
+
+        &__orderOnMobile {
+            order: 2;
+        }
+    }
+    .section__Bottom__left {
+        &__title {
+            font-size: 1.6em;
+            padding-bottom: vars.$paddingBottomSmall;
+        }
+        &__content {
+            font-size: 1em;
+        }
+    }
+    .section__Bottom__right {
+        & img {
+            width: 100%;
+        }
     }
 }

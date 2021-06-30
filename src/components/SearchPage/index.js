@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import FullHeight from 'react-full-height';
+
 // import components
 import CitiesField from 'src/containers/CitiesField';
 import InstrumentsField from 'src/containers/InstrumentsField';
@@ -215,7 +217,7 @@ export default function SearchPage({
   };
 
   return (
-
+    <FullHeight canExceed>
     <div>
       <Container maxWidth="lg" className={classes.form}>
         <h2 className={classes.title}>Vous recherchez ?</h2>
@@ -297,6 +299,7 @@ export default function SearchPage({
         </Container>
       </div>
     </div>
+    </FullHeight>
   );
 }
 

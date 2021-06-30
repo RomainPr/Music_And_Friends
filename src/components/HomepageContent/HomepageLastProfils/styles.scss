@@ -99,3 +99,14 @@
       justify-content: center;
   }
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  #card {
+    max-width: 90%;
+    margin: 30px auto;
+
+    &__inside {
+      height: 460px;
+    }
+  }
+}

@@ -6,6 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 import App from 'src/containers/connectedApp';
 import store from 'src/store';
 
+import 'normalize.css/normalize.css';
+
 const rootReactElement = (
   <Provider store={store}>
     <BrowserRouter>

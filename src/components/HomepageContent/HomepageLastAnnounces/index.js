@@ -21,19 +21,28 @@ import CardAnnounces from './CardAnnounces';
 
 function LastAnnounces({ announces }) {
 
-  const settings = {
+  const settings_3 = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
+
+    responsive: [{
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 1
+      }
+    }]
   };
 
   return (
     <div className="announcesCards">
       <Container maxWidth="lg">
         <h2 className="announcesCards__title">Les dernières annonces parues</h2>
-        <Slider {...settings}>
+        <Slider {...settings_3}>
           {announces.map((announce) => (
             <CardAnnounces
               key={announce.id}

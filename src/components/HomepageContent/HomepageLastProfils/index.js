@@ -14,19 +14,28 @@ import './styles.scss';
 function LastProfils({ musicians, bands, places }) {
   const fullList = [...musicians, ...bands, ...places];
 
-  const settings = {
+  const settings_3 = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
+
+    responsive: [{
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 1
+      }
+    }]
   };
 
   return (
     <div className="cardProfiles">
       <Container maxWidth="lg">
         <h2 className="cardProfiles__titleProfil">Les derniers profils</h2>
-        <Slider {...settings}>
+        <Slider {...settings_3}>
           {musicians.map((musician) => (
             <CardMusician
               key={musician.id}
