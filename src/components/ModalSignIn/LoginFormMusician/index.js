@@ -10,6 +10,7 @@ import './styles.scss';
 const LoginFormMusician = ({
   email,
   password,
+  role,
   onChangeEmail,
   onChangePassword,
   handleLogin,

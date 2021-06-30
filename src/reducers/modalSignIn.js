@@ -1,8 +1,9 @@
 import {
-  OPEN_MODAL_SIGNIN, OPEN_MODAL_SIGNUP, CLOSE_MODAL_SIGNIN, OPEN_MODAL_VIDEO,
+  OPEN_MODAL_SIGNIN, OPEN_MODAL_SIGNUP, CLOSE_MODAL_SIGNIN, OPEN_MODAL_VIDEO, CHANGE_ROLE,
 } from 'src/actions/modalSignIn';
 
 const initialState = {
+  role: '',
   openSignIn: false,
   openSignUp: false,
   openVideos: false,
@@ -31,6 +32,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         openSignIn: false,
         openSignUp: false,
+      };
+    case CHANGE_ROLE:
+      return {
+        ...state,
+        role: action.role,
       };
     default:
       return state;

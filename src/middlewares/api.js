@@ -65,19 +65,15 @@ const apiMiddleware = (store) => (next) => (action) => {
         data: {
           email: state.user.email,
           password: state.user.password,
+          role: state.modalSignIn.role,
         },
       };
+      console.log(loginRequest);
       axios(loginRequest)
         .then((response) => {
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('user', response.data.user_id);
           localStorage.setItem('role', response.data.role);
-          const role = localStorage.getItem('role');
-          const id = localStorage.getItem('user');
-    
-          console.log(`role = `, role);
-          console.log(`id = `, id);
-          localStorage.setItem('role', response.data.role)
           store.dispatch(loginSuccess());
           store.dispatch(closeModal());
         });
@@ -91,8 +87,10 @@ const apiMiddleware = (store) => (next) => (action) => {
         data: {
           email: state.user.email,
           password: state.user.password,
+          role: state.modalSignIn.role,
         },
       };
+      console.log(loginRequest);
       axios(loginRequest)
         .then((response) => {
           localStorage.setItem('token', response.data.token);

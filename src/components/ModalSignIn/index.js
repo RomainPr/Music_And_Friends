@@ -15,14 +15,8 @@ import LoginFormPlace from 'src/containers/connectedLoginFormPlace';
 import './styles.scss';
 
 function ModalSignIn({
-  openSignIn, handleClose,
+  openSignIn, handleClose, role, handleChangeRole
 }) {
-
-  const [value, setValue] = React.useState('');
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
 
   return (
     <div className="modalSign">
@@ -42,14 +36,14 @@ function ModalSignIn({
           <div className="modal--content">
             <h2 className="modal__content__title">Vous êtes :</h2>
             <FormControl component="fieldset">
-              <RadioGroup aria-label="role" name="role" value={value} onChange={handleChange}>
+              <RadioGroup aria-label="role" name="role" value={role} onChange={handleChangeRole}>
                 <FormControlLabel value="musicien" control={<Radio />} label="Un musicien" />
-                <FormControlLabel value="organisateur" control={<Radio />} label="Un organisateur" />
+                <FormControlLabel value="place" control={<Radio />} label="Un organisateur" />
               </RadioGroup>
-              {value === 'musicien' && (
+              {role === 'musicien' && (
                 <LoginFormMusician />
               )}
-              {value === 'organisateur' && (
+              {role === 'place' && (
                 <LoginFormPlace />
               )}
             </FormControl>
