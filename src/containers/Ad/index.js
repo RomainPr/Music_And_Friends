@@ -1,19 +1,26 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Ad from 'src/components/Ad';
 
-const mapStateToProps = (state) => {
+import { findAnnounce } from 'src/selectors/announce';
+
+const mapStateToProps = (state, ownProps) => {
 console.log('state Ad :',state)
-console.log('state Ad.announces:',state.announces)
+console.log('state Ad.announces:',state.myAds.announces, )
+console.log('ownProps', ownProps)
   return {
-  announces: state.announces,
-  // userSelected:state.myAds.announces.category,
-  // instrument:state.myAds.announces.instrument,
-  // style:state.myAds.announces.style,
-  // title:state.myAds.announces.title,
-  // description:state.myAds.announces.description,
+  announce: findAnnounce(state.myAds.announces, ownProps.match.params.title),
   }
 };
 
 const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Ad);
+const container = connect(mapStateToProps, mapDispatchToProps)(Ad);
+
+const containerWithRouter = withRouter(container);
+
+export default containerWithRouter;
+
+
+
+

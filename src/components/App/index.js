@@ -20,10 +20,11 @@ import ScrollToTop from 'src/components/ScrollToTop';
 import Loading from './Loading';
 //ads
 import MyAds from 'src/containers/MyAds';
-import Ad from 'src/components/Ad';
+import Ad from 'src/containers/Ad';
 import './styles.scss';
 
 function App({
+  announces,
   loadMusicians,
   loading,
   musicians,
@@ -92,10 +93,13 @@ function App({
           />
           <Footer />
         </Route>
-         <Route exact path="/announces/:id">
+        <Route exact path="/announce/:title">
           <Nav />
-          <Ad />
+          <Ad
+          announces={announces}
+          />
           <Footer />
+        </Route>
         <Route exact path="/profil/myAds">
           <Nav />
           <MyAds />
@@ -105,9 +109,7 @@ function App({
           <Nav />
           <NewAd />
           <Footer />
-        </Route>
-       
-        </Route>
+        </Route>      
       </Switch>
     </div>
   );

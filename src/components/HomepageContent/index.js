@@ -17,7 +17,9 @@ const Home = ({ musicians, bands, places, announces }) => (
       bands={bands}
       places={places}
     />
-    <LastAnnounces />
+    <LastAnnounces 
+      announces={announces}
+    />
   </>
 );
 

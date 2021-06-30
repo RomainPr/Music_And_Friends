@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
   bands: state.musicians.bands,
   places: state.musicians.places,
   instruments: state.musicians.instruments,
+  announces: state.myAds.announces,
 });
 
 const mapDispatchToProps = (dispatch) => ({

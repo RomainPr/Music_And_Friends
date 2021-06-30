@@ -12,22 +12,13 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 
-
 import './styles.scss';
 
-
 const Ad = ({
-  date,
-  userSelected,
-  instrument,
-  style,
-  title,
-  description
+  announce,
 }) => (
 
-
   <div className="announcesCards">
-
     <Container maxWidth="lg">
       {/* <h2 className="announcesCards__title">Si groupe</h2> */}
        <Grid container>
@@ -47,18 +38,31 @@ const Ad = ({
               />
              
               <div id="card__ad">
-                <h2 className="ad">{date}Date de l'annonce</h2>
+                {/* <h2 className="ad">{announce.date}Date de l'annonce</h2> */}
               </div>
             </div>
-            <CardContent id="card__content">
+
+           
+              
+            <CardContent id="card__content" key={announce.id}>
+          
               <ul className="search">
-                <li>Recherche : <span> Musicien{userSelected}</span></li>
-                <li>Instrument : <span> Piano{instrument}</span></li>
-                <li>Style : <span>Jazz{style}</span></li>
+                <li>Recherche : <p>{announce.category}</p></li>
+                <li>Instrument :  
+                  {announce.instrument.map((instru) => (
+                    <p>{instru}</p>
+                  ))}
+                </li>
+                <li>Style : 
+                {announce.style.map((ad) => (
+                  <p>{ad}</p>
+                ))}
+                </li>
               </ul>
-              <h3 className="title">Titre{title}</h3>
-              <p className="description">Description{description}.</p>
+              <h3 className="title">{announce.title}</h3>
+              <p className="description">{announce.description}.</p>
             </CardContent>
+           
             <CardActions id="card__footer">
 
             </CardActions>
@@ -71,7 +75,7 @@ const Ad = ({
         id="contact_author_ad"
         variant="contained"
         size="large"
-        color="primary"
+        // color="primary"
         // component={Link}
         // to={`/profil/contact`}
       >
@@ -80,5 +84,10 @@ const Ad = ({
   </div>
 
 );
+
+Ad.propTypes = {
+  // announce:PropTypes.array.isRequired,
+
+};
 
 export default Ad;
