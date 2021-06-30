@@ -104,7 +104,7 @@ function Nav({
     >
       <MenuItem
         component={Link}
-        to={`profil/${role}/${user}`}
+        to={`profil/${role}/${id}`}
         onClick={handleMenuClose}
       >
         Profil
