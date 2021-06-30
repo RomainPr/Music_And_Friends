@@ -32,7 +32,7 @@ const useStyles = makeStyles(() => ({
     textAlign: 'center',
   },
   save: {
-    margin: '40px 0',
+    marginBottom: '20px',
   },
 }));
 
@@ -105,7 +105,7 @@ export default function NewAd({ title, content, onChangeValue, handleCreateAd })
               size="large"
               startIcon={<SaveIcon />}
             >
-              Save
+              Enregistrer
             </Button>
           </Grid>
         </FormControl>

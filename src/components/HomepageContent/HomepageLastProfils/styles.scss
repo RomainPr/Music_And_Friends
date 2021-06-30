@@ -46,6 +46,14 @@
     flex-direction: column;
     justify-content: space-between;
   }
+  &__insideAd {
+    height: 550px;
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
   &__avatar {
     width: 70px;
     height: 70px;

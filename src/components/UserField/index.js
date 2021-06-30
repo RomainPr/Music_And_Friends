@@ -14,8 +14,10 @@ import './styles.scss';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(1),
+    marginBottom: '20px',
     minWidth: 120,
+    maxWidth: '300px',
+    width: '100%',
   },
   selectEmpty: {
     marginTop: theme.spacing(2),

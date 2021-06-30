@@ -220,7 +220,7 @@ export default function SearchPage({
     <FullHeight canExceed>
     <div>
       <Container maxWidth="lg" className={classes.form}>
-        <h2 className={classes.title}>Vous recherchez ?</h2>
+        <h2 className={classes.title}>Quelle est votre recherche ?</h2>
         <Grid
           container
           direction="row"

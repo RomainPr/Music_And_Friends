@@ -27,7 +27,7 @@ function Header() {
   const [index, setIndex] = React.useState(0);
   React.useEffect(() => {
     const intervalId = setInterval(() => setIndex((index) => index + 1),
-      2000, // every 2 seconds
+      3000, // every 2 seconds
     );
     return () => clearTimeout(intervalId);
   }, []);
@@ -35,12 +35,12 @@ function Header() {
   return (
     <div className="header">
       <div className="header__middle">
-        <h1>Trouver votre prochain 
+        <h1>Trouvez votre prochain 
           <TextTransition
             className="header__middle__centeredAnimation"
             inline
             text={texts[index % texts.length]}
-            springConfig={presets.wobbly}
+            springConfig={presets.default}
           />
         </h1>
         <div className="header__middle__search">

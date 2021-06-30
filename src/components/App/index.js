@@ -103,10 +103,12 @@ function App({
           />
           <Footer />
         </Route>
-        <Route exact path="/profil/newads">
+        {isAuthenticated && (
+        <Route exact path="/profil/:role/:id/newad">
           <Nav />
           <NewAd />
         </Route>
+        )}
         {isAuthenticated && (
           <Route exact path="/profil/:role/:id/myads">
             <Nav />

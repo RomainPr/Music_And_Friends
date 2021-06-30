@@ -1,12 +1,20 @@
 @use 'src/styles/vars';
 
-#announcesCards {
+.announcesCards {
+  padding: 20px 0;
   align-content: center;
 }
 
-.cardProfiles__title{
-  text-align: center;
-  padding-top: vars.$paddingTopMedium;
+.cardProfiles {
+  &__title {
+    text-align: center;
+    font-size: 2em;
+    padding-top: vars.$paddingTopMedium;
+    padding-bottom: vars.$paddingBottomMedium;
+  }
+  &__button {
+    margin: 40px 0;
+  }
 }
 
 #create_ad_btn {
