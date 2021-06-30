@@ -82,9 +82,11 @@ const settings = {
   slidesToScroll: 1,
 };
 
-function MusicianProfilContent({ styles, instruments, description }) {
+function MusicianProfilContent({ openvideos, openinstruments, styles, instruments, description }) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [openVideos, setOpen] = React.useState(false);
+  const [openInstruments, setOpenInstruments] = React.useState(false);
+  const [instrument, setInstrument] = React.useState('');
   const [urls, setUrls] = React.useState([]);
   const [url, setUrl] = React.useState('');
 
@@ -92,12 +94,21 @@ function MusicianProfilContent({ styles, instruments, description }) {
     setOpen(true);
   };
 
+  const handleOpenInstruments = () => {
+    setOpenInstruments(true);
+  };
+
   const handleClose = () => {
     setOpen(false);
+    setOpenInstruments(false);
   };
 
   const handleOnChangeUrl = (event) => {
     setUrl(event.target.value);
+  };
+
+  const handleOnChangeInstrument = (event) => {
+    setInstrument(event.target.value);
   };
 
   const sendUrl = () => {
@@ -111,7 +122,7 @@ function MusicianProfilContent({ styles, instruments, description }) {
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={open}
+        open={openVideos}
         onClose={handleClose}
         className="modalSignIn"
         closeAfterTransition
@@ -120,11 +131,32 @@ function MusicianProfilContent({ styles, instruments, description }) {
           timeout: 500,
         }}
       >
-        <Fade in={open}>
+        <Fade in={openVideos}>
           <div className="modal--content">
             <h2 className="modal__content__title">Entrez une URL</h2>
             <TextField label="url" variant="outlined" value={url} onChange={handleOnChangeUrl} />
             <Button variant="contained" color="primary" onClick={sendUrl}>Envoyer</Button>
+          </div>
+        </Fade>
+      </Modal>
+
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={openInstruments}
+        onClose={handleClose}
+        className="modalSignIn"
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={openInstruments}>
+          <div className="modal--content">
+            <h2 className="modal__content__title">Entrez un instrument</h2>
+            <TextField label="instrument" variant="outlined" value={instrument} onChange={handleOnChangeInstrument} />
+            <Button variant="contained" color="primary">Envoyer</Button>
           </div>
         </Fade>
       </Modal>
@@ -181,7 +213,7 @@ function MusicianProfilContent({ styles, instruments, description }) {
                       ))}
                     </ul>
                     <div className="profilEditionContent__content__action">
-                      <Fab className={classes.addLeft} size="small" color="primary" aria-label="add">
+                      <Fab onClick={handleOpenInstruments} className={classes.addLeft} size="small" color="primary" aria-label="add">
                         <AddIcon />
                       </Fab>
                     </div>

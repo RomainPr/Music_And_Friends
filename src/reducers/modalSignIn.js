@@ -5,7 +5,8 @@ import {
 const initialState = {
   openSignIn: false,
   openSignUp: false,
-  openModalVideo: false,
+  openVideos: false,
+  openInstruments: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -18,7 +19,7 @@ const reducer = (state = initialState, action) => {
     case OPEN_MODAL_VIDEO:
       return {
         ...state,
-        openModalVideo: true,
+        openVideos: true,
       };
     case OPEN_MODAL_SIGNUP:
       return {

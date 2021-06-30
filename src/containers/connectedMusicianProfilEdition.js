@@ -12,7 +12,8 @@ function mapStateToProps(state, ownProps) {
   return {
     musicianProfil: findMusicianProfil(JSON.parse(localStorage.getItem('musicians')), ownProps.match.params.id),
     role: ownProps.match.params.role,
-    openModalVideo: state.modalSignIn.openModalVideo,
+    openVideos: state.modalSignIn.openVideos,
+    openInstruments: state.modalSignIn.openInstruments,
   };
 }
 
