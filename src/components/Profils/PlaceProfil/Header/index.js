@@ -66,66 +66,64 @@ function MusicianProfilHeader({
   const classes = useStyles();
   return (
     <>
-      <div className="header">
-        <div className="profilHeader">
-          <img src={bandBackground} alt="" />
-          <div className="profilHeader__top">
-            <Grid item xs={12} className={classes.profilInfo}>
-              <div className="profilHeader__info">
-                <Paper elevation={3} className={classes.paper}>
-                  <Grid
-                    container
-                    direction="column"
-                    justify="space-between"
-                    alignItems="flex-start"
-                    spacing={2}
-                  >
-                    <Grid item className={classes.paperItem}>
-                      <ul>
-                        <li>{city}</li>
-                      </ul>
-                    </Grid>
-                    {styles && (
+      <div className="profilHeader">
+        <img src={bandBackground} alt="" />
+        <div className="profilHeader__top">
+          <Grid item xs={12} className={classes.profilInfo}>
+            <div className="profilHeader__info">
+              <Paper elevation={3} className={classes.paper}>
+                <Grid
+                  container
+                  direction="column"
+                  justify="space-between"
+                  alignItems="flex-start"
+                  spacing={2}
+                >
+                  <Grid item className={classes.paperItem}>
+                    <ul>
+                      <li>{city}</li>
+                    </ul>
+                  </Grid>
+                  {styles && (
                     <Grid item className={classes.paperItem}>
                       {styles.map((style) => (
                         <li key={style} className="profilHeader__info__list">{style}</li>
                       ))}
                     </Grid>
-                    )}
-                  </Grid>
-                </Paper>
+                  )}
+                </Grid>
+              </Paper>
+            </div>
+          </Grid>
+          <Grid item xs={3} className={classes.pseudo}>
+            <h2 className="profilHeader__info__pseudo">{pseudo}</h2>
+          </Grid>
+          <div className="profilHeaderContent">
+            <Grid item xs={2}>
+              <div className="profilHeaderContent__avatar">
+                <Avatar
+                  className={classes.avatar}
+                  src="https://i.pravatar.cc/300"
+                />
               </div>
             </Grid>
-            <Grid item xs={3} className={classes.pseudo}>
-              <h2 className="profilHeader__info__pseudo">{pseudo}</h2>
+            <Grid item xs={8} className={classes.actions}>
+              <div className="profilHeaderContent__actions">
+                <div className="profilHeaderContent__actions__contact">
+                  <Button className={classes.actionButtons}>
+                    <StarRoundedIcon className={classes.icon} />
+                    S'abonner
+                  </Button>
+                  <Button className={classes.actionButtons}>
+                    <ChatRoundedIcon className={classes.icon} />
+                    Contacter
+                  </Button>
+                </div>
+                <div className="profilHeaderContent__actions__band">
+                  <p>Groupe(s) intégré(s)</p>
+                </div>
+              </div>
             </Grid>
-            <div className="profilHeaderContent">
-              <Grid item xs={2}>
-                <div className="profilHeaderContent__avatar">
-                  <Avatar
-                    className={classes.avatar}
-                    src="https://i.pravatar.cc/300"
-                  />
-                </div>
-              </Grid>
-              <Grid item xs={8} className={classes.actions}>
-                <div className="profilHeaderContent__actions">
-                  <div className="profilHeaderContent__actions__contact">
-                    <Button className={classes.actionButtons}>
-                      <StarRoundedIcon className={classes.icon} />
-                      S'abonner
-                    </Button>
-                    <Button className={classes.actionButtons}>
-                      <ChatRoundedIcon className={classes.icon} />
-                      Contacter
-                    </Button>
-                  </div>
-                  <div className="profilHeaderContent__actions__band">
-                    <p>Groupe(s) intégré(s)</p>
-                  </div>
-                </div>
-              </Grid>
-            </div>
           </div>
         </div>
       </div>
