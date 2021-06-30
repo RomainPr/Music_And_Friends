@@ -11,6 +11,15 @@ import HighlightOffRoundedIcon from '@material-ui/icons/HighlightOffRounded';
 import TextField from '@material-ui/core/TextField';
 import SaveIcon from '@material-ui/icons/Save';
 import MovieRoundedIcon from '@material-ui/icons/MovieRounded';
+import VolumeUpRoundedIcon from '@material-ui/icons/VolumeUpRounded';
+import MusicNoteRoundedIcon from '@material-ui/icons/MusicNoteRounded';
+
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
+
+import Slider from 'react-slick';
+import ReactPlayer from 'react-player/lazy';
 
 import { makeStyles } from '@material-ui/core/styles';
 import './styles.scss';
@@ -29,15 +38,26 @@ const useStyles = makeStyles(() => ({
     flexGrow: 1,
   },
   paperLeft: {
-    width: '270px',
+    width: '300px',
     borderRadius: '10px',
     padding: '30px',
+    position: 'relative',
+  },
+  addLeft: {
+    position: 'absolute',
+    top: '-20px',
+    left: 0,
   },
   paperRight: {
     position: 'relative',
-    width: '400px',
+    width: '600px',
     borderRadius: '10px',
     padding: '30px',
+  },
+  addRight: {
+    position: 'absolute',
+    bottom: '-20px',
+    right: '-10px',
   },
   textField: {
     width: '100%',
@@ -54,10 +74,92 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function MusicianProfilContent() {
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
+
+function MusicianProfilContent({ openvideos, openinstruments, styles, instruments, description }) {
   const classes = useStyles();
+  const [openVideos, setOpen] = React.useState(false);
+  const [openInstruments, setOpenInstruments] = React.useState(false);
+  const [instrument, setInstrument] = React.useState('');
+  const [urls, setUrls] = React.useState([]);
+  const [url, setUrl] = React.useState('');
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleOpenInstruments = () => {
+    setOpenInstruments(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setOpenInstruments(false);
+  };
+
+  const handleOnChangeUrl = (event) => {
+    setUrl(event.target.value);
+  };
+
+  const handleOnChangeInstrument = (event) => {
+    setInstrument(event.target.value);
+  };
+
+  const sendUrl = () => {
+    urls.push(url);
+    localStorage.setItem('urls', urls);
+    setOpen(false);
+  };
+
   return (
     <Container maxWidth="lg">
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={openVideos}
+        onClose={handleClose}
+        className="modalSignIn"
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={openVideos}>
+          <div className="modal--content">
+            <h2 className="modal__content__title">Entrez une URL</h2>
+            <TextField label="url" variant="outlined" value={url} onChange={handleOnChangeUrl} />
+            <Button variant="contained" color="primary" onClick={sendUrl}>Envoyer</Button>
+          </div>
+        </Fade>
+      </Modal>
+
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={openInstruments}
+        onClose={handleClose}
+        className="modalSignIn"
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={openInstruments}>
+          <div className="modal--content">
+            <h2 className="modal__content__title">Entrez un instrument</h2>
+            <TextField label="instrument" variant="outlined" value={instrument} onChange={handleOnChangeInstrument} />
+            <Button variant="contained" color="primary">Envoyer</Button>
+          </div>
+        </Fade>
+      </Modal>
       <div className="profilEditionContent">
         <Grid item xs={12} className={classes.root}>
           <Grid item xs={12} md={3}>
@@ -66,7 +168,7 @@ function MusicianProfilContent() {
               direction="column"
               justify="space-between"
               alignItems="flex-start"
-              spacing={4}
+              spacing={5}
             >
               <Grid item xs={12}>
                 <Paper elevation={3} className={classes.paperLeft}>
@@ -90,7 +192,7 @@ function MusicianProfilContent() {
                       </li>
                     </ul>
                     <div className="profilEditionContent__content__action">
-                      <Fab size="small" color="primary" aria-label="add">
+                      <Fab className={classes.addLeft} size="small" color="primary" aria-label="add">
                         <AddIcon />
                       </Fab>
                     </div>
@@ -102,24 +204,16 @@ function MusicianProfilContent() {
                   <div className="profilEditionContent__content">
                     <h4 className="profilEditionContent__content__title">Mes instruments :</h4>
                     <ul className="profilEditionContent__content__list">
-                      <li>Triangle
-                        <IconButton color="secondary" aria-label="delete" component="span">
-                          <HighlightOffRoundedIcon />
-                        </IconButton>
-                      </li>
-                      <li>Planche à laver
-                        <IconButton color="secondary" aria-label="delete" component="span">
-                          <HighlightOffRoundedIcon />
-                        </IconButton>
-                      </li>
-                      <li>Guimbarde
-                        <IconButton color="secondary" aria-label="delete" component="span">
-                          <HighlightOffRoundedIcon />
-                        </IconButton>
-                      </li>
+                      {instruments.map((instrument) => (
+                        <li>{instrument}
+                          <IconButton color="secondary" aria-label="delete" component="span">
+                            <HighlightOffRoundedIcon />
+                          </IconButton>
+                        </li>
+                      ))}
                     </ul>
                     <div className="profilEditionContent__content__action">
-                      <Fab size="small" color="primary" aria-label="add">
+                      <Fab onClick={handleOpenInstruments} className={classes.addLeft} size="small" color="primary" aria-label="add">
                         <AddIcon />
                       </Fab>
                     </div>
@@ -131,24 +225,16 @@ function MusicianProfilContent() {
                   <div className="profilEditionContent__content">
                     <h4 className="profilEditionContent__content__title">Mes styles :</h4>
                     <ul className="profilEditionContent__content__list">
-                      <li>Bisou Metal
-                        <IconButton color="secondary" aria-label="delete" component="span">
-                          <HighlightOffRoundedIcon />
-                        </IconButton>
-                      </li>
-                      <li>Hardcore Tagada
-                        <IconButton color="secondary" aria-label="delete" component="span">
-                          <HighlightOffRoundedIcon />
-                        </IconButton>
-                      </li>
-                      <li>Rock'n'Soup
-                        <IconButton color="secondary" aria-label="delete" component="span">
-                          <HighlightOffRoundedIcon />
-                        </IconButton>
-                      </li>
+                      {styles.map((style) => (
+                        <li>{style}
+                          <IconButton color="secondary" aria-label="delete" component="span">
+                            <HighlightOffRoundedIcon />
+                          </IconButton>
+                        </li>
+                      ))}
                     </ul>
                     <div className="profilEditionContent__content__action">
-                      <Fab size="small" color="primary" aria-label="add">
+                      <Fab className={classes.addLeft} size="small" color="primary" aria-label="add">
                         <AddIcon />
                       </Fab>
                     </div>
@@ -162,21 +248,31 @@ function MusicianProfilContent() {
               Modifier mes informations personnelles
             </Button>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={6}>
             <Grid
               container
               direction="column"
               justify="space-between"
               alignItems="flex-end"
-              spacing={4}
+              spacing={9}
             >
-              <Grid item xs={12}>
-                <div className="profilEditionContent__content__video">
-                  <h4 className="profilEditionContent__content__video__title">Vidéos</h4>
+              <Grid item>
+                <div className="profilEditionContent__content__media">
+                  <h4 className="profilEditionContent__content__media__title">Vidéos</h4>
                   <Paper elevation={3} className={classes.paperRight}>
                     <MovieRoundedIcon className={classes.buttonsLeft} />
+                    <Slider {...settings}>
+                      {urls.map((url) => (
+                        <ReactPlayer
+                          light
+                          controls
+                          url={url}
+                          value={url}
+                        />
+                      ))}
+                    </Slider>
                     <div className="profilEditionContent__content__action">
-                      <Fab size="small" color="primary" aria-label="add">
+                      <Fab onClick={handleOpen} className={classes.addRight} size="small" color="primary" aria-label="add">
                         <AddIcon />
                       </Fab>
                     </div>
@@ -184,38 +280,30 @@ function MusicianProfilContent() {
                 </div>
               </Grid>
               <Grid item xs={12}>
-                <Paper elevation={3} className={classes.paperRight}>
-                  <div className="profilEditionContent__content">
-                    <h4 className="profilEditionContent__content__title">Mes instruments :</h4>
-                    <ul className="profilEditionContent__content__list">
-                      <li>Triangle</li>
-                      <li>Planche à laver</li>
-                      <li>Guimbarde</li>
-                    </ul>
+                <div className="profilEditionContent__content__media">
+                  <h4 className="profilEditionContent__content__media__title">Audios :</h4>
+                  <Paper elevation={3} className={classes.paperRight}>
+                    <VolumeUpRoundedIcon className={classes.buttonsLeft} />
                     <div className="profilEditionContent__content__action">
-                      <Fab size="small" color="primary" aria-label="add">
+                      <Fab className={classes.addRight} size="small" color="primary" aria-label="add">
                         <AddIcon />
                       </Fab>
                     </div>
-                  </div>
-                </Paper>
+                  </Paper>
+                </div>
               </Grid>
               <Grid item xs={12}>
-                <Paper elevation={3} className={classes.paperRight}>
-                  <div className="profilEditionContent__content">
-                    <h4 className="profilEditionContent__content__title">Mes styles :</h4>
-                    <ul className="profilEditionContent__content__list">
-                      <li>Bisou Metal</li>
-                      <li>Hardcore Tagada</li>
-                      <li>Rock'n'Soup</li>
-                    </ul>
+                <div className="profilEditionContent__content__media">
+                  <h4 className="profilEditionContent__content__media__title">Mes partitions :</h4>
+                  <Paper elevation={3} className={classes.paperRight}>
+                    <MusicNoteRoundedIcon className={classes.buttonsLeft} />
                     <div className="profilEditionContent__content__action">
-                      <Fab size="small" color="primary" aria-label="add">
+                      <Fab className={classes.addRight} size="small" color="primary" aria-label="add">
                         <AddIcon />
                       </Fab>
                     </div>
-                  </div>
-                </Paper>
+                  </Paper>
+                </div>
               </Grid>
             </Grid>
           </Grid>
@@ -229,6 +317,7 @@ function MusicianProfilContent() {
                     className={classes.textField}
                     multiline
                     rows={12}
+                    content={description}
                     placeholder="Entrez une description"
                   />
                 </Paper>
@@ -250,5 +339,11 @@ function MusicianProfilContent() {
     </Container>
   );
 }
+
+MusicianProfilContent.propTypes = {
+  styles: PropTypes.array.isRequired,
+  instruments: PropTypes.array.isRequired,
+  description: PropTypes.string.isRequired,
+};
 
 export default MusicianProfilContent;

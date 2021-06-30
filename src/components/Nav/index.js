@@ -86,6 +86,8 @@ function Nav({
   toggleDrawer,
 }) {
   const classes = useStyles();
+  const role = localStorage.getItem('role');
+  const user = localStorage.getItem('user');
 
   const menuId = 'primary-search-account-menu';
   const mobileMenuId = 'primary-search-account-menu-mobile';
@@ -99,7 +101,13 @@ function Nav({
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profil</MenuItem>
+      <MenuItem
+        component={Link}
+        to={`profil/${user}`}
+        onClick={handleMenuClose}
+      >
+        Profil
+      </MenuItem>
       <MenuItem onClick={handleLogout}>Déconnexion</MenuItem>
     </Menu>
   );

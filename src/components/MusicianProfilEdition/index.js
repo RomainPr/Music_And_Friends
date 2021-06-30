@@ -5,10 +5,21 @@ import PropTypes from 'prop-types';
 import MusicianProfilHeader from 'src/components/MusicianProfilEdition/MusicianProfilHeader';
 import MusicianProfilContent from 'src/components/MusicianProfilEdition/MusicianProfilContent';
 
-const MusicianProfilEdition = () => (
+const MusicianProfilEdition = ({ musicianProfil, handleClose, openModalVideo }) => (
   <>
-    <MusicianProfilHeader />
-    <MusicianProfilContent />
+    <MusicianProfilHeader 
+      name={musicianProfil.name}
+      firstname={musicianProfil.firstname}
+      lastname={musicianProfil.lastname}
+      city={musicianProfil.city}
+    />
+    <MusicianProfilContent 
+      styles={musicianProfil.styles}
+      instruments={musicianProfil.instrument}
+      description={musicianProfil.description}
+      handleClose={handleClose}
+      openModalVideo={openModalVideo}
+    />
   </>
 );
 

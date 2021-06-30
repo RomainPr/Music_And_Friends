@@ -17,12 +17,11 @@
         }
         &__action {
             text-align: right;
-            padding-top: vars.$paddingBottomSmall;
         }
-        &__video {
+        &__media {
             &__title {
                 font-size: 1.3em;
-                padding-bottom: vars.$paddingBottomMedium;
+                padding-bottom: vars.$paddingBottomSmall;
                 text-align: center;
             }
         }

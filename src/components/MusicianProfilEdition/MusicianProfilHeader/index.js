@@ -13,9 +13,11 @@ import './styles.scss';
 const useStyles = makeStyles(() => ({
   profilInfo: {
     position: 'absolute',
-    top: '40%',
-    left: '40%',
-    right: '0',
+    top: '10%',
+    left: 0,
+    right: 0,
+    margin: '0 auto',
+    right: 0,
   },
   input: {
     display: 'none',
@@ -29,16 +31,18 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function MusicianProfilHeader() {
+function MusicianProfilHeader({ name, firstname, lastname, city }) {
   const classes = useStyles();
   return (
     <>
       <div className="profilHeader">
         <img src={bandBackground} alt="" />
-        <Grid item xs={6} className={classes.profilInfo}>
+        <Grid item xs={3} className={classes.profilInfo}>
           <div className="profilHeader__info">
-            <h2 className="profilHeader__info__pseudo">Pseudo</h2>
-            <h3 className="profilHeader__info__city">Ma Région / Ville</h3>
+            <h2 className="profilHeader__info__pseudo">{name}</h2>
+            {city[0] !== '' && (
+              <h3 className="profilHeader__info__city">{city}</h3>
+            )}
           </div>
         </Grid>
         <div className="profilHeader__backgroundUpload">
@@ -55,8 +59,8 @@ function MusicianProfilHeader() {
             src="https://i.pravatar.cc/300"
           />
           <div className="profilContent__infos">
-            <p className="profilContent__infos__name">Nom</p>
-            <p>Prénom</p>
+            <p className="profilContent__infos__name">{firstname}</p>
+            <p>{lastname}</p>
           </div>
           <div className="profilHeader__backgroundUpload">
             <input accept="image/*" className={classes.input} id="profilPictureUpload" type="file" />

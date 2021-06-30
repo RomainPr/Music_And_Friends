@@ -1,17 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import Avatar from '@material-ui/core/Avatar';
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import StarIcon from '@material-ui/icons/Star';
 
 import CardMusician from './cardMusician';
 import CardBand from './cardBand';
