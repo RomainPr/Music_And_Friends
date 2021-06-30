@@ -35,6 +35,7 @@ const SectionHomepage = () => (
           <div className="section__Bottom__left">
             <h2 className="section__Bottom__left__title">LE LEADER DE LA MISE EN RELATION MUSICALE</h2>
             <p className="section__Bottom__left__content">Que vous soyez musicien(s), groupe(s) ou organisateur(s) d'évènements, vous trouverez sûrement le profil qui vous intéresse.</p>
+            <p className="section__top__left__content">Pour travailler avec des professionnels de l'événementiel, il faut faire preuve d’une qualité de services irréprochable. C'est pourquoi des milliers de particuliers et d'entreprises nous font confiance et nous recommandent.</p>
           </div>
         </Grid>
       </Grid>

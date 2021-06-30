@@ -8,18 +8,12 @@ import StylesField from 'src/containers/StylesField';
 
 // M UI
 import Typography from '@material-ui/core/Typography';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/core/styles';
 
 // M UI card musicians
-import Select from '@material-ui/core/Select';
 import Slider from 'react-slick';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -74,9 +68,6 @@ const useStyles = makeStyles(() => ({
 export default function SearchPage({
   cityName, instrumentName, styleName,
   musicians, bands, places, instruments,
-  categories,
-  categoryName,
-  onChangeCategoryValue,
 }) {
   const classes = useStyles();
 
@@ -168,7 +159,7 @@ export default function SearchPage({
   if (filteredResults.length !== 0) {
     mapped = filteredResults.map((item) => (
       <GlobalCardProfils
-        key={item}
+        key={item.id}
         name={item.name}
         city={item.city}
         description={item.description}
@@ -291,31 +282,6 @@ export default function SearchPage({
             value={styleName}
           />
         </Grid>
-        {/*
-        <div id="result">
-          <p className="result-search">Plus précis encore ?</p>
-          <FormControl id="form-filter-result">
-
-            <InputLabel id="controlled-open-select-label">Filtrer par (profils, annonces)</InputLabel>
-
-            <Select
-              labelId="mutiple-checkbox-label"
-              id="mutiple-checkbox"
-              multiple
-              value={categoryName}
-              onChange={onChangeCategoryValue}
-              input={<Input />}
-              renderValue={(selected) => selected.join(', ')}
-            >
-              {categories.map((category) => (
-                <MenuItem key={category} value={category}>
-                  <Checkbox checked={categoryName.indexOf(category) > -1} />
-                  <ListItemText primary={category} />
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </div> */}
       </Container>
       <div className="profilsCards">
         <h2 className="profilsCards__title">{filteredResults.length} Résultats</h2>
@@ -324,7 +290,7 @@ export default function SearchPage({
             <Slider {...settings}>
               {mapped}
             </Slider>
-          ) : <div>Aucun résultat</div>}
+          ) : <div />}
         </Container>
       </div>
     </div>
