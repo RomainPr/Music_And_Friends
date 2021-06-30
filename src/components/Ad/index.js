@@ -60,7 +60,7 @@ const Ad = ({
                 </li>
               </ul>
               <h3 className="title">{announce.title}</h3>
-              <p className="description">{announce.description}.</p>
+              <p id="description">{announce.description}.</p>
             </CardContent>
            
             <CardActions id="card__footer">
