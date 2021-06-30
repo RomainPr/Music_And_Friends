@@ -33,14 +33,11 @@ const initialState = {
 
   cities: [
     'Paris',
-    'Bordeaux',
-    'Toulouse',
-    'Dijon',
-    'Lyon',
-    'Marseille',
-    'Grenoble',
-    'Strasbourg',
-    'Brest',
+    'Houst',
+    'Carry-le-Rouet',
+    'Monteuton',
+    'Detroit',
+    'New York City',
     'Vienne',
   ],
 

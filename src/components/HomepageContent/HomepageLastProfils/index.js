@@ -25,7 +25,7 @@ function LastProfils({ musicians, bands, places }) {
   return (
     <div className="cardProfiles">
       <Container maxWidth="lg">
-        <h2 className="cardProfiles__title">Les derniers profils</h2>
+        <h2 className="cardProfiles__titleProfil">Les derniers profils</h2>
         <Slider {...settings}>
           {musicians.map((musician) => (
             <CardMusician

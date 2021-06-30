@@ -1,7 +1,7 @@
 @use 'src/styles/vars';
 
 .cardProfiles {
-    &__title {
+    &__titleProfil {
         text-align: left;
         font-size: 1.7em;
         padding-bottom: vars.$paddingBottomSmall;
@@ -14,6 +14,13 @@
   color: #000;
 }
 
+#test {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  align-content: stretch;
+  flex-direction: column;
+}
 
 #card {
     max-width: 350px;
@@ -21,8 +28,8 @@
     box-shadow: 10px 10px 15px 0 rgb(0 0 0 / 10%);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    align-items: stretch;
     align-content: stretch;
     margin-bottom: 30px;
   &__image {
@@ -30,6 +37,14 @@
     & img {
       height: 140px;
     }
+  }
+  &__inside {
+    height: 450px;
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+    flex-direction: column;
+    justify-content: space-between;
   }
   &__avatar {
     width: 70px;

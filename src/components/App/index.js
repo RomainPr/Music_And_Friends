@@ -18,12 +18,12 @@ import AdEdition from 'src/containers/AdEdition';
 
 import ScrollToTop from 'src/components/ScrollToTop';
 // ads
+import MyAds from 'src/containers/MyAds';
+import Ad from 'src/containers/Ad';
 import HeaderPage from '../HeaderPage';
 
 import Loading from './Loading';
-//ads
-import MyAds from 'src/containers/MyAds';
-import Ad from 'src/containers/Ad';
+// ads
 import './styles.scss';
 
 function App({
@@ -35,7 +35,7 @@ function App({
   bands,
   places,
   instruments,
-  
+
 }) {
   useEffect(() => {
     loadMusicians();
@@ -89,43 +89,38 @@ function App({
           <PlaceProfil />
           <Footer />
         </Route>
-        {isAuthenticated ? (
-          <Route exact path="/profil/:role/:id/myads">
-            <Nav />
-            <MyAds />
-            <Footer />
-          </Route>
-        ) : <Redirect to="/" />}
-        
         <Route exact path="/announce/:title">
           <Nav />
           <Ad
-          announces={announces}
+            announces={announces}
           />
           <Footer />
         </Route>
-
-        <Route exact path="/profil/myads/:id/edit">      
+        <Route exact path="/profil/myads/:id/edit">
           <Nav />
           <AdEdition
             announces={announces}
           />
           <Footer />
         </Route>
-
         <Route exact path="/profil/newads">
           <Nav />
           <NewAd />
         </Route>
-        {isAuthenticated ? (
+        {isAuthenticated && (
+          <Route exact path="/profil/:role/:id/myads">
+            <Nav />
+            <MyAds />
+            <Footer />
+          </Route>
+        )}
+        {isAuthenticated && (
           <Route exact path="/profil/:role/:id">
             <Nav />
             <MusicianProfilEdition />
             <Footer />
           </Route>
-        )
-          : <Redirect to="/" />}
-
+        )}
       </Switch>
     </div>
   );

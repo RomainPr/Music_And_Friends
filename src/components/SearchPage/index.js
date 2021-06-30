@@ -63,6 +63,9 @@ const useStyles = makeStyles(() => ({
     padding: '10px 40px',
     transition: 'background .2s ease',
   },
+  results: {
+    marginBottom: '40px',
+  },
 }));
 
 export default function SearchPage({
@@ -285,7 +288,7 @@ export default function SearchPage({
       </Container>
       <div className="profilsCards">
         <h2 className="profilsCards__title">{filteredResults.length} Résultats</h2>
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" className={classes.results}>
           {mapped ? (
             <Slider {...settings}>
               {mapped}

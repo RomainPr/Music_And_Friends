@@ -12,7 +12,7 @@ const initialState = {
       instrument: [
         'guitare',
       ],
-      title: 'recherche un musicien de style rock/jazz jouant de la guitare pour groupe de jazz/rock',
+      title: 'recherche un musicien de style rock/jazz',
       description: "yo, On est a la recherche d'un zikos dans le titre pour notre groupe chickenTherapy sur Nantes si ça chauffe !",
     },
     {

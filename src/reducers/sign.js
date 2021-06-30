@@ -26,16 +26,12 @@ const initialState = {
 
   cities: [
     'Paris',
-    'Bordeaux',
-    'Toulouse',
-    'Dijon',
-    'Lyon',
-    'Marseille',
-    'Grenoble',
-    'Strasbourg',
-    'Brest',
-    'Vienne',
+    'Houst',
+    'Carry-le-Rouet',
+    'Monteuton',
     'Detroit',
+    'New York City',
+    'Vienne',
   ],
 
   instruments: [
@@ -52,16 +48,16 @@ const initialState = {
   ],
 
   styles: [
-    'Jazz',
     'Rock',
-    'Punk',
-    'Blues',
-    'Soul',
-    'Metal',
-    'Rap',
-    'Folk',
-    'Reggae',
-    'Hip-hop',
+    'Pop',
+    'Classique',
+    'Opera',
+    'Anarcho-post-punk',
+    'Cumbia',
+    'Acid Techno Trans',
+    'Deathcountry',
+    'Fanfare',
+    'Funk'
   ],
 };
 
