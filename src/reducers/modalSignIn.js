@@ -32,6 +32,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         openSignIn: false,
         openSignUp: false,
+        openVideos: false,
       };
     case CHANGE_ROLE:
       return {

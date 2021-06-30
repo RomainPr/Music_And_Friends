@@ -16,7 +16,7 @@ export const closeModal = () => ({
   type: CLOSE_MODAL_SIGNIN,
 });
 
-export const openModalVideo = () => ({
+export const openVideos = () => ({
   type: OPEN_MODAL_VIDEO,
 });
 

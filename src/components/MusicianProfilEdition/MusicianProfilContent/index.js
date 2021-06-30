@@ -82,25 +82,14 @@ const settings = {
   slidesToScroll: 1,
 };
 
-function MusicianProfilContent({ openvideos, openinstruments, styles, instruments, description }) {
+function MusicianProfilContent({ openVideos, openInstruments, handleOpenVideos, handleClose, styles, instruments, description }) {
   const classes = useStyles();
-  const [openVideos, setOpen] = React.useState(false);
-  const [openInstruments, setOpenInstruments] = React.useState(false);
   const [instrument, setInstrument] = React.useState('');
   const [urls, setUrls] = React.useState([]);
   const [url, setUrl] = React.useState('');
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleOpenInstruments = () => {
+   const handleOpenInstruments = () => {
     setOpenInstruments(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-    setOpenInstruments(false);
   };
 
   const handleOnChangeUrl = (event) => {
@@ -272,7 +261,7 @@ function MusicianProfilContent({ openvideos, openinstruments, styles, instrument
                       ))}
                     </Slider>
                     <div className="profilEditionContent__content__action">
-                      <Fab onClick={handleOpen} className={classes.addRight} size="small" color="primary" aria-label="add">
+                      <Fab onClick={handleOpenVideos} className={classes.addRight} size="small" color="primary" aria-label="add">
                         <AddIcon />
                       </Fab>
                     </div>
