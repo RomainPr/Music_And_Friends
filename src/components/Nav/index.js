@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
@@ -19,6 +19,7 @@ import BookmarkRoundedIcon from '@material-ui/icons/BookmarkRounded';
 import GroupRoundedIcon from '@material-ui/icons/GroupRounded';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
+import ImportContactsRoundedIcon from '@material-ui/icons/ImportContactsRounded';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -103,7 +104,7 @@ function Nav({
     >
       <MenuItem
         component={Link}
-        to={`profil/${user}`}
+        to={`profil/${role}/${user}`}
         onClick={handleMenuClose}
       >
         Profil
@@ -168,27 +169,35 @@ function Nav({
                     </div>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
-                      <Link to="/profil/myads"
-                      onClick={handleGetAnnounces}
-                      >Mes annonces</Link>
-                      <IconButton aria-label="show 4 new mails" color="inherit">
-                        <Badge badgeContent={4} color="secondary">
+                      <IconButton
+                        title="Mes annonces"
+                        color="inherit"
+                        component={Link}
+                        to="/profil/myads"
+                        onClick={handleGetAnnounces}
+                      >
+                        <ImportContactsRoundedIcon />
+                      </IconButton>
+                      <IconButton title="Mes messages" color="inherit">
+                        <Badge color="secondary">
                           <MailIcon />
                         </Badge>
                       </IconButton>
                       <IconButton
+                        title="Rechercher"
                         color="inherit"
                         component={Link}
                         to="/search"
                       >
                         <SearchRoundedIcon />
                       </IconButton>
-                      <IconButton color="inherit">
+                      <IconButton title="Mes favoris" color="inherit">
                         <BookmarkRoundedIcon />
                       </IconButton>
                       <IconButton
+                        title="Mon compte"
                         edge="end"
-                        aria-label="account of current user"
+                        aria-label="Mon compte"
                         aria-controls={menuId}
                         aria-haspopup="true"
                         onClick={handleProfileMenuOpen}

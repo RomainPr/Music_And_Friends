@@ -96,7 +96,7 @@ function App({
           <NewAd />
         </Route>
         {isLogged ? (
-          <Route exact path="/profil/:id">
+          <Route exact path="/profil/:role/:id">
             <Nav />
             <MusicianProfilEdition />
             <Footer />
