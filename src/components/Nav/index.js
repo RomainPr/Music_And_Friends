@@ -88,7 +88,7 @@ function Nav({
 }) {
   const classes = useStyles();
   const role = localStorage.getItem('role');
-  const user = localStorage.getItem('user');
+  const id = localStorage.getItem('user');
 
   const menuId = 'primary-search-account-menu';
   const mobileMenuId = 'primary-search-account-menu-mobile';
@@ -114,6 +114,7 @@ function Nav({
   );
 
   return (
+
     <div className="header">
       <div className="header__nav">
         <ModalSignIn />
