@@ -34,7 +34,7 @@ const SectionHomepage = () => (
         <Grid item xs={7}>
           <div className="section__Bottom__left">
             <h2 className="section__Bottom__left__title">LE LEADER DE LA MISE EN RELATION MUSICALE</h2>
-            <p className="section__Bottom__left__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+            <p className="section__Bottom__left__content">Que vous soyez musicien(s), groupe(s) ou organisateur(s) d'évènements, vous trouverez sûrement le profil qui vous intéresse.</p>
           </div>
         </Grid>
       </Grid>

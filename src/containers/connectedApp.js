@@ -6,7 +6,7 @@ import { getMusicians, getBands, getPlaces, getInstruments } from '../actions/mu
 
 const mapStateToProps = (state) => ({
   loading: state.musicians.loading,
-  isLogged: state.user.isLogged,
+  isAuthenticated: localStorage.getItem('token'),
   musicians: state.musicians.musicians,
   bands: state.musicians.bands,
   places: state.musicians.places,

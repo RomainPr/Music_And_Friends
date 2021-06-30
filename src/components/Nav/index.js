@@ -174,7 +174,7 @@ function Nav({
                         title="Mes annonces"
                         color="inherit"
                         component={Link}
-                        to="/profil/myads"
+                        to={`/profil/${role}/${id}/myAds`}
                         onClick={handleGetAnnounces}
                       >
                         <ImportContactsRoundedIcon />
