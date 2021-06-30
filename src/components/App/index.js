@@ -27,6 +27,7 @@ import './styles.scss';
 
 function App({
   loadMusicians,
+  isLogged,
   loading,
   musicians,
   bands,
@@ -94,11 +95,15 @@ function App({
           <Nav />
           <NewAd />
         </Route>
-        <Route exact path="/profil/:id">
-          <Nav />
-          <MusicianProfilEdition />
-          <Footer />
-        </Route>
+        {isLogged ? (
+          <Route exact path="/profil/:id">
+            <Nav />
+            <MusicianProfilEdition />
+            <Footer />
+          </Route>
+        )
+          : <Redirect to="/" />}
+
       </Switch>
     </div>
   );
@@ -106,6 +111,7 @@ function App({
 
 App.propTypes = {
   loadMusicians: PropTypes.func.isRequired,
+  isLogged: PropTypes.bool.isRequired,
   musicians: PropTypes.array.isRequired,
   bands: PropTypes.array.isRequired,
   places: PropTypes.array.isRequired,
