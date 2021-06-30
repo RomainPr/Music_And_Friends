@@ -3,6 +3,7 @@ import { GET_ANNOUNCES } from 'src/actions/announces';
 const initialState = {
   announces: [
     {
+      id: 0,
       category: 'musician',
       style: [
         'rock',
@@ -12,9 +13,10 @@ const initialState = {
         'guitare',
       ],
       title: 'recherche un musicien de style rock/jazz jouant de la guitare pour groupe de jazz/rock',
-      description: `yo, On est a la recherche d'un dans le titre pour notre groupe chickenTherapy sur Nantes si ça chauffe !`,
+      description: "yo, On est a la recherche d'un zikos dans le titre pour notre groupe chickenTherapy sur Nantes si ça chauffe !",
     },
     {
+      id: 1,
       category: 'groupe',
       style: [
         'Country',
@@ -27,9 +29,10 @@ const initialState = {
       ],
 
       title: 'Soirée thématique Folk',
-      description: 'Lorem cherche groupe pour samedi',
+      description: 'cherche groupe pour samedi',
     },
     {
+      id: 2,
       category: 'place',
       style: [
       ],
@@ -38,18 +41,18 @@ const initialState = {
       ],
 
       title: 'Soirée thématique Folk',
-      description: 'Lorem cherche salle pour samedi du mois de juin',
+      description: ' cherche salle pour samedi du mois de juin',
     },
     {
+      id: 3,
       category: ' musicien',
       style: [
-        'Jazz'
+        'Jazz',
       ],
 
       instrument: [
-        'basse'
+        'basse',
       ],
-
       title: 'Groupe à la recherche de son nouveau membre',
       description: 'Yop tlm, groupe amateur cherche bassiste pour rejoindre son groupe',
     },

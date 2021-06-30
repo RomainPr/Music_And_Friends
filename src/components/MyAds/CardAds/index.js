@@ -12,6 +12,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
+import { Link } from 'react-router-dom';
+
 // import StarIcon from '@material-ui/icons/Star';
 // import Carousel from 'react-material-ui-carousel';
 
@@ -20,9 +22,7 @@ import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined'
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import BorderColorIcon from '@material-ui/icons/BorderColor';
 
-
 import '../styles.scss';
-
 
 const CardAds = ({
 
@@ -30,9 +30,9 @@ const CardAds = ({
   instrument,
   style,
   title,
-  description
+  description,
+  idAnnounce,
 }) => (
-
 
   <div className="announcesCards">
 
@@ -88,12 +88,13 @@ const CardAds = ({
                 />
               </IconButton>
 
+
               {/* par la suite, req api UPDATE -> Voir avec David si route car non répertoriée dans liste des routes */}
-              <IconButton>
-                <BorderColorIcon
-                // component={Link}
-                // to= {`/profil/role/:id/myads/:id/edit`}
-                />
+              <IconButton
+                component={Link}
+                to={`/profil/myads/${idAnnounce}/edit`}
+              >
+                <BorderColorIcon />
               </IconButton>
 
             </CardActions>
@@ -106,5 +107,14 @@ const CardAds = ({
   </div>
 
 );
+
+CardAds.propTypes = {
+  userSelected: PropTypes.string.isRequired,
+  instrument: PropTypes.array.isRequired,
+  style: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+};
 
 export default CardAds;
