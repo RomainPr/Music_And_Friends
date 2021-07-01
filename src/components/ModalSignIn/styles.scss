@@ -13,6 +13,9 @@
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
+    .modalSignIn {
+        position: absolute !important;
+    }
     .modal--content {
         width: 320px;
     }

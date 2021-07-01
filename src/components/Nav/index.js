@@ -36,6 +36,9 @@ import './styles.scss';
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
   },
   button: {
     backgroundColor: '#E87121',
@@ -57,6 +60,9 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    [theme.breakpoints.down('sm')]: {
+      marginRight: 0,
+    },
   },
   title: {
     display: 'none',
@@ -158,6 +164,11 @@ function Nav({
           <div className="navbar__content">
             <AppBar position="static" className={classes.bg}>
               <Toolbar className={classes.navbar}>
+                <div className="navbar__content__left">
+                  <Link to="/">
+                    <img src={Logo} alt="Logo M&F" />
+                  </Link>
+                </div>
                 <div className={classes.sectionMobile}>
                   <IconButton
                     edge="start"
@@ -170,11 +181,6 @@ function Nav({
                   >
                     <MenuIcon />
                   </IconButton>
-                </div>
-                <div className="navbar__content__left">
-                  <Link to="/">
-                    <img src={Logo} alt="Logo M&F" />
-                  </Link>
                 </div>
                 <div className={classes.grow} />
                 <div className={classes.sectionDesktop}>

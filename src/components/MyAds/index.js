@@ -16,12 +16,21 @@ import './styles.scss';
 function MyAds({ announces }) {
   console.log('announces = ', announces);
 
-  const settings = {
+  const settings_3 = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
+
+    responsive: [{
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 1,
+      },
+    }],
   };
 
   const role = localStorage.getItem('role');
@@ -31,7 +40,7 @@ function MyAds({ announces }) {
     <div className="cardProfiles">
       <Container maxWidth="lg">
         <h2 className="cardProfiles__title">Mes annonces</h2>
-        <Slider {...settings}>
+        <Slider {...settings_3}>
           {announces.map((announce, index) => (
             <CardAds
               key={announce.id}

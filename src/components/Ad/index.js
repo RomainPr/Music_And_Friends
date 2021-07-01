@@ -42,7 +42,7 @@ function Ad({
             alignItems="center"
           >
             <Grid item xs={12}>
-              <Card id="card">
+              <Card id="card" className="cardAd">
                 <div id="card__image">
                   <CardMedia
                     component="img"
@@ -76,7 +76,7 @@ function Ad({
                   <h3 className="title">{announce.title}</h3>
                   <p id="description">{announce.description}.</p>
                 </CardContent>
-                <div id="cardAd__centeredButton">
+                <div className="centeredButton">
                   <Button
                     className={classes.button}
                     color="primary"

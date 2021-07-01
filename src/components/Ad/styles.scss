@@ -17,9 +17,9 @@
   background: #364d79;
 }
 
-#cardAd {
+#card.cardAd {
   max-width: 100%;
-
+  margin: 40px;
   &__ad {
     position: absolute;
     top: 30%;
@@ -57,6 +57,10 @@
       padding-bottom: vars.$paddingBottomSmall;
     }
   }
+}
+
+.centeredButton {
+  text-align: center;
 }
 
 #card__content {

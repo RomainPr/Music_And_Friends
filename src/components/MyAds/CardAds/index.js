@@ -37,7 +37,7 @@ const CardAds = ({
     <Container maxWidth="lg">
       {/* <h2 className="announcesCards__title">Si groupe</h2> */}
       <Grid container>
-        <Grid item xs={4} md={12}>
+        <Grid item xs={12}>
           <Card id="card">
             <div id="card__insideAd">
               <div id="card__image">
