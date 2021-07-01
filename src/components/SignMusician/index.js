@@ -33,6 +33,7 @@ const useStyles = makeStyles(() => ({
   },
   flex: {
     display: 'flex',
+    flexWrap: 'wrap',
     textAlign: 'center',
   },
   save: {
@@ -71,7 +72,7 @@ const SignMusician = ({
       <form onSubmit={handleOnSubmit}>
         <FormControl required id="mainForm" className={classes.form} autoComplete="off">
           <Grid container>
-            <Grid item xs={4}>
+            <Grid item md={4} xs={12}>
               <Grid container direction="column" alignItems="center" justify="center" spacing={5} id="inputIdPictureIntruments">
                 <Grid item>
                   <TextField
@@ -113,7 +114,7 @@ const SignMusician = ({
               </Grid>
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid item md={4} xs={12}>
               <Grid container direction="column" alignItems="center" justify="center" id="inputIdPictureIntruments">
                 <Grid item>
                   <Avatar id="profil-picture" alt="photo de profil random" src="https://cdn.pixabay.com/photo/2015/01/06/16/14/woman-590490_960_720.jpg" />
@@ -140,7 +141,7 @@ const SignMusician = ({
               </Grid>
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid item md={4} xs={12}>
               <Grid container direction="column" alignItems="flex-start" justify="center" spacing={2}>
                 <Grid item>
                   <TextField
@@ -183,7 +184,7 @@ const SignMusician = ({
 
             <Grid container>
               <Grid item xs={12} className={classes.flex}>
-                <Grid item xs={4}>
+                <Grid item md={4} xs={12}>
                   <TextField
                     className={classes.width}
                     margin="normal"
@@ -197,7 +198,7 @@ const SignMusician = ({
                     variant="outlined"
                   />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item md={4} xs={12}>
                   <TextField
                     className={classes.width}
                     margin="normal"
@@ -211,7 +212,7 @@ const SignMusician = ({
                     variant="outlined"
                   />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item md={4} xs={12}>
                   <TextField
                     className={classes.width}
                     margin="normal"
