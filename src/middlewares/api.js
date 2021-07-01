@@ -22,6 +22,7 @@ import {
 
 import {
   closeModal,
+  POST_INSTRUMENT
 } from 'src/actions/modalSignIn';
 
 // import {
@@ -151,6 +152,24 @@ const apiMiddleware = (store) => (next) => (action) => {
         });
       break;
     }
+    case POST_INSTRUMENT: {
+      const state = store.getState();
+      const id = localStorage.getItem('user');
+      const loginRequest = {
+        method: 'POST',
+        url: `https://music-and-friends.herokuapp.com/musicians/${id}`,
+        data: {
+          instrument: state.modalSignIn.instrumentValue,
+        },
+      };
+      console.log(loginRequest);
+      axios(loginRequest)
+        .then((response) => {
+          console.log(response)
+        });
+      break;
+    }
+
     case SUBMIT_NEW_AD: {
       const state = store.getState();
       const role = localStorage.getItem('role');

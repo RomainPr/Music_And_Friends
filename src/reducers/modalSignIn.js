@@ -1,5 +1,11 @@
 import {
-  OPEN_MODAL_SIGNIN, OPEN_MODAL_SIGNUP, CLOSE_MODAL_SIGNIN, OPEN_MODAL_VIDEO, CHANGE_ROLE,
+  OPEN_MODAL_SIGNIN,
+  OPEN_MODAL_SIGNUP,
+  CLOSE_MODAL_SIGNIN,
+  OPEN_MODAL_VIDEO,
+  CHANGE_ROLE,
+  OPEN_MODAL_INSTRUMENT,
+  CHANGE_INSTRUMENT,
 } from 'src/actions/modalSignIn';
 
 const initialState = {
@@ -8,6 +14,7 @@ const initialState = {
   openSignUp: false,
   openVideos: false,
   openInstruments: false,
+  instrumentValue: '',
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,6 +29,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         openVideos: true,
       };
+    case OPEN_MODAL_INSTRUMENT:
+      return {
+        ...state,
+        openInstruments: true,
+      };
     case OPEN_MODAL_SIGNUP:
       return {
         ...state,
@@ -33,11 +45,17 @@ const reducer = (state = initialState, action) => {
         openSignIn: false,
         openSignUp: false,
         openVideos: false,
+        openInstruments: false,
       };
     case CHANGE_ROLE:
       return {
         ...state,
         role: action.role,
+      };
+    case CHANGE_INSTRUMENT:
+      return {
+        ...state,
+        instrumentValue: action.instrument,
       };
     default:
       return state;

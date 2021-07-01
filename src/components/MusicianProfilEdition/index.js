@@ -5,7 +5,16 @@ import PropTypes from 'prop-types';
 import MusicianProfilHeader from 'src/components/MusicianProfilEdition/MusicianProfilHeader';
 import MusicianProfilContent from 'src/components/MusicianProfilEdition/MusicianProfilContent';
 
-const MusicianProfilEdition = ({ musicianProfil, openVideos, openInstruments, handleOpenVideos, handleClose }) => (
+const MusicianProfilEdition = ({ musicianProfil,
+  openVideos,
+  openInstruments,
+  handleOpenVideos,
+  handleClose,
+  handleOpenInstruments,
+  handleOnChangeInstrument,
+  instrumentValue,
+  postInstrument,
+}) => (
   <>
     <MusicianProfilHeader 
       name={musicianProfil.name}
@@ -20,7 +29,11 @@ const MusicianProfilEdition = ({ musicianProfil, openVideos, openInstruments, ha
       openVideos={openVideos}
       openInstruments={openInstruments}
       handleOpenVideos={handleOpenVideos}
+      handleOpenInstruments={handleOpenInstruments}
+      handleOnChangeInstrument={handleOnChangeInstrument}
+      instrumentValue={instrumentValue}
       handleClose={handleClose}
+      postInstrument={postInstrument}
     />
   </>
 );

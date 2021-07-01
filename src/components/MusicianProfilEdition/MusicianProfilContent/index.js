@@ -29,6 +29,10 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     justifyContent: 'space-between',
   },
+  infos: {
+    textAlign: 'center',
+    margin: '20px 0',
+  },
   profilInfo: {
     position: 'absolute',
     top: '40%',
@@ -82,28 +86,30 @@ const settings = {
   slidesToScroll: 1,
 };
 
-function MusicianProfilContent({ openVideos, openInstruments, handleOpenVideos, handleClose, styles, instruments, description }) {
+function MusicianProfilContent({
+  openVideos,
+  openInstruments,
+  handleOpenVideos,
+  handleOpenInstruments,
+  handleClose,
+  handleOnChangeInstrument,
+  instrumentValue,
+  postInstrument,
+  styles,
+  instruments,
+  description,
+}) {
   const classes = useStyles();
-  const [instrument, setInstrument] = React.useState('');
   const [urls, setUrls] = React.useState([]);
   const [url, setUrl] = React.useState('');
-
-   const handleOpenInstruments = () => {
-    setOpenInstruments(true);
-  };
 
   const handleOnChangeUrl = (event) => {
     setUrl(event.target.value);
   };
 
-  const handleOnChangeInstrument = (event) => {
-    setInstrument(event.target.value);
-  };
-
   const sendUrl = () => {
     urls.push(url);
     localStorage.setItem('urls', urls);
-    setOpen(false);
   };
 
   return (
@@ -124,7 +130,7 @@ function MusicianProfilContent({ openVideos, openInstruments, handleOpenVideos, 
           <div className="modal--content">
             <h2 className="modal__content__title">Entrez une URL</h2>
             <TextField label="url" variant="outlined" value={url} onChange={handleOnChangeUrl} />
-            <Button variant="contained" color="primary" onClick={sendUrl}>Envoyer</Button>
+            <Button id="saveButton" variant="contained" color="primary" onClick={sendUrl}>Envoyer</Button>
           </div>
         </Fade>
       </Modal>
@@ -144,12 +150,17 @@ function MusicianProfilContent({ openVideos, openInstruments, handleOpenVideos, 
         <Fade in={openInstruments}>
           <div className="modal--content">
             <h2 className="modal__content__title">Entrez un instrument</h2>
-            <TextField label="instrument" variant="outlined" value={instrument} onChange={handleOnChangeInstrument} />
-            <Button variant="contained" color="primary">Envoyer</Button>
+            <TextField label="instrument" variant="outlined" value={instrumentValue} onChange={handleOnChangeInstrument} />
+            <Button id="saveButton" variant="contained" color="primary" onClick={postInstrument}>Envoyer</Button>
           </div>
         </Fade>
       </Modal>
       <div className="profilEditionContent">
+        <Grid item xs={12} className={classes.infos}>
+          <Button variant="contained" size="large" color="primary">
+            Modifier mes informations personnelles
+          </Button>
+        </Grid>
         <Grid item xs={12} className={classes.root}>
           <Grid item xs={12} md={3}>
             <Grid
@@ -231,11 +242,6 @@ function MusicianProfilContent({ openVideos, openInstruments, handleOpenVideos, 
                 </Paper>
               </Grid>
             </Grid>
-          </Grid>
-          <Grid item xs={12} md={3}>
-            <Button variant="contained" size="large" color="primary">
-              Modifier mes informations personnelles
-            </Button>
           </Grid>
           <Grid item xs={12} md={6}>
             <Grid
