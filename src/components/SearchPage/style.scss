@@ -21,6 +21,12 @@
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
+  .profilsCards {
+    margin-top: 0;
+    &__title {
+      padding-bottom: 0;
+    }
+  }
   #field {
     padding-bottom: 0;
   }

@@ -25,9 +25,16 @@ const useGridStyles = makeStyles(({ breakpoints }) => ({
   },
 }));
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   modal: {
     width: '800px',
+  },
+  modalContent: {
+    flexWrap: 'nowrap',
+    [theme.breakpoints.down('sm')]: {
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+    },
   },
   actionArea: {
     borderRadius: 10,
@@ -37,19 +44,28 @@ const useStyles = makeStyles(() => ({
     },
   },
   card: {
-    minWidth: 250,
+    width: '250px',
     borderRadius: 10,
     boxShadow: 'none',
+    [theme.breakpoints.down('sm')]: {
+      width: '160px',
+    },
   },
   content: {
     background: '#FDA13D',
     padding: '1rem 1.5rem 1.5rem',
+    [theme.breakpoints.down('sm')]: {
+      padding: '10px',
+    },
   },
   title: {
     fontSize: '1.5em',
     fontFamily: 'inherit',
     fontWeight: '500',
     color: '#fff',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1em',
+    },
   },
 }));
 
@@ -75,7 +91,7 @@ function ModalSignUp({ openSignUp, handleClose }) {
           <div className="modal__content">
             <h2 className="modal__content__title">Vous êtes :</h2>
             <div className="modal__content__choice">
-              <Grid classes={gridStyles} container spacing={4} wrap="nowrap">
+              <Grid classes={gridStyles} className={classes.modalContent} container spacing={4}>
                 <Grid item>
                   <CardActionArea
                     className={classes.actionArea}

@@ -11,3 +11,9 @@
     border-radius: 5px;
     box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 10%);
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .modal--content {
+        width: 320px;
+    }
+}
