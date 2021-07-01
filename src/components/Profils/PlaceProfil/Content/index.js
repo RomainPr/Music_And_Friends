@@ -9,7 +9,7 @@ import MusicNoteRoundedIcon from '@material-ui/icons/MusicNoteRounded';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -41,6 +41,10 @@ const useStyles = makeStyles(() => ({
     left: '0',
     right: '0',
     margin: '0 auto',
+    [theme.breakpoints.down('sm')]: {
+      top: '-15px',
+      fontSize: '30px',
+    },
   },
 }));
 

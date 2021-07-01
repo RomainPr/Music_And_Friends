@@ -18,3 +18,9 @@
     align-items: center;
     align-content: center;
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .modal__content {
+        width: 320px;
+    }
+}

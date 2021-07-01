@@ -45,6 +45,9 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     right: 0,
     textAlign: 'center',
+    [theme.breakpoints.down('sm')]: {
+      top: '19%',
+    },
   },
   formGroupCheckboxes: {
     paddingBottom: '40px',

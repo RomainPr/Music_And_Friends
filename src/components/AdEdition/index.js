@@ -104,7 +104,7 @@ export default function AdEdition({ announce, title, content, onChangeValue, han
               size="large"
               startIcon={<SaveIcon />}
             >
-              Save
+              Enregistrer
             </Button>
           </Grid>
         </FormControl>
