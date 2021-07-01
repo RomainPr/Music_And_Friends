@@ -95,3 +95,30 @@
     margin-bottom: vars.$paddingBottomMedium;
   }
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .profilHeader {
+      &__info {
+          padding: 20px;
+          &__list {
+            margin: 5px;
+          }
+          &__pseudo {
+            font-size: 1.3em;
+          }
+      }
+  }
+  .profilHeaderContent {
+    &__avatar {
+      position: absolute;
+      bottom: 30px;
+      top: 26%;
+      right: 0;
+      left: 0;
+    }
+    &__actions {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+}
+}

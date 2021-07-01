@@ -33,7 +33,7 @@ function Ad({
   const classes = useStyles();
   return (
     <FullHeight canExceed>
-      <div className="announcesCards">
+      <div>
         <Container maxWidth="lg">
           {/* <h2 className="announcesCards__title">Si groupe</h2> */}
           <Grid
@@ -42,7 +42,7 @@ function Ad({
             alignItems="center"
           >
             <Grid item xs={12}>
-              <Card id="cardAd">
+              <Card id="card">
                 <div id="card__image">
                   <CardMedia
                     component="img"

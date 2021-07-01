@@ -23,4 +23,13 @@ html, body, #root, .app {
     z-index: 2222;
     left: -10px;
  }
+ .hideMobile {
+  display: none;
+}
+}
+
+@media (min-width: 992px) {
+  .hideDesktop {
+    display: none;
+  }
 }
