@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
     // style:state.myAds.announces.style,
     // title:state.myAds.announces.title,
     // description:state.myAds.announces.description,
-  }
+  };
 };
 
 const mapDispatchToProps = {};

@@ -64,13 +64,17 @@ function Ad({
                     <li>Recherche : <p>{announce.category}</p></li>
                     <li>Instrument :
                       {announce.instrument.map((instru) => (
-                      <p>{instru}</p>
-                    ))}
+                        <p key={instru}>
+                          {instru}
+                        </p>
+                      ))}
                     </li>
                     <li>Style :
                       {announce.style.map((ad) => (
-                      <p>{ad}</p>
-                    ))}
+                        <p key={ad}>
+                          {ad}
+                        </p>
+                      ))}
                     </li>
                   </ul>
                   <h3 className="title">{announce.title}</h3>
@@ -97,7 +101,7 @@ function Ad({
 }
 
 Ad.propTypes = {
-  // announce:PropTypes.array.isRequired,
+  announce: PropTypes.object.isRequired,
 };
 
 export default Ad;

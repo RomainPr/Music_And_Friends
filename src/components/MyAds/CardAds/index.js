@@ -57,13 +57,17 @@ const CardAds = ({
                   <li>Recherche : <span>{userSelected}</span></li>
                   <li>Instrument :
                     {instrument.map((item) => (
-                      <p>{item}</p>
+                      <p key={item}>
+                        {item}
+                      </p>
                     ))}
                   </li>
                   <li>Style :
                     {styles.map((style) => (
-                      <p>{style}</p>
-                    ))} 
+                      <p key={style}>
+                        {style}
+                      </p>
+                    ))}
                   </li>
                 </ul>
                 <h3 className="adTitle">{title}</h3>
@@ -77,7 +81,8 @@ const CardAds = ({
                   <DeleteForeverOutlinedIcon />
                 </IconButton>
 
-                {/* par la suite, req api UPDATE -> Voir avec David si route car non répertoriée dans liste des routes */}
+                {/* par la suite, req api UPDATE
+                ->Voir avec David si route car non répertoriée dans liste des routes */}
                 <IconButton
                   component={Link}
                   to={`/profil/myads/${idAnnounce}/edit`}

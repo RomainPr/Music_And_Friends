@@ -158,7 +158,7 @@ export default function SearchPage({
         if (cityName.length !== 0) {
           let place;
           cityName.map((cityPlace) => {
-            if (cityPlace == city) {
+            if (cityPlace === city) {
               place = musician;
             }
           });
@@ -174,7 +174,7 @@ export default function SearchPage({
     });
   }
 
-  let mapped;
+  let mapped = [];
 
   if (filteredResults.length !== 0) {
     mapped = filteredResults.map((item) => (
