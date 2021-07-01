@@ -81,7 +81,7 @@ function BandProfilHeader({
                 <Grid item className={classes.paperItem}>
                   <h2 className="profilHeader__info__title">Ville : </h2>
                   <ul>
-                    <li>Paris</li>
+                    <li>{city}</li>
                   </ul>
                 </Grid>
                 <Grid item className={classes.paperItem}>

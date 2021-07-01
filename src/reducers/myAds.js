@@ -12,7 +12,7 @@ const initialState = {
       instrument: [
         'guitare',
       ],
-      title: 'recherche un musicien de style rock/jazz',
+      title: 'recherche un musicien de style rock jazz',
       description: "yo, On est a la recherche d'un zikos dans le titre pour notre groupe chickenTherapy sur Nantes si ça chauffe !",
     },
     {
@@ -64,7 +64,7 @@ const reducer = (state = initialState, action = {}) => {
     case GET_ANNOUNCES:
       return {
         ...state,
-      }
+      };
     default:
       return state;
   }
