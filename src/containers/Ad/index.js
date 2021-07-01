@@ -16,7 +16,3 @@ const container = connect(mapStateToProps, mapDispatchToProps)(Ad);
 const containerWithRouter = withRouter(container);
 
 export default containerWithRouter;
-
-
-
-

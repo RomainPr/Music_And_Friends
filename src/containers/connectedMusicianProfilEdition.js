@@ -2,8 +2,14 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import MusicianProfilEdition from 'src/components/MusicianProfilEdition';
 
-import { findMusicianProfil, findBand, findPlace } from 'src/selectors/musician';
-import { closeModal, openVideos, openInstruments, onChangeInstrument, onPostInstrument } from 'src/actions/modalSignIn';
+import { findMusicianProfil } from 'src/selectors/musician';
+import {
+  closeModal,
+  openVideos,
+  openInstruments,
+  onChangeInstrument,
+  onPostInstrument,
+} from 'src/actions/modalSignIn';
 
 function mapStateToProps(state, ownProps) {
   return {
@@ -30,7 +36,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
   postInstrument: () => {
     dispatch(onPostInstrument());
-  }
+  },
 });
 
 const container = connect(mapStateToProps, mapDispatchToProps)(MusicianProfilEdition);

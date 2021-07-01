@@ -22,7 +22,7 @@ import {
 
 import {
   closeModal,
-  POST_INSTRUMENT
+  POST_INSTRUMENT,
 } from 'src/actions/modalSignIn';
 
 // import {
@@ -165,17 +165,14 @@ const apiMiddleware = (store) => (next) => (action) => {
       console.log(loginRequest);
       axios(loginRequest)
         .then((response) => {
-          console.log(response)
+          console.log(response);
         });
       break;
     }
 
     case SUBMIT_NEW_AD: {
       const state = store.getState();
-      const role = localStorage.getItem('role');
       const id = localStorage.getItem('user');
-      const token = localStorage.getItem('token');
-
       const signUpRequest = {
         method: 'POST',
         url: `https://localhost:3001/newads/users/${id}`,

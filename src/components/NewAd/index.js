@@ -36,7 +36,12 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function NewAd({ title, content, onChangeValue, handleCreateAd }) {
+export default function NewAd({
+  title,
+  content,
+  onChangeValue,
+  handleCreateAd,
+}) {
   const classes = useStyles();
 
   const handleOnChange = (event) => {

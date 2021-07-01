@@ -57,7 +57,7 @@ const initialState = {
     'Acid Techno Trans',
     'Deathcountry',
     'Fanfare',
-    'Funk'
+    'Funk',
   ],
 };
 

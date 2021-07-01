@@ -41,19 +41,6 @@ const initialState = {
     'Vienne',
   ],
 
-  instruments: [
-    'Guitare',
-    'Batterie',
-    'Piano',
-    'Violon',
-    'Bass guitare',
-    'Yukulélé',
-    'Accordéon',
-    'Trompette',
-    'Tambour',
-    'Triangle',
-  ],
-
   styles: [
     'Jazz',
     'Rock',
