@@ -6,9 +6,6 @@ import { findMusicianProfil, findBand, findPlace } from 'src/selectors/musician'
 import { closeModal, openVideos, openInstruments, onChangeInstrument, onPostInstrument } from 'src/actions/modalSignIn';
 
 function mapStateToProps(state, ownProps) {
-  console.log(ownProps);
-  const musician = JSON.parse(localStorage.getItem('musicians'));
-  console.log(musician)
   return {
     musicianProfil: findMusicianProfil(JSON.parse(localStorage.getItem('musicians')), ownProps.match.params.id),
     role: ownProps.match.params.role,

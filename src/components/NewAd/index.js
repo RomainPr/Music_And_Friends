@@ -40,7 +40,6 @@ export default function NewAd({ title, content, onChangeValue, handleCreateAd })
   const classes = useStyles();
 
   const handleOnChange = (event) => {
-    console.log('event.target.name = ', event.target.name);
     onChangeValue(event.target.value, event.target.name);
   };
 

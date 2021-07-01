@@ -12,7 +12,7 @@ function mapStateToProps(state, ownProps) {
   return {
     announce: findAnnounce(state.myAds.announces, ownProps.match.params.id),
   };
-};
+}
 
 // permettre au composant connecter de modifier le state
 const mapDispatchToProps = (dispatch) => ({

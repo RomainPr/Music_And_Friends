@@ -47,7 +47,6 @@ const SignMusician = ({
   phone,
   pseudo,
   description,
-  city,
   email,
   password,
   onChangeValue,
@@ -56,8 +55,6 @@ const SignMusician = ({
   const classes = useStyles();
 
   const handleOnChange = (event) => {
-    console.log('event.target.name = ', event.target.name);
-
     onChangeValue(event.target.value, event.target.name);
   };
 

@@ -4,14 +4,10 @@ import Ad from 'src/components/Ad';
 
 import { findAnnounce } from 'src/selectors/announce';
 
-const mapStateToProps = (state, ownProps) => {
-console.log('state Ad :',state)
-console.log('state Ad.announces:',state.myAds.announces, )
-console.log('ownProps', ownProps)
-  return {
+const mapStateToProps = (state, ownProps) => ({
   announce: findAnnounce(state.myAds.announces, ownProps.match.params.title),
-  }
-};
+
+});
 
 const mapDispatchToProps = {};
 

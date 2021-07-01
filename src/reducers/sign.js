@@ -64,28 +64,24 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_INPUT_VALUE:
-      console.log('je passe dans le case CHANGE_INPUT_VALUE');
       return {
         ...state,
         [action.key]: action.value,
       };
 
     case CHANGE_CITY_VALUE:
-      console.log('je passe dans le case CHANGE_CITY_VALUE');
       return {
         ...state,
         cityName: action.value,
       };
 
     case CHANGE_INSTRUMENT_VALUE:
-      console.log('je passe dans le case CHANGE_INSTRUMENT_VALUE');
       return {
         ...state,
         instrumentName: action.value,
       };
 
     case CHANGE_STYLE_VALUE:
-      console.log('je passe dans le case CHANGE_STYLE_VALUE');
       return {
         ...state,
         styleName: action.value,
