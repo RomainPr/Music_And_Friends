@@ -19,3 +19,9 @@
     padding-bottom: vars.$paddingBottomSmall * 2;
   }
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  #field {
+    padding-bottom: 0;
+  }
+} 

@@ -225,39 +225,54 @@ function Nav({
               <div className={classes.toolbar} />
               <Divider />
               <List className={classes.list}>
-                {['Accueil', 'Recherche', 'Mes annonces', 'Mes messages', 'Mes groupes', 'Mes favoris', 'Mon profil', 'Déconnexion'].map((text, index) => (
-                  <ListItem button key={text}>
-                    <ListItemIcon>
-                      {index === 0 && (
-                        <HomeRoundedIcon />
-                      )}
-                      {index === 1 && (
-                        <SearchRoundedIcon />
-                      )}
-                      {index === 2 && (
-                        <HomeRoundedIcon />
-                      )}
-                      {index === 3 && (
-                        <Badge badgeContent={4} color="secondary">
-                          <MailIcon />
-                        </Badge>
-                      )}
-                      {index === 4 && (
-                        <GroupRoundedIcon />
-                      )}
-                      {index === 5 && (
-                        <BookmarkRoundedIcon />
-                      )}
-                      {index === 6 && (
-                        <AccountCircleRoundedIcon />
-                      )}
-                      {index === 7 && (
-                        <ExitToAppRoundedIcon />
-                      )}
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItem>
-                ))}
+                <ListItem button onClick={toggleDrawer} component={Link} to="/">
+                  <ListItemIcon>
+                    <HomeRoundedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Accueil" />
+                </ListItem>
+                <ListItem button onClick={toggleDrawer} component={Link} to="/search">
+                  <ListItemIcon>
+                    <SearchRoundedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Recherche" />
+                </ListItem>
+                <ListItem button onClick={toggleDrawer} component={Link} to={`/profil/${role}/${id}/myAds`}>
+                  <ListItemIcon>
+                    <HomeRoundedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Mes annonces" />
+                </ListItem>
+                <ListItem button onClick={toggleDrawer} component={Link} to="/">
+                  <ListItemIcon>
+                    <MailIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Mes messages" />
+                </ListItem>
+                <ListItem button onClick={toggleDrawer} component={Link} to="/">
+                  <ListItemIcon>
+                    <GroupRoundedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Mes groupes" />
+                </ListItem>
+                <ListItem button onClick={toggleDrawer} component={Link} to="/">
+                  <ListItemIcon>
+                    <BookmarkRoundedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Mes favoris" />
+                </ListItem>
+                <ListItem button onClick={toggleDrawer} component={Link} to={`profil/${role}/${id}`}>
+                  <ListItemIcon>
+                    <AccountCircleRoundedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Mon profil" />
+                </ListItem>
+                <ListItem button onClick={handleLogout}>
+                  <ListItemIcon>
+                    <ExitToAppRoundedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Déconnexion" />
+                </ListItem>
               </List>
               <Divider />
             </Drawer>

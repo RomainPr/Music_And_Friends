@@ -30,11 +30,14 @@ import 'slick-carousel/slick/slick-theme.css';
 // import Lottie from 'lottie-react';
 import './style.scss';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   title: {
     fontSize: '2em',
     color: '#fff',
     paddingBottom: '40px',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.4em',
+    },
   },
   form: {
     position: 'absolute',
@@ -45,6 +48,10 @@ const useStyles = makeStyles(() => ({
   },
   formGroupCheckboxes: {
     paddingBottom: '40px',
+    justifyContent: 'center',
+    [theme.breakpoints.down('sm')]: {
+      justifyContent: 'center',
+    },
   },
   checkbox: {
     position: 'absolute',
@@ -64,6 +71,11 @@ const useStyles = makeStyles(() => ({
     borderRadius: '20px',
     padding: '10px 40px',
     transition: 'background .2s ease',
+    [theme.breakpoints.down('sm')]: {
+      margin: '5px',
+      padding: '10px',
+      fontSize: '1em',
+    },
   },
   results: {
     marginBottom: '40px',
@@ -207,98 +219,115 @@ export default function SearchPage({
     }
   };
 
-  //Slider setting
-  const settings = {
+  // Slider setting
+  const settings_3 = {
     dots: true,
+    infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
-    infinite: searchResultAll.length > 200,
+
+    responsive: [{
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 1,
+      },
+    }],
   };
 
   return (
     <FullHeight canExceed>
-    <div>
-      <Container maxWidth="lg" className={classes.form}>
-        <h2 className={classes.title}>Quelle est votre recherche ?</h2>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
-          <FormGroup row justify="center" className={classes.formGroupCheckboxes}>
-            <FormControlLabel
-              control={(
-                <Checkbox
-                  className={classes.checkbox}
-                  onChange={handleCheckboxBands}
-                  checked={isBandChecked}
-                  value="band"
-                  name="isBandChecked"
-                />
+      <div>
+        <Container maxWidth="lg" className={classes.form}>
+          <h2 className={classes.title}>Quelle est votre recherche ?</h2>
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+          >
+            <Grid item xs={12}>
+              <FormGroup row justify="center" className={classes.formGroupCheckboxes}>
+                <FormControlLabel
+                  control={(
+                    <Checkbox
+                      className={classes.checkbox}
+                      onChange={handleCheckboxBands}
+                      checked={isBandChecked}
+                      value="band"
+                      name="isBandChecked"
+                    />
                 )}
-              label={<Typography className={classes.formControlLabel}>Groupes</Typography>}
-            />
-            <FormControlLabel
-              control={(
-                <Checkbox
-                  className={classes.checkbox}
-                  checked={isMusicianChecked}
-                  value="musicien"
-                  onChange={handleCheckboxMusician}
-                  name="isMusicianChecked"
+                  label={<Typography className={classes.formControlLabel}>Groupes</Typography>}
                 />
+                <FormControlLabel
+                  control={(
+                    <Checkbox
+                      className={classes.checkbox}
+                      checked={isMusicianChecked}
+                      value="musicien"
+                      onChange={handleCheckboxMusician}
+                      name="isMusicianChecked"
+                    />
                 )}
-              label={<Typography className={classes.formControlLabel}>Musiciens</Typography>}
-            />
-            <FormControlLabel
-              control={(
-                <Checkbox
-                  className={classes.checkbox}
-                  checked={isPlaceChecked}
-                  value="place"
-                  onChange={handleCheckboxPlaces}
-                  name="isPlaceChecked"
+                  label={<Typography className={classes.formControlLabel}>Musiciens</Typography>}
                 />
+                <FormControlLabel
+                  control={(
+                    <Checkbox
+                      className={classes.checkbox}
+                      checked={isPlaceChecked}
+                      value="place"
+                      onChange={handleCheckboxPlaces}
+                      name="isPlaceChecked"
+                    />
                 )}
-              label={<Typography className={classes.formControlLabel}>Salles</Typography>}
-            />
-          </FormGroup>
-        </Grid>
-        <Grid
-          container
-          direction="row"
-          justify="space-around"
-          alignItems="center"
-          spacing={4}
-        >
-          <CitiesField
-            value={cityName}
-          />
-          <InstrumentsField
-            searchResultAll={searchResultAll}
-            bands={bands}
-            musicians={musicians}
-            instruments={instruments}
-            value={instrumentName}
-          />
-          <StylesField
-            value={styleName}
-          />
-        </Grid>
-      </Container>
-      <div className="profilsCards">
-        <h2 className="profilsCards__title">{filteredResults.length} Résultats</h2>
-        <Container maxWidth="lg" className={classes.results}>
-          {mapped ? (
-            <Slider {...settings}>
-              {mapped}
-            </Slider>
-          ) : <div />}
+                  label={<Typography className={classes.formControlLabel}>Salles</Typography>}
+                />
+              </FormGroup>
+            </Grid>
+          </Grid>
+          <Grid
+            container
+            direction="row"
+            justify="space-around"
+            alignItems="center"
+            spacing={4}
+          >
+            <Grid>
+              <CitiesField
+                value={cityName}
+              />
+            </Grid>
+            <Grid>
+              <InstrumentsField
+                searchResultAll={searchResultAll}
+                bands={bands}
+                musicians={musicians}
+                instruments={instruments}
+                value={instrumentName}
+              />
+            </Grid>
+            <Grid>
+              <StylesField
+                value={styleName}
+              />
+            </Grid>
+          </Grid>
         </Container>
+        <div className="profilsCards">
+          <h2 className="profilsCards__title">{filteredResults.length} Résultats</h2>
+          <Container maxWidth="lg" className={classes.results}>
+            {mapped ? (
+              <Slider {...settings_3}>
+                {mapped}
+              </Slider>
+            ) : <div />}
+          </Container>
+        </div>
       </div>
-    </div>
     </FullHeight>
   );
 }
