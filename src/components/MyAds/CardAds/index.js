@@ -97,10 +97,10 @@ const CardAds = ({
 CardAds.propTypes = {
   userSelected: PropTypes.string.isRequired,
   instrument: PropTypes.array.isRequired,
-  style: PropTypes.array.isRequired,
+  styles: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  idAnnounce: PropTypes.number.isRequired,
 };
 
 export default CardAds;

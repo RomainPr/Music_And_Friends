@@ -6,7 +6,7 @@ import Content from './Content';
 
 import '../styles.scss';
 
-function BandProfil({ bands, instruments, band }) {
+function BandProfil({ band }) {
   return (
     <>
       <Header
@@ -24,10 +24,10 @@ function BandProfil({ bands, instruments, band }) {
 
 BandProfil.propTypes = {
   band: PropTypes.shape({
-    band_name: PropTypes.string.isRequired,
-    instruments: PropTypes.array.isRequired,
+    name: PropTypes.array.isRequired,
+    instrument: PropTypes.array.isRequired,
     styles: PropTypes.array.isRequired,
-    city: PropTypes.string.isRequired,
+    city: PropTypes.array.isRequired,
   }),
 };
 
