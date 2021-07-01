@@ -6,26 +6,26 @@ import Content from './Content';
 
 import '../styles.scss';
 
-const MusicianProfil = ({ musicians, instruments, musician }) => (
-    <>
-      <Header
-        pseudo={musician.name}
-        instruments={musician.instrument}
-        styles={musician.styles}
-        city={musician.city}
-      />
-      <Content
-        description={musician.description}
-      />
-    </>
-)
+const MusicianProfil = ({ musician }) => (
+  <>
+    <Header
+      pseudo={musician.name}
+      instruments={musician.instrument}
+      styles={musician.styles}
+      city={musician.city}
+    />
+    <Content
+      description={musician.description}
+    />
+  </>
+);
 
 MusicianProfil.propTypes = {
   musician: PropTypes.shape({
-    pseudo: PropTypes.string.isRequired,
-    instruments: PropTypes.array.isRequired,
+    name: PropTypes.array.isRequired,
+    instrument: PropTypes.array.isRequired,
     styles: PropTypes.array.isRequired,
-    city: PropTypes.string.isRequired,
+    city: PropTypes.array.isRequired,
   }),
 };
 

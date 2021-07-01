@@ -283,7 +283,7 @@ function Nav({
 }
 
 Nav.propTypes = {
-  isAuthenticated: PropTypes.string.isRequired,
+  isAuthenticated: PropTypes.string,
   isMenuOpen: PropTypes.bool.isRequired,
   handleProfileMenuOpen: PropTypes.func.isRequired,
   handleMenuClose: PropTypes.func.isRequired,
@@ -292,6 +292,10 @@ Nav.propTypes = {
   openModalSignIn: PropTypes.func.isRequired,
   openModalSignUp: PropTypes.func.isRequired,
   handleGetAnnounces: PropTypes.func.isRequired,
+};
+
+Nav.defaultProps = {
+  isAuthenticated: '',
 };
 
 export default Nav;

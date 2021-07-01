@@ -63,7 +63,7 @@ const CardAds = ({
                   <li>Style :
                     {styles.map((style) => (
                       <p>{style}</p>
-                    ))}
+                    ))} 
                   </li>
                 </ul>
                 <h3 className="adTitle">{title}</h3>

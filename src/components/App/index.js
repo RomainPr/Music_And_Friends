@@ -130,16 +130,18 @@ function App({
 
 App.propTypes = {
   loadMusicians: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
+  isAuthenticated: PropTypes.string,
   musicians: PropTypes.array.isRequired,
   bands: PropTypes.array.isRequired,
   places: PropTypes.array.isRequired,
   instruments: PropTypes.array.isRequired,
+  announces: PropTypes.array.isRequired,
   loading: PropTypes.bool,
 };
 
 App.defaultProps = {
   loading: false,
+  isAuthenticated: '',
 };
 
 export default App;
