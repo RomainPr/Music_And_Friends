@@ -58,11 +58,7 @@ export function findSearchResult(
   isPlaceChecked
 ) {
 
-  console.log(searchResult);
-  console.log(band);
-  console.log(user);
-  console.log(place);
-  // console.log(state.band[id].map(id => state.band[id].band_name))
+
 
   if (isBandChecked) {
 

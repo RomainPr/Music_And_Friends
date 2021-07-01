@@ -14,9 +14,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import './styles.scss';
 
 function MyAds({ announces }) {
-  console.log('announces = ', announces);
-
-  const settings_3 = {
+  const settings3 = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -40,8 +38,8 @@ function MyAds({ announces }) {
     <div className="cardProfiles">
       <Container maxWidth="lg">
         <h2 className="cardProfiles__title">Mes annonces</h2>
-        <Slider {...settings_3}>
-          {announces.map((announce, index) => (
+        <Slider {...settings3}>
+          {announces.map((announce) => (
             <CardAds
               key={announce.id}
               idAnnounce={announce.id}

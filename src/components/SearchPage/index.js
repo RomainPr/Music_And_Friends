@@ -158,7 +158,7 @@ export default function SearchPage({
         if (cityName.length !== 0) {
           let place;
           cityName.map((cityPlace) => {
-            if (cityPlace == city) {
+            if (cityPlace === city) {
               place = musician;
             }
           });
@@ -174,7 +174,7 @@ export default function SearchPage({
     });
   }
 
-  let mapped;
+  let mapped = [];
 
   if (filteredResults.length !== 0) {
     mapped = filteredResults.map((item) => (
@@ -223,7 +223,7 @@ export default function SearchPage({
   };
 
   // Slider setting
-  const settings_3 = {
+  const settings3 = {
     dots: true,
     infinite: filteredResults.length > 3,
     speed: 500,
@@ -262,7 +262,7 @@ export default function SearchPage({
                       value="band"
                       name="isBandChecked"
                     />
-                )}
+                  )}
                   label={<Typography className={classes.formControlLabel}>Groupes</Typography>}
                 />
                 <FormControlLabel
@@ -274,7 +274,7 @@ export default function SearchPage({
                       onChange={handleCheckboxMusician}
                       name="isMusicianChecked"
                     />
-                )}
+                  )}
                   label={<Typography className={classes.formControlLabel}>Musiciens</Typography>}
                 />
                 <FormControlLabel
@@ -286,7 +286,7 @@ export default function SearchPage({
                       onChange={handleCheckboxPlaces}
                       name="isPlaceChecked"
                     />
-                )}
+                  )}
                   label={<Typography className={classes.formControlLabel}>Salles</Typography>}
                 />
               </FormGroup>
@@ -324,7 +324,7 @@ export default function SearchPage({
           <h2 className="profilsCards__title">{filteredResults.length} Résultats</h2>
           <Container maxWidth="lg" className={classes.results}>
             {mapped ? (
-              <Slider {...settings_3}>
+              <Slider {...settings3}>
                 {mapped}
               </Slider>
             ) : <div />}

@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -45,9 +44,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function InstrumentsField({
-  searchResultAll, bands, musicians, instruments, instrumentName, onChangeInstru,
-}) {
+export default function InstrumentsField({ instruments, instrumentName, onChangeInstru }) {
   const classes = useStyles();
 
   const onChangeInstrumentValue = (event) => {
@@ -62,7 +59,7 @@ export default function InstrumentsField({
         <InputLabel className={classes.label} id="controlled-open-select-label">Par instrument(s)</InputLabel>
         <Select
           className={classes.select}
-          inputProps={{ MenuProps: {disableScrollLock: true }}}
+          inputProps={{ MenuProps: { disableScrollLock: true } }}
           labelId="controlled-open-select-label"
           id="controlled-open-select"
           multiple
@@ -73,7 +70,7 @@ export default function InstrumentsField({
 
         >
           {instruments.map((instrument) => (
-            <MenuItem key={instrument} value={instrument.name}>
+            <MenuItem key={instrument.name} value={instrument.name}>
               <Checkbox checked={instrumentName.indexOf(instrument.name) > -1} />
               <ListItemText primary={instrument.name} />
             </MenuItem>
@@ -87,5 +84,6 @@ export default function InstrumentsField({
 
 InstrumentsField.propTypes = {
   instruments: PropTypes.array.isRequired,
+  instrumentName: PropTypes.array.isRequired,
   onChangeInstru: PropTypes.func.isRequired,
 };

@@ -19,30 +19,26 @@ import {
 
 // import { findSearchResult } from 'src/selectors/search';
 
-const mapStateToProps = (state) => {
-  console.log(state.search.searchResult);
+const mapStateToProps = (state) => ({
+  categories: state.search.categories,
+  categoryName: state.search.categoryName,
 
-  return {
-    categories: state.search.categories,
-    categoryName: state.search.categoryName,
+  isBandChecked: state.search.isBandChecked,
+  isMusicianChecked: state.search.isMusicianChecked,
+  isPlaceChecked: state.search.isPlaceChecked,
 
-    isBandChecked: state.search.isBandChecked,
-    isMusicianChecked: state.search.isMusicianChecked,
-    isPlaceChecked: state.search.isPlaceChecked,
+  cityName: state.search.cityName,
+  instrumentName: state.search.instrumentName,
+  styleName: state.search.styleName,
 
-    cityName: state.search.cityName,
-    instrumentName: state.search.instrumentName,
-    styleName: state.search.styleName,
+  musicians: state.musicians.musicians,
+  bands: state.musicians.bands,
+  places: state.musicians.places,
+  instruments: state.musicians.instruments,
 
-    musicians: state.musicians.musicians,
-    bands: state.musicians.bands,
-    places: state.musicians.places,
-    instruments: state.musicians.instruments,
-
-    loading: state.musicians.loading,
-    searchResult: state.search.searchResult,
-  };
-};
+  loading: state.musicians.loading,
+  searchResult: state.search.searchResult,
+});
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -51,7 +47,7 @@ function mapDispatchToProps(dispatch) {
     },
 
     onClickSearch: (event) => {
-    // event.preventDefault()
+      // event.preventDefault()
       dispatch(clickSearch(event.target.value));
     },
 
@@ -66,7 +62,6 @@ function mapDispatchToProps(dispatch) {
         return (dispatch, getState) => {
           const { bands } = getState().musicians;
           dispatch(onChangeBoxBandValue(bands));
-          console.log(bands);
         };
       }
       dispatch(getAllBands());
@@ -76,7 +71,6 @@ function mapDispatchToProps(dispatch) {
         return (dispatch, getState) => {
           const { musicians } = getState().musicians;
           dispatch(onChangeBoxMusicianValue(musicians));
-          console.log(musicians);
         };
       }
       dispatch(getAllMusicians());
@@ -86,7 +80,6 @@ function mapDispatchToProps(dispatch) {
         return (dispatch, getState) => {
           const { places } = getState().musicians;
           dispatch(onChangeBoxPlaceValue(places));
-          console.log(places);
         };
       }
       dispatch(getAllPlaces());

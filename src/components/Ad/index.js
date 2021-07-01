@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import FullHeight from 'react-full-height';
 
-import { Link } from 'react-router-dom';
 // Material UI
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -12,7 +11,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 
 import './styles.scss';
@@ -64,13 +62,17 @@ function Ad({
                     <li>Recherche : <p>{announce.category}</p></li>
                     <li>Instrument :
                       {announce.instrument.map((instru) => (
-                      <p>{instru}</p>
-                    ))}
+                        <p key={instru}>
+                          {instru}
+                        </p>
+                      ))}
                     </li>
                     <li>Style :
                       {announce.style.map((ad) => (
-                      <p>{ad}</p>
-                    ))}
+                        <p key={ad}>
+                          {ad}
+                        </p>
+                      ))}
                     </li>
                   </ul>
                   <h3 className="title">{announce.title}</h3>
@@ -97,7 +99,7 @@ function Ad({
 }
 
 Ad.propTypes = {
-  // announce:PropTypes.array.isRequired,
+  announce: PropTypes.object.isRequired,
 };
 
 export default Ad;

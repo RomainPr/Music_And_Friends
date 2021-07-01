@@ -82,7 +82,6 @@ const reducer = (state = initialState, action) => {
         searchResult: action.bands,
       };
     case CHANGE_BOX_MUSICIAN_VALUE:
-      console.log(`state !!!`, state);
       return {
         ...state,
         isMusicianChecked: !state.isMusicianChecked,
