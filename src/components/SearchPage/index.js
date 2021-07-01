@@ -225,7 +225,7 @@ export default function SearchPage({
   // Slider setting
   const settings_3 = {
     dots: true,
-    infinite: true,
+    infinite: filteredResults.length > 3,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
