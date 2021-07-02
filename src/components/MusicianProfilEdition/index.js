@@ -9,6 +9,8 @@ const MusicianProfilEdition = ({ musicianProfil,
   openVideos,
   openInstruments,
   handleOpenVideos,
+  openSounds,
+  handleOpenSounds,
   handleClose,
   handleOpenInstruments,
   handleOnChangeInstrument,
@@ -34,6 +36,8 @@ const MusicianProfilEdition = ({ musicianProfil,
       instrumentValue={instrumentValue}
       handleClose={handleClose}
       postInstrument={postInstrument}
+      handleOpenSounds={handleOpenSounds}
+      openSounds={openSounds}
     />
   </>
 );

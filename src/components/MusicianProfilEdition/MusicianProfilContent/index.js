@@ -92,6 +92,8 @@ function MusicianProfilContent({
   handleOpenVideos,
   handleOpenInstruments,
   handleClose,
+  handleOpenSounds,
+  openSounds,
   handleOnChangeInstrument,
   instrumentValue,
   postInstrument,
@@ -100,16 +102,25 @@ function MusicianProfilContent({
   description,
 }) {
   const classes = useStyles();
-  const [urls, setUrls] = React.useState([]);
-  const [url, setUrl] = React.useState('');
+  const [urlsVideos, setUrls] = React.useState([]);
+  const [urlVideo, setUrl] = React.useState('');
+  const [urlsSound, setUrlsSound] = React.useState([]);
+  const [urlSound, setUrlSound] = React.useState('');
 
   const handleOnChangeUrl = (event) => {
     setUrl(event.target.value);
   };
 
   const sendUrl = () => {
-    urls.push(url);
-    localStorage.setItem('urls', urls);
+    urlsVideos.push(urlVideo);
+  };
+
+  const handleOnChangeUrlAudio = (event) => {
+    setUrlSound(event.target.value);
+  };
+
+  const sendUrlAudio = () => {
+    urlsSound.push(urlSound);
   };
 
   return (
@@ -129,8 +140,29 @@ function MusicianProfilContent({
         <Fade in={openVideos}>
           <div className="modal--content">
             <h2 className="modal__content__title">Entrez une URL</h2>
-            <TextField label="url" variant="outlined" value={url} onChange={handleOnChangeUrl} />
+            <TextField label="url" variant="outlined" value={urlVideo} onChange={handleOnChangeUrl} />
             <Button id="saveButton" variant="contained" color="primary" onClick={sendUrl}>Envoyer</Button>
+          </div>
+        </Fade>
+      </Modal>
+
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={openSounds}
+        onClose={handleClose}
+        className="modalSignIn"
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={openSounds}>
+          <div className="modal--content">
+            <h2 className="modal__content__title">Entrez une URL</h2>
+            <TextField label="url" variant="outlined" value={urlSound} onChange={handleOnChangeUrlAudio} />
+            <Button id="saveButton" variant="contained" color="primary" onClick={sendUrlAudio}>Envoyer</Button>
           </div>
         </Fade>
       </Modal>
@@ -257,12 +289,12 @@ function MusicianProfilContent({
                   <Paper elevation={3} className={classes.paperRight}>
                     <MovieRoundedIcon className={classes.buttonsLeft} />
                     <Slider {...settings}>
-                      {urls.map((url) => (
+                      {urlsVideos.map((url) => (
                         <ReactPlayer
                           light
                           controls
-                          url={url}
-                          value={url}
+                          url={urlVideo}
+                          value={urlVideo}
                         />
                       ))}
                     </Slider>
@@ -279,8 +311,17 @@ function MusicianProfilContent({
                   <h4 className="profilEditionContent__content__media__title">Audios :</h4>
                   <Paper elevation={3} className={classes.paperRight}>
                     <VolumeUpRoundedIcon className={classes.buttonsLeft} />
+                    <Slider {...settings}>
+                      {urlsSound.map((url) => (
+                        <ReactPlayer
+                          controls
+                          url={urlSound}
+                          value={urlSound}
+                        />
+                      ))}
+                    </Slider>
                     <div className="profilEditionContent__content__action">
-                      <Fab className={classes.addRight} size="small" color="primary" aria-label="add">
+                      <Fab onClick={handleOpenSounds} className={classes.addRight} size="small" color="primary" aria-label="add">
                         <AddIcon />
                       </Fab>
                     </div>

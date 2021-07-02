@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
 import './styles.scss';
 import StylesField from 'src/containers/StylesField';
@@ -40,6 +41,10 @@ const useStyles = makeStyles(() => ({
   },
   save: {
     margin: '40px 0',
+    backgroundColor: '#E87121',
+    '&:hover': {
+      backgroundColor: '#FDA13D',
+    },
   },
 }));
 
@@ -55,6 +60,7 @@ const SignMusician = ({
   handleSignUp,
 }) => {
   const classes = useStyles();
+  const history = useHistory();
 
   const handleOnChange = (event) => {
     onChangeValue(event.target.value, event.target.name);
@@ -63,6 +69,7 @@ const SignMusician = ({
   const handleOnSubmit = (event) => {
     event.preventDefault();
     handleSignUp();
+    history.push('/');
   };
 
   return (
@@ -237,7 +244,7 @@ const SignMusician = ({
                 size="large"
                 startIcon={<SaveIcon />}
               >
-                Save
+                Enregistrer
               </Button>
             </Grid>
           </FormControl>

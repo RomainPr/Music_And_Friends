@@ -3,6 +3,7 @@ import {
   OPEN_MODAL_SIGNUP,
   CLOSE_MODAL_SIGNIN,
   OPEN_MODAL_VIDEO,
+  OPEN_MODAL_SOUNDS,
   CHANGE_ROLE,
   OPEN_MODAL_INSTRUMENT,
   CHANGE_INSTRUMENT,
@@ -13,6 +14,7 @@ const initialState = {
   openSignIn: false,
   openSignUp: false,
   openVideos: false,
+  openSounds: false,
   openInstruments: false,
   instrumentValue: '',
 };
@@ -34,6 +36,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         openInstruments: true,
       };
+    case OPEN_MODAL_SOUNDS:
+      return {
+        ...state,
+        openSounds: true,
+      };
     case OPEN_MODAL_SIGNUP:
       return {
         ...state,
@@ -46,6 +53,7 @@ const reducer = (state = initialState, action) => {
         openSignUp: false,
         openVideos: false,
         openInstruments: false,
+        openSounds: false,
       };
     case CHANGE_ROLE:
       return {

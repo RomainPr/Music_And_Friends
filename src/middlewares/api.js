@@ -148,7 +148,6 @@ const apiMiddleware = (store) => (next) => (action) => {
       };
       axios(signUpRequest)
         .then((response) => {
-          console.log(response);
         });
       break;
     }
