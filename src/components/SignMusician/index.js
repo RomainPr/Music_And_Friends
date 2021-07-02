@@ -7,6 +7,8 @@ import InstrumentsField from 'src/containers/InstrumentsField';
 import CitiesField from 'src/containers/CitiesField';
 import { makeStyles } from '@material-ui/core/styles';
 
+import FullHeight from 'react-full-height';
+
 import {
   FormControl,
   Grid,
@@ -64,182 +66,184 @@ const SignMusician = ({
   };
 
   return (
-    <Container maxWidth="lg">
-      <h1 className="title">Vos informations de profil musicien</h1>
-      <form onSubmit={handleOnSubmit}>
-        <FormControl required id="mainForm" className={classes.form} autoComplete="off">
-          <Grid container>
-            <Grid item md={4} xs={12}>
-              <Grid container direction="column" alignItems="center" justify="center" spacing={5} id="inputIdPictureIntruments">
-                <Grid item>
-                  <TextField
-                    className={classes.input}
-                    id="input-first-name"
-                    required
-                    label="Votre prénom"
-                    name="firstname"
-                    onChange={handleOnChange}
-                    value={firstname}
-                  />
-                </Grid>
-                <Grid item>
-                  <TextField
-                    className={classes.input}
-                    id="input-last-name"
-                    required
-                    label="Votre nom"
-                    name="lastname"
-                    onChange={handleOnChange}
-                    value={lastname}
-                  />
-                </Grid>
-                <Grid item>
-                  <TextField
-                    className={classes.input}
-                    id="input-phone"
-                    label="Votre téléphone"
-                    name="phone"
-                    required
-                    type="tel"
-                    onChange={handleOnChange}
-                    value={phone}
-                  />
-                </Grid>
-                <Grid item>
-                  <CitiesField />
-                </Grid>
-              </Grid>
-            </Grid>
-
-            <Grid item md={4} xs={12}>
-              <Grid container direction="column" alignItems="center" justify="center" id="inputIdPictureIntruments">
-                <Grid item>
-                  <Avatar id="profil-picture" alt="photo de profil random" src="https://cdn.pixabay.com/photo/2015/01/06/16/14/woman-590490_960_720.jpg" />
-                  <div className="">
-                    <input
-                      accept="image/*"
-                      className=""
-                      id="contained-button-file"
-                      multiple
-                      type="file"
+    <FullHeight canExceed>
+      <Container maxWidth="lg">
+        <h1 className="title">Vos informations de profil musicien</h1>
+        <form onSubmit={handleOnSubmit}>
+          <FormControl required id="mainForm" className={classes.form} autoComplete="off">
+            <Grid container>
+              <Grid item md={4} xs={12}>
+                <Grid container direction="column" alignItems="center" justify="center" spacing={5} id="inputIdPictureIntruments">
+                  <Grid item>
+                    <TextField
+                      className={classes.input}
+                      id="input-first-name"
+                      required
+                      label="Votre prénom"
+                      name="firstname"
+                      onChange={handleOnChange}
+                      value={firstname}
                     />
-                    <label htmlFor="contained-button-file">
-                      <Button
-                        variant="contained"
-                        color="default"
-                        component="span"
-                        startIcon={<CloudUploadIcon />}
-                      >
-                        Upload
-                      </Button>
-                    </label>
-                  </div>
+                  </Grid>
+                  <Grid item>
+                    <TextField
+                      className={classes.input}
+                      id="input-last-name"
+                      required
+                      label="Votre nom"
+                      name="lastname"
+                      onChange={handleOnChange}
+                      value={lastname}
+                    />
+                  </Grid>
+                  <Grid item>
+                    <TextField
+                      className={classes.input}
+                      id="input-phone"
+                      label="Votre téléphone"
+                      name="phone"
+                      required
+                      type="tel"
+                      onChange={handleOnChange}
+                      value={phone}
+                    />
+                  </Grid>
+                  <Grid item>
+                    <CitiesField />
+                  </Grid>
                 </Grid>
               </Grid>
-            </Grid>
 
-            <Grid item md={4} xs={12}>
-              <Grid container direction="column" alignItems="flex-start" justify="center" spacing={2}>
-                <Grid item>
-                  <TextField
-                    id="input-pseudo"
-                    required
-                    label="Votre pseudo"
-                    type="text"
-                    name="pseudo"
-                    onChange={handleOnChange}
-                    value={pseudo}
-                  />
-                </Grid>
-                <Grid item>
-                  <InstrumentsField />
-                </Grid>
-                <Grid item>
-                  <StylesField />
+              <Grid item md={4} xs={12}>
+                <Grid container direction="column" alignItems="center" justify="center" id="inputIdPictureIntruments">
+                  <Grid item>
+                    <Avatar id="profil-picture" alt="photo de profil random" src="https://cdn.pixabay.com/photo/2015/01/06/16/14/woman-590490_960_720.jpg" />
+                    <div className="">
+                      <input
+                        accept="image/*"
+                        className=""
+                        id="contained-button-file"
+                        multiple
+                        type="file"
+                      />
+                      <label htmlFor="contained-button-file">
+                        <Button
+                          variant="contained"
+                          color="default"
+                          component="span"
+                          startIcon={<CloudUploadIcon />}
+                        >
+                          Upload
+                        </Button>
+                      </label>
+                    </div>
+                  </Grid>
                 </Grid>
               </Grid>
-            </Grid>
-          </Grid>
 
-          <Grid container>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                margin="normal"
-                required
-                id="description"
-                label="Votre Description"
-                name="description"
-                type="text"
-                value={description}
-                onChange={handleOnChange}
-                multiline
-                rows={4}
-                variant="outlined"
-              />
+              <Grid item md={4} xs={12}>
+                <Grid container direction="column" alignItems="flex-start" justify="center" spacing={2}>
+                  <Grid item>
+                    <TextField
+                      id="input-pseudo"
+                      required
+                      label="Votre pseudo"
+                      type="text"
+                      name="pseudo"
+                      onChange={handleOnChange}
+                      value={pseudo}
+                    />
+                  </Grid>
+                  <Grid item>
+                    <InstrumentsField />
+                  </Grid>
+                  <Grid item>
+                    <StylesField />
+                  </Grid>
+                </Grid>
+              </Grid>
             </Grid>
 
             <Grid container>
-              <Grid item xs={12} className={classes.flex}>
-                <Grid item md={4} xs={12}>
-                  <TextField
-                    className={classes.width}
-                    margin="normal"
-                    required
-                    id="email"
-                    label="Email"
-                    type="email"
-                    name="email"
-                    onChange={handleOnChange}
-                    value={email}
-                    variant="outlined"
-                  />
-                </Grid>
-                <Grid item md={4} xs={12}>
-                  <TextField
-                    className={classes.width}
-                    margin="normal"
-                    id="password"
-                    required
-                    label="Mot de passe"
-                    type="password"
-                    name="password"
-                    onChange={handleOnChange}
-                    value={password}
-                    variant="outlined"
-                  />
-                </Grid>
-                <Grid item md={4} xs={12}>
-                  <TextField
-                    className={classes.width}
-                    margin="normal"
-                    id="confirmpassword"
-                    required
-                    label="Confirmation du mot de passe"
-                    type="password"
-                    onChange={handleOnChange}
-                    name="confirmpassword"
-                    variant="outlined"
-                  />
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  margin="normal"
+                  required
+                  id="description"
+                  label="Votre Description"
+                  name="description"
+                  type="text"
+                  value={description}
+                  onChange={handleOnChange}
+                  multiline
+                  rows={4}
+                  variant="outlined"
+                />
+              </Grid>
+
+              <Grid container>
+                <Grid item xs={12} className={classes.flex}>
+                  <Grid item md={4} xs={12}>
+                    <TextField
+                      className={classes.width}
+                      margin="normal"
+                      required
+                      id="email"
+                      label="Email"
+                      type="email"
+                      name="email"
+                      onChange={handleOnChange}
+                      value={email}
+                      variant="outlined"
+                    />
+                  </Grid>
+                  <Grid item md={4} xs={12}>
+                    <TextField
+                      className={classes.width}
+                      margin="normal"
+                      id="password"
+                      required
+                      label="Mot de passe"
+                      type="password"
+                      name="password"
+                      onChange={handleOnChange}
+                      value={password}
+                      variant="outlined"
+                    />
+                  </Grid>
+                  <Grid item md={4} xs={12}>
+                    <TextField
+                      className={classes.width}
+                      margin="normal"
+                      id="confirmpassword"
+                      required
+                      label="Confirmation du mot de passe"
+                      type="password"
+                      onChange={handleOnChange}
+                      name="confirmpassword"
+                      variant="outlined"
+                    />
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
-          </Grid>
-          <Grid container justify="center">
-            <Button
-              className={classes.save}
-              type="submit"
-              variant="contained"
-              color="primary"
-              size="large"
-              startIcon={<SaveIcon />}
-            >
-              Save
-            </Button>
-          </Grid>
-        </FormControl>
-      </form>
-    </Container>
+            <Grid container justify="center">
+              <Button
+                className={classes.save}
+                type="submit"
+                variant="contained"
+                color="primary"
+                size="large"
+                startIcon={<SaveIcon />}
+              >
+                Save
+              </Button>
+            </Grid>
+          </FormControl>
+        </form>
+      </Container>
+    </FullHeight>
   );
 };
 
