@@ -11,6 +11,9 @@ const initialState = {
   isMenuOpen: false,
 };
 
+const videos = localStorage.getItem('videos', '');
+const audios = localStorage.getItem('audios', '');
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_ANCHOR_EL:
@@ -36,6 +39,8 @@ const reducer = (state = initialState, action) => {
         anchorEl: null,
         isMenuOpen: false,
         isAuthenticated: localStorage.setItem('token', ''),
+        videos: localStorage.setItem('videos', ''),
+        audios: localStorage.setItem('audios', ''),
       };
     default:
       return state;

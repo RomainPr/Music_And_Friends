@@ -113,6 +113,7 @@ function MusicianProfilContent({
 
   const sendUrl = () => {
     urlsVideos.push(urlVideo);
+    localStorage.setItem('videos', JSON.stringify(urlsVideos));
   };
 
   const handleOnChangeUrlAudio = (event) => {
@@ -121,6 +122,7 @@ function MusicianProfilContent({
 
   const sendUrlAudio = () => {
     urlsSound.push(urlSound);
+    localStorage.setItem('audios', JSON.stringify(urlsSound));
   };
 
   return (

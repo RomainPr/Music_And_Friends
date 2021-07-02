@@ -22,8 +22,6 @@ import {
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import SaveIcon from '@material-ui/icons/Save';
 
-// destructuration data pour recup tableau intruments et styles
-
 const useStyles = makeStyles(() => ({
   form: {
     display: 'flex',

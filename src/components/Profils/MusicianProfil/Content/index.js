@@ -7,6 +7,9 @@ import MovieRoundedIcon from '@material-ui/icons/MovieRounded';
 import VolumeUpRoundedIcon from '@material-ui/icons/VolumeUpRounded';
 import MusicNoteRoundedIcon from '@material-ui/icons/MusicNoteRounded';
 
+import Slider from 'react-slick';
+import ReactPlayer from 'react-player/lazy';
+
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -48,8 +51,38 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const settings_3 = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+
+  responsive: [{
+    breakpoint: 600,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      initialSlide: 1,
+    },
+  }],
+};
+
 function MusicianProfilContent({ description }) {
   const classes = useStyles();
+  let videos;
+  let audios;
+
+  const videosInls = localStorage.getItem('videos');
+  const audiosInls = localStorage.getItem('audios');
+
+  if (videosInls) {
+    videos = JSON.parse(localStorage.getItem('videos'));
+  }
+  if (audiosInls) {
+    audios = JSON.parse(localStorage.getItem('audios'));
+  }
+
   return (
     <Container maxWidth="lg">
       <div className="profilMusicianContent">
@@ -65,19 +98,48 @@ function MusicianProfilContent({ description }) {
           container
           spacing={3}
         >
-          <Grid item xs={6} md={6}>
+          <Grid item xs={12} md={6}>
             <div className="profilMusicianContent__content__media">
               <h4 className="profilMusicianContent__content__media__title">Vidéos</h4>
               <Paper elevation={3} className={classes.paper}>
                 <MovieRoundedIcon className={classes.buttonsLeft} />
+                {videos && (
+                <Slider {...settings_3}>
+                  {videos.map((url) => (
+                    <div className="player-wrapper">
+                      <ReactPlayer
+                        className="react-player"
+                        light
+                        controls
+                        url={url}
+                        value={url}
+                      />
+                    </div>
+                  ))}
+                </Slider>
+                )}
               </Paper>
             </div>
           </Grid>
-          <Grid item xs={6} md={6}>
+          <Grid item xs={12} md={6}>
             <div className="profilMusicianContent__content__media">
               <h4 className="profilMusicianContent__content__media__title">Audios</h4>
               <Paper elevation={3} className={classes.paper}>
                 <VolumeUpRoundedIcon className={classes.buttonsLeft} />
+                {audios && (
+                <Slider {...settings_3}>
+                  {audios.map((url) => (
+                    <div className="player-wrapper">
+                      <ReactPlayer
+                        className="react-player"
+                        controls
+                        url={url}
+                        value={url}
+                      />
+                    </div>
+                  ))}
+                </Slider>
+                )}
               </Paper>
             </div>
           </Grid>
