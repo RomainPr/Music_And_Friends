@@ -5,16 +5,16 @@ Music and friends est une plateforme de mise en relation entre musiciens profess
 # Stack 
 
 - FRONT : 
-- - React
-- - Redux
-- - HTML
-- - SCSS
-- - Material UI
+  - React
+  - Redux
+  - HTML
+  - SCSS
+  - Material UI
 
 - BACK : 
-- - Node.js
-- - Express.js
-- - PostgreSQL
+  - Node.js
+  - Express.js
+  - PostgreSQL
 
 # Fonctionnalités 
 
