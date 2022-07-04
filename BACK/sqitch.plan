@@ -1,0 +1,12 @@
+%syntax-version=1.0.0
+%project=music-and-friends
+
+structure-de-base 2021-06-11T11:58:47Z David Sabri <davidsabri@tuta.io> # structure de base de la table de données
+contrainte 2021-06-11T13:23:08Z David Sabri <davidsabri@tuta.io> # ajout de contrainte regexp sur les champs email, code postal, phone
+seeding 2021-06-14T07:40:08Z David Sabri <davidsabri@tuta.io> # seeding des tables
+seeding_instrument_ad 2021-06-17T11:57:01Z David Sabri <davidsabri@tuta.io> # seeding de la table instrument, annonce et liason
+seeding_association_table 2021-06-18T12:16:51Z David Sabri <davidsabri@tuta.io> # seeding des tables user got instruments/style et band got instruments/style
+seeding_ads 2021-06-21T09:41:55Z David Sabri <davidsabri@tuta.io> # seeding de la table des annonces
+seedings_ad_got_style_and_instruments 2021-06-21T12:04:06Z David Sabri <davidsabri@tuta.io> # seedings des tables ad got style et ad got instruments
+alter_table_user_and_place 2021-06-23T13:13:43Z David Sabri <davidsabri@tuta.io> # rajout de champ nom et prenom sur la table place et rajout de champ description au champ musicien
+rajout_role 2021-06-25T12:44:49Z David Sabri <davidsabri@tuta.io> # rajout du champ role dans les tables entités
